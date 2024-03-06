@@ -12,15 +12,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  dependencies:
-    name: Install Dependencies
+  lint:
+    name: Code Linting
     runs-on: ubuntu-latest
+
     steps:
-      - name: Code Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
 
       - name: Install NodeJS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: npm
@@ -28,31 +29,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Copy env
-        run: cp .env.example .env
-
-  lint:
-    name: Code Linting
-    needs: dependencies
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v3
-
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: npm
-
       - name: Code Linting
         run: |
           npm run lint
 
   build:
     name: Code Building
-    needs: dependencies
     runs-on: ubuntu-latest
 
     steps:
@@ -64,6 +46,9 @@ jobs:
         with:
           node-version: 18
           cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Code Building
         run: |

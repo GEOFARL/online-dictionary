@@ -20,29 +20,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  dependencies:
-    name: Install Dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Code Checkout
-        uses: actions/checkout@v4
-
-      - name: Install NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install Dependencies
-        run: npm ci
-
   ci-pr:
     permissions:
       contents: read
       pull-requests: write
 
     name: PR Linting
-    needs: dependencies
     runs-on: ubuntu-latest
 
     steps:
@@ -56,6 +39,9 @@ jobs:
         with:
           node-version: 18
           cache: npm
+
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Lint Commits
         uses: wagoid/commitlint-github-action@v5
