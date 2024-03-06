@@ -11,7 +11,8 @@
 		"lint:format": "npm run _prettier -- --check",
 		"lint:trash": "knip",
 		"lint:fs": "ls-lint",
-		"start": "ts-node-dev src/app.ts",
+		"start:dev": "ts-node-dev src/app.ts",
+		"start": "node build/app.js",
 		"ci:prepare": "simple-git-hooks",
 		"build": "tsc -p tsconfig.json",
 		"format": "npx prettier . --write"
