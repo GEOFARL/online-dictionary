@@ -1,0 +1,10 @@
+ls:
+  .js: regex:([.a-z0-9]*)([-.][a-z0-9]+)*
+  .css: regex:([.a-z0-9]*)([-.][a-z0-9]+)*
+  .ts: regex:([.a-z0-9]*)([-.][a-z0-9]+)*
+  .dir: regex:([.a-z0-9]*)([-.][a-z0-9]+)*
+
+ignore:
+  - .git
+  - node_modules
+  - build

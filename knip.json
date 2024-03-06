@@ -1,0 +1,5 @@
+{
+	"entry": ["src/app.{js,ts}"],
+	"project": ["src/**/*.{js,ts}"],
+	"ignoreDependencies": ["ejs"]
+}

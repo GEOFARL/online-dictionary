@@ -1,0 +1,55 @@
+{
+	"name": "online-auction",
+	"version": "1.0.0",
+	"scripts": {
+		"_prettier": "prettier \"**/*.{js,ts,tsx,json,md,css,html}\"",
+		"git:hook:precommit": "lint-staged --cwd .",
+		"git:hook:commit": "npx @commitlint/cli --edit",
+		"lint": "concurrently \"npm:lint:*\"",
+		"lint:js": "npx eslint . --max-warnings=0",
+		"lint:type": "npx tsc --noEmit",
+		"lint:format": "npm run _prettier -- --check",
+		"lint:trash": "knip",
+		"lint:fs": "ls-lint",
+		"start": "ts-node-dev src/app.ts",
+		"ci:prepare": "simple-git-hooks",
+		"build": "tsc -p tsconfig.json",
+		"format": "npx prettier . --write"
+	},
+	"author": "GEOFARL",
+	"devDependencies": {
+		"@commitlint/cli": "^19.0.3",
+		"@commitlint/config-conventional": "^19.0.3",
+		"@ls-lint/ls-lint": "^2.2.2",
+		"@types/express": "^4.17.21",
+		"@types/node": "^20.11.24",
+		"@typescript-eslint/eslint-plugin": "^7.1.0",
+		"@typescript-eslint/parser": "^7.1.0",
+		"concurrently": "^8.2.2",
+		"danger": "^11.3.1",
+		"eslint": "^8.57.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-import-resolver-typescript": "^3.6.1",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-perfectionist": "^2.5.0",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-sonarjs": "^0.24.0",
+		"eslint-plugin-unicorn": "^51.0.1",
+		"knip": "^5.0.3",
+		"lint-staged": "^15.2.2",
+		"prettier": "3.2.5",
+		"simple-git-hooks": "^2.10.0",
+		"ts-node-dev": "^2.0.0",
+		"typescript": "^5.3.3"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.9",
+		"express": "^4.18.3"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npm run lint:type && npm run git:hook:precommit",
+		"commit-msg": "npm run git:hook:commit"
+	}
+}
