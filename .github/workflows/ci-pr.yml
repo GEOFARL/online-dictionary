@@ -13,12 +13,6 @@ on:
       - unlabeled
       - ready_for_review
 
-  workflow_dispatch:
-
-concurrency:
-  group: ci-pr-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   ci-pr:
     permissions:
