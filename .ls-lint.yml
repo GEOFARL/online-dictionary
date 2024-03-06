@@ -8,3 +8,4 @@ ignore:
   - .git
   - node_modules
   - build
+  - .github
