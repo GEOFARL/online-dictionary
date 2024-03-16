@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
 import express from "express";
 
+import { logger } from "~/libs/modules/logger/logger.js";
+
 dotenv.config();
 
 const app = express();
@@ -14,4 +16,6 @@ app.get("/", (req, res) => {
 	res.send("Hello World!");
 });
 
-app.listen(port);
+app.listen(port, () => {
+	logger.info(`The server is started on the port ${port}`);
+});

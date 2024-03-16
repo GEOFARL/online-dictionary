@@ -7,7 +7,11 @@
 		"target": "es6",
 		"moduleResolution": "node",
 		"sourceMap": true,
-		"outDir": "build"
+		"outDir": "build",
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./src/*"]
+		}
 	},
 	"lib": ["es2015"]
 }
