@@ -30,7 +30,7 @@ Examples:
 
 - `feat: add search field od-12`
 
-### 7.2 Branch Flow
+### Branch Flow
 
 ```
 <issue-number>-<type>-<short-desc>
@@ -41,7 +41,7 @@ Examples:
 - `12-feat-add-search-field`
 - `34-fix-user-profile`
 
-### 7.3 Commit Flow
+### Commit Flow
 
 We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) to handle commit messages
 
