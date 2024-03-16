@@ -73,6 +73,7 @@ module.exports = {
 		"quotes": ["error", "double", { "allowTemplateLiterals": true }],
 		"indent": ["error", "tab"],
 		"no-tabs": "off",
+		"class-methods-use-this": "off",
 	},
 	ignorePatterns: [
 		"build",
