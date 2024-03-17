@@ -82,6 +82,7 @@ module.exports = {
 		"commitlint.config.js",
 		"dangerfile.ts",
 		"project.config.ts",
+		"*.ejs",
 	],
 	settings: {
 		"import/parsers": {
