@@ -16,10 +16,22 @@ class AuthRepository {
 		return this.db.USER.insert(user);
 	}
 
+	public findAll(): Promise<UserDto[]> {
+		return this.db.USER.getAll<UserDto>();
+	}
+
 	public async findByEmail(email: string): Promise<UserDto | undefined> {
-		const allUsers = await this.db.USER.getAll<UserDto>();
+		const allUsers = await this.findAll();
 
 		const user = allUsers.find((userObject) => userObject.email === email);
+
+		return user;
+	}
+
+	public async findById(id: string): Promise<UserDto | undefined> {
+		const allUsers = await this.findAll();
+
+		const user = allUsers.find((userObject) => userObject.id === id);
 
 		return user;
 	}

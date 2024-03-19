@@ -15,7 +15,7 @@ class HomeController implements Controller {
 	}
 
 	private initRoutes(app: Express) {
-		app.get("/auth-test", requiresAuthMiddleware, (_, res) => {
+		app.get("/auth-test", requiresAuthMiddleware, (req, res) => {
 			res.status(HTTPCode.OK).json(true);
 		});
 	}

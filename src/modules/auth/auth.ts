@@ -18,4 +18,4 @@ const authController = new AuthController({
 	authService,
 });
 
-export { authController };
+export { authController, authService };

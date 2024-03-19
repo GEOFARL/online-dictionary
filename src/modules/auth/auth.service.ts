@@ -6,6 +6,7 @@ import {
 	type UserAuthResponseDto,
 	type UserAuthSignInRequestDto,
 	type UserAuthSignUpRequestDto,
+	type UserDto,
 	ExceptionMessage as UserExceptionMessage,
 } from "../user/user.js";
 import { type AuthRepository } from "./auth.repository.js";
@@ -44,6 +45,19 @@ class AuthService {
 			token,
 			user: createdUser,
 		};
+	}
+
+	public async findUserById(id: string): Promise<UserDto> {
+		const user = await this.authRepository.findById(id);
+
+		if (!user) {
+			throw new HTTPError({
+				message: UserExceptionMessage.USER_NOT_FOUND,
+				status: HTTPCode.NOT_FOUND,
+			});
+		}
+
+		return user;
 	}
 
 	public async logInUser(

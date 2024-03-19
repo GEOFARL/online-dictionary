@@ -3,4 +3,5 @@ export {
 	type UserAuthResponseDto,
 	type UserAuthSignInRequestDto,
 	type UserAuthSignUpRequestDto,
+	type UserDto,
 } from "./libs/types/types.js";

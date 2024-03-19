@@ -1,4 +1,4 @@
-import { BaseDB } from "./base-db.module";
+import { BaseDB } from "./base-db.module.js";
 
 const db = new BaseDB();
 

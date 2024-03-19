@@ -1,4 +1,4 @@
-import { config } from "../config/config";
+import { config } from "../config/config.js";
 import { BaseJsonWebToken } from "./base-jsonwebtoken.module.js";
 
 const jsonWebToken = new BaseJsonWebToken({

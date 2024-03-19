@@ -1,9 +1,13 @@
 import passport from "passport";
 import { Strategy as JwtStrategy } from "passport-jwt";
 
+import { type JsonWebToken } from "~/libs/modules/jsonwebtoken/jsonwebtoken.js";
 import { type Middleware } from "~/libs/types/types.js";
+import { type AuthService } from "~/modules/auth/auth.service.js";
 
 class AuthenticateMiddleware implements Middleware {
+	private authService: AuthService;
+
 	private cookieExtractor = (req) => {
 		let token = null;
 		if (req && req.cookies) {
@@ -14,7 +18,15 @@ class AuthenticateMiddleware implements Middleware {
 
 	private secret: string;
 
-	public constructor({ secret }: { secret: string }) {
+	public constructor({
+		authService,
+		secret,
+	}: {
+		authService: AuthService;
+		jsonWebToken: JsonWebToken;
+		secret: string;
+	}) {
+		this.authService = authService;
 		this.secret = secret;
 	}
 
@@ -24,8 +36,10 @@ class AuthenticateMiddleware implements Middleware {
 				jwtFromRequest: this.cookieExtractor,
 				secretOrKey: this.secret,
 			},
-			(payload, done) => {
-				done(null, { user: "hi there " });
+			async (payload, done) => {
+				const user = await this.authService.findUserById(payload);
+
+				done(null, { user });
 			},
 		);
 	}
