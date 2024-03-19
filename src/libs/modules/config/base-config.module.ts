@@ -50,6 +50,14 @@ class BaseConfig implements Config {
 					format: Number,
 				},
 			},
+			JWT: {
+				SECRET: {
+					default: null,
+					doc: "JWT secret string",
+					env: "JWT_SECRET",
+					format: String,
+				},
+			},
 		});
 	}
 }
