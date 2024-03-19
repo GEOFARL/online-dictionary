@@ -9,10 +9,11 @@ The project aims to help you find unknown words, their definitions and pronuncia
 ## Run locally
 
 1. Create and fill all `.env` files, use `.env.example` for reference.
-2. Install dependencies: `npm install`
-3. Install pre-commit hooks: `npx simple-git-hooks`. This hook is used to verify code style on commit.
-4. Build an app: `npm run build`.
-5. Start an app: `npm run start`.
+2. Create a storage by running `npm run init-storage`;
+3. Install dependencies: `npm install`
+4. Install pre-commit hooks: `npx simple-git-hooks`. This hook is used to verify code style on commit.
+5. Build an app: `npm run build`.
+6. Start an app: `npm run start`.
 
 Or instead of building a project you can run it in the dev mode: `npm run start:dev`
 

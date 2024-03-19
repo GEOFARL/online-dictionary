@@ -74,6 +74,7 @@ module.exports = {
 		"indent": ["error", "tab"],
 		"no-tabs": "off",
 		"class-methods-use-this": "off",
+		"arrow-body-style": "off",
 	},
 	ignorePatterns: [
 		"build",

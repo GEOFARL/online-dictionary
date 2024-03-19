@@ -1,0 +1,24 @@
+<%- include("../includes/head") %>
+	<body>
+    <h1>Онлайн словник</h1>
+
+    <button class="test-auth">Перевір чи авторизований</button>
+    <div class="response-container"></div>
+	</body>
+
+  <script>
+    const testAuthButton = document.querySelector('.test-auth');
+    const responseContainer = document.querySelector('.response-container');
+
+    testAuthButton.addEventListener('click', async () => {
+      try {
+        const response = await fetch('/auth-test');
+        await response.json();
+
+        responseContainer.innerText = 'Тебе автентифіковано';
+      } catch (err) {
+        responseContainer.innerText = 'Піди залогінься чи зареєструйся';
+      }
+    })
+  </script>
+<%- include("../includes/end") %>

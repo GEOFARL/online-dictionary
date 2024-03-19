@@ -1,24 +1,62 @@
-<%- include('../includes/head') %>
+<%- include("../includes/head") %>
 	<body>
 		<h1>Реєстрація</h1>
 
-    <form>
+    <form class="form">
       <div class="form-control">
         <label for="full-name">Повне імʼя</label>
         <input type="text" id="full-name" placeholder="John Doe">
       </div>
 
       <div class="form-control">
-        <label for="full-name">Email</label>
-        <input type="text" id="full-name" inputmode="email" placeholder="example@gmail.com">
+        <label for="email">Email</label>
+        <input type="text" id="email" inputmode="email" placeholder="example@gmail.com">
       </div>
 
       <div class="form-control">
-        <label for="full-name">Password</label>
+        <label for="password">Password</label>
         <input type="password" id="password" placeholder="•••••••••">
       </div>
 
       <button type="submit" class="button">Зареєструватися</button>
     </form>
+
+    <a href="/sign-in">Увійти</a>
+
+    <script>
+      const form = document.querySelector(".form");
+
+      const emailInput = document.querySelector("#email");
+      const fullNameInput = document.querySelector("#full-name");
+      const passwordInput = document.querySelector("#password");
+
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        try {
+          const response = await fetch("<%= routePath %>", {
+            method: "POST",
+            body: JSON.stringify({
+              email: emailInput.value,
+              password: passwordInput.value,
+              fullName: fullNameInput.value
+            }),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+
+          const data = await response.json();
+
+          if (!('status' in data)) {
+            document.cookie = `token=${data.token}`
+            window.location.replace("/");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      })
+    </script>
 	</body>
-<%- include('../includes/end') %>
+<%- include("../includes/end") %>

@@ -7,6 +7,10 @@ type EnvironmentSchema = {
 		HOST: string;
 		PORT: number;
 	};
+
+	JWT: {
+		SECRET: string;
+	};
 };
 
 export { type EnvironmentSchema };

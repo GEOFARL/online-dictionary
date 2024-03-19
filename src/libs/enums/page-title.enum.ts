@@ -1,5 +1,7 @@
 const PageTitle = {
-	SIGN_UP: "Sign Up",
+	HOME: "Online dictionary",
+	SIGN_IN: "Online dictionary | Sign In",
+	SIGN_UP: "Online dictionary | Sign Up",
 } as const;
 
 export { PageTitle };
