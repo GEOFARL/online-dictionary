@@ -3,7 +3,7 @@ import { type Express } from "express";
 import { PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Controller } from "~/libs/types/types.js";
-import { requiresAuthMiddleware } from "~/middlewares/middlewares";
+import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
 
 class HomeController implements Controller {
 	private initPages(app: Express) {
