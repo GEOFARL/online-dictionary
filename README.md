@@ -1,4 +1,4 @@
-# Online Auction
+# Online Dictionary
 
 ## About the project
 
