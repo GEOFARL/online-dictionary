@@ -1,6 +1,7 @@
 import { type Express } from "express";
 
 import { PageTitle, PagesPath } from "~/libs/enums/enums.js";
+import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Controller } from "~/libs/types/types.js";
 import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
@@ -15,9 +16,13 @@ class HomeController implements Controller {
 	}
 
 	private initRoutes(app: Express) {
-		app.get("/auth-test", requiresAuthMiddleware, (req, res) => {
-			res.status(HTTPCode.OK).json(true);
-		});
+		app.get(
+			"/auth-test",
+			asyncHandler(requiresAuthMiddleware),
+			asyncHandler((req, res) => {
+				res.status(HTTPCode.OK).json(true);
+			}),
+		);
 	}
 
 	init(app: Express): void {

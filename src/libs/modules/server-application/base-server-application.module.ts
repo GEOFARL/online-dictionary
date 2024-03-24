@@ -1,5 +1,6 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+import path from "path";
 
 import {
 	type Application,
@@ -52,7 +53,9 @@ class BaseServerApplication {
 
 	public initMiddlewares(middlewares: Middleware[]) {
 		this.app.use(express.json());
-		this.app.use(express.static("public"));
+		this.app.use(
+			express.static(path.join(path.resolve(), "src", "client", "public")),
+		);
 		this.app.use(cookieParser());
 
 		this.views.init(this.app);

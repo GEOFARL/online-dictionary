@@ -37,9 +37,12 @@ class AuthenticateMiddleware implements Middleware {
 				secretOrKey: this.secret,
 			},
 			async (payload, done) => {
-				const user = await this.authService.findUserById(payload);
-
-				done(null, { user });
+				try {
+					const user = await this.authService.findUserById(payload);
+					done(null, { user });
+				} catch (error) {
+					done(error);
+				}
 			},
 		);
 	}
