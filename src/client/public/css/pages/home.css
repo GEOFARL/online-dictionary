@@ -1,0 +1,21 @@
+body {
+	font-family: Inter, Arial, sans-serif;
+}
+
+h1 {
+	font-size: inherit;
+	display: inline-block;
+}
+
+.black-text {
+	color: black;
+	font-size: 250%;
+}
+
+.gradient-text {
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	background-image: linear-gradient(to right, #ff4505, #800000);
+	font-size: 250%;
+}
