@@ -1,4 +1,4 @@
-import { dom } from "~/shared/index.js";
+import { api, dom } from "~/shared/index.js";
 
 const configure = (): void => {
 	const testAuthButton = dom.getElement(".test-auth");
@@ -6,8 +6,7 @@ const configure = (): void => {
 
 	testAuthButton.addEventListener("click", async () => {
 		try {
-			const response = await fetch("/auth-test");
-			await response.json();
+			await api.get({ path: "/auth-test" });
 
 			dom.setText({
 				selector: responseContainerSelector,
