@@ -7,6 +7,7 @@ import {
 	cookies,
 	dom,
 	navigation,
+	notification,
 } from "~/shared/index.js";
 
 const configure = ({ routePath }: { routePath: string }): void => {
@@ -32,10 +33,15 @@ const configure = ({ routePath }: { routePath: string }): void => {
 			if (!("status" in data)) {
 				cookies.set(Cookie.TOKEN, data.token);
 				navigation.navigate(AppRoute.ROOT);
+			} else {
+				if ("message" in data) {
+					notification.error(data.message as string);
+				}
 			}
-		} catch (err) {
-			// eslint-disable-next-line no-console
-			console.log("error");
+		} catch (error) {
+			if (error instanceof Error) {
+				notification.error(error.message);
+			}
 		}
 	});
 };

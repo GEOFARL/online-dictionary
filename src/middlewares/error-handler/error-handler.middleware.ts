@@ -1,6 +1,9 @@
 import { type Express } from "express";
 
-import { ApplicationError } from "~/libs/exceptions/exceptions.js";
+import {
+	ApplicationError,
+	type ErrorDto,
+} from "~/libs/exceptions/exceptions.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { type Logger } from "~/libs/modules/logger/logger.js";
 import { type Middleware } from "~/libs/types/types.js";
@@ -20,7 +23,7 @@ class ErrorHandlerMiddleware implements Middleware {
 				res.status(err.status).json({
 					message: err.message,
 					status: err.status,
-				});
+				} as ErrorDto);
 
 				next();
 				return;
@@ -35,7 +38,7 @@ class ErrorHandlerMiddleware implements Middleware {
 			res.status(HTTPCode.INTERNAL_SERVER_ERROR).json({
 				message: err.message,
 				status: HTTPCode.INTERNAL_SERVER_ERROR,
-			});
+			} as ErrorDto);
 		});
 	}
 
