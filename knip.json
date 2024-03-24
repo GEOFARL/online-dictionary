@@ -5,7 +5,10 @@
 		"ejs",
 		"eslint-import-resolver-alias",
 		"ts-loader",
-		"webpack-cli"
+		"webpack-cli",
+		"notyf",
+		"css-loader",
+		"style-loader"
 	],
 	"ignore": ["src/client/**/*.{js,ts}"]
 }

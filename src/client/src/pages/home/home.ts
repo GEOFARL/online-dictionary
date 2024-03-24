@@ -1,22 +1,14 @@
-import { api, dom } from "~/shared/index.js";
+import { api, dom, notification } from "~/shared/index.js";
 
 const configure = (): void => {
 	const testAuthButton = dom.getElement(".test-auth");
-	const responseContainerSelector = ".response-container";
 
 	testAuthButton.addEventListener("click", async () => {
 		try {
 			await api.get({ path: "/auth-test" });
-
-			dom.setText({
-				selector: responseContainerSelector,
-				text: "Тебе автентифіковано",
-			});
+			notification.success("Тебе автентифіковано");
 		} catch (err) {
-			dom.setText({
-				selector: responseContainerSelector,
-				text: "Піди залогінься чи зареєструйся",
-			});
+			notification.error("Піди залогінься чи зареєструйся");
 		}
 	});
 };
