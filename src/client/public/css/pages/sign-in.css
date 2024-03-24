@@ -1,0 +1,12 @@
+.wrapper {
+	display: grid;
+	place-content: center;
+	height: 100vh;
+}
+
+.container {
+	min-width: 675px;
+	width: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
+	border-radius: 33px;
+}

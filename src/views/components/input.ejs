@@ -1,0 +1,10 @@
+<div class="form-control">
+  <label for="<%= id %>"><%= label %></label>
+  <input
+    type="<%= locals.type ? type : 'text' %>"
+    id="<%= id %>"
+    <%= locals.inputMode ? 'inputmode=' + inputMode : '' %>
+    <%= locals.placeholder ? 'placeholder=' + placeholder : '' %>
+    class="input"
+  >
+</div>

@@ -5,11 +5,11 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-		"prettier",
 		"airbnb-base",
 		"plugin:import/recommended",
 		"plugin:perfectionist/recommended-natural",
 		"plugin:@typescript-eslint/recommended",
+		"prettier",
 	],
 	overrides: [
 		{
@@ -29,12 +29,12 @@ module.exports = {
 		project: "./tsconfig.json",
 	},
 	plugins: [
-		"prettier",
 		"import",
 		"perfectionist",
 		"sonarjs",
 		"unicorn",
 		"@typescript-eslint",
+		"prettier",
 	],
 	rules: {
 		"prettier/prettier": ["error"],
@@ -84,6 +84,7 @@ module.exports = {
 		"dangerfile.ts",
 		"project.config.ts",
 		"*.ejs",
+		"client",
 	],
 	settings: {
 		"import/parsers": {

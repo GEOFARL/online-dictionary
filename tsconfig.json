@@ -1,6 +1,6 @@
 {
 	"include": ["src"],
-	"exclude": [".eslintrc.js"],
+	"exclude": [".eslintrc.js", "src/client"],
 	"compilerOptions": {
 		"module": "commonjs",
 		"esModuleInterop": true,

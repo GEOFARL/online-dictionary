@@ -13,3 +13,5 @@ build
 .env
 
 storage
+
+src/client/public/js/**/*.js

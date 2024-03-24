@@ -1,54 +1,37 @@
 <%- include("../includes/head") %>
+  <link rel="stylesheet" href="/css/pages/sign-in.css">
+  <link rel="stylesheet" href="/css/components/input.css">
+  <link rel="stylesheet" href="/css/components/button.css">
+  </head>
 	<body>
-		<h1>З поверненням</h1>
-
-    <form class="form">
-      <div class="form-control">
-        <label for="email">Email</label>
-        <input type="text" id="email" inputmode="email" placeholder="example@gmail.com">
+		<div class="wrapper">
+      <div class="container">
+        <h1>З поверненням</h1>
+            <form class="form">
+              <%- include('../components/input.ejs', {
+                id: "email",
+                label: "Email",
+                inputMode: "email",
+                placeholder: "example@gmail.com",
+              }); %>
+              <%- include('../components/input.ejs', {
+                id: "password",
+                label: "Password",
+                type: "password",
+                placeholder: "•••••••••",
+              }); %>
+              <%- include('../components/button.ejs', {
+                type: "submit",
+                label: "Увійти"
+              }); %>
+            </form>
+            <a href="/sign-up">Зареєструватися</a>
       </div>
+    </div>
 
-      <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="•••••••••">
-      </div>
-
-      <button type="submit" class="button">Увійти</button>
-    </form>
-
-    <a href="/sign-up">Зареєструватися</a>
-
+    <script src="/js/sign-in.js"></script>
     <script>
-      const form = document.querySelector(".form");
-
-      const emailInput = document.querySelector("#email");
-      const passwordInput = document.querySelector("#password");
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        try {
-          const response = await fetch("<%= routePath %>", {
-            method: "POST",
-            body: JSON.stringify({
-              email: emailInput.value,
-              password: passwordInput.value
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            }
-          });
-
-          const data = await response.json();
-
-          if (!('status' in data)) {
-            document.cookie = `token=${data.token}`
-            window.location.replace("/");
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      })
+      Library.configure({ routePath: "<%= routePath %>" })
     </script>
 	</body>
 <%- include("../includes/end") %>
