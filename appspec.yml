@@ -4,7 +4,7 @@ files:
   - source: /
     destination: /home/ubuntu/online-dictionary
 hooks:
-# Install:
+  # Install:
   AfterInstall:
     - location: scripts/after_install.sh
       timeout: 300
