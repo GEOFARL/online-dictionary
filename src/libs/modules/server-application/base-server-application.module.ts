@@ -1,7 +1,10 @@
 import cookieParser from "cookie-parser";
 import express from "express";
 import path from "path";
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
+import { AppEnvironment } from "~/libs/enums/enums.js";
 import {
 	type Application,
 	type Controller,
@@ -15,6 +18,7 @@ import { type Views } from "../views/views.js";
 type Constructor = {
 	config: Config;
 	logger: Logger;
+	title: string;
 	views: Views;
 };
 
@@ -25,13 +29,16 @@ class BaseServerApplication {
 
 	private logger: Logger;
 
+	private title: string;
+
 	private views: Views;
 
-	public constructor({ config, logger, views }: Constructor) {
+	public constructor({ config, logger, title, views }: Constructor) {
 		this.app = express();
 		this.config = config;
 		this.logger = logger;
 		this.views = views;
+		this.title = title;
 	}
 
 	public initControllers(controllers: Controller[]) {
@@ -64,6 +71,35 @@ class BaseServerApplication {
 			middleware.init(this.app);
 			this.logger.info(`Middleware '${middleware.name}' is initialized`);
 		});
+	}
+
+	public initSwaggerDocs() {
+		const isLocal = this.config.ENV.APP.ENVIRONMENT === AppEnvironment.LOCAL;
+
+		const controllerExtension = isLocal ? "ts" : "js";
+
+		const options = swaggerJsdoc({
+			apis: [`src/modules/**/*.controller.${controllerExtension}`],
+			definition: {
+				components: {
+					securitySchemes: {
+						cookieAuth: {
+							in: "cookie",
+							name: "token",
+							type: "apiKey",
+						},
+					},
+				},
+				info: {
+					title: this.title,
+					version: `1.0.0`,
+				},
+				openapi: "3.0.0",
+				servers: [{ url: "/" }],
+			},
+		});
+
+		this.app.use("/documentation", swaggerUi.serve, swaggerUi.setup(options));
 	}
 
 	public start() {

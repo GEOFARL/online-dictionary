@@ -10,4 +10,5 @@ import {
 serverApplication.initMiddlewares([authenticateMiddleware]);
 serverApplication.initControllers([authController, homeController]);
 serverApplication.initErrorHandler(errorHandlerMiddleware);
+serverApplication.initSwaggerDocs();
 serverApplication.start();
