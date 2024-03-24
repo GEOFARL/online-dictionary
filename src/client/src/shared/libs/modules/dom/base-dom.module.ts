@@ -1,4 +1,4 @@
-import { type DOM } from "./libs/types/dom.type";
+import { type DOM } from "./libs/types/dom.type.js";
 
 class BaseDOM implements DOM {
 	getElement<T extends HTMLElement>(selector: string): T | null {
