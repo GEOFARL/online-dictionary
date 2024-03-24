@@ -16,9 +16,9 @@
 		"start": "node build/app.js",
 		"ci:prepare": "simple-git-hooks",
 		"build:client": "npx webpack build --config ./src/client/webpack.config.mjs",
-		"build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+		"build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && npm run build:client",
 		"format": "npx prettier . --write",
-		"init-storage": "mkdir src/libs/modules/db/storage"
+		"init-storage": "mkdir -p src/libs/modules/db/storage && mkdir -p build/libs/modules/db/storage"
 	},
 	"author": "GEOFARL",
 	"devDependencies": {
