@@ -14,4 +14,4 @@ build
 
 storage
 
-src/client/public/js/**/*.js
+src/client/public/js/**/*
