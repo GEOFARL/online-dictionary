@@ -2,14 +2,14 @@ name: Continuous Deployment
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 env:
-  AWS_REGION : "us-east-1"
+  AWS_REGION: "us-east-1"
 
 permissions:
-      id-token: write
-      contents: read
+  id-token: write
+  contents: read
 jobs:
   AssumeRoleAndCallIdentity:
     runs-on: ubuntu-latest

@@ -1,13 +1,10 @@
 on:
-  pull_request_target:
-    types: [closed]
-    branches:
-      - main
+  push:
+    branches: [main]
 
 jobs:
   changelog:
     name: Changelog
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     outputs:
@@ -58,10 +55,11 @@ jobs:
           gh pr merge --squash --auto --delete-branch ${{ env.PR_BRANCH }}
         env:
           GH_TOKEN: ${{ secrets.GH_OWNER_TOKEN }}
+
   release:
     name: Release
     needs: changelog
-    if: github.event.pull_request.merged == true && needs.changelog.outputs.skipped == 'false'
+    if: needs.changelog.outputs.skipped == 'false'
     runs-on: ubuntu-latest
 
     steps:
