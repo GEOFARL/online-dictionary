@@ -59,7 +59,6 @@ jobs:
   release:
     name: Release
     needs: changelog
-    if: needs.changelog.outputs.skipped == 'false'
     runs-on: ubuntu-latest
 
     steps:
