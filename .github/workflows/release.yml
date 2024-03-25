@@ -1,13 +1,10 @@
 on:
-  pull_request_target:
-    types: [closed]
-    branches:
-      - main
+  push:
+    branches: [main]
 
 jobs:
   changelog:
     name: Changelog
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     outputs:
