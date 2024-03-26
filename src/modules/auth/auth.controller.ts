@@ -2,7 +2,12 @@ import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
+import { validate } from "~/middlewares/validate/validate.js";
 
+import {
+	userSignInValidationSchema,
+	userSignUpValidationSchema,
+} from "../user/user.js";
 import { type AuthService } from "./auth.service.js";
 
 /**
@@ -175,6 +180,7 @@ class AuthController implements Controller {
 		 */
 		app.post(
 			ApiPath.AUTH_SIGN_IN,
+			validate({ body: userSignInValidationSchema }),
 			asyncHandler(async (req, res) => {
 				const response = await this.authService.logInUser(req.body);
 
@@ -208,6 +214,7 @@ class AuthController implements Controller {
 		 */
 		app.post(
 			ApiPath.AUTH_SIGN_UP,
+			validate({ body: userSignUpValidationSchema }),
 			asyncHandler(async (req, res) => {
 				const response = await this.authService.createUser(req.body);
 

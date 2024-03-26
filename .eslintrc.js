@@ -75,6 +75,7 @@ module.exports = {
 		"no-tabs": "off",
 		"class-methods-use-this": "off",
 		"arrow-body-style": "off",
+		"import/order": "off",
 	},
 	ignorePatterns: [
 		"build",
@@ -84,7 +85,7 @@ module.exports = {
 		"dangerfile.ts",
 		"project.config.ts",
 		"*.ejs",
-		"client",
+		// "client",
 	],
 	settings: {
 		"import/parsers": {
@@ -94,5 +95,8 @@ module.exports = {
 			typescript: true,
 			node: true,
 		},
+	},
+	parserOptions: {
+		project: ["./src/client/tsconfig.json", "./tsconfig.json"],
 	},
 };

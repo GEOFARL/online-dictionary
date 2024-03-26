@@ -5,6 +5,7 @@ const HTTPCode = {
 	NOT_FOUND: 404,
 	OK: 200,
 	UNAUTHORIZED: 401,
+	UNPROCESSED_ENTITY: 422,
 } as const;
 
 export { HTTPCode };

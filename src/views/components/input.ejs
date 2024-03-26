@@ -4,7 +4,12 @@
     type="<%= locals.type ? type : 'text' %>"
     id="<%= id %>"
     <%= locals.inputMode ? 'inputmode=' + inputMode : '' %>
-    <%= locals.placeholder ? 'placeholder=' + placeholder : '' %>
+    <%- locals.placeholder ? 'placeholder=' + placeholder  : '' %>
+    <% if (locals.dataAttributes) { %>
+      <% for (var dataAttr in dataAttributes) { %>
+        <%= dataAttr %>="<%= dataAttributes[dataAttr] %>"
+      <% } %>
+    <% } %>
     class="input"
   >
 </div>

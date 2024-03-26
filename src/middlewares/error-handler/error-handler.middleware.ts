@@ -1,5 +1,6 @@
 import { type Express } from "express";
 
+import { FIRST_ARRAY_ELEMENT } from "~/libs/constants/constants.js";
 import {
 	ApplicationError,
 	type ErrorDto,
@@ -17,6 +18,27 @@ class ErrorHandlerMiddleware implements Middleware {
 
 	init(app: Express): void {
 		app.use((err, _, res, next) => {
+			if ("issues" in err) {
+				this.logger.error(`[Validation Error]: ${err.message}`);
+
+				err.issues.forEach((issue) => {
+					this.logger.error(`[${issue.path.toString()}] — ${issue.message}`);
+				});
+
+				res.status(HTTPCode.UNPROCESSED_ENTITY).json({
+					message: err.issues
+						.map(
+							(issue) =>
+								`"${issue?.path[FIRST_ARRAY_ELEMENT]}" ${issue.message}`,
+						)
+						.join("\n"),
+					status: HTTPCode.UNPROCESSED_ENTITY,
+				} as ErrorDto);
+
+				next();
+				return;
+			}
+
 			if (err instanceof HTTPError) {
 				this.logger.error(`[HTTP Error]: ${err.status} - ${err.message}`);
 
