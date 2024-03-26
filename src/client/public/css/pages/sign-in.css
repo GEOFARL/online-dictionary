@@ -12,26 +12,26 @@
 	padding: 42px 0;
 }
 
-.sign-in-welcome-container {
+.welcome-container {
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
 	margin-bottom: 18px;
 }
 
-.sign-in-title {
+.heading {
 	text-align: center;
 }
-.register-container {
+.prompt {
 	display: flex;
 	gap: 4px;
 	justify-content: center;
 }
 
-.sign-in-text {
+.prompt__question {
 	color: var(--color-grey-100);
 }
-.register-text {
+.prompt__link {
 	color: var(--color-blue);
 	text-decoration: none;
 }

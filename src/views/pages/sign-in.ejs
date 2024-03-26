@@ -6,11 +6,15 @@
 	<body>
 		<div class="wrapper">
       <div class="container">
-        <div class="sign-in-welcome-container">
-        <h1 class="sign-in-title">З поверненням!</h1>
-        <div class="register-container">
-          <p class="sign-in-text">Немає акаунту?</p>
-          <a href="/sign-up" class="register-text">Зареєструватися</a>
+        <div class="welcome-container">
+        <h1 class="heading">З поверненням!</h1>
+        <div class="prompt">
+          <p class="prompt__question">Немає акаунту?</p>
+          <%- include('../components/link.ejs', {
+            href: "/sign-up",
+            yourclass: "prompt__link",
+            text: "Зареєструватися"
+          }); %>
         </div>
       </div>
         <hr>
@@ -22,7 +26,17 @@
                   inputMode: "email",
                   placeholder: "example@gmail.com",
                 }); %>
-              <%- include('../components/password-input.ejs'); %>
+                <div class="password-input-container">
+                  <%- include('../components/input.ejs', {
+                    id: "password",
+                    label: "Password",
+                    type: "password",
+                    placeholder: "***********",
+                  }); %>
+                  <button class="toggle-password-btn" id="togglePassword" type="button">
+                    <img src="/icons/eye-password.svg" alt="" class="show-password-icon">
+                  </button>
+                </div>
               </div>
               <hr>
               <div class="form-button-container">
@@ -32,12 +46,11 @@
                 }); %>
               </div>
             </form>
-           
       </div>
     </div>
-
+  
     <script src="/js/sign-in.js"></script>
-    <script src="/js/toggle-password.js"></script>
+    <!-- <script src="/shared/helpers/sign-in.ts"></script> -->
     <script>
       Library.configure({ routePath: "<%= routePath %>" })
     </script>
