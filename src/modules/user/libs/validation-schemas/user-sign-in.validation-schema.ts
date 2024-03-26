@@ -7,13 +7,13 @@ const userSignIn = z.object({
 		.string()
 		.trim()
 		.min(UserValidationRule.FIELD_MINIMUM_LENGTH, {
-			message: UserValidationMessage.FIELD_REQUIRE,
+			message: UserValidationMessage.FIELD_REQUIRED,
 		})
 		.email({
 			message: UserValidationMessage.INVALID_EMAIL,
 		}),
 	password: z.string().trim().min(UserValidationRule.FIELD_MINIMUM_LENGTH, {
-		message: UserValidationMessage.FIELD_REQUIRE,
+		message: UserValidationMessage.FIELD_REQUIRED,
 	}),
 });
 

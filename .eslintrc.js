@@ -85,7 +85,6 @@ module.exports = {
 		"dangerfile.ts",
 		"project.config.ts",
 		"*.ejs",
-		// "client",
 	],
 	settings: {
 		"import/parsers": {

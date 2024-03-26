@@ -16,9 +16,10 @@ import {
 } from "~/shared/index.js";
 
 const configure = ({ routePath }: { routePath: string }) => {
+	const form = dom.getElement(".form");
+
 	const emailInput = dom.getElement<HTMLInputElement>("#email");
 	const passwordInput = dom.getElement<HTMLInputElement>("#password");
-	const form = dom.getElement(".form");
 
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();
