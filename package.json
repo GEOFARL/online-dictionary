@@ -1,6 +1,6 @@
 {
 	"name": "online-auction",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"scripts": {
 		"_prettier": "prettier \"**/*.{js,ts,tsx,json,md,css,html}\"",
 		"git:hook:precommit": "lint-staged --cwd .",
@@ -58,6 +58,8 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
+		"@types/bcrypt": "^5.0.2",
+		"bcrypt": "^5.1.1",
 		"convict": "^6.2.4",
 		"cookie-parser": "^1.4.6",
 		"dotenv": "^16.4.5",
