@@ -1,23 +1,43 @@
 <%- include("../includes/head") %>
+  <link rel="stylesheet" href="/css/pages/sign-up.css">
+  <link rel="stylesheet" href="/css/components/input.css">
+  <link rel="stylesheet" href="/css/components/button.css">
   </head>
 	<body>
 		<h1>Реєстрація</h1>
 
     <form class="form">
-      <div class="form-control">
-        <label for="full-name">Повне імʼя</label>
-        <input type="text" id="full-name" placeholder="John Doe">
-      </div>
+      <%- include('../components/input.ejs', {
+        id: "full-name",
+        label: "Повне імʼя",
+        placeholder: '"John Doe"',
+        dataAttributes: {
+          "data-input-fullName": ""
+        }
+      }); %>
+      <p class="error-message" data-error-fullName></p>
 
-      <div class="form-control">
-        <label for="email">Email</label>
-        <input type="text" id="email" inputmode="email" placeholder="example@gmail.com">
-      </div>
+      <%- include('../components/input.ejs', {
+        id: "email",
+        label: "Email",
+        inputMode: "email",
+        placeholder: "example@gmail.com",
+        dataAttributes: {
+          "data-input-email": ""
+        }
+      }); %>
+      <p class="error-message" data-error-email></p>
 
-      <div class="form-control">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="•••••••••">
-      </div>
+      <%- include('../components/input.ejs', {
+        id: "password",
+        label: "Password",
+        type: "password",
+        placeholder: "•••••••••",
+        dataAttributes: {
+          "data-input-password": ""
+        }
+      }); %>
+      <p class="error-message" data-error-password></p>
 
       <button type="submit" class="button">Зареєструватися</button>
     </form>

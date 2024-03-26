@@ -76,3 +76,9 @@
 	width: 20px;
 	height: 20px;
 }
+
+.error-message {
+	color: var(--color-red);
+	font-size: var(--font-size-200);
+	margin: 5px 0 3px 5px;
+}

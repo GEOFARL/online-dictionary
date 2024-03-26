@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.1](https://github.com/GEOFARL/online-dictionary/compare/v1.1.0...v1.1.1) (2024-03-26)
+
+
+### Bug Fixes
+
+* add build step to the deploy process od-58 ([#59](https://github.com/GEOFARL/online-dictionary/issues/59)) ([44d7518](https://github.com/GEOFARL/online-dictionary/commit/44d75187d490b9ebf48abe7dc1223d2285f4bd15))
+
+## [1.1.0](https://github.com/GEOFARL/online-dictionary/compare/v1.0.0...v1.1.0) (2024-03-26)
+
+
+### Features
+
+* add field validation on client and server od-30 ([#56](https://github.com/GEOFARL/online-dictionary/issues/56)) ([4eba409](https://github.com/GEOFARL/online-dictionary/commit/4eba4092eb4125feb05a12977b6b2d6bda45a122))
+
 ## 1.0.0 (2024-03-26)
 
 

@@ -1,4 +1,8 @@
-import { type UserAuthResponseDto } from "@/modules/user/user.js";
+import {
+	type UserAuthResponseDto,
+	type UserAuthSignUpRequestDto,
+	userSignUpValidationSchema,
+} from "@/modules/user/user.js";
 
 import {
 	AppRoute,
@@ -8,6 +12,7 @@ import {
 	dom,
 	navigation,
 	notification,
+	validation,
 } from "~/shared/index.js";
 
 const configure = ({ routePath }: { routePath: string }): void => {
@@ -20,23 +25,32 @@ const configure = ({ routePath }: { routePath: string }): void => {
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();
 
+		const inputData: UserAuthSignUpRequestDto = {
+			email: emailInput.value,
+			fullName: fullNameInput.value,
+			password: passwordInput.value,
+		};
+
 		try {
+			if (
+				!(await validation.validate<UserAuthSignUpRequestDto>({
+					data: inputData,
+					validationSchema: userSignUpValidationSchema,
+				}))
+			) {
+				return;
+			}
+
 			const data = await api.post<UserAuthResponseDto>({
-				data: {
-					email: emailInput.value,
-					fullName: fullNameInput.value,
-					password: passwordInput.value,
-				},
+				data: inputData,
 				path: routePath,
 			});
 
 			if (!("status" in data)) {
 				cookies.set(Cookie.TOKEN, data.token);
 				navigation.navigate(AppRoute.ROOT);
-			} else {
-				if ("message" in data) {
-					notification.error(data.message as string);
-				}
+			} else if ("message" in data) {
+				notification.error(data.message as string);
 			}
 		} catch (error) {
 			if (error instanceof Error) {
