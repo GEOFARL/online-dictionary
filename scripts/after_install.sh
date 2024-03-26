@@ -6,3 +6,6 @@ cd /home/ubuntu/online-dictionary >>/home/ubuntu/online-dictionary/deploy.log
 
 echo 'npm install' >>/home/ubuntu/online-dictionary/deploy.log
 npm install >>/home/ubuntu/online-dictionary/deploy.log
+
+echo 'npm run build' >>/home/ubuntu/online-dictionary/deploy.log
+npm run build >>/home/ubuntu/online-dictionary/deploy.log
