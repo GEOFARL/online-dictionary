@@ -6,30 +6,38 @@
 	<body>
 		<div class="wrapper">
       <div class="container">
-        <h1>З поверненням</h1>
+        <div class="sign-in-welcome-container">
+        <h1 class="sign-in-title">З поверненням!</h1>
+        <div class="register-container">
+          <p class="sign-in-text">Немає акаунту?</p>
+          <a href="/sign-up" class="register-text">Зареєструватися</a>
+        </div>
+      </div>
+        <hr>
             <form class="form">
-              <%- include('../components/input.ejs', {
-                id: "email",
-                label: "Email",
-                inputMode: "email",
-                placeholder: "example@gmail.com",
-              }); %>
-              <%- include('../components/input.ejs', {
-                id: "password",
-                label: "Password",
-                type: "password",
-                placeholder: "•••••••••",
-              }); %>
-              <%- include('../components/button.ejs', {
-                type: "submit",
-                label: "Увійти"
-              }); %>
+              <div class="form-content-container ">
+                <%- include('../components/input.ejs', {
+                  id: "email",
+                  label: "Email",
+                  inputMode: "email",
+                  placeholder: "example@gmail.com",
+                }); %>
+              <%- include('../components/password-input.ejs'); %>
+              </div>
+              <hr>
+              <div class="form-button-container">
+                <%- include('../components/button.ejs', {
+                  type: "submit",
+                  label: "Увійти"
+                }); %>
+              </div>
             </form>
-            <a href="/sign-up">Зареєструватися</a>
+           
       </div>
     </div>
 
     <script src="/js/sign-in.js"></script>
+    <script src="/js/toggle-password.js"></script>
     <script>
       Library.configure({ routePath: "<%= routePath %>" })
     </script>

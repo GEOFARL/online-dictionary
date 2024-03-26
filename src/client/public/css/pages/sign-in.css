@@ -9,4 +9,73 @@
 	width: 100%;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	border-radius: 33px;
+	padding: 42px 0;
+}
+
+.sign-in-welcome-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	margin-bottom: 18px;
+}
+
+.sign-in-title {
+	text-align: center;
+}
+.register-container {
+	display: flex;
+	gap: 4px;
+	justify-content: center;
+}
+
+.sign-in-text {
+	color: var(--color-grey-100);
+}
+.register-text {
+	color: var(--color-blue);
+	text-decoration: none;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-content-container {
+	padding: 30px 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+}
+
+.form-button-container {
+	padding: 26px 60px 0;
+}
+
+.sign-in-text-container {
+	width: 100%;
+	padding: 0 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.password-input-container {
+	position: relative;
+}
+.toggle-password-btn {
+	background-color: transparent;
+	border: none;
+	width: 20px;
+	height: 20px;
+
+	position: absolute;
+	top: 65%;
+	transform: translateY(-50%);
+	right: 16px;
+	cursor: pointer;
+}
+.show-password-icon {
+	width: 20px;
+	height: 20px;
 }

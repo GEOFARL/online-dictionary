@@ -17,8 +17,10 @@
 	--color-white: #fff;
 	--color-black: #000;
 	--color-red: #e85252;
+	--color-blue: #296faf;
 
 	--color-grey-100: #afafaf;
+	--color-grey-200: #8e8e8e;
 }
 
 body {
