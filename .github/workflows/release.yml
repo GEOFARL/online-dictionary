@@ -35,6 +35,11 @@ jobs:
           version-file: package.json
           create-summary: true
 
+      - name: Format package.json
+        if: steps.changelog.outputs.skipped == 'false'
+        run: |
+          npx prettier --write --use-tabs=false --tab-width=2 package.json
+
       - name: Create Changelog PR
         if: steps.changelog.outputs.skipped == 'false'
         run: |

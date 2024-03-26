@@ -1,4 +1,5 @@
 import { ExceptionMessage } from "~/libs/exceptions/exceptions.js";
+import { encrypt } from "~/libs/modules/encrypt/encrypt.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { type JsonWebToken } from "~/libs/modules/jsonwebtoken/jsonwebtoken.js";
 
@@ -30,7 +31,10 @@ class AuthService {
 	public async createUser(
 		user: UserAuthSignUpRequestDto,
 	): Promise<UserAuthResponseDto> {
-		const createdUser = await this.authRepository.create(user);
+		const { hash } = await encrypt.encrypt(user.password);
+		const userWithHash: UserAuthSignUpRequestDto = { ...user, password: hash };
+
+		const createdUser = await this.authRepository.create(userWithHash);
 
 		if (!createdUser) {
 			throw new HTTPError({
@@ -72,7 +76,12 @@ class AuthService {
 			});
 		}
 
-		if (loggedInUser.password !== user.password) {
+		if (
+			await encrypt.compare({
+				password: user.password,
+				passwordHash: loggedInUser.password,
+			})
+		) {
 			throw new HTTPError({
 				message: UserExceptionMessage.INCORRECT_CREDENTIALS,
 				status: HTTPCode.UNAUTHORIZED,
