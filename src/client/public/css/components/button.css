@@ -10,4 +10,14 @@
 	font-size: var(--font-size-700);
 	line-height: 24px;
 	width: 100%;
+	font-weight: 500;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+	border: 2px solid var(--color-red);
+	color: var(--color-red);
+	background-color: var(--color-white);
+	padding: 14px;
 }

@@ -15,13 +15,15 @@
 .welcome-container {
 	display: flex;
 	flex-direction: column;
-	gap: 2px;
 	margin-bottom: 18px;
 }
 
 .heading {
+	font-size: var(--font-size-900);
+	font-weight: 500;
 	text-align: center;
 }
+
 .prompt {
 	display: flex;
 	gap: 4px;
@@ -31,6 +33,7 @@
 .prompt__question {
 	color: var(--color-grey-100);
 }
+
 .prompt__link {
 	color: var(--color-blue);
 	text-decoration: none;
@@ -52,17 +55,10 @@
 	padding: 26px 60px 0;
 }
 
-.sign-in-text-container {
-	width: 100%;
-	padding: 0 60px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
 .password-input-container {
 	position: relative;
 }
+
 .toggle-password-btn {
 	background-color: transparent;
 	border: none;
@@ -75,6 +71,7 @@
 	right: 16px;
 	cursor: pointer;
 }
+
 .show-password-icon {
 	width: 20px;
 	height: 20px;
