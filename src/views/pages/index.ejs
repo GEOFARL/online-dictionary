@@ -1,11 +1,24 @@
 <%- include("../includes/head") %>
   <link rel="stylesheet" href="/css/pages/home.css">
   <link rel="stylesheet" href="/css/includes/footer.css">
+  <link rel="stylesheet" href="/css/components/button.css">
   </head>
 	<body>
     <main class="main">
       <h1>Онлайн словник</h1>
       <button class="test-auth">Перевір чи авторизований</button>
+
+      <section class="cta-start">
+        <div class="cta-start__content">
+          <h2 class="cta-start__heading">Розпочни вже зараз</h2>
+          <%- include('../components/button.ejs', {
+            type: "submit",
+            label: "Знайти слово",
+            className: "cta-start__button",
+            href: "/dictionary"
+          }); %>
+        </div>
+      </section>
     </main>
 	</body>
 
