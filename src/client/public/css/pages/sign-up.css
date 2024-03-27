@@ -3,3 +3,61 @@
 	font-size: var(--font-size-200);
 	margin: 5px 0 3px 5px;
 }
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	min-width: 675px;
+	box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.25);
+	border-radius: 33px;
+}
+
+.form-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-bottom: 1px solid var(--color-grey-100);
+	padding: 25px 0 15px 0;
+}
+
+.form-top p {
+	color: var(--color-grey-200);
+}
+
+.form-top p a {
+	text-decoration: none;
+	color: #296faf;
+}
+
+.form-top p a:hover {
+	text-decoration: underline;
+}
+
+.form-center {
+	padding: 20px 60px;
+	min-height: 355px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.form-control label {
+	font-weight: 500;
+}
+
+.form-bottom {
+	border-top: 1px solid var(--color-grey-100);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 60px 40px 60px;
+}
+
+.form-bottom button {
+	width: 100%;
+}
