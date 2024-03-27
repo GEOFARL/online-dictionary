@@ -15,4 +15,6 @@
 	border: 1px solid var(--color-grey-100);
 	font-family: inherit;
 	font-size: inherit;
+	width: 100%;
+	background-color: rgba(175 175 175 / 20%);
 }
