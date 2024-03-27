@@ -42,7 +42,11 @@ class DictionaryService {
 				word: string;
 			}[] = await this.dictionaryRepository.getAllWordsByUser(userId);
 
-			if (!allWords.some((wordEntry) => wordEntry.word === word)) {
+			const hasWordAlready = allWords.some(
+				(wordEntry) => wordEntry.word === word,
+			);
+
+			if (!hasWordAlready) {
 				await this.dictionaryRepository.addWord({ userId, word });
 			}
 		}
