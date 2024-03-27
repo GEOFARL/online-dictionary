@@ -1,5 +1,7 @@
 import { type DB } from "~/libs/modules/db/db.js";
 
+import { type WordRecordDto } from "./libs/types/types.js";
+
 class DictionaryRepository {
 	private db: DB;
 
@@ -7,23 +9,15 @@ class DictionaryRepository {
 		this.db = db;
 	}
 
-	public addWord({ userId, word }: { userId: string; word: string }) {
+	public addWord({ userId, word }: WordRecordDto) {
 		return this.db.WORD.insert({
 			userId,
 			word,
 		});
 	}
 
-	public async getAllWordsByUser(userId: string): Promise<
-		{
-			userId: string;
-			word: string;
-		}[]
-	> {
-		const allWords = await this.db.WORD.getAll<{
-			userId: string;
-			word: string;
-		}>();
+	public async getAllWordsByUser(userId: string): Promise<WordRecordDto[]> {
+		const allWords = await this.db.WORD.getAll<WordRecordDto>();
 		return allWords.filter(({ userId: id }) => id === userId);
 	}
 }

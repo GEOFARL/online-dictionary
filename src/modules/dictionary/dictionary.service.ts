@@ -5,6 +5,7 @@ import { mapDictionaryResponseToWord } from "./libs/helpers/helpers.js";
 import {
 	type DictionaryResponseDto,
 	type WordDto,
+	type WordRecordDto,
 } from "./libs/types/types.js";
 
 class DictionaryService {
@@ -37,10 +38,8 @@ class DictionaryService {
 		const wordDto: WordDto = mapDictionaryResponseToWord(data);
 
 		if (userId) {
-			const allWords: {
-				userId: string;
-				word: string;
-			}[] = await this.dictionaryRepository.getAllWordsByUser(userId);
+			const allWords: WordRecordDto[] =
+				await this.dictionaryRepository.getAllWordsByUser(userId);
 
 			const hasWordAlready = allWords.some(
 				(wordEntry) => wordEntry.word === word,
