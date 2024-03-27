@@ -20,4 +20,5 @@
 	color: var(--color-red);
 	background-color: var(--color-white);
 	padding: 14px;
+	text-decoration: none;
 }

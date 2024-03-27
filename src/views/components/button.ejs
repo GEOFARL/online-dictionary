@@ -1,4 +1,11 @@
-<button
-  type="<%= locals.type ? type : 'button' %>"
-  class="button"
-><%= label %></button>
+<% if (locals.href) { %>
+  <a
+    href="<%= href %>"
+    class="button <%= locals.className ? className : '' %>"
+  ><%= label %></a>
+<% } else { %>
+  <button
+    type="<%= locals.type ? type : 'button' %>"
+    class="button <%= locals.className ? className : '' %>"
+  ><%= label %></button>
+<% } %>
