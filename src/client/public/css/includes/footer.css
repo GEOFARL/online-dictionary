@@ -1,0 +1,14 @@
+.footer {
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+	margin-top: auto;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+}
+
+.footer__content-container {
+	color: var(--color-grey-200);
+	font-size: var(--font-size-500);
+}

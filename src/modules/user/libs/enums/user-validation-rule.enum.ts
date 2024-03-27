@@ -1,0 +1,9 @@
+const UserValidationRule = {
+	FIELD_MINIMUM_LENGTH: 1,
+	FULL_NAME_MAXIMUM_LENGTH: 70,
+	FULL_NAME_MINIMUM_LENGTH: 8,
+	PASSWORD_MAXIMUM_LENGTH: 35,
+	PASSWORD_MINIMUM_LENGTH: 8,
+} as const;
+
+export { UserValidationRule };

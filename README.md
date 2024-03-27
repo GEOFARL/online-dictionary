@@ -9,7 +9,7 @@ The project aims to help you find unknown words, their definitions and pronuncia
 ## Run locally
 
 1. Create and fill all `.env` files, use `.env.example` for reference.
-2. Create a storage by running `npm run init-storage`;
+2. Create a storage by running `npm run init-storage`. On Windows run `New-Item -ItemType Directory -Force -Path src/libs/modules/db/storage, build/libs/modules/db/storage`;
 3. Install dependencies: `npm install`
 4. Install pre-commit hooks: `npx simple-git-hooks`. This hook is used to verify code style on commit.
 5. Build an app: `npm run build`.

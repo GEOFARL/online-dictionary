@@ -9,4 +9,5 @@
 	background-color: var(--color-red);
 	font-size: var(--font-size-700);
 	line-height: 24px;
+	text-decoration: none;
 }

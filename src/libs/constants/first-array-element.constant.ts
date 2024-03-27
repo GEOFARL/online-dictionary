@@ -1,0 +1,3 @@
+const FIRST_ARRAY_ELEMENT = 0;
+
+export { FIRST_ARRAY_ELEMENT };

@@ -10,7 +10,8 @@ class HomeController implements Controller {
 	private initPages(app: Express) {
 		app.get(PagesPath.ROOT, (req, res) => {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
-				title: PageTitle.SIGN_UP,
+				dictionaryRoute: PagesPath.DICTIONARY,
+				title: PageTitle.HOME,
 			});
 		});
 	}
