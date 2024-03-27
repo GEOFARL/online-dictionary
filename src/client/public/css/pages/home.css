@@ -1,3 +1,26 @@
 .main {
 	flex-grow: 1;
 }
+
+.cta-start {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 46px 0 72px 0;
+}
+
+.cta-start__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+}
+
+.cta-start__heading {
+	font-size: var(--font-size-900);
+	line-height: 58px;
+}
+
+.cta-start__button {
+	width: 295px;
+}
