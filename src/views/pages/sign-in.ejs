@@ -35,13 +35,13 @@
                     id: "password",
                     label: "Password",
                     type: "password",
-                    placeholder: "***********",
+                    placeholder: "••••••••",
                     dataAttributes: {
                       "data-input-password": ""
                     }
                   }); %>
                   <button class="toggle-password-btn" id="togglePassword" type="button">
-                    <img src="/icons/eye-password.svg" alt="" class="show-password-icon">
+                    <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
                   </button>
                 </div>
                 <p class="error-message" data-error-password></p>
@@ -59,7 +59,6 @@
     </div>
   
     <script src="/js/sign-in.js"></script>
-    <script src="/shared/helpers/password-toggle.js"></script>
     <script>
       Library.configure({ routePath: "<%= routePath %>" })
     </script>

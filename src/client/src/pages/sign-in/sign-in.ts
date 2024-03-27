@@ -15,6 +15,8 @@ import {
 	validation,
 } from "~/shared/index.js";
 
+import { initPasswordToggle } from "../../../public/shared/helpers/password-toggle";
+
 const configure = ({ routePath }: { routePath: string }) => {
 	const form = dom.getElement(".form");
 
@@ -59,5 +61,7 @@ const configure = ({ routePath }: { routePath: string }) => {
 		}
 	});
 };
+
+initPasswordToggle();
 
 export { configure };
