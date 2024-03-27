@@ -1,5 +1,5 @@
 .heading {
-	font-size: 250%;
+	font-size: var(--font-size-800);
 }
 
 .gradient-text {
