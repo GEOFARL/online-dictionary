@@ -58,7 +58,6 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"@types/bcrypt": "^5.0.2",
 		"bcrypt": "^5.1.1",
 		"convict": "^6.2.4",
 		"cookie-parser": "^1.4.6",

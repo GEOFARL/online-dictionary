@@ -1,4 +1,4 @@
-export function initPasswordToggle() {
+const initPasswordToggle = () => {
 	const passwordInput = document.getElementById("password");
 	const togglePasswordBtn = document.getElementById("togglePassword");
 	const showPasswordIcon = togglePasswordBtn.querySelector(
@@ -17,4 +17,6 @@ export function initPasswordToggle() {
 			showPasswordIcon.setAttribute("src", "/icons/eye-visible.svg");
 		}
 	});
-}
+};
+
+export { initPasswordToggle };

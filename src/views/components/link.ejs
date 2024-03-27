@@ -1,1 +1,2 @@
-<a href="<%= href %>" class="<%= linkClass %>"><%= text %></a>
+<a href="<%= href %>"<% if (typeof className !== 'undefined') { %> class="<%= className %>"<% } %>><%= content %></a>
+

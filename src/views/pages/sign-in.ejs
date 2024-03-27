@@ -12,48 +12,51 @@
             <p class="prompt__question">Немає акаунту?</p>
             <%- include('../components/link.ejs', {
               href: "/sign-up",
-              linkClass: "prompt__link",
-              text: "Зареєструватися"
+              className: "prompt__link",
+              content: "Зареєструватися"
             }); %>
           </div>
         </div>
-        <hr>
+        <hr class="separator">
             <form class="form">
               <div class="form-content-container ">
-                <%- include('../components/input.ejs', {
-                  id: "email",
-                  label: "Email",
-                  inputMode: "email",
-                  placeholder: "example@gmail.com",
-                  dataAttributes: {
-                    "data-input-email": ""
-                  }
-                }); %>
-                <p class="error-message" data-error-email></p>
-                <div class="password-input-container">
+                <div class="input-container">
                   <%- include('../components/input.ejs', {
-                    id: "password",
-                    label: "Password",
-                    type: "password",
-                    placeholder: "••••••••",
+                    id: "email",
+                    label: "Email",
+                    inputMode: "email",
+                    placeholder: "example@gmail.com",
                     dataAttributes: {
-                      "data-input-password": ""
+                      "data-input-email": ""
                     }
                   }); %>
-                  <button class="toggle-password-btn" id="togglePassword" type="button">
-                    <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
-                  </button>
+                  <p class="error-message" data-error-email></p>
                 </div>
-                <p class="error-message" data-error-password></p>
+                <div class="input-container">
+                  <div class="password-input-container">
+                    <%- include('../components/input.ejs', {
+                      id: "password",
+                      label: "Password",
+                      type: "password",
+                      placeholder: "••••••••",
+                      dataAttributes: {
+                        "data-input-password": ""
+                      }
+                    }); %>
+                    <button class="toggle-password-btn" id="togglePassword" type="button">
+                      <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
+                    </button>
+                  </div>
+                  <p class="error-message" data-error-password></p>
+                </div>
               </div>
-              <hr>
+              <hr class="separator">
               <div class="form-button-container">
                 <%- include('../components/button.ejs', {
                   type: "submit",
                   label: "Увійти"
                 }); %>
               </div>
-              
             </form>
       </div>
     </div>

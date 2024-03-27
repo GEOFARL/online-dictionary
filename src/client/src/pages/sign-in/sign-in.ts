@@ -4,6 +4,7 @@ import {
 	userSignInValidationSchema,
 } from "@/modules/user/user.js";
 
+import { initPasswordToggle } from "~/shared/helpers/password-toggle";
 import {
 	AppRoute,
 	Cookie,
@@ -14,8 +15,6 @@ import {
 	notification,
 	validation,
 } from "~/shared/index.js";
-
-import { initPasswordToggle } from "../../../public/shared/helpers/password-toggle";
 
 const configure = ({ routePath }: { routePath: string }) => {
 	const form = dom.getElement(".form");
