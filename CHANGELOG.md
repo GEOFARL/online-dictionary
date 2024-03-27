@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/GEOFARL/online-dictionary/compare/v1.2.0...v1.3.0) (2024-03-27)
+
+
+### Features
+
+* add cta and dictionary page od-64 ([#65](https://github.com/GEOFARL/online-dictionary/issues/65)) ([c4b14fe](https://github.com/GEOFARL/online-dictionary/commit/c4b14fe4a75acfb56a9a0ce978289ce74ebd9aa9))
+
 ## [1.2.0](https://github.com/GEOFARL/online-dictionary/compare/v1.1.1...v1.2.0) (2024-03-27)
 
 
