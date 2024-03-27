@@ -1,21 +1,40 @@
-body {
-	font-family: Inter, Arial, sans-serif;
-}
-
-h1 {
-	font-size: inherit;
-	display: inline-block;
-}
-
-.black-text {
-	color: black;
+.heading {
 	font-size: 250%;
 }
 
 .gradient-text {
 	color: transparent;
-	-webkit-background-clip: text;
 	background-clip: text;
-	background-image: linear-gradient(to right, #ff4505, #800000);
-	font-size: 250%;
+	background-image: linear-gradient(
+		to right,
+		var(--color-red),
+		var(--color-red-gradient)
+	);
+}
+
+.main {
+	flex-grow: 1;
+}
+
+.cta-start {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 46px 0 72px 0;
+}
+
+.cta-start__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+}
+
+.cta-start__heading {
+	font-size: var(--font-size-900);
+	line-height: 58px;
+}
+
+.cta-start__button {
+	width: 295px;
 }
