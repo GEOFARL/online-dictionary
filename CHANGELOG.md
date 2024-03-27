@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/GEOFARL/online-dictionary/compare/v1.1.1...v1.2.0) (2024-03-27)
+
+
+### Features
+
+* create footer component od-61 ([#62](https://github.com/GEOFARL/online-dictionary/issues/62)) ([8c6d605](https://github.com/GEOFARL/online-dictionary/commit/8c6d605449f5bbf93f7d00a191856802a167d8c3))
+
 ## [1.1.1](https://github.com/GEOFARL/online-dictionary/compare/v1.1.0...v1.1.1) (2024-03-26)
 
 
