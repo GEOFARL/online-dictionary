@@ -27,7 +27,7 @@ const renderWordDefinition = (data: WordDto) => {
 
 	dom.setText({
 		selector: ".transcription-content",
-		text: data.phonetic.text,
+		text: data.phonetic?.text ?? "",
 	});
 
 	dom.clearContent(".badges");
@@ -41,7 +41,7 @@ const renderWordDefinition = (data: WordDto) => {
 		});
 	});
 
-	if (data.phonetic.audio) {
+	if (data.phonetic?.audio) {
 		showElement(".play-transcription-btn");
 		audioSrc = data.phonetic.audio;
 	} else {
