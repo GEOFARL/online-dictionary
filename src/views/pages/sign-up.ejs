@@ -13,53 +13,59 @@
           <div class="prompt">
             <p class="prompt__question">Маєш акаунт?</p>
             <%- include('../components/link.ejs', {
-              href: "/sign-up",
+              href: "/sign-in",
               className: "prompt__link",
-              content: "Зареєструватися"
+              content: "Увійти"
             }); %>
           </div>
         </div>
         <%- include('../components/separator.ejs') %>
         <form class="form">
           <div class="form__content">
-            <%- include('../components/input.ejs', {
-              id: "full-name",
-              label: "Повне імʼя",
-              placeholder: '"John Doe"',
-              dataAttributes: {
-                "data-input-fullName": ""
-              },
-              labelClassName: "form__label"
-            }); %>
-            <p class="error-message" data-error-fullName></p>
-  
-            <%- include('../components/input.ejs', {
-              id: "email",
-              label: "Email",
-              inputMode: "email",
-              placeholder: "example@gmail.com",
-              dataAttributes: {
-                "data-input-email": ""
-              },
-              labelClassName: "form__label"
-            }); %>
-            <p class="error-message" data-error-email></p>
-            
-            <div class="password-input-container">
+            <div class="input-container">
               <%- include('../components/input.ejs', {
-                id: "password",
-                label: "Password",
-                type: "password",
-                placeholder: "•••••••••",
+                id: "full-name",
+                label: "Повне імʼя",
+                placeholder: '"John Doe"',
                 dataAttributes: {
-                  "data-input-password": ""
+                  "data-input-fullName": ""
                 },
                 labelClassName: "form__label"
               }); %>
-              <button class="toggle-password-btn" id="toggle-password" type="button">
-                <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
-              </button>
-              <p class="error-message" data-error-password></p>
+              <p class="error-message" data-error-fullName></p>
+            </div>
+            
+            <div class="input-container">
+              <%- include('../components/input.ejs', {
+                id: "email",
+                label: "Email",
+                inputMode: "email",
+                placeholder: "example@gmail.com",
+                dataAttributes: {
+                  "data-input-email": ""
+                },
+                labelClassName: "form__label"
+              }); %>
+              <p class="error-message" data-error-email></p>
+            </div>
+            
+            <div class="input-container">
+              <div class="password-input-container">
+                <%- include('../components/input.ejs', {
+                  id: "password",
+                  label: "Password",
+                  type: "password",
+                  placeholder: "•••••••••",
+                  dataAttributes: {
+                    "data-input-password": ""
+                  },
+                  labelClassName: "form__label"
+                }); %>
+                <button class="toggle-password-btn" id="toggle-password" type="button">
+                  <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
+                </button>
+                <p class="error-message" data-error-password></p>
+              </div>
             </div>
           </div>
           <%- include('../components/separator.ejs') %>

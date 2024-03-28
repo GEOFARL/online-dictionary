@@ -58,16 +58,6 @@
 	padding: 20px 60px 40px 60px;
 }
 
-.submit__button {
-	width: 100%;
-	transition: ease-out all 0.1s;
-}
-
-.submit__button:hover {
-	cursor: pointer;
-	opacity: 0.95;
-}
-
 .password-input-container {
 	position: relative;
 }
