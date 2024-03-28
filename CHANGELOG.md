@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/GEOFARL/online-dictionary/compare/v1.5.0...v1.6.0) (2024-03-28)
+
+
+### Features
+
+* sign in page markup od-25 ([#55](https://github.com/GEOFARL/online-dictionary/issues/55)) ([0e12db8](https://github.com/GEOFARL/online-dictionary/commit/0e12db859b51b95f1676d940df865211e7b3f2ed))
+
 ## [1.5.0](https://github.com/GEOFARL/online-dictionary/compare/v1.4.0...v1.5.0) (2024-03-28)
 
 
