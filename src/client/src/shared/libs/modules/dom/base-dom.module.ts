@@ -1,6 +1,13 @@
 import { type DOM } from "./libs/types/dom.type.js";
 
 class BaseDOM implements DOM {
+	changeAttribute(selector: string, attribute: string, value: string): void {
+		const element = document.querySelector(selector);
+		if (element) {
+			element.setAttribute(attribute, value);
+		}
+	}
+
 	getElement<T extends HTMLElement>(selector: string): T | null {
 		const element = document.querySelector<T>(selector);
 
