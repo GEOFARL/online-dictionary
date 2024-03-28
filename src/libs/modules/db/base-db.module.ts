@@ -69,6 +69,17 @@ class BaseDB implements DB {
 		this.ensureFileExists();
 		return this;
 	}
+
+	get WORD() {
+		this.currentTable = TableName.WORD;
+		this.filePath = path.join(
+			__dirname,
+			STORAGE_NAME,
+			`${this.currentTable}.json`,
+		);
+		this.ensureFileExists();
+		return this;
+	}
 }
 
 export { BaseDB };

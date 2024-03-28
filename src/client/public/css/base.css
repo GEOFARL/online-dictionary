@@ -16,14 +16,17 @@
 	--font-size-700: 20px;
 	--font-size-800: 28px;
 	--font-size-900: 48px;
+	--font-size-950: 72px;
 
 	--color-white: #fff;
 	--color-black: #000;
 	--color-red: #e85252;
+	--color-red-200: #741111;
 	--color-blue: #296faf;
 
 	--color-grey-100: #afafaf;
 	--color-grey-200: #747474;
+	--color-grey-300: #d9d9d9;
 }
 
 body {

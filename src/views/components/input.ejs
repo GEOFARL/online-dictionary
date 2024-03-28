@@ -6,10 +6,10 @@
     <%= locals.inputMode ? 'inputmode=' + inputMode : '' %>
     <%- locals.placeholder ? 'placeholder=' + placeholder  : '' %>
     <% if (locals.dataAttributes) { %>
-      <% for (var dataAttr in dataAttributes) { %>
+      <% for (const dataAttr in locals.dataAttributes) { %>
         <%= dataAttr %>="<%= dataAttributes[dataAttr] %>"
       <% } %>
     <% } %>
-    class="input"
+    class="input <%= locals.className ? locals.className : '' %>"
   >
 </div>

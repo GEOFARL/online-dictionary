@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.0](https://github.com/GEOFARL/online-dictionary/compare/v1.4.0...v1.5.0) (2024-03-28)
+
+
+### Features
+
+* style for home page od-34 ([#42](https://github.com/GEOFARL/online-dictionary/issues/42)) ([097ae62](https://github.com/GEOFARL/online-dictionary/commit/097ae62d1a4b3107677d7837318514837dc71a62))
+
+## [1.4.0](https://github.com/GEOFARL/online-dictionary/compare/v1.3.0...v1.4.0) (2024-03-27)
+
+
+### Features
+
+* Create a search field and word search functionality od-67 ([#68](https://github.com/GEOFARL/online-dictionary/issues/68)) ([53da0a8](https://github.com/GEOFARL/online-dictionary/commit/53da0a86eb6b54d893851170f8a8facf675b5d06))
+
 ## [1.3.0](https://github.com/GEOFARL/online-dictionary/compare/v1.2.0...v1.3.0) (2024-03-27)
 
 

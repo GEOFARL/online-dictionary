@@ -9,6 +9,10 @@ class BaseJsonWebToken implements JsonWebToken {
 		this.secret = secret;
 	}
 
+	decode(payload: string): string {
+		return jwt.verify(payload, this.secret) as string;
+	}
+
 	sign(payload: string): string {
 		return jwt.sign(payload, this.secret);
 	}

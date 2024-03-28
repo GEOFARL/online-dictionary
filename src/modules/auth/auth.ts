@@ -19,3 +19,4 @@ const authController = new AuthController({
 });
 
 export { authController, authService };
+export { type AuthService } from "./auth.service.js";
