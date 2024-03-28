@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/GEOFARL/online-dictionary/compare/v1.6.0...v1.7.0) (2024-03-28)
+
+
+### Features
+
+* Render word result search od-71 ([#76](https://github.com/GEOFARL/online-dictionary/issues/76)) ([68d4af1](https://github.com/GEOFARL/online-dictionary/commit/68d4af1e01b7dddacfd426684380ebaef885bd6a))
+
 ## [1.6.0](https://github.com/GEOFARL/online-dictionary/compare/v1.5.0...v1.6.0) (2024-03-28)
 
 
