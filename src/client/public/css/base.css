@@ -14,13 +14,13 @@
 	--font-size-500: 16px;
 	--font-size-600: 18px;
 	--font-size-700: 20px;
-	--font-size-800: 36px;
 	--font-size-900: 48px;
+	--font-size-950: 72px;
 
 	--color-white: #fff;
 	--color-black: #000;
 	--color-red: #e85252;
-	--color-red-gradient: #f41307;
+	--color-red-200: #741111;
 
 	--color-grey-100: #afafaf;
 	--color-grey-200: #747474;

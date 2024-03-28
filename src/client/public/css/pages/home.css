@@ -6,9 +6,9 @@
 	color: transparent;
 	background-clip: text;
 	background-image: linear-gradient(
-		to right,
-		var(--color-red),
-		var(--color-red-gradient)
+		63deg,
+		var(--color-red) -20%,
+		var(--color-red-200)
 	);
 }
 
