@@ -16,7 +16,8 @@
 	outline: none;
 	font-family: inherit;
 	font-size: inherit;
-	background-color: rgba(217, 217, 217, 0.2);
+	width: 100%;
+	background-color: rgba(175 175 175 / 20%);
 }
 
 .input:hover,

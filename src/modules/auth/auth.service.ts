@@ -51,6 +51,11 @@ class AuthService {
 		};
 	}
 
+	public findByToken(token: string): Promise<UserDto> {
+		const id = this.jsonWebToken.decode(token);
+		return this.findUserById(id);
+	}
+
 	public async findUserById(id: string): Promise<UserDto> {
 		const user = await this.authRepository.findById(id);
 

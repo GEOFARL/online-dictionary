@@ -1,0 +1,45 @@
+.main {
+	max-width: 1280px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.search__form .form-control {
+	flex-direction: row;
+	align-items: center;
+	gap: 31px;
+}
+
+.search__form {
+	position: relative;
+	max-width: 648px;
+	width: 100%;
+	margin-top: 41px;
+}
+
+.search__icon-container {
+	position: absolute;
+	right: 16px;
+	top: 14px;
+}
+
+.input.search__input {
+	width: 100%;
+	padding-right: 48px;
+}
+
+.search__icon {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.search__icon-container {
+	width: 24px;
+	height: 24px;
+}
+
+.word-meaning {
+	margin-top: 16px;
+}

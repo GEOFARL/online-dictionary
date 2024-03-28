@@ -2,12 +2,32 @@
   <link rel="stylesheet" href="/css/pages/dictionary.css">
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/input.css">
   </head>
 
 	<body>
     <main class="main">
-      <h1>Тут згодом можна буде шукати слова</h1>
+      <form class="search__form">
+        <%- include('../components/input.ejs', {
+          id: "search",
+          label: "Пошук",
+          placeholder: '"Введіть сюди ваше слово"',
+          className: "search__input",
+          labelClassName: "search__input-label"
+        }); %>
+
+        <div class="search__icon-container">
+          <img class="search__icon" src="/assets/icons/search.svg" alt="search icon">
+        </div>
+      </form>
+
+      <p class="word-meaning"></p>
     </main>
     <%- include('../includes/footer.ejs') %>
+
+    <script src="/js/dictionary.js"></script>
+    <script>
+      Library.configure();
+    </script>
 	</body>
 <%- include("../includes/end") %>

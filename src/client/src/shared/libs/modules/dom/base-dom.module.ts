@@ -20,7 +20,7 @@ class BaseDOM implements DOM {
 		selector,
 	}: {
 		eventType: string;
-		listener: () => Promise<void> | void;
+		listener: (event: Event) => Promise<void> | void;
 		selector: string;
 	}) {
 		const element = this.getElement(selector);
