@@ -9,6 +9,67 @@
 	width: 100%;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	border-radius: 33px;
+	padding: 42px 0;
+}
+
+.welcome-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 18px;
+}
+
+.heading {
+	font-size: var(--font-size-800);
+	font-weight: 500;
+	text-align: center;
+}
+
+.prompt {
+	display: flex;
+	gap: 4px;
+	justify-content: center;
+}
+
+.prompt__question {
+	color: var(--color-grey-100);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-content-container {
+	padding: 30px 60px;
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+}
+
+.form-button-container {
+	padding: 26px 60px 0;
+}
+
+.password-input-container {
+	position: relative;
+}
+
+.toggle-password-btn {
+	background-color: transparent;
+	border: none;
+	width: 20px;
+	height: 20px;
+
+	position: absolute;
+	top: 65%;
+	transform: translateY(-50%);
+	right: 16px;
+	cursor: pointer;
+}
+
+.show-password-icon {
+	width: 24px;
+	height: 24px;
 }
 
 .error-message {

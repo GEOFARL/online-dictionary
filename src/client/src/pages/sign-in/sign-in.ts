@@ -10,6 +10,7 @@ import {
 	api,
 	cookies,
 	dom,
+	initPasswordToggle,
 	navigation,
 	notification,
 	validation,
@@ -59,5 +60,7 @@ const configure = ({ routePath }: { routePath: string }) => {
 		}
 	});
 };
+
+initPasswordToggle();
 
 export { configure };

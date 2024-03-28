@@ -2,12 +2,26 @@
   <link rel="stylesheet" href="/css/pages/sign-in.css">
   <link rel="stylesheet" href="/css/components/input.css">
   <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/link.css">
+  <link rel="stylesheet" href="/css/components/separator.css">
   </head>
 	<body>
 		<div class="wrapper">
       <div class="container">
-        <h1>З поверненням</h1>
-            <form class="form">
+        <div class="welcome-container">
+          <h2 class="heading">З поверненням!</h2>
+          <div class="prompt">
+            <p class="prompt__question">Немає акаунту?</p>
+            <%- include('../components/link.ejs', {
+              href: "/sign-up",
+              content: "Зареєструватися"
+            }); %>
+          </div>
+        </div>
+        <%- include('../components/separator.ejs') %>
+        <form class="form">
+          <div class="form-content-container ">
+            <div class="input-container">
               <%- include('../components/input.ejs', {
                 id: "email",
                 label: "Email",
@@ -18,22 +32,33 @@
                 }
               }); %>
               <p class="error-message" data-error-email></p>
-              <%- include('../components/input.ejs', {
-                id: "password",
-                label: "Password",
-                type: "password",
-                placeholder: "•••••••••",
-                dataAttributes: {
-                  "data-input-password": ""
-                }
-              }); %>
+            </div>
+            <div class="input-container">
+              <div class="password-input-container">
+                <%- include('../components/input.ejs', {
+                  id: "password",
+                  label: "Password",
+                  type: "password",
+                  placeholder: "••••••••",
+                  dataAttributes: {
+                    "data-input-password": ""
+                  }
+                }); %>
+                <button class="toggle-password-btn" id="toggle-password" type="button">
+                  <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
+                </button>
+              </div>
               <p class="error-message" data-error-password></p>
-              <%- include('../components/button.ejs', {
-                type: "submit",
-                label: "Увійти"
-              }); %>
-            </form>
-            <a href="/sign-up">Зареєструватися</a>
+            </div>
+          </div>
+          <%- include('../components/separator.ejs') %>
+          <div class="form-button-container">
+            <%- include('../components/button.ejs', {
+              type: "submit",
+              label: "Увійти"
+            }); %>
+          </div>
+        </form>
       </div>
     </div>
 
