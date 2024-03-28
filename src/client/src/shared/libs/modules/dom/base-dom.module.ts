@@ -1,6 +1,16 @@
 import { type DOM } from "./libs/types/dom.type.js";
 
 class BaseDOM implements DOM {
+	addClassName({
+		className,
+		selector,
+	}: {
+		className: string;
+		selector: string;
+	}): void {
+		this.getElement(selector)?.classList.add(className);
+	}
+
 	changeAttribute({
 		attribute,
 		selector,
@@ -14,6 +24,45 @@ class BaseDOM implements DOM {
 		if (element) {
 			element.setAttribute(attribute, value);
 		}
+	}
+
+	clearContent(selector: string): void {
+		const element = this.getElement(selector);
+
+		if (element) {
+			element.innerHTML = "";
+		}
+	}
+
+	createElement({
+		className,
+		content,
+		parentElementSelector,
+		tagName,
+	}: {
+		className?: string | string[];
+		content?: string;
+		parentElementSelector?: string;
+		tagName: keyof HTMLElementTagNameMap;
+	}): HTMLElement {
+		const element = document.createElement(tagName);
+
+		if (Array.isArray(className)) {
+			element.classList.add(...className);
+		} else {
+			element.classList.add(className);
+		}
+
+		if (content) {
+			element.innerHTML = content;
+		}
+
+		if (parentElementSelector) {
+			const parent = this.getElement(parentElementSelector);
+			parent.appendChild(element);
+		}
+
+		return element;
 	}
 
 	getAttribute({
@@ -34,6 +83,16 @@ class BaseDOM implements DOM {
 		const element = document.querySelector<T>(selector);
 
 		return element ?? null;
+	}
+
+	removeClassName({
+		className,
+		selector,
+	}: {
+		className: string;
+		selector: string;
+	}) {
+		this.getElement(selector)?.classList.remove(className);
 	}
 
 	setListener({

@@ -38,8 +38,96 @@
 .search__icon-container {
 	width: 24px;
 	height: 24px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }
 
-.word-meaning {
-	margin-top: 16px;
+.search-results {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-top: 40px;
+}
+
+.search-results__heading {
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 44px;
+}
+
+.word-container {
+	display: flex;
+	align-items: center;
+	gap: 34px;
+}
+
+.word {
+	color: var(--color-red);
+	font-size: var(--font-size-750);
+	font-weight: 600;
+}
+
+.play-transcription-btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition: transform ease-out 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.play-transcription-btn:hover {
+	transform: scale(1.03);
+}
+
+.transcription {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: var(--font-size-500);
+}
+
+.badges {
+	display: flex;
+	gap: 10px;
+}
+
+.badge {
+	line-height: 19px;
+	padding: 2px 13px;
+	border-radius: 7px;
+}
+
+.badge--yellow {
+	background-color: var(--color-yellow-100);
+}
+
+.badge--green {
+	background-color: var(--color-green-100);
+}
+
+.badge--blue {
+	background-color: var(--color-blue-100);
+}
+
+.badge--pink {
+	background-color: var(--color-pink-100);
+}
+
+.badge--orange {
+	background-color: var(--color-orange-100);
+}
+
+.badge--lime {
+	background-color: var(--color-green-200);
+}
+
+.badge--aqua {
+	background-color: var(--color-blue-200);
+}
+
+.badge--purple {
+	background-color: var(--color-purple-100);
 }
