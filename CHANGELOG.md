@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/GEOFARL/online-dictionary/compare/v1.4.0...v1.5.0) (2024-03-28)
+
+
+### Features
+
+* style for home page od-34 ([#42](https://github.com/GEOFARL/online-dictionary/issues/42)) ([097ae62](https://github.com/GEOFARL/online-dictionary/commit/097ae62d1a4b3107677d7837318514837dc71a62))
+
 ## [1.4.0](https://github.com/GEOFARL/online-dictionary/compare/v1.3.0...v1.4.0) (2024-03-27)
 
 
