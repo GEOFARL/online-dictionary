@@ -31,6 +31,14 @@ class AuthService {
 	public async createUser(
 		user: UserAuthSignUpRequestDto,
 	): Promise<UserAuthResponseDto> {
+		const existingUser = await this.authRepository.findByEmail(user.email);
+		if (existingUser) {
+			throw new HTTPError({
+				message: "Email is already registered",
+				status: HTTPCode.BAD_REQUEST,
+			});
+		}
+
 		const { hash } = await encrypt.encrypt(user.password);
 		const userWithHash: UserAuthSignUpRequestDto = { ...user, password: hash };
 
