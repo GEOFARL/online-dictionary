@@ -23,4 +23,5 @@
 .input:hover,
 .input:active {
 	border-color: var(--color-grey-300);
+	background-color: rgba(175 175 175 /15%);
 }

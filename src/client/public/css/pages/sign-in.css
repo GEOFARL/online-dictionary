@@ -34,11 +34,6 @@
 	color: var(--color-grey-100);
 }
 
-.prompt__link {
-	color: var(--color-blue);
-	text-decoration: none;
-}
-
 .form {
 	display: flex;
 	flex-direction: column;
@@ -81,9 +76,4 @@
 	color: var(--color-red);
 	font-size: var(--font-size-200);
 	margin: 5px 0 3px 5px;
-}
-
-.separator {
-	border: none;
-	border-top: 1px solid rgba(156, 156, 156, 0.68);
 }

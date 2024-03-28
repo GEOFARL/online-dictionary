@@ -4,13 +4,13 @@ import {
 	userSignInValidationSchema,
 } from "@/modules/user/user.js";
 
-import { initPasswordToggle } from "~/shared/helpers/password-toggle";
 import {
 	AppRoute,
 	Cookie,
 	api,
 	cookies,
 	dom,
+	initPasswordToggle,
 	navigation,
 	notification,
 	validation,

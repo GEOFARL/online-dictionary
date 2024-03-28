@@ -1,2 +1,2 @@
-<a href="<%= href %>"<% if (typeof className !== 'undefined') { %> class="<%= className %>"<% } %>><%= content %></a>
+<a href="<%- href %>" class="link <%- locals.className ? className : '' %>"><%- content %></a>
 

@@ -6,6 +6,7 @@
 	border-radius: 50px;
 	border: 2px solid transparent;
 	background-color: var(--color-red);
+	color: var(--color-white);
 	font-size: var(--font-size-700);
 	line-height: 24px;
 	width: 100%;
