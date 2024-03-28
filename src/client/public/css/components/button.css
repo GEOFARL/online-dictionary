@@ -18,7 +18,7 @@
 .button:hover,
 .button:active,
 .button:focus {
-	border-color: var(--color-red); /* Change border color on hover */
+	border-color: var(--color-red);
 	color: var(--color-red);
 	background-color: var(--color-white);
 	text-decoration: none;

@@ -1,1 +1,1 @@
-export { initPasswordToggle } from "./init-password-toggle";
+export { initPasswordToggle } from "./init-password-toggle.js";

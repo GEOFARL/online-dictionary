@@ -11,7 +11,7 @@ const initPasswordToggle = () => {
 				}) === "password"
 					? "text"
 					: "password";
-			// Change the icon based on the password visibility
+
 			if (type === "password") {
 				dom.changeAttribute({
 					attribute: "type",

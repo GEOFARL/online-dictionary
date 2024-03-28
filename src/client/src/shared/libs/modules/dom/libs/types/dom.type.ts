@@ -1,4 +1,13 @@
 type DOM = {
+	changeAttribute: (options: {
+		attribute: string;
+		selector: string;
+		value: string;
+	}) => void;
+	getAttribute: (options: {
+		attribute: string;
+		selector: string;
+	}) => null | string;
 	getElement: <T extends HTMLElement>(selector: string) => T | null;
 	setListener: (options: {
 		eventType: string;
