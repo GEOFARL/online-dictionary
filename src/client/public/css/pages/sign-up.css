@@ -2,6 +2,7 @@
 	color: var(--color-red);
 	font-size: var(--font-size-200);
 	margin: 5px 0 3px 5px;
+	min-height: 18px;
 }
 
 .main {
@@ -72,7 +73,7 @@
 	height: 20px;
 
 	position: absolute;
-	top: 63%;
+	top: 50%;
 	transform: translateY(-50%);
 	right: 16px;
 	cursor: pointer;
