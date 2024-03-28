@@ -34,11 +34,6 @@
 	color: var(--color-grey-200);
 }
 
-.prompt__link {
-	text-decoration: none;
-	color: var(--color-blue);
-}
-
 .prompt__link:hover {
 	text-decoration: underline;
 }

@@ -2,6 +2,7 @@
   <link rel="stylesheet" href="/css/pages/sign-up.css">
   <link rel="stylesheet" href="/css/components/input.css">
   <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/link.css">
   <link rel="stylesheet" href="/css/components/separator.css">
   </head>
 	<body>
@@ -18,7 +19,7 @@
             }); %>
           </div>
         </div>
-        <hr class="separator">
+        <%- include('../components/separator.ejs') %>
         <form class="form">
           <div class="form__content">
             <%- include('../components/input.ejs', {
@@ -61,7 +62,7 @@
               <p class="error-message" data-error-password></p>
             </div>
           </div>
-          <hr class="separator">
+          <%- include('../components/separator.ejs') %>
           <div class="form__cta">
             <%-  include('../components/button.ejs', {
               type: "submit",
