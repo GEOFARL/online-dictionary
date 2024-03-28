@@ -14,7 +14,9 @@
 	--font-size-500: 16px;
 	--font-size-600: 18px;
 	--font-size-700: 20px;
+	--font-size-750: 26px;
 	--font-size-800: 28px;
+	--font-size-850: 36px;
 	--font-size-900: 48px;
 	--font-size-950: 72px;
 
@@ -27,6 +29,20 @@
 	--color-grey-100: #afafaf;
 	--color-grey-200: #747474;
 	--color-grey-300: #d9d9d9;
+
+	--color-yellow-100: #f0e472;
+
+	--color-green-100: #b1f072;
+	--color-green-200: #bfff36;
+
+	--color-blue-100: #72daf0;
+	--color-blue-200: #37eecd;
+
+	--color-pink-100: #f072eb;
+
+	--color-orange-100: #ff9900;
+
+	--color-purple-100: #b897ff;
 }
 
 body {
@@ -38,4 +54,8 @@ body {
 	font-size: var(--font-size-400);
 	color: var(--color-black);
 	line-height: 1.5;
+}
+
+.hidden {
+	display: none !important;
 }
