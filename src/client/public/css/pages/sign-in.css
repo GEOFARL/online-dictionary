@@ -77,3 +77,46 @@
 	font-size: var(--font-size-200);
 	margin: 5px 0 3px 5px;
 }
+
+@media (max-width: 768px) {
+	.container {
+		min-width: 455px;
+		padding: 24px 0;
+	}
+	.form-content-container {
+		padding: 20px 30px;
+	}
+
+	.form-button-container {
+		padding: 16px 30px;
+	}
+}
+
+/* Mobile styles (up to 767px) */
+@media (max-width: 480px) {
+	.container {
+		min-width: 310px;
+		width: 100%;
+		padding: 10px 0;
+		box-shadow: none;
+	}
+	.form-content-container {
+		padding: 20px 0;
+	}
+
+	.form-button-container {
+		padding: 32px 0;
+	}
+	.heading {
+		text-align: left;
+	}
+	.prompt {
+		justify-content: start;
+	}
+}
+
+@media (max-width: 325px) {
+	.container {
+		min-width: 255px;
+	}
+}

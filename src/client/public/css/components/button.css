@@ -23,3 +23,9 @@
 	background-color: var(--color-white);
 	text-decoration: none;
 }
+
+@media (max-width: 480px) {
+	.button {
+		padding: 8px;
+	}
+}
