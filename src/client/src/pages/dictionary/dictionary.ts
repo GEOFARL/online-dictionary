@@ -19,6 +19,7 @@ const renderWordDefinition = (data: WordDto) => {
 	showElement(".search-results__heading");
 	showElement(".word");
 	showElement(".transcription");
+	showElement(".definitions");
 
 	dom.setText({
 		selector: ".word",
@@ -46,6 +47,54 @@ const renderWordDefinition = (data: WordDto) => {
 		audioSrc = data.phonetic.audio;
 	} else {
 		hideElement(".play-transcription-btn");
+	}
+
+	if (data.meanings) {
+		dom.clearContent(".definitions");
+		dom.createElement({
+			className: "definitions__header",
+			content: "Визначення",
+			parentElementSelector: ".definitions",
+			tagName: "h3",
+		});
+
+		dom.createElement({
+			className: "definitions-container",
+			parentElementSelector: ".definitions",
+			tagName: "div",
+		});
+
+		data.meanings.forEach((meaning, index) => {
+			dom.createElement({
+				className: ["definition", `definition--${index}`],
+				parentElementSelector: ".definitions-container",
+				tagName: "div",
+			});
+
+			dom.createElement({
+				className: "definition__word",
+				content: `${data.word} (${meaning.partOfSpeech})`,
+				parentElementSelector: `.definition--${index}`,
+				tagName: "p",
+			});
+
+			dom.createElement({
+				className: ["definition-list", `definition-list--${index}`],
+				parentElementSelector: `.definition--${index}`,
+				tagName: "ul",
+			});
+
+			meaning.definitions.forEach((definition) => {
+				const exampleParagraph = `<p class="example">Example: ${definition?.example}</p>`;
+
+				dom.createElement({
+					className: "definition-list-item",
+					content: `<p>${definition.definition}</p>${definition.example ? exampleParagraph : ""}`,
+					parentElementSelector: `.definition-list--${index}`,
+					tagName: "li",
+				});
+			});
+		});
 	}
 };
 
