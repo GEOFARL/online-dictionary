@@ -81,6 +81,25 @@
 	height: 24px;
 }
 
+@media (max-width: 1200px) {
+	.form__container {
+		min-width: 600px;
+	}
+
+	.form__header {
+		padding: 20px 0 10px 0;
+	}
+
+	.form__content {
+		padding: 15px 50px;
+		gap: 22px;
+	}
+
+	.form__cta {
+		padding: 20px 50px 30px 50px;
+	}
+}
+
 @media (max-width: 1024px) {
 	.form__container {
 		min-width: unset;
