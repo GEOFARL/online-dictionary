@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/GEOFARL/online-dictionary/compare/v1.11.0...v1.12.0) (2024-03-29)
+
+
+### Features
+
+* make auth pages inaccessible if logged in od-74 ([#104](https://github.com/GEOFARL/online-dictionary/issues/104)) ([c38b930](https://github.com/GEOFARL/online-dictionary/commit/c38b930525099dadd6ad753578a682e785fb88a1))
+
 ## [1.11.0](https://github.com/GEOFARL/online-dictionary/compare/v1.10.1...v1.11.0) (2024-03-29)
 
 
