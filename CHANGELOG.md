@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/GEOFARL/online-dictionary/compare/v1.10.0...v1.10.1) (2024-03-29)
+
+
+### Bug Fixes
+
+* add link underline on hover ([#95](https://github.com/GEOFARL/online-dictionary/issues/95)) ([c7cd5b1](https://github.com/GEOFARL/online-dictionary/commit/c7cd5b100ef9d81b506b550fad6e97c8c5f43a6b))
+
 ## [1.10.0](https://github.com/GEOFARL/online-dictionary/compare/v1.9.0...v1.10.0) (2024-03-29)
 
 
