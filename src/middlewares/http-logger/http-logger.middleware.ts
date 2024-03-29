@@ -12,9 +12,7 @@ class HTTPLoggerMiddleware implements Middleware {
 
 	public init(app: Application): void {
 		app.use((req: Request, _: Response, next: NextFunction) => {
-			this.logger.info(
-				`[${req.method}] on ${req.url} ${new Date().toISOString()}`,
-			);
+			this.logger.info(`[${req.method}] on ${req.url}`);
 			next();
 		});
 	}
