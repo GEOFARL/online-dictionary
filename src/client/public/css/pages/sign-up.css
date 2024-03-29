@@ -131,7 +131,7 @@
 
 @media (max-width: 768px) {
 	.form__container {
-		margin: 0 50px;
+		margin: 0 32px;
 	}
 
 	.heading {
@@ -149,6 +149,10 @@
 }
 
 @media (max-width: 480px) {
+	.heading {
+		font-size: var(--font-size-800);
+	}
+
 	.main {
 		align-items: start;
 		margin-top: 50px;
@@ -171,7 +175,7 @@
 
 	.prompt__question,
 	.prompt__link {
-		font-size: var(--font-size-200);
+		font-size: var(--font-size-400);
 	}
 
 	.form__content {
