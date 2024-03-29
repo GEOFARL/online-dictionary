@@ -80,3 +80,65 @@
 	width: 24px;
 	height: 24px;
 }
+
+@media (max-width: 320px) {
+	.main {
+		align-items: start;
+		margin-top: 100px;
+	}
+
+	.form__container {
+		min-width: unset;
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	.form__header {
+		padding: 15px 0 10px 0;
+		align-items: start;
+	}
+
+	.prompt__question,
+	.prompt__link {
+		font-size: var(--font-size-200);
+	}
+
+	.form__content {
+		padding: 15px 0 10px 0;
+		gap: 20px;
+	}
+
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
+	.form__cta {
+		padding: 20px 0 30px 0;
+	}
+
+	.toggle-password-btn {
+		width: 16px;
+		height: 16px;
+	}
+
+	.show-password-icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.error-message {
+		font-size: var(--font-size-100);
+	}
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1200px) {
+}
