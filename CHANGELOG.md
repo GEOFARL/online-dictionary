@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/GEOFARL/online-dictionary/compare/v1.7.0...v1.8.0) (2024-03-29)
+
+
+### Features
+
+* prevent registration of users with the same email od-29 ([#78](https://github.com/GEOFARL/online-dictionary/issues/78)) ([961d164](https://github.com/GEOFARL/online-dictionary/commit/961d164913dfb690ae84bc82c6ceaa784e95710e))
+
 ## [1.7.0](https://github.com/GEOFARL/online-dictionary/compare/v1.6.0...v1.7.0) (2024-03-28)
 
 
