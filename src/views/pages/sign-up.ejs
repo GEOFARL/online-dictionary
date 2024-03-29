@@ -20,7 +20,7 @@
           </div>
         </div>
         <%- include('../components/separator.ejs', {
-          className: "form-separator"
+          className: "form__separator"
         }); %>
         <form class="form">
           <div class="form__content">
@@ -36,7 +36,7 @@
               }); %>
               <p class="error-message" data-error-fullName></p>
             </div>
-            
+
             <div class="input-container">
               <%- include('../components/input.ejs', {
                 id: "email",
@@ -50,7 +50,7 @@
               }); %>
               <p class="error-message" data-error-email></p>
             </div>
-            
+
             <div class="input-container">
               <div class="password-input-container">
                 <%- include('../components/input.ejs', {
@@ -71,7 +71,7 @@
             </div>
           </div>
           <%- include('../components/separator.ejs', {
-            className: "form-separator"
+            className: "form__separator"
           }); %>
           <div class="form__cta">
             <%-  include('../components/button.ejs', {
@@ -83,7 +83,7 @@
         </form>
       </div>
     </main>
-		
+
 
     <script src="/js/sign-up.js"></script>
     <script>

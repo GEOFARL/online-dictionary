@@ -207,7 +207,7 @@
 		font-size: var(--font-size-100);
 	}
 
-	.form-separator {
+	.form__separator {
 		display: none;
 	}
 }
