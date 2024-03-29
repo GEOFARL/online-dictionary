@@ -2,47 +2,84 @@
   <link rel="stylesheet" href="/css/pages/sign-up.css">
   <link rel="stylesheet" href="/css/components/input.css">
   <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/link.css">
+  <link rel="stylesheet" href="/css/components/separator.css">
   </head>
 	<body>
-		<h1>Реєстрація</h1>
-
-    <form class="form">
-      <%- include('../components/input.ejs', {
-        id: "full-name",
-        label: "Повне імʼя",
-        placeholder: '"John Doe"',
-        dataAttributes: {
-          "data-input-fullName": ""
-        }
-      }); %>
-      <p class="error-message" data-error-fullName></p>
-
-      <%- include('../components/input.ejs', {
-        id: "email",
-        label: "Email",
-        inputMode: "email",
-        placeholder: "example@gmail.com",
-        dataAttributes: {
-          "data-input-email": ""
-        }
-      }); %>
-      <p class="error-message" data-error-email></p>
-
-      <%- include('../components/input.ejs', {
-        id: "password",
-        label: "Password",
-        type: "password",
-        placeholder: "•••••••••",
-        dataAttributes: {
-          "data-input-password": ""
-        }
-      }); %>
-      <p class="error-message" data-error-password></p>
-
-      <button type="submit" class="button">Зареєструватися</button>
-    </form>
-
-    <a href="/sign-in">Увійти</a>
+    <main class="main">
+      <div class="form__container">
+        <div class="form__header">
+          <h1 class="heading">Реєстрація</h1>
+          <div class="prompt">
+            <p class="prompt__question">Маєш акаунт?</p>
+            <%- include('../components/link.ejs', {
+              href: "/sign-in",
+              className: "prompt__link",
+              content: "Увійти"
+            }); %>
+          </div>
+        </div>
+        <%- include('../components/separator.ejs') %>
+        <form class="form">
+          <div class="form__content">
+            <div class="input-container">
+              <%- include('../components/input.ejs', {
+                id: "full-name",
+                label: "Повне імʼя",
+                placeholder: '"John Doe"',
+                dataAttributes: {
+                  "data-input-fullName": ""
+                },
+                labelClassName: "form__label"
+              }); %>
+              <p class="error-message" data-error-fullName></p>
+            </div>
+            
+            <div class="input-container">
+              <%- include('../components/input.ejs', {
+                id: "email",
+                label: "Email",
+                inputMode: "email",
+                placeholder: "example@gmail.com",
+                dataAttributes: {
+                  "data-input-email": ""
+                },
+                labelClassName: "form__label"
+              }); %>
+              <p class="error-message" data-error-email></p>
+            </div>
+            
+            <div class="input-container">
+              <div class="password-input-container">
+                <%- include('../components/input.ejs', {
+                  id: "password",
+                  label: "Password",
+                  type: "password",
+                  placeholder: "•••••••••",
+                  dataAttributes: {
+                    "data-input-password": ""
+                  },
+                  labelClassName: "form__label"
+                }); %>
+                <button class="toggle-password-btn" id="toggle-password" type="button">
+                  <img src="/icons/eye-closed.svg" alt="" class="show-password-icon">
+                </button>
+              </div>
+              <p class="error-message" data-error-password></p>
+            </div>
+          </div>
+          <%- include('../components/separator.ejs') %>
+          <div class="form__cta">
+            <%-  include('../components/button.ejs', {
+              type: "submit",
+              className: "submit__button",
+              label: "Зареєструватися"
+            }); %>
+          </div>
+        </form>
+      </div>
+    </main>
+		
 
     <script src="/js/sign-up.js"></script>
     <script>
