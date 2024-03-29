@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/GEOFARL/online-dictionary/compare/v1.8.0...v1.9.0) (2024-03-29)
+
+
+### Features
+
+* add sign up page styles and markup od-26 ([#70](https://github.com/GEOFARL/online-dictionary/issues/70)) ([750ebaf](https://github.com/GEOFARL/online-dictionary/commit/750ebafafe4d8031cc6e0428f22d5db266e24ec7))
+
 ## [1.8.0](https://github.com/GEOFARL/online-dictionary/compare/v1.7.0...v1.8.0) (2024-03-29)
 
 
