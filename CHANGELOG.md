@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/GEOFARL/online-dictionary/compare/v1.12.0...v1.13.0) (2024-03-29)
+
+
+### Features
+
+* add mobile responsiveness for sign up page od-86 ([#96](https://github.com/GEOFARL/online-dictionary/issues/96)) ([8806500](https://github.com/GEOFARL/online-dictionary/commit/8806500305c8d9cb5b27a976506b638769c0ce36))
+
 ## [1.12.0](https://github.com/GEOFARL/online-dictionary/compare/v1.11.0...v1.12.0) (2024-03-29)
 
 
