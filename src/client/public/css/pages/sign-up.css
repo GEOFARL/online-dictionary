@@ -2,7 +2,6 @@
 	color: var(--color-red);
 	font-size: var(--font-size-200);
 	margin: 5px 0 3px 5px;
-	min-height: 18px;
 }
 
 .main {
@@ -25,6 +24,10 @@
 	padding: 25px 0 15px 0;
 }
 
+.heading {
+	font-size: var(--font-size-800);
+}
+
 .prompt {
 	display: flex;
 	gap: 4px;
@@ -41,13 +44,13 @@
 
 .form__content {
 	padding: 20px 60px;
-	min-height: 355px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	gap: 26px;
 }
 
-.form__label {
+.form__label,
+.heading {
 	font-weight: 500;
 }
 
@@ -55,7 +58,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 20px 60px 40px 60px;
+	padding: 26px 60px 40px 60px;
 }
 
 .password-input-container {
@@ -67,15 +70,14 @@
 	border: none;
 	width: 20px;
 	height: 20px;
-
 	position: absolute;
-	top: 50%;
+	top: 65%;
 	transform: translateY(-50%);
 	right: 16px;
 	cursor: pointer;
 }
 
 .show-password-icon {
-	width: 20px;
-	height: 20px;
+	width: 24px;
+	height: 24px;
 }
