@@ -4,7 +4,7 @@ import path from "path";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
-import { AppEnvironment } from "~/libs/enums/enums.js";
+import { AppEnvironment, Cookie } from "~/libs/enums/enums.js";
 import {
 	type Application,
 	type Controller,
@@ -85,7 +85,7 @@ class BaseServerApplication {
 					securitySchemes: {
 						cookieAuth: {
 							in: "cookie",
-							name: "token",
+							name: Cookie.TOKEN,
 							type: "apiKey",
 						},
 					},

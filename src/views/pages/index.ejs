@@ -7,7 +7,24 @@
     <main class="main">
       <h1 class="heading">Онлайн <span class="gradient-text">словник</span></h1>
 
-      <button class="test-auth">Перевір чи авторизований</button>
+      <% if (isAuthorized) { %>
+        <%- include('../components/link.ejs', {
+            href: logOutPath,
+            content: "Log Out"
+          })
+        %>
+      <% } else { %>
+        <%- include('../components/link.ejs', {
+            href: signInPath,
+            content: "Sign In"
+          })
+        %>
+        <%- include('../components/link.ejs', {
+            href: signUpPath,
+            content: "Sign Up"
+          })
+        %>
+      <% } %>
 
       <section class="cta-start">
         <div class="cta-start__content">
