@@ -25,3 +25,18 @@
 	border-color: var(--color-grey-300);
 	background-color: rgba(175 175 175 /15%);
 }
+
+@media (max-width: 480px) {
+	.form-control {
+		gap: 4px;
+	}
+
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
+	.input {
+		font-size: var(--font-size-200);
+		padding: 12px 13px;
+	}
+}

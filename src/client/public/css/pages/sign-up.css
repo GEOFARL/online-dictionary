@@ -80,3 +80,146 @@
 	width: 24px;
 	height: 24px;
 }
+
+@media (max-width: 1200px) {
+	.form__container {
+		min-width: 600px;
+	}
+
+	.form__header {
+		padding: 20px 0 10px 0;
+	}
+
+	.form__content {
+		padding: 15px 50px;
+		gap: 22px;
+	}
+
+	.form__cta {
+		padding: 20px 50px 30px 50px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.form__container {
+		min-width: unset;
+		width: 100%;
+		margin: 0 100px;
+	}
+
+	.form__header {
+		padding: 20px 0 15px 0;
+	}
+
+	.heading {
+		font-size: var(--font-size-750);
+	}
+
+	.form__content {
+		padding: 20px 40px;
+		gap: 24px;
+	}
+
+	.form__cta {
+		padding: 24px 40px 30px 40px;
+	}
+
+	.password-input-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.form__container {
+		margin: 0 32px;
+	}
+
+	.heading {
+		font-size: var(--font-size-725);
+	}
+
+	.form__content {
+		padding: 25px 45px;
+		gap: 28px;
+	}
+
+	.form__cta {
+		padding: 28px 45px 35px 45px;
+	}
+}
+
+@media (max-width: 480px) {
+	.heading {
+		font-size: var(--font-size-800);
+	}
+
+	.main {
+		align-items: start;
+		margin-top: 50px;
+	}
+
+	.form__container {
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	.form__header {
+		padding: 0;
+		padding-top: 15px;
+		align-items: start;
+	}
+
+	.prompt {
+		gap: 2px;
+	}
+
+	.prompt__question,
+	.prompt__link {
+		font-size: var(--font-size-400);
+	}
+
+	.form__content {
+		padding: 0;
+		padding-top: 33px;
+		gap: 10px;
+	}
+
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
+	.form__cta {
+		padding: 0;
+		padding-top: 31px;
+	}
+
+	.toggle-password-btn {
+		width: 18px;
+		height: 18px;
+	}
+
+	.show-password-icon {
+		width: 22px;
+		height: 22px;
+	}
+
+	.error-message {
+		font-size: var(--font-size-100);
+	}
+
+	.form__separator {
+		display: none;
+	}
+}
+
+@media (max-width: 320px) {
+	.toggle-password-btn {
+		width: 16px;
+		height: 16px;
+	}
+
+	.show-password-icon {
+		width: 20px;
+		height: 20px;
+	}
+}

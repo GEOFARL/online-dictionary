@@ -23,3 +23,10 @@
 	background-color: var(--color-white);
 	text-decoration: none;
 }
+
+@media (max-width: 480px) {
+	.button {
+		font-size: var(--font-size-400);
+		padding: 5px;
+	}
+}
