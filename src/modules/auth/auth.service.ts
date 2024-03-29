@@ -34,7 +34,7 @@ class AuthService {
 		const existingUser = await this.authRepository.findByEmail(user.email);
 		if (existingUser) {
 			throw new HTTPError({
-				message: "Email is already registered",
+				message: ExceptionMessage.EMAIL_IS_TAKEN,
 				status: HTTPCode.BAD_REQUEST,
 			});
 		}
