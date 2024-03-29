@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/GEOFARL/online-dictionary/compare/v1.9.0...v1.10.0) (2024-03-29)
+
+
+### Features
+
+* add word definitions and examples od-79 ([#91](https://github.com/GEOFARL/online-dictionary/issues/91)) ([c43f754](https://github.com/GEOFARL/online-dictionary/commit/c43f754d6c3dc6a0d8635813581d6dd82b5f0902))
+
 ## [1.9.0](https://github.com/GEOFARL/online-dictionary/compare/v1.8.0...v1.9.0) (2024-03-29)
 
 
