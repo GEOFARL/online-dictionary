@@ -151,7 +151,7 @@
 @media (max-width: 480px) {
 	.main {
 		align-items: start;
-		margin-top: 100px;
+		margin-top: 50px;
 	}
 
 	.form__container {
@@ -160,8 +160,12 @@
 	}
 
 	.form__header {
-		padding: 25px 0 20px 0;
+		padding: 15px 0 10px 0;
 		align-items: start;
+	}
+
+	.prompt {
+		gap: 2px;
 	}
 
 	.prompt__question,
@@ -170,8 +174,8 @@
 	}
 
 	.form__content {
-		padding: 25px 0 20px 0;
-		gap: 20px;
+		padding: 10px 0 5px 0;
+		gap: 10px;
 	}
 
 	.form-control label {
@@ -179,7 +183,7 @@
 	}
 
 	.form__cta {
-		padding: 25px 0 35px 0;
+		padding: 10px 0 20px 0;
 	}
 
 	.toggle-password-btn {
@@ -195,22 +199,13 @@
 	.error-message {
 		font-size: var(--font-size-100);
 	}
+
+	.separator {
+		display: none;
+	}
 }
 
 @media (max-width: 320px) {
-	.form__header {
-		padding: 15px 0 10px 0;
-	}
-
-	.form__content {
-		padding: 15px 0 10px 0;
-		gap: 15px;
-	}
-
-	.form__cta {
-		padding: 20px 0 30px 0;
-	}
-
 	.toggle-password-btn {
 		width: 16px;
 		height: 16px;
