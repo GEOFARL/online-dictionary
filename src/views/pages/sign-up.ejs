@@ -19,7 +19,9 @@
             }); %>
           </div>
         </div>
-        <%- include('../components/separator.ejs') %>
+        <%- include('../components/separator.ejs', {
+          className: "form-separator"
+        }); %>
         <form class="form">
           <div class="form__content">
             <div class="input-container">
@@ -68,7 +70,9 @@
               <p class="error-message" data-error-password></p>
             </div>
           </div>
-          <%- include('../components/separator.ejs') %>
+          <%- include('../components/separator.ejs', {
+            className: "form-separator"
+          }); %>
           <div class="form__cta">
             <%-  include('../components/button.ejs', {
               type: "submit",
