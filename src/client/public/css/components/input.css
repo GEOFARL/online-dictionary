@@ -26,7 +26,7 @@
 	background-color: rgba(175 175 175 /15%);
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
 	.form-control label {
 		font-size: var(--font-size-300);
 	}

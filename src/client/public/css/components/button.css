@@ -24,9 +24,15 @@
 	text-decoration: none;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 480px) {
 	.button {
 		padding: 14px 64px;
+		font-size: var(--font-size-500);
+	}
+}
+
+@media (max-width: 320px) {
+	.button {
 		font-size: var(--font-size-400);
 	}
 }
