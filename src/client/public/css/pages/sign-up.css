@@ -81,6 +81,30 @@
 	height: 24px;
 }
 
+@media (max-width: 768px) {
+	.form__container {
+		min-width: unset;
+		width: 80%;
+	}
+
+	.form__header {
+		padding: 20px 0 15px 0;
+	}
+
+	.heading {
+		font-size: var(--font-size-725);
+	}
+
+	.form__content {
+		padding: 20px 40px;
+		gap: 24px;
+	}
+
+	.form__cta {
+		padding: 24px 40px 30px 40px;
+	}
+}
+
 @media (max-width: 480px) {
 	.main {
 		align-items: start;
@@ -88,8 +112,6 @@
 	}
 
 	.form__container {
-		min-width: unset;
-		width: 80%;
 		box-shadow: none;
 		border-radius: 0;
 	}
