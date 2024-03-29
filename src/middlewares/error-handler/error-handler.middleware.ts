@@ -1,5 +1,3 @@
-import { type Express } from "express";
-
 import { FIRST_ARRAY_ELEMENT } from "~/libs/constants/constants.js";
 import {
 	ApplicationError,
@@ -7,7 +5,7 @@ import {
 } from "~/libs/exceptions/exceptions.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { type Logger } from "~/libs/modules/logger/logger.js";
-import { type Middleware } from "~/libs/types/types.js";
+import { type Application, type Middleware } from "~/libs/types/types.js";
 
 class ErrorHandlerMiddleware implements Middleware {
 	private logger: Logger;
@@ -16,7 +14,7 @@ class ErrorHandlerMiddleware implements Middleware {
 		this.logger = logger;
 	}
 
-	init(app: Express): void {
+	init(app: Application): void {
 		app.use((err, _, res, next) => {
 			if ("issues" in err) {
 				this.logger.error(`[Validation Error]: ${err.message}`);

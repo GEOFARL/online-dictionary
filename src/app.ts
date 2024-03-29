@@ -6,12 +6,14 @@ import { homeController } from "~/modules/home/home.js";
 import {
 	authenticateMiddleware,
 	errorHandlerMiddleware,
+	httpLoggerMiddleware,
 	injectDataMiddleware,
 	validateMiddleware,
 } from "./middlewares/middlewares.js";
 
 serverApplication.initMiddlewares([
 	injectDataMiddleware,
+	httpLoggerMiddleware,
 	authenticateMiddleware,
 	validateMiddleware,
 ]);

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/GEOFARL/online-dictionary/compare/v1.10.1...v1.11.0) (2024-03-29)
+
+
+### Features
+
+* Add Request logging to the server od-75 ([#99](https://github.com/GEOFARL/online-dictionary/issues/99)) ([1760e05](https://github.com/GEOFARL/online-dictionary/commit/1760e056413b821e4c987ee9f22b653db1183d31))
+
 ## [1.10.1](https://github.com/GEOFARL/online-dictionary/compare/v1.10.0...v1.10.1) (2024-03-29)
 
 
