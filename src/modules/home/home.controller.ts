@@ -1,6 +1,6 @@
 import { type Express } from "express";
 
-import { PageTitle, PagesPath } from "~/libs/enums/enums.js";
+import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Controller } from "~/libs/types/types.js";
@@ -11,6 +11,10 @@ class HomeController implements Controller {
 		app.get(PagesPath.ROOT, (req, res) => {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
 				dictionaryRoute: PagesPath.DICTIONARY,
+				isAuthorized: Boolean(req.user),
+				logOutPath: ApiPath.AUTH_LOG_OUT,
+				signInPath: PagesPath.SIGN_IN,
+				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,
 			});
 		});

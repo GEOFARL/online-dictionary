@@ -6,10 +6,15 @@ import { homeController } from "~/modules/home/home.js";
 import {
 	authenticateMiddleware,
 	errorHandlerMiddleware,
+	injectDataMiddleware,
 	validateMiddleware,
 } from "./middlewares/middlewares.js";
 
-serverApplication.initMiddlewares([authenticateMiddleware, validateMiddleware]);
+serverApplication.initMiddlewares([
+	injectDataMiddleware,
+	authenticateMiddleware,
+	validateMiddleware,
+]);
 serverApplication.initControllers([
 	authController,
 	homeController,
