@@ -17,10 +17,12 @@
 .error-code {
 	font-size: var(--font-size-950);
 	color: var(--color-red);
+	line-height: 87px;
 }
 
 .error-description {
 	font-size: var(--font-size-900);
+	line-height: 58px;
 }
 
 .main-page-link {
