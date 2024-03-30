@@ -1,4 +1,4 @@
-import { hash as genHash, genSalt } from "bcrypt";
+import { compare, hash as genHash, genSalt } from "bcrypt";
 
 import { SALT_ROUNDS } from "./libs/constants/constants.js";
 import { type Encrypt } from "./libs/types/types.js";
@@ -17,9 +17,7 @@ class BaseEncrypt implements Encrypt {
 		password: string;
 		passwordHash: string;
 	}): Promise<boolean> {
-		const hash = await genHash(password, BaseEncrypt.saltRounds);
-
-		return hash === passwordHash;
+		return compare(password, passwordHash);
 	}
 
 	public async encrypt(password: string): ReturnType<Encrypt["encrypt"]> {
