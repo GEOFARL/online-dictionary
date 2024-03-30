@@ -1,3 +1,5 @@
+import { type CreateElementOptions } from "./create-element-options.type.js";
+
 type DOM = {
 	addClassName(options: { className: string; selector: string }): void;
 	changeAttribute: (options: {
@@ -6,12 +8,7 @@ type DOM = {
 		value: string;
 	}) => void;
 	clearContent: (selector: string) => void;
-	createElement: (options: {
-		className?: string;
-		content?: string;
-		parentElementSelector?: string;
-		tagName: keyof HTMLElementTagNameMap;
-	}) => HTMLElement;
+	createElement: (options: CreateElementOptions) => HTMLElement;
 	getAttribute: (options: {
 		attribute: string;
 		selector: string;

@@ -1,0 +1,3 @@
+const DIVISOR_FOR_PARITY = 2;
+
+export { DIVISOR_FOR_PARITY };

@@ -1,4 +1,5 @@
 import { type DOM } from "./libs/types/dom.type.js";
+import { type CreateElementOptions } from "./libs/types/types.js";
 
 class BaseDOM implements DOM {
 	addClassName({
@@ -35,16 +36,13 @@ class BaseDOM implements DOM {
 	}
 
 	createElement({
+		attributes,
+		children,
 		className,
 		content,
 		parentElementSelector,
 		tagName,
-	}: {
-		className?: string | string[];
-		content?: string;
-		parentElementSelector?: string;
-		tagName: keyof HTMLElementTagNameMap;
-	}): HTMLElement {
+	}: CreateElementOptions): HTMLElement {
 		const element = document.createElement(tagName);
 
 		if (Array.isArray(className)) {
@@ -57,9 +55,21 @@ class BaseDOM implements DOM {
 			element.innerHTML = content;
 		}
 
+		if (attributes) {
+			Object.entries(attributes).forEach(([key, value]) => {
+				element.setAttribute(key, value);
+			});
+		}
+
 		if (parentElementSelector) {
 			const parent = this.getElement(parentElementSelector);
 			parent.appendChild(element);
+		}
+
+		if (children) {
+			children.forEach((child) =>
+				element.appendChild(this.createElement(child)),
+			);
 		}
 
 		return element;
