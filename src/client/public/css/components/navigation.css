@@ -38,7 +38,9 @@
 	letter-spacing: -0.04em;
 }
 
-.logo-text:hover {
+.logo-text:hover,
+.logo-text:focus,
+.logo-text:active {
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -71,7 +73,9 @@
 	color: var(--color-white);
 }
 
-.control-btn:hover {
+.control-btn:hover,
+.control-btn:focus,
+.control-btn:active {
 	border-color: var(--color-red);
 	color: var(--color-red);
 	background-color: var(--color-white);
