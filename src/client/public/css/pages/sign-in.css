@@ -1,27 +1,26 @@
 .wrapper {
-	display: grid;
-	place-content: center;
-	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1;
 }
 
 .container {
 	min-width: 675px;
-	width: 100%;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	border-radius: 33px;
-	padding: 42px 0;
 }
 
 .welcome-container {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 18px;
+	align-items: center;
+	padding: 25px 0 15px 0;
 }
 
 .heading {
-	font-size: var(--font-size-800);
 	font-weight: 500;
-	text-align: center;
+	font-size: var(--font-size-800);
 }
 
 .prompt {
@@ -31,7 +30,7 @@
 }
 
 .prompt__question {
-	color: var(--color-grey-100);
+	color: var(--color-grey-200);
 }
 
 .form {
@@ -47,7 +46,7 @@
 }
 
 .form-button-container {
-	padding: 26px 60px 0;
+	padding: 26px 60px 26px;
 }
 
 .password-input-container {
@@ -70,4 +69,152 @@
 .show-password-icon {
 	width: 24px;
 	height: 24px;
+}
+
+.error-message {
+	color: var(--color-red);
+	font-size: var(--font-size-200);
+	margin: 5px 0 3px 5px;
+}
+
+@media (max-width: 1200px) {
+	.container {
+		min-width: 600px;
+	}
+
+	.welcome-container {
+		padding: 20px 0 10px 0;
+	}
+
+	.form-content-container {
+		padding: 15px 50px;
+		gap: 22px;
+	}
+
+	.form-button-container {
+		padding: 20px 50px 30px 50px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		min-width: unset;
+		width: 100%;
+		margin: 0 100px;
+	}
+
+	.welcome-container {
+		padding: 20px 0 15px 0;
+	}
+
+	.heading {
+		font-size: var(--font-size-750);
+	}
+
+	.form-content-container {
+		padding: 20px 40px;
+		gap: 24px;
+	}
+
+	.form-button-container {
+		padding: 24px 40px 30px 40px;
+	}
+
+	.password-input-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		margin: 0 32px;
+	}
+
+	.heading {
+		font-size: var(--font-size-725);
+	}
+
+	.form-content-container {
+		padding: 25px 45px;
+		gap: 28px;
+	}
+
+	.form-button-container {
+		padding: 28px 45px 35px 45px;
+	}
+}
+
+@media (max-width: 480px) {
+	.wrapper {
+		align-items: start;
+		margin-top: 50px;
+	}
+
+	.container {
+		box-shadow: none;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.welcome-container {
+		padding: 0;
+		padding-top: 15px;
+		align-items: start;
+	}
+
+	.heading {
+		font-size: var(--font-size-800);
+	}
+
+	.prompt {
+		gap: 2px;
+	}
+
+	.prompt__question,
+	.prompt__link {
+		font-size: var(--font-size-400);
+	}
+
+	.form-content-container {
+		padding: 0;
+		padding-top: 33px;
+		gap: 10px;
+	}
+
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
+	.form-button-container {
+		padding: 25px 0 35px 0;
+	}
+
+	.toggle-password-btn {
+		width: 18px;
+		height: 18px;
+	}
+
+	.show-password-icon {
+		width: 22px;
+		height: 22px;
+	}
+
+	.error-message {
+		font-size: var(--font-size-100);
+	}
+	.form-separator {
+		display: none;
+	}
+}
+
+@media (max-width: 320px) {
+	.toggle-password-btn {
+		width: 16px;
+		height: 16px;
+	}
+
+	.show-password-icon {
+		width: 20px;
+		height: 20px;
+	}
 }
