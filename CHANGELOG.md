@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.1](https://github.com/GEOFARL/online-dictionary/compare/v1.14.0...v1.14.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* disable auth without correct credentials od-103 ([#110](https://github.com/GEOFARL/online-dictionary/issues/110)) ([c8e4152](https://github.com/GEOFARL/online-dictionary/commit/c8e41527320bbb10837c6ded4a6b36eb80dac648))
+
 ## [1.14.0](https://github.com/GEOFARL/online-dictionary/compare/v1.13.0...v1.14.0) (2024-03-30)
 
 
