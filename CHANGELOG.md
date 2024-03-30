@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/GEOFARL/online-dictionary/compare/v1.14.1...v1.15.0) (2024-03-30)
+
+
+### Features
+
+* add loader component od-83 ([#112](https://github.com/GEOFARL/online-dictionary/issues/112)) ([834d2a0](https://github.com/GEOFARL/online-dictionary/commit/834d2a0c427c605566d265d6415332efc4671e2c))
+
 ## [1.14.1](https://github.com/GEOFARL/online-dictionary/compare/v1.14.0...v1.14.1) (2024-03-30)
 
 
