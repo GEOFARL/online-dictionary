@@ -9,6 +9,11 @@
     <main class="main">
       <div class="form__container">
         <div class="form__header">
+          <%- include("../components/link.ejs", {
+            href: homePath,
+            className: "main-page-link",
+            content: "Повернутися на головну &rarr;"
+          }) %>
           <h1 class="heading">Реєстрація</h1>
           <div class="prompt">
             <p class="prompt__question">Маєш акаунт?</p>
@@ -83,7 +88,6 @@
         </form>
       </div>
     </main>
-
 
     <script src="/js/sign-up.js"></script>
     <script>

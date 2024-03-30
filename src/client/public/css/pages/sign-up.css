@@ -18,6 +18,11 @@
 	padding: 25px 0 15px 0;
 }
 
+.main-page-link {
+	font-size: var(--font-size-200);
+	line-height: 15px;
+}
+
 .heading {
 	font-size: var(--font-size-800);
 }
@@ -43,7 +48,8 @@
 	gap: 26px;
 }
 
-.heading {
+.heading,
+.main-page-link {
 	font-weight: 500;
 }
 
@@ -143,6 +149,10 @@
 }
 
 @media (max-width: 480px) {
+	.main-page-link {
+		font-size: var(--font-size-100);
+	}
+
 	.heading {
 		font-size: var(--font-size-800);
 	}
