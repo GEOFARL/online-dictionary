@@ -78,45 +78,143 @@
 	margin: 5px 0 3px 5px;
 }
 
+@media (max-width: 1200px) {
+	.container {
+		min-width: 600px;
+	}
+
+	.welcome-container {
+		padding: 20px 0 10px 0;
+	}
+
+	.form-content-container {
+		padding: 15px 50px;
+		gap: 22px;
+	}
+
+	.form-button-container {
+		padding: 20px 50px 30px 50px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.container {
+		/* min-width: unset;
+		width: 80%; */
+	}
+
+	.welcome-container {
+		padding: 20px 0 15px 0;
+	}
+
+	.heading {
+		font-size: var(--font-size-750);
+	}
+
+	.form-content-container {
+		padding: 20px 40px;
+		gap: 24px;
+	}
+
+	.form-button-container {
+		padding: 24px 40px 30px 40px;
+	}
+
+	.password-input-container {
+		width: 100%;
+	}
+}
+
 @media (max-width: 768px) {
 	.container {
-		min-width: 455px;
-		padding: 24px 0;
-	}
-	.form-content-container {
-		padding: 20px 30px;
+		min-width: unset;
+		width: 80%;
 	}
 
-	.form-button-container {
-		padding: 16px 30px;
-	}
-}
-
-/* Mobile styles (up to 767px) */
-@media (max-width: 480px) {
-	.container {
-		min-width: 310px;
-		width: 100%;
-		padding: 10px 0;
-		box-shadow: none;
-	}
-	.form-content-container {
-		padding: 20px 0;
-	}
-
-	.form-button-container {
-		padding: 32px 0;
-	}
 	.heading {
-		text-align: left;
+		font-size: var(--font-size-725);
 	}
-	.prompt {
-		justify-content: start;
+
+	.form-content-container {
+		padding: 25px 45px;
+		gap: 28px;
+	}
+
+	.form-button-container {
+		padding: 28px 45px 35px 45px;
 	}
 }
 
-@media (max-width: 325px) {
+@media (max-width: 480px) {
+	.wrapper {
+		align-items: start;
+		margin-top: 100px;
+	}
+
 	.container {
-		min-width: 255px;
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	.welcome-container {
+		padding: 25px 0 20px 0;
+		align-items: start;
+	}
+
+	.prompt__question,
+	.prompt__link {
+		font-size: var(--font-size-200);
+	}
+
+	.form-content-container {
+		padding: 25px 0 20px 0;
+		gap: 20px;
+	}
+
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
+	.form-button-container {
+		padding: 25px 0 35px 0;
+	}
+
+	.toggle-password-btn {
+		width: 18px;
+		height: 18px;
+	}
+
+	.show-password-icon {
+		width: 22px;
+		height: 22px;
+	}
+
+	.error-message {
+		font-size: var(--font-size-100);
+	}
+}
+
+@media (max-width: 320px) {
+	.welcome-container {
+		padding: 15px 0 10px 0;
+	}
+
+	.form-content-container {
+		padding: 15px 0 10px 0;
+		gap: 15px;
+	}
+
+	.form-button-container {
+		padding: 20px 0 30px 0;
+	}
+
+	.toggle-password-btn {
+		width: 16px;
+		height: 16px;
+	}
+
+	.show-password-icon {
+		width: 20px;
+		height: 20px;
 	}
 }

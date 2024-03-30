@@ -27,7 +27,12 @@
 }
 
 @media (max-width: 480px) {
+	.form-control label {
+		font-size: var(--font-size-300);
+	}
+
 	.input {
-		padding: 12px 12px;
+		font-size: var(--font-size-200);
+		padding: 12px 13px;
 	}
 }
