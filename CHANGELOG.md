@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0](https://github.com/GEOFARL/online-dictionary/compare/v1.16.0...v1.17.0) (2024-03-30)
+
+
+### Features
+
+* Create Not Found page and return it if the user enters invalid URL od-102 ([#118](https://github.com/GEOFARL/online-dictionary/issues/118)) ([595eece](https://github.com/GEOFARL/online-dictionary/commit/595eece59274196b509ed60ce3c0b2a46ab4c69e))
+
 ## [1.16.0](https://github.com/GEOFARL/online-dictionary/compare/v1.15.0...v1.16.0) (2024-03-30)
 
 
