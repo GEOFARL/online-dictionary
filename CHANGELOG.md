@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/GEOFARL/online-dictionary/compare/v1.20.0...v1.21.0) (2024-03-30)
+
+
+### Features
+
+* add search by query od-132 ([#133](https://github.com/GEOFARL/online-dictionary/issues/133)) ([88102ee](https://github.com/GEOFARL/online-dictionary/commit/88102ee0c1c6aa89934b22c506158b21f4dcfff2))
+
 ## [1.20.0](https://github.com/GEOFARL/online-dictionary/compare/v1.19.0...v1.20.0) (2024-03-30)
 
 
