@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
 	entry: generateEntryPoints(),
-	mode: "development",
+	mode: "production",
 	module: {
 		rules: [
 			{
