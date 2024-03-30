@@ -76,7 +76,11 @@ class BaseServerApplication {
 	public initNotFoundHandler() {
 		const NOT_FOUND_STATUS = 404;
 		this.app.use((req, res) => {
-			res.status(NOT_FOUND_STATUS).send("Not Found");
+			res
+				.status(NOT_FOUND_STATUS)
+				.render(
+					path.join(path.resolve(), "src", "views", "pages", "not-found.ejs"),
+				);
 		});
 		this.logger.info("Not Found handler is initialized");
 	}

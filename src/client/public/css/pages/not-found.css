@@ -1,0 +1,29 @@
+.main {
+	flex: 1;
+}
+
+.error-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 150px;
+}
+
+.error-code,
+.error-description {
+	font-weight: 700;
+}
+
+.error-code {
+	font-size: var(--font-size-950);
+	color: var(--color-red);
+}
+
+.error-description {
+	font-size: var(--font-size-900);
+}
+
+.main-page-link {
+	font-size: var(--font-size-600);
+	font-weight: 500;
+}
