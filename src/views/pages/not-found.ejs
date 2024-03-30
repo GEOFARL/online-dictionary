@@ -1,0 +1,19 @@
+<%- include("../includes/head") %>
+    <link rel="stylesheet" href="/css/pages/not-found.css">
+    <link rel="stylesheet" href="/css/components/link.css">
+    </head>
+    <body>
+        <main class="main">
+            <div class="error-container">
+                <h1 class="error-code">404</h1>
+                <p class="error-description">Сторінку не знайдено</p>
+                <%- include("../components/link.ejs", {
+                    href: homePath,
+                    className: "main-page-link",
+                    content: "Повернутися на головну ->"
+                }) %>
+            </div>
+        </main>
+    </body>
+
+<%- include("../includes/end") %>

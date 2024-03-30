@@ -4,7 +4,12 @@ import path from "path";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 
-import { AppEnvironment, Cookie } from "~/libs/enums/enums.js";
+import {
+	AppEnvironment,
+	Cookie,
+	PageTitle,
+	PagesPath,
+} from "~/libs/enums/enums.js";
 import {
 	type Application,
 	type Controller,
@@ -12,6 +17,7 @@ import {
 } from "~/libs/types/types.js";
 
 import { type Config } from "../config/libs/types/types.js";
+import { HTTPCode } from "../http/http.js";
 import { type Logger } from "../logger/logger.js";
 import { type Views } from "../views/views.js";
 
@@ -71,6 +77,16 @@ class BaseServerApplication {
 			middleware.init(this.app);
 			this.logger.info(`Middleware '${middleware.name}' is initialized`);
 		});
+	}
+
+	public initNotFoundHandler() {
+		this.app.use((req, res) => {
+			res.status(HTTPCode.NOT_FOUND).render(`pages/${PagesPath.NOT_FOUND}`, {
+				homePath: PagesPath.ROOT,
+				title: PageTitle.NOT_FOUND,
+			});
+		});
+		this.logger.info("Not Found handler is initialized");
 	}
 
 	public initSwaggerDocs() {

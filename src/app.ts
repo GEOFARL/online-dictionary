@@ -23,5 +23,6 @@ serverApplication.initControllers([
 	dictionaryController,
 ]);
 serverApplication.initErrorHandler(errorHandlerMiddleware);
+serverApplication.initNotFoundHandler();
 serverApplication.initSwaggerDocs();
 serverApplication.start();
