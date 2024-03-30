@@ -101,10 +101,15 @@ const renderWordDefinition = (data: WordDto) => {
 const configureSearchForm = (): void => {
 	const handleFormSubmit = async () => {
 		const inputValue = dom.getElement<HTMLInputElement>("#search").value;
+		showElement(".loader-container");
+		hideElement(".search-results");
 
 		const data = await api.get<WordDto>({
 			path: ApiPath.WORDS_$WORD.replace(":word", inputValue),
 		});
+
+		hideElement(".loader-container");
+		showElement(".search-results");
 
 		renderWordDefinition(data);
 

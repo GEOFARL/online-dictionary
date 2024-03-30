@@ -1,4 +1,4 @@
-import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
+import { ApiPath, Cookie, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
@@ -125,6 +125,10 @@ class AuthController implements Controller {
 		 *         $ref: '#/components/responses/InternalServerError'
 		 */
 		app.get(PagesPath.SIGN_UP, (req, res) => {
+			if (req.user) {
+				res.redirect(PagesPath.ROOT);
+			}
+
 			res.render(`pages${PagesPath.SIGN_UP}`, {
 				routePath: ApiPath.AUTH_SIGN_UP,
 				title: PageTitle.SIGN_UP,
@@ -150,6 +154,10 @@ class AuthController implements Controller {
 		 *         $ref: '#/components/responses/InternalServerError'
 		 */
 		app.get(PagesPath.SIGN_IN, (req, res) => {
+			if (req.user) {
+				res.redirect(PagesPath.ROOT);
+			}
+
 			res.render(`pages${PagesPath.SIGN_IN}`, {
 				routePath: ApiPath.AUTH_SIGN_IN,
 				title: PageTitle.SIGN_IN,
@@ -182,6 +190,10 @@ class AuthController implements Controller {
 			ApiPath.AUTH_SIGN_IN,
 			validate({ body: userSignInValidationSchema }),
 			asyncHandler(async (req, res) => {
+				if (req.user) {
+					return;
+				}
+
 				const response = await this.authService.logInUser(req.body);
 
 				res.status(HTTPCode.OK).json(response);
@@ -216,11 +228,39 @@ class AuthController implements Controller {
 			ApiPath.AUTH_SIGN_UP,
 			validate({ body: userSignUpValidationSchema }),
 			asyncHandler(async (req, res) => {
+				if (req.user) {
+					return;
+				}
+
 				const response = await this.authService.createUser(req.body);
 
 				res.status(HTTPCode.CREATED).json(response);
 			}),
 		);
+
+		/**
+		 * @swagger
+		 * /auth/logout:
+		 *   get:
+		 *     summary: Logs out the current user
+		 *     description: Clears the user's session cookie and redirects to the root page.
+		 *     tags:
+		 *       - Authentication
+		 *     responses:
+		 *       302:
+		 *         description: Redirect to the root page.
+		 *         content:
+		 *           text/html:
+		 *             schema:
+		 *               type: string
+		 *               example: Redirecting to /
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
+		app.get(ApiPath.AUTH_LOG_OUT, (_, res) => {
+			res.clearCookie(Cookie.TOKEN);
+			res.redirect(PagesPath.ROOT);
+		});
 	}
 
 	public init(app: Application) {

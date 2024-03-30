@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
   <link rel="stylesheet" href="/css/components/input.css">
+  <link rel="stylesheet" href="/css/components/loader.css">
   </head>
 
 	<body>
@@ -16,12 +17,18 @@
           labelClassName: "search__input-label"
         }); %>
 
-        <button class="search__icon-container">
+        <button class="search__icon-container" type="button">
           <img class="search__icon" src="/assets/icons/search.svg" alt="search icon">
         </button>
       </form>
 
-      <section class="search-results">
+      <div class="loader-container hidden">
+        <%- include("../components/loader.ejs", {
+          size: 'large'
+        }) %>
+      </div>
+
+      <section class="search-results hidden">
         <h2 class="search-results__heading hidden">Результати</h2>
 
         <div class="search-result">

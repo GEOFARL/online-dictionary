@@ -89,12 +89,12 @@ class AuthService {
 			});
 		}
 
-		if (
-			await encrypt.compare({
-				password: user.password,
-				passwordHash: loggedInUser.password,
-			})
-		) {
+		const hasMatchingPassword = await encrypt.compare({
+			password: user.password,
+			passwordHash: loggedInUser.password,
+		});
+
+		if (!hasMatchingPassword) {
 			throw new HTTPError({
 				message: UserExceptionMessage.INCORRECT_CREDENTIALS,
 				status: HTTPCode.UNAUTHORIZED,

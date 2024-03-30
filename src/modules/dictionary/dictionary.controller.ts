@@ -4,7 +4,6 @@ import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 
 import { type AuthService } from "../auth/auth.js";
-import { type UserDto } from "../user/user.js";
 import { type DictionaryService } from "./dictionary.service.js";
 
 /**
@@ -120,14 +119,8 @@ class DictionaryController implements Controller {
 		app.get(
 			ApiPath.WORDS_$WORD,
 			asyncHandler(async (req, res) => {
-				let user: UserDto | null;
-
-				if (req.cookies?.token) {
-					user = await this.authService.findByToken(req.cookies?.token);
-				}
-
 				const response = await this.dictionaryService.searchWord({
-					userId: user?.id,
+					userId: req.user?.id,
 					word: req.params.word,
 				});
 

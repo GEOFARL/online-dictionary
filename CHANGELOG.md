@@ -1,5 +1,54 @@
 # Changelog
 
+## [1.15.0](https://github.com/GEOFARL/online-dictionary/compare/v1.14.1...v1.15.0) (2024-03-30)
+
+
+### Features
+
+* add loader component od-83 ([#112](https://github.com/GEOFARL/online-dictionary/issues/112)) ([834d2a0](https://github.com/GEOFARL/online-dictionary/commit/834d2a0c427c605566d265d6415332efc4671e2c))
+
+## [1.14.1](https://github.com/GEOFARL/online-dictionary/compare/v1.14.0...v1.14.1) (2024-03-30)
+
+
+### Bug Fixes
+
+* disable auth without correct credentials od-103 ([#110](https://github.com/GEOFARL/online-dictionary/issues/110)) ([c8e4152](https://github.com/GEOFARL/online-dictionary/commit/c8e41527320bbb10837c6ded4a6b36eb80dac648))
+
+## [1.14.0](https://github.com/GEOFARL/online-dictionary/compare/v1.13.0...v1.14.0) (2024-03-30)
+
+
+### Features
+
+* create a hero section of the page od-82 ([#101](https://github.com/GEOFARL/online-dictionary/issues/101)) ([488140f](https://github.com/GEOFARL/online-dictionary/commit/488140f268ea8aa5573e74af15c4db3206e415c2))
+
+## [1.13.0](https://github.com/GEOFARL/online-dictionary/compare/v1.12.0...v1.13.0) (2024-03-29)
+
+
+### Features
+
+* add mobile responsiveness for sign up page od-86 ([#96](https://github.com/GEOFARL/online-dictionary/issues/96)) ([8806500](https://github.com/GEOFARL/online-dictionary/commit/8806500305c8d9cb5b27a976506b638769c0ce36))
+
+## [1.12.0](https://github.com/GEOFARL/online-dictionary/compare/v1.11.0...v1.12.0) (2024-03-29)
+
+
+### Features
+
+* make auth pages inaccessible if logged in od-74 ([#104](https://github.com/GEOFARL/online-dictionary/issues/104)) ([c38b930](https://github.com/GEOFARL/online-dictionary/commit/c38b930525099dadd6ad753578a682e785fb88a1))
+
+## [1.11.0](https://github.com/GEOFARL/online-dictionary/compare/v1.10.1...v1.11.0) (2024-03-29)
+
+
+### Features
+
+* Add Request logging to the server od-75 ([#99](https://github.com/GEOFARL/online-dictionary/issues/99)) ([1760e05](https://github.com/GEOFARL/online-dictionary/commit/1760e056413b821e4c987ee9f22b653db1183d31))
+
+## [1.10.1](https://github.com/GEOFARL/online-dictionary/compare/v1.10.0...v1.10.1) (2024-03-29)
+
+
+### Bug Fixes
+
+* add link underline on hover ([#95](https://github.com/GEOFARL/online-dictionary/issues/95)) ([c7cd5b1](https://github.com/GEOFARL/online-dictionary/commit/c7cd5b100ef9d81b506b550fad6e97c8c5f43a6b))
+
 ## [1.10.0](https://github.com/GEOFARL/online-dictionary/compare/v1.9.0...v1.10.0) (2024-03-29)
 
 
