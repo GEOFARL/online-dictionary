@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/GEOFARL/online-dictionary/compare/v1.17.0...v1.18.0) (2024-03-30)
+
+
+### Features
+
+* sign in page responsiveness od-85 ([#98](https://github.com/GEOFARL/online-dictionary/issues/98)) ([1f25ec8](https://github.com/GEOFARL/online-dictionary/commit/1f25ec86a033bc1b68110339235b100e9ef401f5))
+
 ## [1.17.0](https://github.com/GEOFARL/online-dictionary/compare/v1.16.0...v1.17.0) (2024-03-30)
 
 
