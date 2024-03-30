@@ -168,6 +168,10 @@
 		align-items: start;
 	}
 
+	.main-page-link {
+		font-size: var(--font-size-100);
+	}
+
 	.heading {
 		font-size: var(--font-size-800);
 	}

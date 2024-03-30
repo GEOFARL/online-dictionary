@@ -130,6 +130,7 @@ class AuthController implements Controller {
 			}
 
 			res.render(`pages${PagesPath.SIGN_UP}`, {
+				homePath: PagesPath.ROOT,
 				routePath: ApiPath.AUTH_SIGN_UP,
 				title: PageTitle.SIGN_UP,
 			});
@@ -159,6 +160,7 @@ class AuthController implements Controller {
 			}
 
 			res.render(`pages${PagesPath.SIGN_IN}`, {
+				homePath: PagesPath.ROOT,
 				routePath: ApiPath.AUTH_SIGN_IN,
 				title: PageTitle.SIGN_IN,
 			});
