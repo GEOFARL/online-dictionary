@@ -9,7 +9,6 @@
 	min-width: 675px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	border-radius: 33px;
-	padding: 42px 0;
 }
 
 .welcome-container {
@@ -47,7 +46,7 @@
 }
 
 .form-button-container {
-	padding: 26px 60px 0;
+	padding: 26px 60px 26px;
 }
 
 .password-input-container {
