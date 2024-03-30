@@ -30,16 +30,25 @@
             </nav>
         </div>
         <div class="controls">
-            <%- include('../components/link.ejs', {
-                href: "/sign-in",
-                content: "Увійти",
-                className: "btn control-btn"
-            }); %>
-            <%- include('../components/link.ejs', {
-                href: "/sign-up",
-                content: "Зареєструватися",
-                className: "btn control-btn-active"
-            }); %>
+            <% if (isAuthorized) { %>
+                <%- include('../components/link.ejs', {
+                    href: logOutPath,
+                    content: "Вийти",
+                    className: "btn control-btn"
+                  })
+                %>
+              <% } else { %>
+                <%- include('../components/link.ejs', {
+                    href: "/sign-in",
+                    content: "Увійти",
+                    className: "btn control-btn"
+                }); %>
+                <%- include('../components/link.ejs', {
+                    href: "/sign-up",
+                    content: "Зареєструватися",
+                    className: "btn control-btn-active"
+                }); %>
+              <% } %>
         </div>
     </div>
 </header>

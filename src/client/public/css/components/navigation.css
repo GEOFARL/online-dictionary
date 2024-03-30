@@ -64,6 +64,9 @@
 
 .control-btn {
 	padding: 5px 37px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: var(--color-red);
 	color: var(--color-white);
 }
