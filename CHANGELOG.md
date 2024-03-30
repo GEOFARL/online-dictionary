@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/GEOFARL/online-dictionary/compare/v1.18.0...v1.19.0) (2024-03-30)
+
+
+### Features
+
+* Add a block with synonyms od-94 ([#125](https://github.com/GEOFARL/online-dictionary/issues/125)) ([dfff319](https://github.com/GEOFARL/online-dictionary/commit/dfff319cc877bb7b16900b98f435719785c1999a))
+
 ## [1.18.0](https://github.com/GEOFARL/online-dictionary/compare/v1.17.0...v1.18.0) (2024-03-30)
 
 
