@@ -29,7 +29,7 @@ const renderWordDefinition = (
 
 	dom.setText({
 		selector: ".transcription-content",
-		text: data.phonetic?.text ?? "",
+		text: data.phonetic?.text ?? "no transcription",
 	});
 
 	dom.clearContent(".badges");
