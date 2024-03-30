@@ -1,12 +1,15 @@
 import { ApiPath } from "@/libs/enums/enums.js";
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
+import { wordSearch as wordSearchValidationSchema } from "@/modules/dictionary/libs/validation-schemas/validation-schemas.js";
 
 import {
 	api,
 	dom,
 	hideElement,
+	notification,
 	partOfSpeechToClassName,
 	showElement,
+	validation,
 } from "~/shared/index.js";
 
 let audioSrc = "";
@@ -103,17 +106,44 @@ const configureSearchForm = (): void => {
 		const inputValue = dom.getElement<HTMLInputElement>("#search").value;
 		showElement(".loader-container");
 		hideElement(".search-results");
+		hideElement(".search-not-found");
 
-		const data = await api.get<WordDto>({
-			path: ApiPath.WORDS_$WORD.replace(":word", inputValue),
-		});
+		try {
+			if (
+				!(await validation.validate<{ word: string }>({
+					data: { word: inputValue },
+					validationSchema: wordSearchValidationSchema,
+				}))
+			) {
+				hideElement(".loader-container");
+				return;
+			}
 
-		hideElement(".loader-container");
-		showElement(".search-results");
+			const data = await api.get<WordDto>({
+				path: ApiPath.WORDS_$WORD.replace(":word", inputValue),
+			});
 
-		renderWordDefinition(data);
+			if (!("status" in data)) {
+				hideElement(".loader-container");
+				showElement(".search-results");
 
-		dom.getElement<HTMLInputElement>("#search").value = "";
+				renderWordDefinition(data);
+
+				dom.getElement<HTMLInputElement>("#search").value = "";
+			} else if ("message" in data) {
+				hideElement(".loader-container");
+				showElement(".search-not-found");
+				notification.error(data.message as string);
+
+				dom.getElement<HTMLInputElement>("#search").value = "";
+			}
+		} catch (error) {
+			hideElement(".loader-container");
+			showElement(".search-not-found");
+			if (error instanceof Error) {
+				notification.error(error.message);
+			}
+		}
 	};
 
 	dom.setListener({
