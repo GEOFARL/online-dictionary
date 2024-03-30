@@ -15,7 +15,14 @@
 .welcome-container {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	margin-bottom: 18px;
+}
+
+.main-page-link {
+	font-size: var(--font-size-200);
+	font-weight: 500;
+	line-height: 15px;
 }
 
 .heading {
