@@ -71,9 +71,3 @@
 	width: 24px;
 	height: 24px;
 }
-
-.error-message {
-	color: var(--color-red);
-	font-size: var(--font-size-200);
-	margin: 5px 0 3px 5px;
-}

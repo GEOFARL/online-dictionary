@@ -14,8 +14,12 @@
           label: "Пошук",
           placeholder: '"Введіть сюди ваше слово"',
           className: "search__input",
-          labelClassName: "search__input-label"
+          labelClassName: "search__input-label",
+          dataAttributes: {
+            "data-input-word": ""
+          }
         }); %>
+        <p class="error-message error-message--word" data-error-word></p>
 
         <button class="search__icon-container" type="button">
           <img class="search__icon" src="/assets/icons/search.svg" alt="search icon">
@@ -27,6 +31,13 @@
           size: 'large'
         }) %>
       </div>
+
+      <section class="search-not-found hidden">
+        <h2 class="search-not-found__heading">Не вдалося знайти твоє слово</h2>
+        <div class="search-not-found__image-container">
+          <img class="search-not-found__image" src="/assets/images/shocked-black-guy.png" alt="shocked-black-guy">
+        </div>
+      </section>
 
       <section class="search-results hidden">
         <h2 class="search-results__heading hidden">Результати</h2>
