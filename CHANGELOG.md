@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/GEOFARL/online-dictionary/compare/v1.19.0...v1.20.0) (2024-03-30)
+
+
+### Features
+
+* add return back to home page links od-109 ([#119](https://github.com/GEOFARL/online-dictionary/issues/119)) ([ae1421f](https://github.com/GEOFARL/online-dictionary/commit/ae1421ffacff92cad2d6b51090db2ef058d97297))
+
 ## [1.19.0](https://github.com/GEOFARL/online-dictionary/compare/v1.18.0...v1.19.0) (2024-03-30)
 
 
