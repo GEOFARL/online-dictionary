@@ -1,5 +1,69 @@
+.main {
+	max-width: 1280px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.hero-container {
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+	padding-top: 100px;
+}
+
+.hero-description-container {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.sub-title,
+.advantages-list-item {
+	font-size: var(--font-size-725);
+}
+
+.sub-title {
+	color: var(--color-grey-200);
+	font-weight: 400;
+}
+
+.advantages-list {
+	list-style-type: none;
+	padding-left: 0;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.advantages-list-item {
+	padding-left: 50px;
+	position: relative;
+	font-weight: 300;
+}
+
+.advantages-list-item::before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	background-image: url("../../assets/icons/bullet-list.svg");
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 10px;
+}
+
+.underlined-text {
+	text-decoration: underline;
+	text-underline-position: under;
+}
+
 .heading {
 	font-size: var(--font-size-950);
+	margin-bottom: -10px;
 }
 
 .gradient-text {
@@ -10,10 +74,6 @@
 		var(--color-red) -20%,
 		var(--color-red-200)
 	);
-}
-
-.main {
-	flex-grow: 1;
 }
 
 .cta-start {
