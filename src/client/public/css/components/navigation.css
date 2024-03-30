@@ -1,11 +1,11 @@
-.header {
+.header-container {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	position: fixed;
 	width: 100%;
 	background-color: var(--color-white);
 }
 
-.container {
+.header {
 	max-width: 1280px;
 	width: 100%;
 	margin: 0 auto;
@@ -17,19 +17,13 @@
 	justify-content: space-between;
 }
 
-.header-left {
+.header__content {
 	display: flex;
 	gap: 50px;
 	align-items: center;
 }
 
-.logo-container {
-	display: flex;
-	align-items: center;
-}
-.logo-icon {
-}
-.logo-text {
+.header__logo-title {
 	color: var(--color-black);
 	font-size: var(--font-size-600);
 	line-height: 1.1;
@@ -38,51 +32,42 @@
 	letter-spacing: -0.04em;
 }
 
-.logo-text:hover,
-.logo-text:focus,
-.logo-text:active {
+.header__logo-container {
+	display: flex;
+	align-items: center;
+}
+
+.header__logo-container:hover,
+.header__logo-container:focus,
+.header__logo-container:active {
 	text-decoration: none;
 	cursor: pointer;
 }
 
-.navigation-list {
+.navigation__list {
 	list-style-type: none;
 	display: flex;
 	gap: 26px;
 }
-.navigation-item-link {
+.navigation__list-item-link {
 	font-size: var(--font-size-500);
 	font-weight: 500;
 	line-height: 1.25;
 	color: var(--color-black);
 }
 
-.btn {
+.header__control-btn {
 	font-size: var(--font-size-500);
-	border-radius: 50px;
-	border: 2px solid transparent;
-	cursor: pointer;
-}
-
-.control-btn {
+	text-decoration: none;
 	padding: 5px 37px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--color-red);
-	color: var(--color-white);
 }
 
-.control-btn:hover,
-.control-btn:focus,
-.control-btn:active {
-	border-color: var(--color-red);
-	color: var(--color-red);
-	background-color: var(--color-white);
+.header__control-btn-active {
+	font-size: var(--font-size-500);
 	text-decoration: none;
-}
-
-.control-btn-active {
 	padding: 5px 32px;
 	border-color: var(--color-red);
 	color: var(--color-red);
@@ -94,7 +79,6 @@
 .control-btn-active:active {
 	background-color: var(--color-red);
 	color: var(--color-white);
-	text-decoration: none;
 }
 
 .controls {

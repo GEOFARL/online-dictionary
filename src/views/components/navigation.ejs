@@ -1,29 +1,25 @@
-<header class="header">
-    <div class="container">
-        <div class="header-left">
-            <div class="logo-container">
-                <img src="/assets/icons/website-logo.svg" alt="" class="logo-icon">
-                <%- include('../components/link.ejs', {
-                    href: "/",
-                    content: "Dictionary of words",
-                    className: "logo-text"
-                }); %>
-                <!-- <h2 class="logo-text">Dictionary of words</h2> -->
-            </div>
-            <nav class="page-navigation">
-                <ul class="navigation-list">
-                    <li class="navigation-item">
+<header class="header-container">
+    <div class="header">
+        <div class="header__content">
+            <%- include('../components/link.ejs', {
+                href: homePath,
+                content: "<img src=\"/assets/images/website-logo.svg\" alt=\"logo\" class=\"header__logo\"><p class=\"header__logo-title\">Dictionary of words</p>",
+                className: "header__logo-container"
+            }); %>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__list-item">
                         <%- include('../components/link.ejs', {
-                            href: "/",
+                            href: homePath,
                             content: "Головна",
-                            className: "navigation-item-link"
+                            className: "navigation__list-item-link"
                         }); %>
                     </li>
-                    <li class="navigation-item">
+                    <li class="navigation__list-item">
                         <%- include('../components/link.ejs', {
-                            href: "/dictionary",
+                            href: dictionaryRoute,
                             content: "Словник",
-                            className: "navigation-item-link"
+                            className: "navigation__list-item-link"
                         }); %>
                     </li>
                 </ul>
@@ -31,22 +27,22 @@
         </div>
         <div class="controls">
             <% if (isAuthorized) { %>
-                <%- include('../components/link.ejs', {
+                <%- include('../components/button.ejs', {
                     href: logOutPath,
-                    content: "Вийти",
-                    className: "btn control-btn"
+                    label: "Вийти",
+                    className: "header__control-btn"
                   })
                 %>
               <% } else { %>
-                <%- include('../components/link.ejs', {
-                    href: "/sign-in",
-                    content: "Увійти",
-                    className: "btn control-btn"
+                <%- include('../components/button.ejs', {
+                    href: signInPath,
+                    label: "Увійти",
+                    className: "header__control-btn"
                 }); %>
-                <%- include('../components/link.ejs', {
-                    href: "/sign-up",
-                    content: "Зареєструватися",
-                    className: "btn control-btn-active"
+                <%- include('../components/button.ejs', {
+                    href: signUpPath,
+                    label: "Зареєструватися",
+                    className: "header__control-btn-active"
                 }); %>
               <% } %>
         </div>
