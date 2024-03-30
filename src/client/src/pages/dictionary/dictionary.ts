@@ -61,6 +61,14 @@ const configureSearchForm = (): void => {
 		}
 	};
 
+	const urlParams = new URLSearchParams(window.location.search);
+	const searchWord = urlParams.get("word");
+
+	if (searchWord) {
+		dom.getElement<HTMLInputElement>("#search").value = searchWord;
+		handleFormSubmit();
+	}
+
 	dom.setListener({
 		eventType: "submit",
 		listener: (event: SubmitEvent) => {
