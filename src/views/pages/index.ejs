@@ -2,6 +2,7 @@
   <link rel="stylesheet" href="/css/pages/home.css">
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/review.css">
   </head>
 	<body>
     <main class="main">
@@ -19,6 +20,13 @@
         </div>
         <img class="hero-image" src="/assets/images/hero-image.png" alt="">
       </section>
+
+      <%- include("../components/review.ejs") %>
+      <%- include("../components/review.ejs", {
+        imageUrl: "https://cynicallviv.com.ua/wp-content/uploads/2022/08/IMG_20220804_095539-800x445-1.jpg",
+        content: "Дякую всім, хто вірив. І знову розподіл майже 73% і 27%. Думаю щось у цьому є. Міцно обіймаю.",
+        authorProps: "Пізнак Роман",
+      }) %>
 
       <% if (isAuthorized) { %>
         <%- include('../components/link.ejs', {
