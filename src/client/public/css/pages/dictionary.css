@@ -169,3 +169,10 @@
 	font-style: italic;
 	font-size: var(--font-size-400);
 }
+
+.loader-container {
+	display: grid;
+	place-content: center;
+	width: 100%;
+	padding: 80px 0;
+}
