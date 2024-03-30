@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/GEOFARL/online-dictionary/compare/v1.13.0...v1.14.0) (2024-03-30)
+
+
+### Features
+
+* create a hero section of the page od-82 ([#101](https://github.com/GEOFARL/online-dictionary/issues/101)) ([488140f](https://github.com/GEOFARL/online-dictionary/commit/488140f268ea8aa5573e74af15c4db3206e415c2))
+
 ## [1.13.0](https://github.com/GEOFARL/online-dictionary/compare/v1.12.0...v1.13.0) (2024-03-29)
 
 
