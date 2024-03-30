@@ -2,9 +2,11 @@ import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
+import { validate } from "~/middlewares/middlewares.js";
 
 import { type AuthService } from "../auth/auth.js";
 import { type DictionaryService } from "./dictionary.service.js";
+import { wordSearch as wordSearchValidationSchema } from "./libs/validation-schemas/validation-schemas.js";
 
 /**
  * @swagger
@@ -118,6 +120,7 @@ class DictionaryController implements Controller {
 		 */
 		app.get(
 			ApiPath.WORDS_$WORD,
+			validate({ params: wordSearchValidationSchema }),
 			asyncHandler(async (req, res) => {
 				const response = await this.dictionaryService.searchWord({
 					userId: req.user?.id,

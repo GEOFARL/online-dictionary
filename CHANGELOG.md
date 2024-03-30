@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/GEOFARL/online-dictionary/compare/v1.15.0...v1.16.0) (2024-03-30)
+
+
+### Features
+
+* handle not found case od-84 ([#115](https://github.com/GEOFARL/online-dictionary/issues/115)) ([ffd6fe4](https://github.com/GEOFARL/online-dictionary/commit/ffd6fe4c833485c317c3f2cf8171b7db11e4f69e))
+
 ## [1.15.0](https://github.com/GEOFARL/online-dictionary/compare/v1.14.1...v1.15.0) (2024-03-30)
 
 
