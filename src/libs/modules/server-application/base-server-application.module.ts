@@ -82,6 +82,7 @@ class BaseServerApplication {
 	public initNotFoundHandler() {
 		this.app.use((req, res) => {
 			res.status(HTTPCode.NOT_FOUND).render(`pages/${PagesPath.NOT_FOUND}`, {
+				homePath: PagesPath.ROOT,
 				title: PageTitle.NOT_FOUND,
 			});
 		});
