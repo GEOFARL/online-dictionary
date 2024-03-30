@@ -9,6 +9,11 @@
 		<div class="wrapper">
       <div class="container">
         <div class="welcome-container">
+          <%- include("../components/link.ejs", {
+            href: homePath,
+            className: "main-page-link",
+            content: "Повернутися на головну &rarr;"
+          }) %>
           <h2 class="heading">З поверненням!</h2>
           <div class="prompt">
             <p class="prompt__question">Немає акаунту?</p>

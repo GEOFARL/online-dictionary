@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.21.0](https://github.com/GEOFARL/online-dictionary/compare/v1.20.0...v1.21.0) (2024-03-30)
+
+
+### Features
+
+* add search by query od-132 ([#133](https://github.com/GEOFARL/online-dictionary/issues/133)) ([88102ee](https://github.com/GEOFARL/online-dictionary/commit/88102ee0c1c6aa89934b22c506158b21f4dcfff2))
+
+## [1.20.0](https://github.com/GEOFARL/online-dictionary/compare/v1.19.0...v1.20.0) (2024-03-30)
+
+
+### Features
+
+* add return back to home page links od-109 ([#119](https://github.com/GEOFARL/online-dictionary/issues/119)) ([ae1421f](https://github.com/GEOFARL/online-dictionary/commit/ae1421ffacff92cad2d6b51090db2ef058d97297))
+
+## [1.19.0](https://github.com/GEOFARL/online-dictionary/compare/v1.18.0...v1.19.0) (2024-03-30)
+
+
+### Features
+
+* Add a block with synonyms od-94 ([#125](https://github.com/GEOFARL/online-dictionary/issues/125)) ([dfff319](https://github.com/GEOFARL/online-dictionary/commit/dfff319cc877bb7b16900b98f435719785c1999a))
+
 ## [1.18.0](https://github.com/GEOFARL/online-dictionary/compare/v1.17.0...v1.18.0) (2024-03-30)
 
 
