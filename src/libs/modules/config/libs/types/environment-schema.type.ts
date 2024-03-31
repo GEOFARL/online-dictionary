@@ -11,6 +11,10 @@ type EnvironmentSchema = {
 	JWT: {
 		SECRET: string;
 	};
+
+	PEXELS: {
+		API_KEY: string;
+	};
 };
 
 export { type EnvironmentSchema };

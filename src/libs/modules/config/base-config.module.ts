@@ -58,6 +58,14 @@ class BaseConfig implements Config {
 					format: String,
 				},
 			},
+			PEXELS: {
+				API_KEY: {
+					default: null,
+					doc: "An API key for the Pexels images",
+					env: "PEXELS_API_KEY",
+					format: String,
+				},
+			},
 		});
 	}
 }

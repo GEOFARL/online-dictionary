@@ -1,11 +1,14 @@
 import { ApiPath } from "@/libs/enums/enums.js";
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
 import { wordSearch as wordSearchValidationSchema } from "@/modules/dictionary/libs/validation-schemas/validation-schemas.js";
+import "swiper/css";
+import "swiper/css/navigation";
 
 import {
 	api,
 	dom,
 	hideElement,
+	navigation,
 	notification,
 	validation,
 } from "~/shared/index.js";
@@ -38,6 +41,8 @@ const configureSearchForm = (): void => {
 			const data = await api.get<WordDto>({
 				path: ApiPath.WORDS_$WORD.replace(":word", inputValue),
 			});
+
+			navigation.addQueryParameter("word", inputValue);
 
 			if (!("status" in data)) {
 				showSearchResults();

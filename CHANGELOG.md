@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/GEOFARL/online-dictionary/compare/v1.21.0...v1.22.0) (2024-03-31)
+
+
+### Features
+
+* Add associated image to the search result od-114 ([#135](https://github.com/GEOFARL/online-dictionary/issues/135)) ([16d87b1](https://github.com/GEOFARL/online-dictionary/commit/16d87b18dbf41d214cfef48476433873143f1b0b))
+
 ## [1.21.0](https://github.com/GEOFARL/online-dictionary/compare/v1.20.0...v1.21.0) (2024-03-30)
 
 
