@@ -1,4 +1,6 @@
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
+import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
 
 import {
 	dom,
@@ -8,6 +10,17 @@ import {
 } from "~/shared/index.js";
 
 import { renderSynonyms } from "./render-synonyms.helper.js";
+
+const swiper = new Swiper(".swiper", {
+	allowSlideNext: true,
+	allowSlidePrev: true,
+	loop: true,
+	modules: [Navigation],
+	navigation: {
+		nextEl: ".swiper-button-next",
+		prevEl: ".swiper-button-prev",
+	},
+});
 
 const renderWordDefinition = (
 	data: WordDto,
@@ -52,6 +65,7 @@ const renderWordDefinition = (
 
 	if (data.meanings) {
 		dom.clearContent(".definitions");
+
 		dom.createElement({
 			className: "definitions__header",
 			content: "Визначення",
@@ -98,6 +112,29 @@ const renderWordDefinition = (
 				renderSynonyms(meaning.synonyms, `.definition--${index}`, index);
 			}
 		});
+
+		if (data.images) {
+			dom.clearContent(".swiper-wrapper");
+
+			data.images.forEach((image) => {
+				dom.createElement({
+					children: [
+						{
+							attributes: {
+								"alt": image.alt,
+								"src": image.src,
+							},
+							tagName: "img",
+						},
+					],
+					className: "swiper-slide",
+					parentElementSelector: ".swiper-wrapper",
+					tagName: "div",
+				});
+			});
+
+			swiper.init();
+		}
 	}
 };
 

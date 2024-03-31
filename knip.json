@@ -8,7 +8,8 @@
 		"webpack-cli",
 		"notyf",
 		"css-loader",
-		"style-loader"
+		"style-loader",
+		"swiper"
 	],
 	"ignore": ["src/client/**/*.{js,ts}"]
 }
