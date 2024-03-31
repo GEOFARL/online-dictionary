@@ -1,7 +1,7 @@
 import { type Navigation } from "./libs/types/types.js";
 
 class BaseNavigation implements Navigation {
-	public addQueryParameter(parameter: string, value: string) {
+	public addQueryParameter(parameter: string, value: string): void {
 		const url = new URL(window.location.href);
 
 		url.searchParams.set(parameter, value);
