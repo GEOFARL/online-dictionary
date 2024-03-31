@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
+  <link rel="stylesheet" href="/css/components/review.css">
   </head>
 	<body>
     <main class="main">
@@ -21,6 +22,11 @@
         <img class="hero-image" src="/assets/images/hero-image.png" alt="">
         </div>
       </section>
+
+      <%- include("../components/review.ejs", {
+        content: "Ваш онлайн словник - зручний і швидкий помічник у світі слів.",
+        authorName: "Відома людина",
+      }) %>
 
       <% if (isAuthorized) { %>
         <%- include('../components/link.ejs', {
