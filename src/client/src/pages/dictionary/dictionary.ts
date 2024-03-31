@@ -8,6 +8,7 @@ import {
 	api,
 	dom,
 	hideElement,
+	navigation,
 	notification,
 	validation,
 } from "~/shared/index.js";
@@ -41,11 +42,7 @@ const configureSearchForm = (): void => {
 				path: ApiPath.WORDS_$WORD.replace(":word", inputValue),
 			});
 
-			const url = new URL(window.location.href);
-
-			url.searchParams.set("word", inputValue);
-
-			global.history.replaceState({}, null, url);
+			navigation.addQueryParameter("word", inputValue);
 
 			if (!("status" in data)) {
 				showSearchResults();
