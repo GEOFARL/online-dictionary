@@ -1,5 +1,6 @@
 import { type API } from "~/libs/modules/api/api.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
+import { pexels } from "~/libs/modules/pexels/pexels.js";
 
 import { type DictionaryRepository } from "./dictionary.repository.js";
 import {
@@ -54,7 +55,15 @@ class DictionaryService {
 			}
 		}
 
-		const wordDto: WordDto = mapDictionaryResponseToWord(data);
+		const wordDtoWithoutImages: Omit<WordDto, "images"> =
+			mapDictionaryResponseToWord(data);
+
+		const images = await pexels.findImage(wordDtoWithoutImages.word);
+
+		const wordDto: WordDto = {
+			...wordDtoWithoutImages,
+			images,
+		};
 
 		if (userId) {
 			const allWords: WordRecordDto[] =

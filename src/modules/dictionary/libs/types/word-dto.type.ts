@@ -1,4 +1,8 @@
 type WordDto = {
+	images: {
+		alt: string;
+		src: string;
+	}[];
 	meanings: {
 		antonyms: string[];
 		definitions: {

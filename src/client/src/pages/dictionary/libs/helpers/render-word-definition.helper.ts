@@ -7,6 +7,7 @@ import {
 	showElement,
 } from "~/shared/index.js";
 
+import { swiper } from "../modules/modules.js";
 import { renderSynonyms } from "./render-synonyms.helper.js";
 
 const renderWordDefinition = (
@@ -52,6 +53,7 @@ const renderWordDefinition = (
 
 	if (data.meanings) {
 		dom.clearContent(".definitions");
+
 		dom.createElement({
 			className: "definitions__header",
 			content: "Визначення",
@@ -98,6 +100,29 @@ const renderWordDefinition = (
 				renderSynonyms(meaning.synonyms, `.definition--${index}`, index);
 			}
 		});
+
+		if (data.images) {
+			dom.clearContent(".swiper-wrapper");
+
+			data.images.forEach((image) => {
+				dom.createElement({
+					children: [
+						{
+							attributes: {
+								"alt": image.alt,
+								"src": image.src,
+							},
+							tagName: "img",
+						},
+					],
+					className: "swiper-slide",
+					parentElementSelector: ".swiper-wrapper",
+					tagName: "div",
+				});
+			});
+
+			swiper.init();
+		}
 	}
 };
 
