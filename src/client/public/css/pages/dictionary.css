@@ -295,19 +295,3 @@
 	flex-shrink: 1;
 	padding: 80px 20px 40px;
 }
-
-.swiper-container {
-	position: relative;
-	display: inline-block;
-}
-
-.overlay {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(232, 82, 82, 0.4);
-	filter: blur(50px);
-	z-index: -1;
-}
