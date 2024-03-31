@@ -27,7 +27,7 @@
 	max-width: 350px;
 }
 
-.author-props {
+.author-name {
 	font-size: var(--font-size-500);
 	font-weight: 500;
 	line-height: 20px;
