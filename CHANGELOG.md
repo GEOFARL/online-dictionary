@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/GEOFARL/online-dictionary/compare/v1.22.0...v1.23.0) (2024-03-31)
+
+
+### Features
+
+* create a review component od-81 ([#122](https://github.com/GEOFARL/online-dictionary/issues/122)) ([7a19c92](https://github.com/GEOFARL/online-dictionary/commit/7a19c92f1909f20e0b0932cbda10e2719eaed3e1))
+
 ## [1.22.0](https://github.com/GEOFARL/online-dictionary/compare/v1.21.0...v1.22.0) (2024-03-31)
 
 
