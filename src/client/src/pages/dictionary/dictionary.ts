@@ -1,6 +1,8 @@
 import { ApiPath } from "@/libs/enums/enums.js";
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
 import { wordSearch as wordSearchValidationSchema } from "@/modules/dictionary/libs/validation-schemas/validation-schemas.js";
+import "swiper/css";
+import "swiper/css/navigation";
 
 import {
 	api,
