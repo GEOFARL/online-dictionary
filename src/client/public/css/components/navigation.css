@@ -26,10 +26,10 @@
 .header__logo-title {
 	color: var(--color-black);
 	font-size: var(--font-size-600);
-	line-height: 1.1;
+	line-height: 20px;
 	font-weight: 600;
 	text-transform: uppercase;
-	letter-spacing: -0.04em;
+	letter-spacing: -0.72px;
 }
 
 .header__logo-container {
@@ -49,6 +49,7 @@
 	display: flex;
 	gap: 26px;
 }
+
 .navigation__list-item-link {
 	font-size: var(--font-size-500);
 	font-weight: 500;
@@ -74,9 +75,9 @@
 	background-color: var(--color-white);
 }
 
-.control-btn-active:hover,
-.control-btn-active:focus,
-.control-btn-active:active {
+.header__control-btn-active:hover,
+.header__control-btn-active:focus,
+.header__control-btn-active:active {
 	background-color: var(--color-red);
 	color: var(--color-white);
 }

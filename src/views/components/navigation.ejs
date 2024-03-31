@@ -3,8 +3,10 @@
         <div class="header__content">
             <%- include('../components/link.ejs', {
                 href: homePath,
-                content: "<img src=\"/assets/images/website-logo.svg\" alt=\"logo\" class=\"header__logo\"><p class=\"header__logo-title\">Dictionary of words</p>",
-                className: "header__logo-container"
+                src: "/assets/images/website-logo.svg",
+                content: "Dictionary of words",
+                className: "header__logo-container",
+                additionalClassName: "header__logo-title"
             }); %>
             <nav class="navigation">
                 <ul class="navigation__list">
