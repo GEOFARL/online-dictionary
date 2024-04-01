@@ -3,6 +3,8 @@
 	position: fixed;
 	width: 100%;
 	background-color: var(--color-white);
+
+	z-index: 1000;
 }
 
 .header {
@@ -66,7 +68,7 @@
 	align-items: center;
 }
 
-.header__control-btn-active {
+.header__control-btn--active {
 	font-size: var(--font-size-500);
 	text-decoration: none;
 	padding: 5px 32px;
@@ -75,9 +77,9 @@
 	background-color: var(--color-white);
 }
 
-.header__control-btn-active:hover,
-.header__control-btn-active:focus,
-.header__control-btn-active:active {
+.header__control-btn--active:hover,
+.header__control-btn--active:focus,
+.header__control-btn--active:active {
 	background-color: var(--color-red);
 	color: var(--color-white);
 }

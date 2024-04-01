@@ -1,6 +1,6 @@
 <% if (locals.src) { %>
     <a href="<%- href %>" class="link <%- locals.className ? className : '' %>">
-        <img src="<%- src %>" alt="<%- locals.alt ? alt : 'image' %>">
+        <img src="<%- src %>" alt="<%- alt %>">
         <p class="<%- locals.additionalClassName ? additionalClassName : '' %>"><%- content %></p>
     </a>
 <% } else { %>
