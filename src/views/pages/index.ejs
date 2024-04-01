@@ -21,6 +21,8 @@
         <img class="hero-image" src="/assets/images/hero-image.png" alt="">
       </section>
 
+      <%- include("../components/separator.ejs") %>
+
       <section class="reviews-container">
         <% reviews.map(review => { %>
           <%- include("../components/review.ejs", review) %>
