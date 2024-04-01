@@ -4,10 +4,10 @@
 	height: 293px;
 	border-radius: 50%;
 	z-index: -99;
-	filter: blur(80px);
+	filter: blur(150px);
 }
 
-.overlay__top {
+.overlay--top {
 	top: 22px;
 	left: auto;
 	right: 50px;
@@ -17,7 +17,7 @@
 	);
 }
 
-.overlay__bottom {
+.overlay--bottom {
 	bottom: 0;
 	left: 200px;
 	background-image: linear-gradient(
