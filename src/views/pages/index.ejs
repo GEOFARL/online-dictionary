@@ -21,10 +21,11 @@
         <img class="hero-image" src="/assets/images/hero-image.png" alt="">
       </section>
 
-      <%- include("../components/review.ejs", {
-        content: "Ваш онлайн словник - зручний і швидкий помічник у світі слів.",
-        authorName: "Відома людина",
-      }) %>
+      <section class="reviews-container">
+        <% reviews.map(review => { %>
+          <%- include("../components/review.ejs", review) %>
+        <% }) %>
+      </section>
 
       <% if (isAuthorized) { %>
         <%- include('../components/link.ejs', {

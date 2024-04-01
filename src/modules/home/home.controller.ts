@@ -1,5 +1,10 @@
 import { type Express } from "express";
 
+import {
+	REVIEWS,
+	REVIEWS_TO_RENDER,
+	getRandomReviews,
+} from "~/libs/constants/constants.js";
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
@@ -13,6 +18,7 @@ class HomeController implements Controller {
 				dictionaryRoute: PagesPath.DICTIONARY,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
+				reviews: getRandomReviews(REVIEWS, REVIEWS_TO_RENDER),
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,
