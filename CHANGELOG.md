@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/GEOFARL/online-dictionary/compare/v1.23.0...v1.24.0) (2024-04-02)
+
+
+### Features
+
+* navigation component od-28 ([#124](https://github.com/GEOFARL/online-dictionary/issues/124)) ([0e3f7be](https://github.com/GEOFARL/online-dictionary/commit/0e3f7be624c95f8864e67fe7c97d81abe939e361))
+
 ## [1.23.0](https://github.com/GEOFARL/online-dictionary/compare/v1.22.0...v1.23.0) (2024-03-31)
 
 

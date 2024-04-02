@@ -9,7 +9,7 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 50px;
-	padding-top: 100px;
+	padding-top: 130px;
 }
 
 .hero-description-container {
@@ -98,4 +98,15 @@
 .cta-start__button {
 	width: 295px;
 	text-decoration: none;
+}
+
+.hero-image-container {
+	max-width: 530px;
+	width: 100%;
+}
+
+.hero-image {
+	object-fit: contain;
+	width: 100%;
+	height: auto;
 }

@@ -3,9 +3,13 @@
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
+  <link rel="stylesheet" href="/css/components/link.css">
+  <link rel="stylesheet" href="/css/includes/navigation.css">
+
   <link rel="stylesheet" href="/css/components/review.css">
   </head>
 	<body>
+    <%- include('../includes/navigation.ejs')%>
     <main class="main">
       <section class="hero-container">
         <div class="hero-description-container">
@@ -19,7 +23,9 @@
             <li class="advantages-list-item">Зберігай та вивчай нові слова</li>
           </ul>
         </div>
-        <img class="hero-image" src="/assets/images/hero-image.png" alt="">
+        <div class="hero-image-container">
+          <img class="hero-image" src="/assets/images/hero-image.png" alt="a woman with books">
+        </div>
       </section>
 
       <%- include("../components/review.ejs", {
@@ -53,7 +59,7 @@
             type: "submit",
             label: "Знайти слово",
             className: "cta-start__button",
-            href: dictionaryRoute
+            href: dictionaryPath
           }); %>
         </div>
       </section>
@@ -61,8 +67,6 @@
     <%- include('../includes/overlay.ejs')%>
     <%- include('../includes/footer.ejs') %>
 	</body>
-
-
 
   <script src="/js/home.js"></script>
   <script>
