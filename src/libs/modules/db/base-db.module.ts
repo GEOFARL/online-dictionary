@@ -1,12 +1,18 @@
 import crypto from "crypto";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { type ValueOf } from "~/libs/types/types.js";
 
 import { ID_BYTE_LENGTH, STORAGE_NAME } from "./libs/constants/constants.js";
 import { TableName } from "./libs/enums/enums.js";
 import { type DB, type DBRecord } from "./libs/types/types.js";
+
+/* eslint-disable no-underscore-dangle */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+/* eslint-enable no-underscore-dangle */
 
 class BaseDB implements DB {
 	private currentTable: ValueOf<typeof TableName>;
