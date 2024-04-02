@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.2](https://github.com/GEOFARL/online-dictionary/compare/v1.26.1...v1.26.2) (2024-04-02)
+
+
+### Bug Fixes
+
+* Production build fail due to ES modules od-147 ([#150](https://github.com/GEOFARL/online-dictionary/issues/150)) ([a4f99d4](https://github.com/GEOFARL/online-dictionary/commit/a4f99d4f47c5d3bc52f480783cd2e2453a526184))
+
 ## [1.26.1](https://github.com/GEOFARL/online-dictionary/compare/v1.26.0...v1.26.1) (2024-04-02)
 
 
