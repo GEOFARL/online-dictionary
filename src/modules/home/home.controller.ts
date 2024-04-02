@@ -10,7 +10,7 @@ class HomeController implements Controller {
 	private initPages(app: Express) {
 		app.get(PagesPath.ROOT, (req, res) => {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
-				dictionaryRoute: PagesPath.DICTIONARY,
+				dictionaryPath: PagesPath.DICTIONARY,
 				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,

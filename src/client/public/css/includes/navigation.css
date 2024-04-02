@@ -25,7 +25,7 @@
 	align-items: center;
 }
 
-.header__logo-title {
+.header__logo-container :last-child {
 	color: var(--color-black);
 	font-size: var(--font-size-600);
 	line-height: 20px;

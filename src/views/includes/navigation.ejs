@@ -6,7 +6,6 @@
                 src: "/assets/images/website-logo.svg",
                 content: "Dictionary of words",
                 className: "header__logo-container",
-                additionalClassName: "header__logo-title",
                 alt: "logo"
             }); %>
             <nav class="navigation">
@@ -20,7 +19,7 @@
                     </li>
                     <li class="navigation__list-item">
                         <%- include('../components/link.ejs', {
-                            href: dictionaryRoute,
+                            href: dictionaryPath,
                             content: "Словник",
                             className: "navigation__list-item-link"
                         }); %>
