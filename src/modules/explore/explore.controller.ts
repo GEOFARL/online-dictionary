@@ -40,6 +40,11 @@ class ExploreController implements Controller {
 					homePath: PagesPath.ROOT,
 					isAuthorized: Boolean(req.user),
 					logOutPath: ApiPath.AUTH_LOG_OUT,
+					recentlyViewedWords:
+						req.user?.id &&
+						(await this.exploreService.getRecentlyViewedWords({
+							userId: req.user?.id,
+						})),
 					signInPath: PagesPath.SIGN_IN,
 					signUpPath: PagesPath.SIGN_UP,
 					title: PageTitle.EXPLORE,
