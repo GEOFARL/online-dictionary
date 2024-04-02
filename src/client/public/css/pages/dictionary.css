@@ -139,17 +139,34 @@
 	margin-left: 87px;
 }
 
-.search-not-found {
+.search-not-found,
+.default-content {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 24px;
 	margin: 100px 0;
 }
 
-.search-not-found__heading {
+.search-not-found {
+	gap: 24px;
+}
+
+.default-content {
+	gap: 6px;
+}
+
+.search-not-found__heading,
+.default-content__heading {
 	font-size: var(--font-size-850);
 	font-weight: 600;
+}
+
+.default-content__description {
+	font-size: var(--font-size-700);
+	max-width: 608px;
+	text-align: center;
+	color: var(--color-grey-200);
+	line-height: 24px;
 }
 
 .search-not-found__image-container {
