@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.1](https://github.com/GEOFARL/online-dictionary/compare/v1.26.0...v1.26.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* convert a project to use module type od-147 ([#148](https://github.com/GEOFARL/online-dictionary/issues/148)) ([2ea4a85](https://github.com/GEOFARL/online-dictionary/commit/2ea4a85220aba9545ca59d6042872680421fd267))
+
 ## [1.26.0](https://github.com/GEOFARL/online-dictionary/compare/v1.25.0...v1.26.0) (2024-04-02)
 
 
