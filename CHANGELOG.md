@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.29.0](https://github.com/GEOFARL/online-dictionary/compare/v1.28.0...v1.29.0) (2024-04-02)
+
+
+### Features
+
+* add fav icon od-160 ([#161](https://github.com/GEOFARL/online-dictionary/issues/161)) ([44541c8](https://github.com/GEOFARL/online-dictionary/commit/44541c829ed3098eb40e8235bb2c926574db47af))
+
 ## [1.28.0](https://github.com/GEOFARL/online-dictionary/compare/v1.27.0...v1.28.0) (2024-04-02)
 
 
