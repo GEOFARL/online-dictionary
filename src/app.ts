@@ -25,7 +25,7 @@ serverApplication.initControllers([
 	exploreController,
 ]);
 serverApplication.initErrorHandler(errorHandlerMiddleware);
-serverApplication.initNotFoundHandler();
 serverApplication.initSwaggerDocs();
 serverApplication.initCrons();
+serverApplication.initNotFoundHandler();
 serverApplication.start();

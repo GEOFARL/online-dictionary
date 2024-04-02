@@ -13,6 +13,24 @@ class ExploreController implements Controller {
 	}
 
 	private initPages(app: Application) {
+		/**
+		 * @swagger
+		 * /explore:
+		 *   get:
+		 *     tags:
+		 *       - Pages
+		 *     description: Renders the explore page showcasing a word of the day and other features
+		 *     responses:
+		 *       200:
+		 *         description: HTML page for the explore section
+		 *         content:
+		 *           text/html:
+		 *             schema:
+		 *               type: string
+		 *               description: HTML content of the explore page.
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
 		app.get(
 			PagesPath.EXPLORE,
 			asyncHandler(async (req, res) => {
