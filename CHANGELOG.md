@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/GEOFARL/online-dictionary/compare/v1.24.0...v1.25.0) (2024-04-02)
+
+
+### Features
+
+* add brurred background on main and dictionary pages od-108 ([#138](https://github.com/GEOFARL/online-dictionary/issues/138)) ([b2a0506](https://github.com/GEOFARL/online-dictionary/commit/b2a0506d8f537cb633d6b7c773df9ed56997a607))
+
 ## [1.24.0](https://github.com/GEOFARL/online-dictionary/compare/v1.23.0...v1.24.0) (2024-04-02)
 
 
