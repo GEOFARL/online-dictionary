@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.3](https://github.com/GEOFARL/online-dictionary/compare/v1.26.2...v1.26.3) (2024-04-02)
+
+
+### Bug Fixes
+
+* underlined current page ([#153](https://github.com/GEOFARL/online-dictionary/issues/153)) ([d0063fd](https://github.com/GEOFARL/online-dictionary/commit/d0063fd3349f7995fcd8dc7c863d75e3243a3e0f))
+
 ## [1.26.2](https://github.com/GEOFARL/online-dictionary/compare/v1.26.1...v1.26.2) (2024-04-02)
 
 
