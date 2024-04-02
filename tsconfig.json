@@ -1,8 +1,8 @@
 {
 	"include": ["src"],
-	"exclude": [".eslintrc.js", "src/client"],
+	"exclude": [".eslintrc.cjs", "src/client"],
 	"compilerOptions": {
-		"module": "commonjs",
+		"module": "ESNext",
 		"esModuleInterop": true,
 		"target": "es6",
 		"moduleResolution": "node",

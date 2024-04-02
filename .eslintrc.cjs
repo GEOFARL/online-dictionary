@@ -80,9 +80,9 @@ module.exports = {
 	},
 	ignorePatterns: [
 		"build",
-		".eslintrc.js",
-		"lint-staged.config.js",
-		"commitlint.config.js",
+		".eslintrc.cjs",
+		"lint-staged.config.cjs",
+		"commitlint.config.cjs",
 		"dangerfile.ts",
 		"project.config.ts",
 		"*.ejs",
