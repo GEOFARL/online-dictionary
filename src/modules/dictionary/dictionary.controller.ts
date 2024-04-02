@@ -87,6 +87,12 @@ class DictionaryController implements Controller {
 		 */
 		app.get(PagesPath.DICTIONARY, (req, res) => {
 			res.render(`pages${PagesPath.DICTIONARY}`, {
+				dictionaryPath: PagesPath.DICTIONARY,
+				homePath: PagesPath.ROOT,
+				isAuthorized: Boolean(req.user),
+				logOutPath: ApiPath.AUTH_LOG_OUT,
+				signInPath: PagesPath.SIGN_IN,
+				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.DICTIONARY,
 			});
 		});
