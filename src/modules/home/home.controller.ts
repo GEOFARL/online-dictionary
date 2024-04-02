@@ -27,6 +27,7 @@ class HomeController implements Controller {
 		app.get(PagesPath.ROOT, (req, res) => {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
 				dictionaryPath: PagesPath.DICTIONARY,
+				explorePath: PagesPath.EXPLORE,
 				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,

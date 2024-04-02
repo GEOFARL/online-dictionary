@@ -1,4 +1,4 @@
-import { PageTitle, PagesPath } from "~/libs/enums/enums.js";
+import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler } from "~/libs/helpers/async-handler.helper.js";
 import { type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
@@ -15,9 +15,15 @@ class ExploreController implements Controller {
 	private initPages(app: Application) {
 		app.get(
 			PagesPath.EXPLORE,
-			asyncHandler(async (_, res) => {
+			asyncHandler(async (req, res) => {
 				res.render(`pages${PagesPath.EXPLORE}`, {
 					dictionaryPath: PagesPath.DICTIONARY,
+					explorePath: PagesPath.EXPLORE,
+					homePath: PagesPath.ROOT,
+					isAuthorized: Boolean(req.user),
+					logOutPath: ApiPath.AUTH_LOG_OUT,
+					signInPath: PagesPath.SIGN_IN,
+					signUpPath: PagesPath.SIGN_UP,
 					title: PageTitle.EXPLORE,
 					wordOfTheDay: await this.exploreService.getWordOfTheDay(),
 				});
