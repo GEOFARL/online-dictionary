@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.0](https://github.com/GEOFARL/online-dictionary/compare/v1.29.0...v1.30.0) (2024-04-02)
+
+
+### Features
+
+* Show recently viewed words od-88 ([#163](https://github.com/GEOFARL/online-dictionary/issues/163)) ([2b20a2b](https://github.com/GEOFARL/online-dictionary/commit/2b20a2b1e132d3d83aa0c1706a5e3baabf6bd575))
+
 ## [1.29.0](https://github.com/GEOFARL/online-dictionary/compare/v1.28.0...v1.29.0) (2024-04-02)
 
 
