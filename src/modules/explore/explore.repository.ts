@@ -1,6 +1,5 @@
 import { LAST_ARRAY_ELEMENT } from "~/libs/constants/constants.js";
-import { type DB } from "~/libs/modules/db/db.js";
-import { type DBRecord } from "~/libs/modules/db/libs/types/db-record.type.js";
+import { type DB, type DBRecord } from "~/libs/modules/db/db.js";
 
 import { type WordOfTheDayDto } from "../dictionary/dictionary.js";
 

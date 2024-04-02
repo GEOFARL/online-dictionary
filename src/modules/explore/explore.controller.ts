@@ -1,5 +1,5 @@
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
-import { asyncHandler } from "~/libs/helpers/async-handler.helper.js";
+import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 
