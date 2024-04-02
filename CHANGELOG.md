@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.0](https://github.com/GEOFARL/online-dictionary/compare/v1.26.3...v1.27.0) (2024-04-02)
+
+
+### Features
+
+* add a default placehodler for dictionary od-152 ([#156](https://github.com/GEOFARL/online-dictionary/issues/156)) ([d5f0ab7](https://github.com/GEOFARL/online-dictionary/commit/d5f0ab76ea0e6f204f7b8bf35479c94abb114e7f))
+
 ## [1.26.3](https://github.com/GEOFARL/online-dictionary/compare/v1.26.2...v1.26.3) (2024-04-02)
 
 
