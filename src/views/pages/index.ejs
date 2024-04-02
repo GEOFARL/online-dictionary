@@ -4,12 +4,12 @@
   <link rel="stylesheet" href="/css/components/button.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
   <link rel="stylesheet" href="/css/components/link.css">
-  <link rel="stylesheet" href="/css/includes/navigation.css">
+  <link rel="stylesheet" href="/css/components/navigation.css">
 
   <link rel="stylesheet" href="/css/components/review.css">
   </head>
 	<body>
-    <%- include('../includes/navigation.ejs')%>
+    <%- include('../components/navigation.ejs', {routePath: homePath})%>
     <main class="main">
       <section class="hero-container">
         <div class="hero-description-container">
