@@ -1,6 +1,6 @@
-import { FIRST_ARRAY_ELEMENT } from "./first-array-element.constant";
+import { type ReviewDto } from "../exceptions/libs/types/review-dto.type.js";
 
-const REVIEWS = [
+const REVIEWS: ReviewDto[] = [
 	{
 		authorName: "Петро Коваленко",
 		content: "Ваш онлайн словник - зручний і швидкий помічник у світі слів.",
@@ -44,18 +44,6 @@ const REVIEWS = [
 	},
 ];
 
-const REVIEWS_TO_RENDER = 2;
-const HALF = 0.5;
+const NUMBER_OF_REVIEWS_TO_RENDER = 2;
 
-interface Review {
-	authorName: string;
-	content: string;
-	imageUrl: string;
-}
-
-function getRandomReviews(reviews: Review[], count: number) {
-	const shuffledReviews = reviews.sort(() => HALF - Math.random());
-	return shuffledReviews.slice(FIRST_ARRAY_ELEMENT, count);
-}
-
-export { REVIEWS, REVIEWS_TO_RENDER, getRandomReviews };
+export { NUMBER_OF_REVIEWS_TO_RENDER, REVIEWS };

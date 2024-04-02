@@ -1,12 +1,11 @@
 import { type Express } from "express";
 
 import {
+	NUMBER_OF_REVIEWS_TO_RENDER,
 	REVIEWS,
-	REVIEWS_TO_RENDER,
-	getRandomReviews,
 } from "~/libs/constants/constants.js";
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
-import { asyncHandler } from "~/libs/helpers/helpers.js";
+import { asyncHandler, selectRandomItems } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Controller } from "~/libs/types/types.js";
 import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
@@ -18,7 +17,7 @@ class HomeController implements Controller {
 				dictionaryRoute: PagesPath.DICTIONARY,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
-				reviews: getRandomReviews(REVIEWS, REVIEWS_TO_RENDER),
+				reviews: selectRandomItems(REVIEWS, NUMBER_OF_REVIEWS_TO_RENDER),
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,

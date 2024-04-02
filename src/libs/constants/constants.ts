@@ -1,6 +1,5 @@
 export { FIRST_ARRAY_ELEMENT } from "./first-array-element.constant.js";
 export {
+	NUMBER_OF_REVIEWS_TO_RENDER,
 	REVIEWS,
-	REVIEWS_TO_RENDER,
-	getRandomReviews,
 } from "./reviews-array.constant.js";
