@@ -15,6 +15,7 @@ import {
 	type Controller,
 	type Middleware,
 } from "~/libs/types/types.js";
+import { exploreService } from "~/modules/explore/explore.js";
 
 import { type Config } from "../config/libs/types/types.js";
 import { HTTPCode } from "../http/http.js";
@@ -57,6 +58,11 @@ class BaseServerApplication {
 			});
 			this.logger.info(`Controller '${controller.name}' is initialized`);
 		});
+	}
+
+	public initCrons(): void {
+		exploreService.initCrone();
+		this.logger.info("Crons are initialized");
 	}
 
 	public initErrorHandler(middleware: Middleware) {

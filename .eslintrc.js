@@ -76,6 +76,7 @@ module.exports = {
 		"class-methods-use-this": "off",
 		"arrow-body-style": "off",
 		"import/order": "off",
+		"no-return-await": "off",
 	},
 	ignorePatterns: [
 		"build",

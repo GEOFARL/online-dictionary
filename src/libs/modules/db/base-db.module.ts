@@ -23,6 +23,17 @@ class BaseDB implements DB {
 		return fs.promises.readFile(this.filePath, "utf-8");
 	}
 
+	private setTable(tableName: ValueOf<typeof TableName>) {
+		this.currentTable = tableName;
+		this.filePath = path.join(
+			__dirname,
+			STORAGE_NAME,
+			`${this.currentTable}.json`,
+		);
+		this.ensureFileExists();
+		return this;
+	}
+
 	public getAll<T>(): Promise<DBRecord<T>[] | null> {
 		return new Promise<DBRecord<T>[] | null>((resolve) => {
 			this.getFileContent()
@@ -60,25 +71,15 @@ class BaseDB implements DB {
 	}
 
 	get USER() {
-		this.currentTable = TableName.USER;
-		this.filePath = path.join(
-			__dirname,
-			STORAGE_NAME,
-			`${this.currentTable}.json`,
-		);
-		this.ensureFileExists();
-		return this;
+		return this.setTable(TableName.USER);
 	}
 
 	get WORD() {
-		this.currentTable = TableName.WORD;
-		this.filePath = path.join(
-			__dirname,
-			STORAGE_NAME,
-			`${this.currentTable}.json`,
-		);
-		this.ensureFileExists();
-		return this;
+		return this.setTable(TableName.WORD);
+	}
+
+	get WORD_OF_THE_DAY() {
+		return this.setTable(TableName.WORD_OF_THE_DAY);
 	}
 }
 
