@@ -41,6 +41,32 @@
           </div>
         </div>
       </section>
+
+      <section class="recently-viewed-words">
+        <h2 class="recently-viewed-words__heading">Недавні слова</h2>
+
+        <% if (isAuthorized) { %>
+            <div class="recently-viewed-words__lists-container">
+              <ul class="recently-viewed-words__list">
+                <% recentlyViewedWords.forEach((word, index) => { %>
+                  <% if (index % 2 === 0) { %>
+                    <li class="recently-viewed-words__list-item"><a href="<%= dictionaryPath %>?word=<%= word %>" class="recently-viewed-words__list-item-link"><%= word %></a></li>
+                  <% } %>
+                <% }); %>
+              </ul>
+
+              <ul class="recently-viewed-words__list">
+                <% recentlyViewedWords.forEach((word, index) => { %>
+                  <% if (index % 2 === 1) { %>
+                    <li class="recently-viewed-words__list-item"><a href="<%= dictionaryPath %>?word=<%= word %>" class="recently-viewed-words__list-item-link"><%= word %></a></li>
+                  <% } %>
+                <% }); %>
+              </ul>
+            </div>
+          <% } else { %>
+            <p class="recently-viewed-words__not-authorized">Увійди до акаунту, щоби мати доступ до недавніх слів</p>
+          <% } %>
+      </section>
     </main>
 
     <%- include('../includes/footer.ejs') %>

@@ -9,7 +9,8 @@
 	margin-top: 130px;
 }
 
-.word-of-the-day__heading {
+.word-of-the-day__heading,
+.recently-viewed-words__heading {
 	text-align: center;
 	font-size: var(--font-size-900);
 	line-height: 58px;
@@ -86,4 +87,64 @@
 	height: 60px;
 	font-weight: 500;
 	letter-spacing: 1px;
+}
+
+.recently-viewed-words {
+	margin: 40px 0;
+}
+
+.recently-viewed-words__lists-container {
+	display: flex;
+	justify-content: space-between;
+	max-width: 470px;
+	margin: 0 auto;
+}
+
+.recently-viewed-words__list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	list-style: none;
+}
+
+.recently-viewed-words__list-item {
+	width: 170px;
+	text-align: center;
+	padding: 7px 15px;
+	background-color: rgba(217 217 217 / 10%);
+	border-radius: 7px;
+	box-shadow: 0 0 6px rgba(0, 0, 0, 15%);
+	transition: all 0.2s ease-out;
+	cursor: pointer;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.recently-viewed-words__list-item:hover {
+	background-color: var(--color-red);
+	color: var(--color-white);
+}
+
+.recently-viewed-words__list-item-link {
+	color: inherit;
+	text-decoration: none;
+	font-size: var(--font-size-700);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.recently-viewed-words__list-item-link:hover {
+	text-decoration: underline;
+}
+
+.recently-viewed-words__not-authorized {
+	text-align: center;
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+	color: var(--color-grey-200);
+	font-size: var(--font-size-700);
 }

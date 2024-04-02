@@ -50,6 +50,16 @@ class ExploreService {
 		}
 	}
 
+	public async getRecentlyViewedWords({
+		userId,
+	}: {
+		userId: string;
+	}): Promise<string[]> {
+		return (await this.dictionaryService.getLatestWords({ userId })).map(
+			(entry) => entry.word,
+		);
+	}
+
 	public getWordOfTheDay() {
 		return this.exploreRepository.getLastWordOfTheDay();
 	}
