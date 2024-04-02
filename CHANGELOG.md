@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.28.0](https://github.com/GEOFARL/online-dictionary/compare/v1.27.0...v1.28.0) (2024-04-02)
+
+
+### Features
+
+* add og protocol od-117 ([#158](https://github.com/GEOFARL/online-dictionary/issues/158)) ([48181fc](https://github.com/GEOFARL/online-dictionary/commit/48181fc8335c6b420093dc18945c4bbe6348a67a))
+
 ## [1.27.0](https://github.com/GEOFARL/online-dictionary/compare/v1.26.3...v1.27.0) (2024-04-02)
 
 
