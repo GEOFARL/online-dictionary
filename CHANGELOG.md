@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.0](https://github.com/GEOFARL/online-dictionary/compare/v1.25.0...v1.26.0) (2024-04-02)
+
+
+### Features
+
+* Add word of the day section od-89 ([#145](https://github.com/GEOFARL/online-dictionary/issues/145)) ([cf650b3](https://github.com/GEOFARL/online-dictionary/commit/cf650b3a0fd4665f9863eb971149e057ef320046))
+
 ## [1.25.0](https://github.com/GEOFARL/online-dictionary/compare/v1.24.0...v1.25.0) (2024-04-02)
 
 
