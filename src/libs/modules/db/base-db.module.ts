@@ -1,12 +1,18 @@
 import crypto from "crypto";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 
 import { type ValueOf } from "~/libs/types/types.js";
 
 import { ID_BYTE_LENGTH, STORAGE_NAME } from "./libs/constants/constants.js";
 import { TableName } from "./libs/enums/enums.js";
 import { type DB, type DBRecord } from "./libs/types/types.js";
+
+/* eslint-disable no-underscore-dangle */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+/* eslint-enable no-underscore-dangle */
 
 class BaseDB implements DB {
 	private currentTable: ValueOf<typeof TableName>;
@@ -21,6 +27,17 @@ class BaseDB implements DB {
 
 	private getFileContent(): Promise<string> {
 		return fs.promises.readFile(this.filePath, "utf-8");
+	}
+
+	private setTable(tableName: ValueOf<typeof TableName>) {
+		this.currentTable = tableName;
+		this.filePath = path.join(
+			__dirname,
+			STORAGE_NAME,
+			`${this.currentTable}.json`,
+		);
+		this.ensureFileExists();
+		return this;
 	}
 
 	public getAll<T>(): Promise<DBRecord<T>[] | null> {
@@ -60,25 +77,15 @@ class BaseDB implements DB {
 	}
 
 	get USER() {
-		this.currentTable = TableName.USER;
-		this.filePath = path.join(
-			__dirname,
-			STORAGE_NAME,
-			`${this.currentTable}.json`,
-		);
-		this.ensureFileExists();
-		return this;
+		return this.setTable(TableName.USER);
 	}
 
 	get WORD() {
-		this.currentTable = TableName.WORD;
-		this.filePath = path.join(
-			__dirname,
-			STORAGE_NAME,
-			`${this.currentTable}.json`,
-		);
-		this.ensureFileExists();
-		return this;
+		return this.setTable(TableName.WORD);
+	}
+
+	get WORD_OF_THE_DAY() {
+		return this.setTable(TableName.WORD_OF_THE_DAY);
 	}
 }
 

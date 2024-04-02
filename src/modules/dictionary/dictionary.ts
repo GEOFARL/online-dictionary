@@ -20,4 +20,6 @@ const dictionaryController = new DictionaryController({
 	dictionaryService,
 });
 
-export { dictionaryController };
+export { dictionaryController, dictionaryService };
+export { type DictionaryService };
+export { type WordDto, type WordOfTheDayDto } from "./libs/types/types.js";

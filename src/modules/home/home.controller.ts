@@ -1,5 +1,3 @@
-import { type Express } from "express";
-
 import {
 	NUMBER_OF_REVIEWS_TO_RENDER,
 	REVIEWS,
@@ -7,14 +5,34 @@ import {
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler, selectRandomItems } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
-import { type Controller } from "~/libs/types/types.js";
+import { type Application, type Controller } from "~/libs/types/types.js";
 import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
 
 class HomeController implements Controller {
-	private initPages(app: Express) {
+	private initPages(app: Application) {
+		/**
+		 * @swagger
+		 * /:
+		 *   get:
+		 *     tags:
+		 *       - Pages
+		 *     description: Renders the home page with links to other sections of the website
+		 *     responses:
+		 *       200:
+		 *         description: HTML page for the home page
+		 *         content:
+		 *           text/html:
+		 *             schema:
+		 *               type: string
+		 *               description: HTML content of the home page.
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
 		app.get(PagesPath.ROOT, (req, res) => {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
-				dictionaryRoute: PagesPath.DICTIONARY,
+				dictionaryPath: PagesPath.DICTIONARY,
+				explorePath: PagesPath.EXPLORE,
+				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
 				reviews: selectRandomItems(REVIEWS, NUMBER_OF_REVIEWS_TO_RENDER),
@@ -25,7 +43,7 @@ class HomeController implements Controller {
 		});
 	}
 
-	private initRoutes(app: Express) {
+	private initRoutes(app: Application) {
 		app.get(
 			"/auth-test",
 			asyncHandler(requiresAuthMiddleware),
@@ -35,7 +53,7 @@ class HomeController implements Controller {
 		);
 	}
 
-	init(app: Express): void {
+	init(app: Application): void {
 		this.initPages(app);
 		this.initRoutes(app);
 	}

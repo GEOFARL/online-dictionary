@@ -1,6 +1,7 @@
 {
 	"name": "online-auction",
 	"version": "1.1.0",
+	"type": "module",
 	"scripts": {
 		"_prettier": "prettier \"**/*.{js,ts,tsx,json,md,css,html}\"",
 		"git:hook:precommit": "lint-staged --cwd .",
@@ -65,12 +66,14 @@
 		"ejs": "^3.1.9",
 		"express": "^4.18.3",
 		"jsonwebtoken": "^9.0.2",
+		"node-cron": "^3.0.3",
 		"notyf": "^3.10.0",
 		"passport": "^0.7.0",
 		"passport-jwt": "^4.0.1",
 		"pexels": "^1.4.0",
 		"pino": "^8.19.0",
 		"pino-pretty": "^10.3.1",
+		"random-words": "^2.0.1",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.0",
 		"swiper": "^11.1.0",

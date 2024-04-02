@@ -1,0 +1,10 @@
+import { dom, partOfSpeechToClassName } from "~/shared/index.js";
+
+const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
+	dom.addClassName({
+		className: partOfSpeechToClassName[partOfTheSpeech],
+		selector: ".badge",
+	});
+};
+
+export { configure };

@@ -1,0 +1,27 @@
+.overlay {
+	position: absolute;
+	width: 352px;
+	height: 293px;
+	border-radius: 50%;
+	z-index: -99;
+	filter: blur(150px);
+}
+
+.overlay--top {
+	top: 22px;
+	left: auto;
+	right: 50px;
+	background-image: linear-gradient(
+		rgba(255, 76, 76, 0.2),
+		rgba(217, 217, 217, 0)
+	);
+}
+
+.overlay--bottom {
+	bottom: 0;
+	left: 200px;
+	background-image: linear-gradient(
+		rgba(217, 217, 217, 0),
+		rgba(255, 76, 76, 0.1)
+	);
+}

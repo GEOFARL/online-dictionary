@@ -1,0 +1,59 @@
+<header class="header-container">
+    <div class="header">
+        <div class="header__content">
+            <%- include('../components/link.ejs', {
+                href: homePath,
+                src: "/assets/images/website-logo.svg",
+                content: "Dictionary of words",
+                className: "header__logo-container",
+                alt: "logo"
+            }); %>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__list-item">
+                        <%- include('../components/link.ejs', {
+                            href: homePath,
+                            content: "Головна",
+                            className: "navigation__list-item-link"
+                        }); %>
+                    </li>
+                    <li class="navigation__list-item">
+                        <%- include('../components/link.ejs', {
+                            href: dictionaryPath,
+                            content: "Словник",
+                            className: "navigation__list-item-link"
+                        }); %>
+                    </li>
+                    <li class="navigation__list-item">
+                        <%- include('../components/link.ejs', {
+                            href: explorePath,
+                            content: "Нове",
+                            className: "navigation__list-item-link"
+                        }); %>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="controls">
+            <% if (isAuthorized) { %>
+                <%- include('../components/button.ejs', {
+                    href: logOutPath,
+                    label: "Вийти",
+                    className: "header__control-btn"
+                  })
+                %>
+              <% } else { %>
+                <%- include('../components/button.ejs', {
+                    href: signInPath,
+                    label: "Увійти",
+                    className: "header__control-btn"
+                }); %>
+                <%- include('../components/button.ejs', {
+                    href: signUpPath,
+                    label: "Зареєструватися",
+                    className: "header__control-btn--active"
+                }); %>
+              <% } %>
+        </div>
+    </div>
+</header>

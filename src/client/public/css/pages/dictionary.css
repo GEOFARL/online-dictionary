@@ -1,7 +1,7 @@
 .main {
 	max-width: 1280px;
 	width: 100%;
-	margin: 0 auto;
+	margin: 90px auto 0;
 	padding: 0 24px;
 }
 
@@ -94,49 +94,6 @@
 	align-items: center;
 	gap: 8px;
 	font-size: var(--font-size-500);
-}
-
-.badges {
-	display: flex;
-	gap: 10px;
-}
-
-.badge {
-	line-height: 19px;
-	padding: 2px 13px;
-	border-radius: 7px;
-}
-
-.badge--yellow {
-	background-color: var(--color-yellow-100);
-}
-
-.badge--green {
-	background-color: var(--color-green-100);
-}
-
-.badge--blue {
-	background-color: var(--color-blue-100);
-}
-
-.badge--pink {
-	background-color: var(--color-pink-100);
-}
-
-.badge--orange {
-	background-color: var(--color-orange-100);
-}
-
-.badge--lime {
-	background-color: var(--color-green-200);
-}
-
-.badge--aqua {
-	background-color: var(--color-blue-200);
-}
-
-.badge--purple {
-	background-color: var(--color-purple-100);
 }
 
 .definitions__header {

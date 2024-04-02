@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.26.2](https://github.com/GEOFARL/online-dictionary/compare/v1.26.1...v1.26.2) (2024-04-02)
+
+
+### Bug Fixes
+
+* Production build fail due to ES modules od-147 ([#150](https://github.com/GEOFARL/online-dictionary/issues/150)) ([a4f99d4](https://github.com/GEOFARL/online-dictionary/commit/a4f99d4f47c5d3bc52f480783cd2e2453a526184))
+
+## [1.26.1](https://github.com/GEOFARL/online-dictionary/compare/v1.26.0...v1.26.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* convert a project to use module type od-147 ([#148](https://github.com/GEOFARL/online-dictionary/issues/148)) ([2ea4a85](https://github.com/GEOFARL/online-dictionary/commit/2ea4a85220aba9545ca59d6042872680421fd267))
+
+## [1.26.0](https://github.com/GEOFARL/online-dictionary/compare/v1.25.0...v1.26.0) (2024-04-02)
+
+
+### Features
+
+* Add word of the day section od-89 ([#145](https://github.com/GEOFARL/online-dictionary/issues/145)) ([cf650b3](https://github.com/GEOFARL/online-dictionary/commit/cf650b3a0fd4665f9863eb971149e057ef320046))
+
+## [1.25.0](https://github.com/GEOFARL/online-dictionary/compare/v1.24.0...v1.25.0) (2024-04-02)
+
+
+### Features
+
+* add brurred background on main and dictionary pages od-108 ([#138](https://github.com/GEOFARL/online-dictionary/issues/138)) ([b2a0506](https://github.com/GEOFARL/online-dictionary/commit/b2a0506d8f537cb633d6b7c773df9ed56997a607))
+
+## [1.24.0](https://github.com/GEOFARL/online-dictionary/compare/v1.23.0...v1.24.0) (2024-04-02)
+
+
+### Features
+
+* navigation component od-28 ([#124](https://github.com/GEOFARL/online-dictionary/issues/124)) ([0e3f7be](https://github.com/GEOFARL/online-dictionary/commit/0e3f7be624c95f8864e67fe7c97d81abe939e361))
+
 ## [1.23.0](https://github.com/GEOFARL/online-dictionary/compare/v1.22.0...v1.23.0) (2024-03-31)
 
 

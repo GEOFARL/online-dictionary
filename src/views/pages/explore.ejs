@@ -1,0 +1,56 @@
+<%- include("../includes/head") %>
+  <link rel="stylesheet" href="/css/pages/explore.css">
+  <link rel="stylesheet" href="/css/includes/badges.css">
+  <link rel="stylesheet" href="/css/includes/footer.css">
+  <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/components/link.css">
+  <link rel="stylesheet" href="/css/includes/navigation.css">
+  </head>
+  <body>
+    <%- include('../includes/navigation.ejs')%>
+    <main class="main">
+      <section class="word-of-the-day">
+        <h2 class="word-of-the-day__heading">Слово дня</h2>
+
+        <div class="word-of-the-day__content-container">
+          <a class="word-of-the__image-container" href="<%= dictionaryPath %>?word=<%= wordOfTheDay.word %>">
+            <img src="<%= wordOfTheDay.image.src ? wordOfTheDay.image.src : '/assets/images/placeholder-image.jpg' %>" alt="<%= wordOfTheDay.image.src ? wordOfTheDay.image.alt : 'Placeholder image' %>" class="word-of-the__image">
+          </a>
+
+          <div class="word-of-the-day__content">
+            <div class="word-definition">
+              <div class="word-container">
+                <a class="word-link" href="<%= dictionaryPath %>?word=<%= wordOfTheDay.word %>">
+                  <h3 class="word"><%= wordOfTheDay.word %></h3>
+                </a>
+                <div class="badges">
+                  <div class="badge">
+                    <%= wordOfTheDay.partOfTheSpeech %>
+                  </div>
+                </div>
+              </div>
+              <p class="word-of-the-day__description">
+                <%= wordOfTheDay.meaning %>
+              </p>
+            </div>
+
+            <%- include('../components/button.ejs', {
+              label: "Зберегти слово",
+              className: "word-of-the-day__button"
+            }); %>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('../includes/footer.ejs') %>
+
+    <script src="/js/explore.js"></script>
+    <script>
+      Library.configure({
+        partOfTheSpeech: "<%= wordOfTheDay.partOfTheSpeech %>"
+      });
+    </script>
+  </body>
+
+<%- include("../includes/end") %>
