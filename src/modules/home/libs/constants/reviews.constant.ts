@@ -1,4 +1,4 @@
-import { type ReviewDto } from "./libs/types/types.js";
+import { type ReviewDto } from "../types/types.js";
 
 const REVIEWS: ReviewDto[] = [
 	{

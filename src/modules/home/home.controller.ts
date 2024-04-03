@@ -1,12 +1,13 @@
-import {
-	NUMBER_OF_REVIEWS_TO_RENDER,
-	REVIEWS,
-} from "~/libs/constants/constants.js";
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
 import { asyncHandler, selectRandomItems } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
+
+import {
+	NUMBER_OF_REVIEWS_TO_RENDER,
+	REVIEWS,
+} from "./libs/constants/constants.js";
 
 class HomeController implements Controller {
 	private initPages(app: Application) {
