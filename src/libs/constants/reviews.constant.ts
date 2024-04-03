@@ -1,4 +1,4 @@
-import { type ReviewDto } from "../exceptions/libs/types/review-dto.type.js";
+import { type ReviewDto } from "./libs/types/types.js";
 
 const REVIEWS: ReviewDto[] = [
 	{
@@ -44,6 +44,4 @@ const REVIEWS: ReviewDto[] = [
 	},
 ];
 
-const NUMBER_OF_REVIEWS_TO_RENDER = 2;
-
-export { NUMBER_OF_REVIEWS_TO_RENDER, REVIEWS };
+export { REVIEWS };

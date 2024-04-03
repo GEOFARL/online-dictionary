@@ -1,8 +1,13 @@
-import { ExceptionMessage } from "../exceptions/exceptions.js";
+import {
+	ApplicationError,
+	ExceptionMessage,
+} from "../exceptions/exceptions.js";
 
 const selectRandomItems = <T>(items: T[], count: number): T[] => {
 	if (count > items.length) {
-		throw new Error(ExceptionMessage.COUNT_EXCEEDS_ARRAY_LENGTH);
+		throw new ApplicationError({
+			message: ExceptionMessage.COUNT_EXCEEDS_ARRAY_LENGTH,
+		});
 	}
 
 	const selectedIndices = new Set<number>();
