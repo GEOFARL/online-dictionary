@@ -25,6 +25,10 @@
 	align-items: center;
 }
 
+.header__logo-container :first-child {
+	width: 64px;
+}
+
 .header__logo-container :last-child {
 	color: var(--color-black);
 	font-size: var(--font-size-600);
