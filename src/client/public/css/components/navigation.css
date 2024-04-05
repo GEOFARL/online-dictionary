@@ -59,6 +59,10 @@
 	color: var(--color-black);
 }
 
+.navigation__list-item-link--active {
+	text-decoration: underline;
+}
+
 .header__control-btn {
 	font-size: var(--font-size-500);
 	text-decoration: none;

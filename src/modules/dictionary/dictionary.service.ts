@@ -1,8 +1,10 @@
 import { type API } from "~/libs/modules/api/api.js";
+import { type DBRecord } from "~/libs/modules/db/db.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { pexels } from "~/libs/modules/pexels/pexels.js";
 
 import { type DictionaryRepository } from "./dictionary.repository.js";
+import { MAXIMUM_NUMBER_OF_LATEST_WORDS } from "./libs/constants/constants.js";
 import {
 	DictionaryApiErrorTitle,
 	DictionaryExceptionMessage,
@@ -28,6 +30,17 @@ class DictionaryService {
 	}) {
 		this.dictionaryRepository = dictionaryRepository;
 		this.api = api;
+	}
+
+	public async getLatestWords({
+		userId,
+	}: {
+		userId: string;
+	}): Promise<DBRecord<WordRecordDto>[]> {
+		const allUserWords =
+			await this.dictionaryRepository.getAllWordsByUser(userId);
+
+		return allUserWords.slice(-MAXIMUM_NUMBER_OF_LATEST_WORDS).reverse();
 	}
 
 	public async searchWord({
@@ -66,7 +79,7 @@ class DictionaryService {
 		};
 
 		if (userId) {
-			const allWords: WordRecordDto[] =
+			const allWords: DBRecord<WordRecordDto>[] =
 				await this.dictionaryRepository.getAllWordsByUser(userId);
 
 			const hasWordAlready = allWords.some(

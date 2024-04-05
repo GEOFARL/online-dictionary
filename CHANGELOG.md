@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.30.0](https://github.com/GEOFARL/online-dictionary/compare/v1.29.0...v1.30.0) (2024-04-02)
+
+
+### Features
+
+* Show recently viewed words od-88 ([#163](https://github.com/GEOFARL/online-dictionary/issues/163)) ([2b20a2b](https://github.com/GEOFARL/online-dictionary/commit/2b20a2b1e132d3d83aa0c1706a5e3baabf6bd575))
+
+## [1.29.0](https://github.com/GEOFARL/online-dictionary/compare/v1.28.0...v1.29.0) (2024-04-02)
+
+
+### Features
+
+* add fav icon od-160 ([#161](https://github.com/GEOFARL/online-dictionary/issues/161)) ([44541c8](https://github.com/GEOFARL/online-dictionary/commit/44541c829ed3098eb40e8235bb2c926574db47af))
+
+## [1.28.0](https://github.com/GEOFARL/online-dictionary/compare/v1.27.0...v1.28.0) (2024-04-02)
+
+
+### Features
+
+* add og protocol od-117 ([#158](https://github.com/GEOFARL/online-dictionary/issues/158)) ([48181fc](https://github.com/GEOFARL/online-dictionary/commit/48181fc8335c6b420093dc18945c4bbe6348a67a))
+
+## [1.27.0](https://github.com/GEOFARL/online-dictionary/compare/v1.26.3...v1.27.0) (2024-04-02)
+
+
+### Features
+
+* add a default placehodler for dictionary od-152 ([#156](https://github.com/GEOFARL/online-dictionary/issues/156)) ([d5f0ab7](https://github.com/GEOFARL/online-dictionary/commit/d5f0ab76ea0e6f204f7b8bf35479c94abb114e7f))
+
+## [1.26.3](https://github.com/GEOFARL/online-dictionary/compare/v1.26.2...v1.26.3) (2024-04-02)
+
+
+### Bug Fixes
+
+* underlined current page ([#153](https://github.com/GEOFARL/online-dictionary/issues/153)) ([d0063fd](https://github.com/GEOFARL/online-dictionary/commit/d0063fd3349f7995fcd8dc7c863d75e3243a3e0f))
+
 ## [1.26.2](https://github.com/GEOFARL/online-dictionary/compare/v1.26.1...v1.26.2) (2024-04-02)
 
 

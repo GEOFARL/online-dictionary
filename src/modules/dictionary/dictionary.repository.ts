@@ -1,4 +1,4 @@
-import { type DB } from "~/libs/modules/db/db.js";
+import { type DB, type DBRecord } from "~/libs/modules/db/db.js";
 
 import { type WordRecordDto } from "./libs/types/types.js";
 
@@ -16,7 +16,9 @@ class DictionaryRepository {
 		});
 	}
 
-	public async getAllWordsByUser(userId: string): Promise<WordRecordDto[]> {
+	public async getAllWordsByUser(
+		userId: string,
+	): Promise<DBRecord<WordRecordDto>[]> {
 		const allWords = await this.db.WORD.getAll<WordRecordDto>();
 		return allWords.filter(({ userId: id }) => id === userId);
 	}

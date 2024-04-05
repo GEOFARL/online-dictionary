@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="/css/includes/footer.css">
   <link rel="stylesheet" href="/css/components/button.css">
   <link rel="stylesheet" href="/css/components/link.css">
-  <link rel="stylesheet" href="/css/includes/navigation.css">
+  <link rel="stylesheet" href="/css/components/navigation.css">
   </head>
   <body>
-    <%- include('../includes/navigation.ejs')%>
+    <%- include('../components/navigation.ejs', {routePath: explorePath})%>
     <main class="main">
       <section class="word-of-the-day">
         <h2 class="word-of-the-day__heading">Слово дня</h2>
@@ -40,6 +40,32 @@
             }); %>
           </div>
         </div>
+      </section>
+
+      <section class="recently-viewed-words">
+        <h2 class="recently-viewed-words__heading">Недавні слова</h2>
+
+        <% if (isAuthorized) { %>
+            <div class="recently-viewed-words__lists-container">
+              <ul class="recently-viewed-words__list">
+                <% recentlyViewedWords.forEach((word, index) => { %>
+                  <% if (index % 2 === 0) { %>
+                    <li class="recently-viewed-words__list-item"><a href="<%= dictionaryPath %>?word=<%= word %>" class="recently-viewed-words__list-item-link"><%= word %></a></li>
+                  <% } %>
+                <% }); %>
+              </ul>
+
+              <ul class="recently-viewed-words__list">
+                <% recentlyViewedWords.forEach((word, index) => { %>
+                  <% if (index % 2 === 1) { %>
+                    <li class="recently-viewed-words__list-item"><a href="<%= dictionaryPath %>?word=<%= word %>" class="recently-viewed-words__list-item-link"><%= word %></a></li>
+                  <% } %>
+                <% }); %>
+              </ul>
+            </div>
+          <% } else { %>
+            <p class="recently-viewed-words__not-authorized">Увійди до акаунту, щоби мати доступ до недавніх слів</p>
+          <% } %>
       </section>
     </main>
 

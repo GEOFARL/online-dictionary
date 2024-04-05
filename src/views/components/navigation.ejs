@@ -15,21 +15,21 @@
                         <%- include('../components/link.ejs', {
                             href: homePath,
                             content: "Головна",
-                            className: "navigation__list-item-link"
+                            className: "navigation__list-item-link"  + (routePath === homePath ? " navigation__list-item-link--active" : "")
                         }); %>
                     </li>
                     <li class="navigation__list-item">
                         <%- include('../components/link.ejs', {
                             href: dictionaryPath,
                             content: "Словник",
-                            className: "navigation__list-item-link"
+                            className: "navigation__list-item-link" + (routePath === dictionaryPath ? " navigation__list-item-link--active" : "")
                         }); %>
                     </li>
                     <li class="navigation__list-item">
                         <%- include('../components/link.ejs', {
                             href: explorePath,
                             content: "Нове",
-                            className: "navigation__list-item-link"
+                            className: "navigation__list-item-link" + (routePath === explorePath ? " navigation__list-item-link--active" : "")
                         }); %>
                     </li>
                 </ul>
