@@ -1,69 +1,74 @@
-<header class="header-container">
-    <div class="header">
+<div class="mobile-sidebar-backdrop">
+    <div class="sidebar">
         <%- include('./button.ejs',{
-            src:'/assets/icons/burger.svg',
-            alt:'Burger icon',
-            imageClassName: 'header__open-sidebar-button__icon',
-            className: "header__open-sidebar-button",
+            src:'/assets/icons/close.svg',
+            alt:'Close icon',
+            className: 'sidebar__close-button',
             label:""
         }); %>
-        <div class="header__content">
+        <div class="sidebar__content">
             <%- include('../components/link.ejs', {
                 href: homePath,
+                content: "",
+                className: "sidebar__logo-container",
                 src: "/assets/images/website-logo.svg",
-                content: "Dictionary of words",
-                className: "header__logo-container",
                 alt: "logo"
             }); %>
-            <nav class="navigation">
-                <ul class="navigation__list">
-                    <li class="navigation__list-item">
+            <nav class="sidebar__navigation">
+                <ul class="sidebar__navigation__list">
+                    <li class="sidebar__navigation__list-item">
                         <%- include('../components/link.ejs', {
                             href: homePath,
                             content: "Головна",
-                            className: "navigation__list-item-link"  + (routePath === homePath ? " navigation__list-item-link--active" : "")
+                            className: "sidebar__navigation__list-item-link",
+                            src: "/assets/icons/home.svg",
+                            alt: "logo"
                         }); %>
                     </li>
-                    <li class="navigation__list-item">
+                    <li class="sidebar__navigation__list-item">
                         <%- include('../components/link.ejs', {
                             href: dictionaryPath,
                             content: "Словник",
-                            className: "navigation__list-item-link" + (routePath === dictionaryPath ? " navigation__list-item-link--active" : "")
+                            className: "sidebar__navigation__list-item-link",
+                            src: "/assets/icons/dictionary.svg",
+                            alt: "logo"
                         }); %>
                     </li>
-                    <li class="navigation__list-item">
+                    <li class="sidebar__navigation__list-item">
                         <%- include('../components/link.ejs', {
                             href: explorePath,
                             content: "Нове",
-                            className: "navigation__list-item-link" + (routePath === explorePath ? " navigation__list-item-link--active" : "")
+                            className: "sidebar__navigation__list-item-link",
+                            src: "/assets/icons/dictionary.svg",
+                            alt: "logo"
                         }); %>
                     </li>
                 </ul>
             </nav>
-        </div>
-        <div class="controls">
+            <%- include('./separator.ejs',{
+                className: "sidebar__separator"
+            }) %>
+        <div class="sidebar__controls">
             <% if (isAuthorized) { %>
                 <%- include('../components/button.ejs', {
                     href: logOutPath,
                     label: "Вийти",
-                    className: "header__control-btn"
+                    className: "sidebar__control-btn"
                   })
                 %>
               <% } else { %>
                 <%- include('../components/button.ejs', {
                     href: signInPath,
                     label: "Увійти",
-                    className: "header__control-btn"
+                    className: "sidebar__control-btn"
                 }); %>
                 <%- include('../components/button.ejs', {
                     href: signUpPath,
                     label: "Зареєструватися",
-                    className: "header__control-btn--active"
+                    className: "sidebar__control-btn--active"
                 }); %>
               <% } %>
+            </div>
         </div>
-         
     </div>
-</header>
-
- <%- include('./sidebar.ejs')%>
+</div>

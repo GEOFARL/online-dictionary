@@ -1,6 +1,7 @@
 export { DIVISOR_FOR_PARITY } from "./libs/constants/constants.js";
 export { AppRoute, Cookie } from "./libs/enums/enums.js";
 export {
+	handleMobileSidebar,
 	hideElement,
 	initPasswordToggle,
 	showElement,

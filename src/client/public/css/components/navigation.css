@@ -1,10 +1,16 @@
+@import url("./sidebar.css");
+
+.header__open-sidebar-button {
+	display: none;
+}
+
 .header-container {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
 	position: fixed;
 	width: 100%;
 	background-color: var(--color-white);
 
-	z-index: 1000;
+	z-index: 100;
 }
 
 .header {
@@ -91,4 +97,93 @@
 .controls {
 	display: flex;
 	gap: 22px;
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 1024px) {
+	.header {
+		gap: 24px;
+	}
+
+	.header__content {
+		gap: 40px;
+	}
+
+	.header__control-btn {
+		padding: 3px 28px;
+	}
+
+	.header__control-btn--active {
+		padding: 3px 20px;
+	}
+
+	.controls {
+		gap: 12px;
+	}
+
+	.navigation__list {
+		gap: 16px;
+	}
+
+	.header__logo-container :last-child {
+		font-size: var(--font-size-500);
+	}
+
+	.navigation__list-item-link {
+		font-size: var(--font-size-400);
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		gap: 14px;
+		justify-content: start;
+	}
+
+	.header__open-sidebar-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent;
+		width: 30px;
+		height: 30px;
+
+		border: 0.85px solid var(--color-grey-300);
+		border-radius: 8px;
+		transition: border 0.2s ease-in-out;
+	}
+
+	.header__open-sidebar-button:hover,
+	.header__open-sidebar-button:active,
+	.header__open-sidebar-button:focus {
+		border: 0.85px solid var(--color-grey-200);
+	}
+
+	.header__logo-container :last-child {
+		font-size: var(--font-size-600);
+	}
+
+	.controls {
+		display: none;
+	}
+
+	.navigation {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.header__logo-container :first-child {
+		width: 51px;
+		height: 33px;
+	}
+
+	.header__logo-container :last-child {
+		font-size: var(--font-size-400);
+	}
+}
+
+@media (max-width: 320px) {
 }

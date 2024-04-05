@@ -1,4 +1,8 @@
-import { dom, partOfSpeechToClassName } from "~/shared/index.js";
+import {
+	dom,
+	handleMobileSidebar,
+	partOfSpeechToClassName,
+} from "~/shared/index.js";
 
 const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
 	dom.addClassName({
@@ -6,5 +10,7 @@ const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
 		selector: ".badge",
 	});
 };
+
+handleMobileSidebar();
 
 export { configure };
