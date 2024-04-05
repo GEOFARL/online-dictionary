@@ -70,6 +70,11 @@
 		color: var(--color-black);
 	}
 
+	.sidebar__navigation__list-item-link:first-child {
+		width: 16px;
+		height: 16px;
+	}
+
 	.sidebar__separator {
 		border: none;
 		border-top: 1px solid rgba(183, 183, 183, 0.5);
