@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.32.0](https://github.com/GEOFARL/online-dictionary/compare/v1.31.0...v1.32.0) (2024-04-06)
+
+
+### Features
+
+* add fixed width to logo od-143 ([#154](https://github.com/GEOFARL/online-dictionary/issues/154)) ([327dbb3](https://github.com/GEOFARL/online-dictionary/commit/327dbb3c36f46b0e64a3929713fb57598e624736))
+
 ## [1.31.0](https://github.com/GEOFARL/online-dictionary/compare/v1.30.0...v1.31.0) (2024-04-06)
 
 
