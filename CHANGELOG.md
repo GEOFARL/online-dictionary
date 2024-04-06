@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.0](https://github.com/GEOFARL/online-dictionary/compare/v1.33.0...v1.34.0) (2024-04-06)
+
+
+### Features
+
+* make footer component mobile responsive od-171 ([#172](https://github.com/GEOFARL/online-dictionary/issues/172)) ([d891586](https://github.com/GEOFARL/online-dictionary/commit/d8915861f4ad318d5e2c038c83b3c8b06e2e18de))
+
 ## [1.33.0](https://github.com/GEOFARL/online-dictionary/compare/v1.32.0...v1.33.0) (2024-04-06)
 
 
