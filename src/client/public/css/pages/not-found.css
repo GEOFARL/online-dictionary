@@ -29,3 +29,35 @@
 	font-size: var(--font-size-600);
 	font-weight: 500;
 }
+
+@media (max-width: 768px) {
+	.error-code {
+		font-size: var(--font-size-925);
+		line-height: 60px;
+	}
+
+	.error-description {
+		font-size: var(--font-size-850);
+		line-height: 42px;
+	}
+
+	.main-page-link {
+		font-size: var(--font-size-500);
+	}
+}
+
+@media (max-width: 480px) {
+	.error-code {
+		font-size: var(--font-size-900);
+		line-height: 46px;
+	}
+
+	.error-description {
+		font-size: var(--font-size-800);
+		line-height: 36px;
+	}
+
+	.main-page-link {
+		font-size: var(--font-size-400);
+	}
+}
