@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/css/components/link.css">
   <link rel="stylesheet" href="/css/components/navigation.css">
   <link rel="stylesheet" href="/css/components/sidebar.css">
+  <link rel="stylesheet" href="/css/includes/overlay.css">
   </head>
   <body>
     <%- include('../components/navigation.ejs', {routePath: explorePath})%>
@@ -69,7 +70,7 @@
           <% } %>
       </section>
     </main>
-
+    <%- include('../includes/overlay.ejs')%>
     <%- include('../includes/footer.ejs') %>
 
     <script src="/js/explore.js"></script>

@@ -269,3 +269,34 @@
 	flex-shrink: 1;
 	padding: 80px 20px 40px;
 }
+
+@media (max-width: 768px) {
+	.search-not-found {
+		margin: 75px 0;
+	}
+
+	.search-not-found__heading {
+		font-size: var(--font-size-800);
+	}
+
+	.search-not-found__image-container {
+		width: 350px;
+		height: 230px;
+	}
+}
+
+@media (max-width: 480px) {
+	.search-not-found {
+		margin: 50px 0;
+		gap: 14px;
+	}
+
+	.search-not-found__heading {
+		font-size: var(--font-size-600);
+	}
+
+	.search-not-found__image-container {
+		width: 250px;
+		height: 165px;
+	}
+}

@@ -1,8 +1,13 @@
 import { ApiPath, PageTitle, PagesPath } from "~/libs/enums/enums.js";
-import { asyncHandler } from "~/libs/helpers/helpers.js";
+import { asyncHandler, selectRandomItems } from "~/libs/helpers/helpers.js";
 import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 import { requiresAuthMiddleware } from "~/middlewares/middlewares.js";
+
+import {
+	NUMBER_OF_REVIEWS_TO_RENDER,
+	REVIEWS,
+} from "./libs/constants/constants.js";
 
 class HomeController implements Controller {
 	private initPages(app: Application) {
@@ -31,6 +36,7 @@ class HomeController implements Controller {
 				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
+				reviews: selectRandomItems(REVIEWS, NUMBER_OF_REVIEWS_TO_RENDER),
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,

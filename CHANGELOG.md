@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.34.0](https://github.com/GEOFARL/online-dictionary/compare/v1.33.0...v1.34.0) (2024-04-06)
+
+
+### Features
+
+* make footer component mobile responsive od-171 ([#172](https://github.com/GEOFARL/online-dictionary/issues/172)) ([d891586](https://github.com/GEOFARL/online-dictionary/commit/d8915861f4ad318d5e2c038c83b3c8b06e2e18de))
+
+## [1.33.0](https://github.com/GEOFARL/online-dictionary/compare/v1.32.0...v1.33.0) (2024-04-06)
+
+
+### Features
+
+* add mobile responsivenes for not found page od-168 ([#169](https://github.com/GEOFARL/online-dictionary/issues/169)) ([b0eb44f](https://github.com/GEOFARL/online-dictionary/commit/b0eb44fbffaa183848882a0ec1c7dd6ec28e288d))
+
+## [1.32.0](https://github.com/GEOFARL/online-dictionary/compare/v1.31.0...v1.32.0) (2024-04-06)
+
+
+### Features
+
+* add fixed width to logo od-143 ([#154](https://github.com/GEOFARL/online-dictionary/issues/154)) ([327dbb3](https://github.com/GEOFARL/online-dictionary/commit/327dbb3c36f46b0e64a3929713fb57598e624736))
+
+## [1.31.0](https://github.com/GEOFARL/online-dictionary/compare/v1.30.0...v1.31.0) (2024-04-06)
+
+
+### Features
+
+* add at least 4 default reviews od-128 ([#140](https://github.com/GEOFARL/online-dictionary/issues/140)) ([2bfa4c6](https://github.com/GEOFARL/online-dictionary/commit/2bfa4c665f9f3168bb4e03f27f7bb6eb186d00e1))
+
 ## [1.30.0](https://github.com/GEOFARL/online-dictionary/compare/v1.29.0...v1.30.0) (2024-04-02)
 
 
