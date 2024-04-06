@@ -6,8 +6,8 @@ import "swiper/css/navigation";
 
 import {
 	api,
+	configureMobileSidebar,
 	dom,
-	handleMobileSidebar,
 	hideElement,
 	navigation,
 	notification,
@@ -118,6 +118,6 @@ const configure = (): void => {
 	configureTranscriptionPlayer();
 };
 
-handleMobileSidebar();
+configureMobileSidebar();
 
 export { configure };

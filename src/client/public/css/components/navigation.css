@@ -1,6 +1,4 @@
-@import url("./sidebar.css");
-
-.header__open-sidebar-button {
+.sidebar-button {
 	display: none;
 }
 
@@ -99,9 +97,6 @@
 	gap: 22px;
 }
 
-@media (max-width: 1200px) {
-}
-
 @media (max-width: 1024px) {
 	.header {
 		gap: 24px;
@@ -136,13 +131,13 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
 	.header {
 		gap: 14px;
 		justify-content: start;
 	}
 
-	.header__open-sidebar-button {
+	.sidebar-button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -155,9 +150,9 @@
 		transition: border 0.2s ease-in-out;
 	}
 
-	.header__open-sidebar-button:hover,
-	.header__open-sidebar-button:active,
-	.header__open-sidebar-button:focus {
+	.sidebar-button:hover,
+	.sidebar-button:active,
+	.header:focus {
 		border: 0.85px solid var(--color-grey-200);
 	}
 
@@ -183,7 +178,4 @@
 	.header__logo-container :last-child {
 		font-size: var(--font-size-400);
 	}
-}
-
-@media (max-width: 320px) {
 }

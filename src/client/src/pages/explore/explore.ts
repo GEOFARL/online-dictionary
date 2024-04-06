@@ -1,6 +1,6 @@
 import {
+	configureMobileSidebar,
 	dom,
-	handleMobileSidebar,
 	partOfSpeechToClassName,
 } from "~/shared/index.js";
 
@@ -11,6 +11,6 @@ const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
 	});
 };
 
-handleMobileSidebar();
+configureMobileSidebar();
 
 export { configure };

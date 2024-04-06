@@ -1,6 +1,6 @@
 import { dom } from "../modules/dom/dom.js";
 
-const handleMobileSidebar = () => {
+const configureMobileSidebar = () => {
 	dom.setListener({
 		eventType: "click",
 		listener: () => {
@@ -9,7 +9,7 @@ const handleMobileSidebar = () => {
 				selector: ".mobile-sidebar-backdrop",
 			});
 		},
-		selector: ".header__open-sidebar-button",
+		selector: ".sidebar-button",
 	});
 	dom.setListener({
 		eventType: "click",
@@ -23,4 +23,4 @@ const handleMobileSidebar = () => {
 	});
 };
 
-export { handleMobileSidebar };
+export { configureMobileSidebar };
