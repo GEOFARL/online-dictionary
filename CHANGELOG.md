@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.31.0](https://github.com/GEOFARL/online-dictionary/compare/v1.30.0...v1.31.0) (2024-04-06)
+
+
+### Features
+
+* add at least 4 default reviews od-128 ([#140](https://github.com/GEOFARL/online-dictionary/issues/140)) ([2bfa4c6](https://github.com/GEOFARL/online-dictionary/commit/2bfa4c665f9f3168bb4e03f27f7bb6eb186d00e1))
+
 ## [1.30.0](https://github.com/GEOFARL/online-dictionary/compare/v1.29.0...v1.30.0) (2024-04-02)
 
 
