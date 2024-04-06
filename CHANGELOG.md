@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.35.0](https://github.com/GEOFARL/online-dictionary/compare/v1.34.0...v1.35.0) (2024-04-06)
+
+
+### Features
+
+* make not found page mobile responsive od-174 ([#176](https://github.com/GEOFARL/online-dictionary/issues/176)) ([852c22e](https://github.com/GEOFARL/online-dictionary/commit/852c22eb2f078d0ad3a9dbf6fbd9e1e826d4bec7))
+
 ## [1.34.0](https://github.com/GEOFARL/online-dictionary/compare/v1.33.0...v1.34.0) (2024-04-06)
 
 
