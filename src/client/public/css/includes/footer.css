@@ -12,3 +12,15 @@
 	color: var(--color-grey-200);
 	font-size: var(--font-size-500);
 }
+
+@media (max-width: 768px) {
+	.footer__content-container {
+		font-size: var(--font-size-400);
+	}
+}
+
+@media (max-width: 480px) {
+	.footer__content-container {
+		font-size: var(--font-size-300);
+	}
+}
