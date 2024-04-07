@@ -106,8 +106,12 @@
 		gap: 24px;
 	}
 
+	.header__logo-container :last-child {
+		display: none;
+	}
+
 	.header__content {
-		gap: 40px;
+		gap: 20px;
 	}
 
 	.header__control-btn {
@@ -131,11 +135,11 @@
 	}
 
 	.navigation__list-item-link {
-		font-size: var(--font-size-400);
+		font-size: var(--font-size-500);
 	}
 }
 
-@media (max-width: 840px) {
+@media (max-width: 768px) {
 	.header {
 		gap: 14px;
 		justify-content: start;
@@ -152,6 +156,10 @@
 		border: 0.85px solid var(--color-grey-300);
 		border-radius: 8px;
 		transition: border 0.2s ease-in-out;
+	}
+
+	.header__logo-container :last-child {
+		display: block;
 	}
 
 	.sidebar-button:hover,

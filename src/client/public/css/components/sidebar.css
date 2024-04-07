@@ -19,7 +19,7 @@
 	transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (max-width: 840px) {
+@media (max-width: 768px) {
 	.mobile-sidebar-backdrop.is-open {
 		display: block;
 		position: fixed;
