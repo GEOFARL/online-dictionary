@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.37.1](https://github.com/GEOFARL/online-dictionary/compare/v1.37.0...v1.37.1) (2024-04-07)
+
+
+### Bug Fixes
+
+* large world icon od-181 ([#182](https://github.com/GEOFARL/online-dictionary/issues/182)) ([275c214](https://github.com/GEOFARL/online-dictionary/commit/275c214abbeb43aabb38aa7366762b7f843c2802))
+
 ## [1.37.0](https://github.com/GEOFARL/online-dictionary/compare/v1.36.0...v1.37.0) (2024-04-07)
 
 
