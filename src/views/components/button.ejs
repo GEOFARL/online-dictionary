@@ -3,6 +3,13 @@
     href="<%= href %>"
     class="button <%= locals.className ? className : '' %>"
   ><%= label %></a>
+<% } else if (locals.src) { %>
+  <button
+    type="<%= locals.type ? type : 'button' %>"
+    class="button <%= locals.className ? className : '' %>"
+  >
+      <img src="<%= src %>" alt="<%= alt %>" class="<%= locals.imageClassName ? imageClassName : '' %>">
+  </button>
 <% } else { %>
   <button
     type="<%= locals.type ? type : 'button' %>"

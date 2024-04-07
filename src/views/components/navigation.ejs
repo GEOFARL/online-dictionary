@@ -1,5 +1,12 @@
 <header class="header-container">
     <div class="header">
+        <%- include('./button.ejs',{
+            src:'/assets/icons/burger.svg',
+            alt:'Burger icon',
+            imageClassName: 'sidebar-button__icon',
+            className: "sidebar-button",
+            label:""
+        }); %>
         <div class="header__content">
             <%- include('../components/link.ejs', {
                 href: homePath,
@@ -55,5 +62,8 @@
                 }); %>
               <% } %>
         </div>
+         
     </div>
 </header>
+
+ <%- include('./sidebar.ejs')%>

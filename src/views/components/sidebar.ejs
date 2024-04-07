@@ -1,0 +1,75 @@
+<div class="mobile-sidebar-backdrop">
+</div>
+<div class="sidebar">
+    <%- include('./button.ejs',{
+        src:'/assets/icons/close.svg',
+        alt:'Close icon',
+        className: 'sidebar__close-button',
+        label:""
+    }); %>
+    <div class="sidebar__content">
+        <%- include('../components/link.ejs', {
+            href: homePath,
+            content: "",
+            className: "sidebar__logo-container",
+            src: "/assets/images/website-logo.svg",
+            alt: "logo"
+        }); %>
+        <nav class="sidebar__navigation">
+            <ul class="sidebar__navigation-list">
+                <li class="sidebar__navigation-list-item">
+                    <%- include('../components/link.ejs', {
+                        href: homePath,
+                        content: "Головна",
+                        className: "sidebar__navigation-list-item-link",
+                        src: "/assets/icons/home.svg",
+                        alt: "logo"
+                    }); %>
+                </li>
+                <li class="sidebar__navigation-list-item">
+                    <%- include('../components/link.ejs', {
+                        href: dictionaryPath,
+                        content: "Словник",
+                        className: "sidebar__navigation-list-item-link",
+                        src: "/assets/icons/dictionary.svg",
+                        alt: "logo"
+                    }); %>
+                </li>
+                <li class="sidebar__navigation-list-item">
+                    <%- include('../components/link.ejs', {
+                        href: explorePath,
+                        content: "Нове",
+                        className: "sidebar__navigation-list-item-link",
+                        src: "/assets/icons/world.svg",
+                        alt: "logo"
+                    }); %>
+                </li>
+            </ul>
+        </nav>
+        <%- include('./separator.ejs',{
+            className: "sidebar__separator"
+        }) %>
+    <div class="sidebar__controls">
+        <% if (isAuthorized) { %>
+            <%- include('../components/button.ejs', {
+                href: logOutPath,
+                label: "Вийти",
+                className: "sidebar__control-btn"
+                })
+            %>
+            <% } else { %>
+            <%- include('../components/button.ejs', {
+                href: signInPath,
+                label: "Увійти",
+                className: "sidebar__control-btn"
+            }); %>
+            <%- include('../components/button.ejs', {
+                href: signUpPath,
+                label: "Зареєструватися",
+                className: "sidebar__control-btn--active"
+            }); %>
+            <% } %>
+        </div>
+    </div>
+</div>
+
