@@ -9,8 +9,7 @@ const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
 		className: partOfSpeechToClassName[partOfTheSpeech],
 		selector: ".badge",
 	});
+	configureMobileSidebar();
 };
-
-configureMobileSidebar();
 
 export { configure };

@@ -61,12 +61,17 @@
               <div class="badges">
               </div>
             </div>
+
             <div class="transcription hidden">
               <button class="play-transcription-btn hidden">
                 <img src="/assets/icons/audio.svg" alt="audio icon">
               </button>
               <p class="transcription-content"></p>
             </div>
+
+            <%- include('../components/swiper.ejs', {
+              className: "images-slider-mobile"
+            }) %>
           </div>
           <div class="definitions hidden">
             <h3 class="definitions__header">Визначення</h3>
