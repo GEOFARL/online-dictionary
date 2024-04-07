@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.36.0](https://github.com/GEOFARL/online-dictionary/compare/v1.35.0...v1.36.0) (2024-04-07)
+
+
+### Features
+
+* mobile sidebar od-131 ([#165](https://github.com/GEOFARL/online-dictionary/issues/165)) ([9c6a2e8](https://github.com/GEOFARL/online-dictionary/commit/9c6a2e81b064c99ebf166caeb0a5579cf7c88eb6))
+
 ## [1.35.0](https://github.com/GEOFARL/online-dictionary/compare/v1.34.0...v1.35.0) (2024-04-06)
 
 
