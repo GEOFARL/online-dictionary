@@ -37,25 +37,6 @@
         <% }) %>
       </section>
 
-      <% if (isAuthorized) { %>
-        <%- include('../components/link.ejs', {
-            href: logOutPath,
-            content: "Log Out"
-          })
-        %>
-      <% } else { %>
-        <%- include('../components/link.ejs', {
-            href: signInPath,
-            content: "Sign In"
-          })
-        %>
-        <%- include('../components/link.ejs', {
-            href: signUpPath,
-            content: "Sign Up"
-          })
-        %>
-      <% } %>
-
       <section class="cta-start">
         <div class="cta-start__content">
           <h2 class="cta-start__heading">Розпочни вже зараз</h2>
