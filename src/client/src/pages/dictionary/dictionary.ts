@@ -116,8 +116,7 @@ const configureTranscriptionPlayer = (): void => {
 const configure = (): void => {
 	configureSearchForm();
 	configureTranscriptionPlayer();
+	configureMobileSidebar();
 };
-
-configureMobileSidebar();
 
 export { configure };

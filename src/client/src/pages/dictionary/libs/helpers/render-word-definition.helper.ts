@@ -8,6 +8,7 @@ import {
 } from "~/shared/index.js";
 
 import { swiper } from "../modules/modules.js";
+import { swiperMobile } from "../modules/swiper/swiper.js";
 import { renderSynonyms } from "./render-synonyms.helper.js";
 
 const renderWordDefinition = (
@@ -102,7 +103,8 @@ const renderWordDefinition = (
 		});
 
 		if (data.images) {
-			dom.clearContent(".swiper-wrapper");
+			dom.clearContent(".images-slider .swiper-wrapper");
+			dom.clearContent(".images-slider-mobile .swiper-wrapper");
 
 			data.images.forEach((image) => {
 				dom.createElement({
@@ -116,12 +118,28 @@ const renderWordDefinition = (
 						},
 					],
 					className: "swiper-slide",
-					parentElementSelector: ".swiper-wrapper",
+					parentElementSelector: ".images-slider .swiper-wrapper",
+					tagName: "div",
+				});
+
+				dom.createElement({
+					children: [
+						{
+							attributes: {
+								"alt": image.alt,
+								"src": image.src,
+							},
+							tagName: "img",
+						},
+					],
+					className: "swiper-slide",
+					parentElementSelector: ".images-slider-mobile .swiper-wrapper",
 					tagName: "div",
 				});
 			});
 
 			swiper.init();
+			swiperMobile.init();
 		}
 	}
 };

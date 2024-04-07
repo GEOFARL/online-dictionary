@@ -21,7 +21,7 @@
 .search__icon-container {
 	position: absolute;
 	right: 16px;
-	top: 14px;
+	top: 12px;
 }
 
 .input.search__input {
@@ -58,7 +58,7 @@
 }
 
 .search-results__heading {
-	font-size: 36px;
+	font-size: var(--font-size-850);
 	font-weight: 600;
 	line-height: 44px;
 }
@@ -253,11 +253,16 @@
 	text-decoration: underline;
 }
 
-.images-slider {
+.images-slider,
+.images-slider-mobile {
 	width: 500px;
 	height: 500px;
 	border-radius: 30px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 15%);
+}
+
+.images-slider-mobile.swiper {
+	display: none;
 }
 
 .search-results-container {
@@ -268,6 +273,17 @@
 .additional-information {
 	flex-shrink: 1;
 	padding: 80px 20px 40px;
+}
+
+@media (max-width: 1200px) {
+	.additional-information {
+		display: none;
+	}
+
+	.images-slider-mobile.swiper {
+		display: block;
+		width: 650px;
+	}
 }
 
 @media (max-width: 768px) {
@@ -282,6 +298,41 @@
 	.search-not-found__image-container {
 		width: 350px;
 		height: 230px;
+	}
+
+	.images-slider-mobile.swiper {
+		width: 430px;
+		height: 400px;
+	}
+
+	.search__input-label {
+		display: none;
+	}
+
+	.search__form {
+		max-width: unset;
+	}
+
+	.search-results {
+		margin-top: 25px;
+		gap: 16px;
+	}
+
+	.default-content {
+		margin: 80px 0;
+	}
+
+	.default-content__heading {
+		font-size: var(--font-size-800);
+		max-width: 320px;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 32px;
+	}
+
+	.default-content__description {
+		font-size: var(--font-size-600);
+		max-width: 450px;
 	}
 }
 
@@ -298,5 +349,68 @@
 	.search-not-found__image-container {
 		width: 250px;
 		height: 165px;
+	}
+
+	.images-slider-mobile.swiper {
+		width: 300px;
+		height: 270px;
+	}
+
+	.search__icon-container {
+		width: 20px;
+		height: 20px;
+		right: 12px;
+		top: 10px;
+	}
+
+	.search__form {
+		margin-top: 35px;
+	}
+
+	.search-results {
+		margin-top: 18px;
+		gap: 14px;
+	}
+
+	.search-results__heading {
+		font-size: var(--font-size-800);
+		line-height: 32px;
+	}
+
+	.word-container {
+		gap: 24px;
+	}
+
+	.word {
+		font-size: var(--font-size-725);
+	}
+
+	.synonyms__body {
+		gap: 18px;
+		padding: 16px 25px 22px;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.synonyms__list-item {
+		width: 100%;
+	}
+
+	.synonyms__list {
+		gap: 18px;
+	}
+
+	.default-content__heading {
+		font-size: var(--font-size-700);
+		max-width: 260px;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 24px;
+	}
+
+	.default-content__description {
+		font-size: var(--font-size-400);
+		max-width: 400px;
+		line-height: 18px;
 	}
 }

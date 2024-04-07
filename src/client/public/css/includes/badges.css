@@ -40,3 +40,16 @@
 .badge--purple {
 	background-color: var(--color-purple-100);
 }
+
+@media (max-width: 480px) {
+	.badges {
+		gap: 8px;
+	}
+
+	.badge {
+		line-height: 15px;
+		padding: 2px 10px;
+		border-radius: 7px;
+		font-size: var(--font-size-400);
+	}
+}
