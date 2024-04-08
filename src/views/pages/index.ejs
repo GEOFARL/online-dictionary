@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="/css/components/navigation.css">
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/components/review.css">
-  
+  <link rel="stylesheet" href="/css/components/separator.css">
+
   </head>
 	<body>
     <%- include('../components/navigation.ejs', {routePath: homePath})%>
@@ -37,24 +38,7 @@
         <% }) %>
       </section>
 
-      <% if (isAuthorized) { %>
-        <%- include('../components/link.ejs', {
-            href: logOutPath,
-            content: "Log Out"
-          })
-        %>
-      <% } else { %>
-        <%- include('../components/link.ejs', {
-            href: signInPath,
-            content: "Sign In"
-          })
-        %>
-        <%- include('../components/link.ejs', {
-            href: signUpPath,
-            content: "Sign Up"
-          })
-        %>
-      <% } %>
+      <%- include("../components/separator.ejs") %>
 
       <section class="cta-start">
         <div class="cta-start__content">
