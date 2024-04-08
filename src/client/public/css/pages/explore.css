@@ -148,3 +148,66 @@
 	color: var(--color-grey-200);
 	font-size: var(--font-size-700);
 }
+
+@media (max-width: 768px) {
+	.word-of-the-day__heading,
+	.recently-viewed-words__heading {
+		font-size: var(--font-size-850);
+		line-height: 42px;
+	}
+
+	.word {
+		font-size: var(--font-size-800);
+	}
+
+	.word-of-the-day__description {
+		font-size: var(--font-size-600);
+	}
+
+	.button.word-of-the-day__button {
+		font-size: var(--font-size-700);
+		line-height: 30px;
+		height: 50px;
+	}
+
+	.word-of-the-day__content-container {
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.word-of-the__image-container {
+		max-width: 350px;
+		aspect-ratio: unset;
+		height: 270px;
+	}
+}
+
+@media (max-width: 480px) {
+	.word-of-the-day__heading,
+	.recently-viewed-words__heading {
+		font-size: var(--font-size-825);
+		line-height: 30px;
+	}
+
+	.recently-viewed-words__lists-container {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.recently-viewed-words__list {
+		align-items: stretch;
+	}
+
+	.recently-viewed-words__list-item {
+		width: unset;
+	}
+
+	.word-of-the-day {
+		margin-top: 125px;
+	}
+
+	.recently-viewed-words__list-item-link {
+		font-size: var(--font-size-600);
+	}
+}
