@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="/css/components/navigation.css">
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/components/review.css">
-  
+  <link rel="stylesheet" href="/css/components/separator.css">
+
   </head>
 	<body>
     <%- include('../components/navigation.ejs', {routePath: homePath})%>
@@ -36,6 +37,8 @@
           <%- include("../components/review.ejs", review) %>
         <% }) %>
       </section>
+
+      <%- include("../components/separator.ejs") %>
 
       <section class="cta-start">
         <div class="cta-start__content">
