@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.39.0](https://github.com/GEOFARL/online-dictionary/compare/v1.38.0...v1.39.0) (2024-04-08)
+
+
+### Features
+
+* make explore page mobile responsive od-184 ([#187](https://github.com/GEOFARL/online-dictionary/issues/187)) ([d73573f](https://github.com/GEOFARL/online-dictionary/commit/d73573fb51f0fe892f1be8777e9b123c307021a6))
+
 ## [1.38.0](https://github.com/GEOFARL/online-dictionary/compare/v1.37.1...v1.38.0) (2024-04-08)
 
 
