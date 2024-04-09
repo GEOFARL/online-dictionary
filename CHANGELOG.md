@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.40.0](https://github.com/GEOFARL/online-dictionary/compare/v1.39.0...v1.40.0) (2024-04-09)
+
+
+### Features
+
+* make home page mobile responsive od-130 ([#189](https://github.com/GEOFARL/online-dictionary/issues/189)) ([37926a2](https://github.com/GEOFARL/online-dictionary/commit/37926a2d7b5faaac55b9efcc97fd55131cb73c08))
+
 ## [1.39.0](https://github.com/GEOFARL/online-dictionary/compare/v1.38.0...v1.39.0) (2024-04-08)
 
 
