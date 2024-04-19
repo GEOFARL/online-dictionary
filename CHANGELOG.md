@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.0](https://github.com/GEOFARL/online-dictionary/compare/v1.40.0...v1.41.0) (2024-04-19)
+
+
+### Features
+
+* Replace working with data via files with DB without using ORM od-193 ([#194](https://github.com/GEOFARL/online-dictionary/issues/194)) ([0092106](https://github.com/GEOFARL/online-dictionary/commit/0092106173027c413c3fcad270e47ff3169b1ac7))
+
 ## [1.40.0](https://github.com/GEOFARL/online-dictionary/compare/v1.39.0...v1.40.0) (2024-04-09)
 
 
