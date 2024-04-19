@@ -6,10 +6,45 @@ Find the words and learn together.
 
 The project aims to help you find unknown words, their definitions and pronunciations. You will be able to save them for future in your profile.
 
+## DB Schema
+
+```mermaid
+erDiagram
+    USER ||--o{ WORD : "has"
+    USER {
+        int id PK "Primary Key"
+        varchar full_name "Not Null"
+        varchar email "Unique, Not Null"
+        varchar password "Not Null"
+        timestamp created_at "Default CURRENT_TIMESTAMP"
+        timestamp updated_at "Default CURRENT_TIMESTAMP"
+    }
+
+    WORD {
+        int id PK "Primary Key"
+        int user_id FK "Foreign Key"
+        varchar word "Not Null"
+        timestamp created_at "Default CURRENT_TIMESTAMP"
+        timestamp updated_at "Default CURRENT_TIMESTAMP"
+    }
+
+    WORD_OF_THE_DAY {
+        int id PK "Primary Key"
+        varchar image_alt
+        varchar image_src
+        text meaning
+        varchar part_of_speech
+        varchar word "Not Null"
+        timestamp created_at "Default CURRENT_TIMESTAMP"
+        timestamp updated_at "Default CURRENT_TIMESTAMP"
+    }
+
+```
+
 ## Run locally
 
 1. Create and fill all `.env` files, use `.env.example` for reference.
-2. Create a storage by running `npm run init-storage`. On Windows run `New-Item -ItemType Directory -Force -Path src/libs/modules/db/storage, build/libs/modules/db/storage`;
+2. Initialize database by running `npm run create-db` on Linux based systems or by running a `./scripts/init_db.sh` script on the Windows machine.
 3. Install dependencies: `npm install`
 4. Install pre-commit hooks: `npx simple-git-hooks`. This hook is used to verify code style on commit.
 5. Build an app: `npm run build`.

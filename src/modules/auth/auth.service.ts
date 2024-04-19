@@ -51,7 +51,7 @@ class AuthService {
 			});
 		}
 
-		const token = this.jsonWebToken.sign(createdUser.id);
+		const token = this.jsonWebToken.sign(String(createdUser.id));
 
 		return {
 			token,
@@ -101,7 +101,7 @@ class AuthService {
 			});
 		}
 
-		const token = this.jsonWebToken.sign(loggedInUser.id);
+		const token = this.jsonWebToken.sign(String(loggedInUser.id));
 
 		return {
 			token,
