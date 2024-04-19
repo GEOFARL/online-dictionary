@@ -87,7 +87,7 @@ class DictionaryService {
 			);
 
 			if (!hasWordAlready) {
-				await this.dictionaryRepository.addWord({ userId, word });
+				await this.dictionaryRepository.addWord({ userId: +userId, word });
 			}
 		}
 

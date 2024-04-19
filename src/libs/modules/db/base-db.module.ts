@@ -1,79 +1,77 @@
-import crypto from "crypto";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
+import pg from "pg";
 
 import { type ValueOf } from "~/libs/types/types.js";
 
-import { ID_BYTE_LENGTH, STORAGE_NAME } from "./libs/constants/constants.js";
+import { type Logger } from "../logger/logger.js";
 import { TableName } from "./libs/enums/enums.js";
 import { type DB, type DBRecord } from "./libs/types/types.js";
 
-/* eslint-disable no-underscore-dangle */
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-/* eslint-enable no-underscore-dangle */
-
 class BaseDB implements DB {
+	private client: pg.Client;
+
 	private currentTable: ValueOf<typeof TableName>;
 
-	private filePath: string;
+	private logger: Logger;
 
-	private ensureFileExists(): void {
-		if (!fs.existsSync(this.filePath)) {
-			fs.writeFileSync(this.filePath, JSON.stringify([]), "utf-8");
-		}
+	public constructor({
+		dbConnection: { database, host, password, port, user },
+		logger,
+	}: {
+		dbConnection: {
+			database: string;
+			host: string;
+			password: string;
+			port: number;
+			user: string;
+		};
+		logger: Logger;
+	}) {
+		this.logger = logger;
+		this.client = new pg.Client({
+			database,
+			host,
+			password,
+			port,
+			user,
+		});
+
+		this.connect();
 	}
 
-	private getFileContent(): Promise<string> {
-		return fs.promises.readFile(this.filePath, "utf-8");
+	private async connect(): Promise<void> {
+		await this.client.connect();
+		this.logger.info("DB connected successfully");
 	}
 
 	private setTable(tableName: ValueOf<typeof TableName>) {
 		this.currentTable = tableName;
-		this.filePath = path.join(
-			__dirname,
-			STORAGE_NAME,
-			`${this.currentTable}.json`,
-		);
-		this.ensureFileExists();
 		return this;
 	}
 
-	public getAll<T>(): Promise<DBRecord<T>[] | null> {
-		return new Promise<DBRecord<T>[] | null>((resolve) => {
-			this.getFileContent()
-				.then((fileContent) => {
-					resolve(JSON.parse(fileContent));
-				})
-				.catch(() => resolve(null));
-		});
+	public async getAll<T>(): Promise<DBRecord<T>[] | null> {
+		const result = await this.client.query(
+			`SELECT * FROM "${this.currentTable}"`,
+		);
+
+		return result.rows;
 	}
 
-	public insert<T>(object: T): Promise<DBRecord<T> | null> {
-		return new Promise<DBRecord<T> | null>((resolve) => {
-			const extendedObject: DBRecord<T> = {
-				createdAt: new Date().toISOString(),
-				id: crypto.randomBytes(ID_BYTE_LENGTH).toString("hex"),
-				...object,
-			};
+	public async insert<T>(object: T): Promise<DBRecord<T> | null> {
+		const keys = Object.keys(object);
+		const values = Object.values(object);
 
-			this.getFileContent()
-				.then((fileContent) => {
-					const data: DBRecord<T>[] = JSON.parse(fileContent);
-					data.push(extendedObject);
+		const ONE_ELEMENT_OFFSET = 1;
 
-					fs.writeFile(this.filePath, JSON.stringify(data), "utf-8", (err) => {
-						if (err) {
-							return resolve(null);
-						}
-						return resolve(extendedObject);
-					});
-				})
-				.catch(() => {
-					resolve(null);
-				});
-		});
+		const placeholders = values
+			.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`)
+			.join(", ");
+		const columns = keys.join(", ");
+
+		const query = `INSERT INTO "${this.currentTable}" (${columns}) VALUES (${placeholders}) RETURNING *`;
+
+		const result = await this.client.query(query, values);
+		const [createdObject] = result.rows;
+		return createdObject;
 	}
 
 	get USER() {

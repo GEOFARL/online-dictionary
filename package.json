@@ -19,7 +19,7 @@
 		"build:client": "npx webpack build --config ./src/client/webpack.config.mjs",
 		"build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && npm run build:client",
 		"format": "npx prettier . --write",
-		"init-storage": "mkdir -p src/libs/modules/db/storage && mkdir -p build/libs/modules/db/storage"
+		"create-db": "chmod +x ./scripts/init_db.sh && ./scripts/init_db.sh"
 	},
 	"author": "GEOFARL",
 	"devDependencies": {
@@ -31,6 +31,7 @@
 		"@types/node": "^20.11.24",
 		"@types/passport": "^1.0.16",
 		"@types/passport-jwt": "^4.0.1",
+		"@types/pg": "^8.11.5",
 		"@typescript-eslint/eslint-plugin": "^7.3.1",
 		"@typescript-eslint/parser": "^7.3.1",
 		"concurrently": "^8.2.2",
@@ -71,6 +72,7 @@
 		"passport": "^0.7.0",
 		"passport-jwt": "^4.0.1",
 		"pexels": "^1.4.0",
+		"pg": "^8.11.5",
 		"pino": "^8.19.0",
 		"pino-pretty": "^10.3.1",
 		"random-words": "^2.0.1",

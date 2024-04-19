@@ -1,6 +1,7 @@
 type DBRecord<T> = T & {
-	createdAt: string;
-	id: string;
+	created_at: string;
+	id: number;
+	updated_at: string;
 };
 
 export { type DBRecord };

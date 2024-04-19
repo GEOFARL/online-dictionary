@@ -8,6 +8,14 @@ type EnvironmentSchema = {
 		PORT: number;
 	};
 
+	DB: {
+		HOST: string;
+		NAME: string;
+		PASSWORD: string;
+		PORT: number;
+		USER: string;
+	};
+
 	JWT: {
 		SECRET: string;
 	};

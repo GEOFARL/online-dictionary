@@ -50,6 +50,38 @@ class BaseConfig implements Config {
 					format: Number,
 				},
 			},
+			DB: {
+				HOST: {
+					default: null,
+					doc: "Location where your database is hosted",
+					env: "DB_HOST",
+					format: Number,
+				},
+				NAME: {
+					default: null,
+					doc: "Database name",
+					env: "DB_NAME",
+					format: String,
+				},
+				PASSWORD: {
+					default: null,
+					doc: "Database password",
+					env: "DB_PASSWORD",
+					format: String,
+				},
+				PORT: {
+					default: null,
+					doc: "Database port number",
+					env: "DB_PORT",
+					format: String,
+				},
+				USER: {
+					default: null,
+					doc: "Database user",
+					env: "DB_USER",
+					format: String,
+				},
+			},
 			JWT: {
 				SECRET: {
 					default: null,

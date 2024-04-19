@@ -1,5 +1,5 @@
 type WordRecordDto = {
-	userId: string;
+	userId: number;
 	word: string;
 };
 
