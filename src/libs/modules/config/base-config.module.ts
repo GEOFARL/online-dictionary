@@ -55,7 +55,7 @@ class BaseConfig implements Config {
 					default: null,
 					doc: "Location where your database is hosted",
 					env: "DB_HOST",
-					format: Number,
+					format: String,
 				},
 				NAME: {
 					default: null,
@@ -73,7 +73,7 @@ class BaseConfig implements Config {
 					default: null,
 					doc: "Database port number",
 					env: "DB_PORT",
-					format: String,
+					format: Number,
 				},
 				USER: {
 					default: null,

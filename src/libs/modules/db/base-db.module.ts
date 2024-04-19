@@ -32,6 +32,9 @@ class BaseDB implements DB {
 			host,
 			password,
 			port,
+			ssl: {
+				rejectUnauthorized: false,
+			},
 			user,
 		});
 
