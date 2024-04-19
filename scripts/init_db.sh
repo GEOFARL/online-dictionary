@@ -7,11 +7,11 @@ fi
 
 # Create the database
 echo "Creating database $DB_NAME..."
-PGPASSWORD="$DB_PASSWORD" psql -U "$DB_USER" -c "CREATE DATABASE \"$DB_NAME\";"
+PGPASSWORD="$DB_PASSWORD" psql -h "$DB_HOST" -U "$DB_USER" -c "CREATE DATABASE \"$DB_NAME\";"
 
 # Connect to the newly created database
 echo "Connecting to database $DB_NAME..."
-PGPASSWORD="$DB_PASSWORD" psql -U "$DB_USER" -d "$DB_NAME" << EOF
+PGPASSWORD="$DB_PASSWORD" psql -h "$DB_HOST" -U "$DB_USER" -d "$DB_NAME" << EOF
 
 -- Create the tables
 CREATE TABLE "user" (
