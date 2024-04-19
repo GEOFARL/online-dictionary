@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.1](https://github.com/GEOFARL/online-dictionary/compare/v1.41.0...v1.41.1) (2024-04-19)
+
+
+### Bug Fixes
+
+* db connection od-193 ([#196](https://github.com/GEOFARL/online-dictionary/issues/196)) ([057a835](https://github.com/GEOFARL/online-dictionary/commit/057a8350bb914193562de946f13e931588d4bda1))
+
 ## [1.41.0](https://github.com/GEOFARL/online-dictionary/compare/v1.40.0...v1.41.0) (2024-04-19)
 
 
