@@ -11,6 +11,7 @@ import {
 	injectDataMiddleware,
 	validateMiddleware,
 } from "./middlewares/middlewares.js";
+import { settingsController } from "./modules/settings/settings.js";
 
 serverApplication.initMiddlewares([
 	injectDataMiddleware,
@@ -23,6 +24,7 @@ serverApplication.initControllers([
 	homeController,
 	dictionaryController,
 	exploreController,
+	settingsController,
 ]);
 serverApplication.initErrorHandler(errorHandlerMiddleware);
 serverApplication.initSwaggerDocs();

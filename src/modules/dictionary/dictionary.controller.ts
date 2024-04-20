@@ -92,6 +92,7 @@ class DictionaryController implements Controller {
 				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
+				settingsPath: PagesPath.SETTINGS,
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.DICTIONARY,

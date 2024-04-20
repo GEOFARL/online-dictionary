@@ -1,0 +1,99 @@
+.main {
+	max-width: 1280px;
+	width: 100%;
+	margin: 90px auto 0;
+	padding: 0 24px;
+}
+
+.container {
+	padding-top: 40px;
+}
+
+.profile-settings {
+	display: flex;
+	gap: 112px;
+}
+
+.profile-settings__content {
+	width: 100%;
+}
+
+.form-container {
+	width: 100%;
+}
+
+.image-container {
+	width: 200px;
+	height: 200px;
+	border: 1px solid rgba(156, 156, 156, 0.68);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 15%);
+	border-radius: 50%;
+	background-color: var(--color-white);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.heading {
+	font-size: var(--font-size-900);
+	text-align: center;
+	margin-bottom: 28px;
+}
+
+.form-container {
+}
+
+.form__heading {
+	font-size: var(--font-size-800);
+	font-weight: 500;
+	margin-bottom: 12px;
+}
+
+.change-name__input-label {
+	font-size: var(--font-size-500);
+	font-weight: 500;
+	margin-top: 18px;
+}
+
+.change-name__btn {
+	width: 170px;
+	height: 38px;
+	font-size: var(--font-size-500);
+	border-color: var(--color-red);
+	color: var(--color-red);
+	background-color: var(--color-white);
+	text-decoration: none;
+
+	margin-left: auto;
+	margin-top: 16px;
+}
+
+.change-name__btn:hover,
+.change-name__btn:focus,
+.change-name__btn:active {
+	border: 2px solid transparent;
+	background-color: var(--color-red);
+	color: var(--color-white);
+}
+
+.delete-account__heading {
+	font-size: var(--font-size-800);
+	font-weight: 500;
+	margin-bottom: 12px;
+	color: var(--color-red-300);
+}
+
+.delete-account__prompt {
+	font-size: var(--font-size-400);
+	font-weight: 500;
+	color: var(--color-grey-800);
+	margin-top: 10px;
+	margin-bottom: 16px;
+}
+
+.delete-account__btn {
+	width: 172px;
+	height: 38px;
+	font-size: var(--font-size-500);
+}

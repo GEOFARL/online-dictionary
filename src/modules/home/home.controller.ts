@@ -37,6 +37,7 @@ class HomeController implements Controller {
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,
 				reviews: selectRandomItems(REVIEWS, NUMBER_OF_REVIEWS_TO_RENDER),
+				settingsPath: PagesPath.SETTINGS,
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,

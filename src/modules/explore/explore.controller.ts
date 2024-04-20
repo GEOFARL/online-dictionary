@@ -45,6 +45,7 @@ class ExploreController implements Controller {
 						(await this.exploreService.getRecentlyViewedWords({
 							userId: req.user?.id,
 						})),
+					settingsPath: PagesPath.SETTINGS,
 					signInPath: PagesPath.SIGN_IN,
 					signUpPath: PagesPath.SIGN_UP,
 					title: PageTitle.EXPLORE,
