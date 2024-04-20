@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.42.0](https://github.com/GEOFARL/online-dictionary/compare/v1.41.1...v1.42.0) (2024-04-20)
+
+
+### Features
+
+* change title ([d04ee1e](https://github.com/GEOFARL/online-dictionary/commit/d04ee1ea670b4c2b41cc408a6b8e5f0906d67fa3))
+
 ## [1.41.1](https://github.com/GEOFARL/online-dictionary/compare/v1.41.0...v1.41.1) (2024-04-19)
 
 
