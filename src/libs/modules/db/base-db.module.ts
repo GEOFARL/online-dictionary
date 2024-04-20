@@ -1,4 +1,5 @@
 import pg from "pg";
+import { type ConnectionOptions } from "tls";
 
 import { type ValueOf } from "~/libs/types/types.js";
 
@@ -14,7 +15,7 @@ class BaseDB implements DB {
 	private logger: Logger;
 
 	public constructor({
-		dbConnection: { database, host, password, port, user },
+		dbConnection: { database, host, password, port, ssl, user },
 		logger,
 	}: {
 		dbConnection: {
@@ -22,6 +23,7 @@ class BaseDB implements DB {
 			host: string;
 			password: string;
 			port: number;
+			ssl: ConnectionOptions | boolean;
 			user: string;
 		};
 		logger: Logger;
@@ -32,9 +34,7 @@ class BaseDB implements DB {
 			host,
 			password,
 			port,
-			ssl: {
-				rejectUnauthorized: false,
-			},
+			ssl,
 			user,
 		});
 
