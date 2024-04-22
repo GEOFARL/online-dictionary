@@ -3,6 +3,7 @@ import { authController } from "~/modules/auth/auth.js";
 import { dictionaryController } from "~/modules/dictionary/dictionary.js";
 import { exploreController } from "~/modules/explore/explore.js";
 import { homeController } from "~/modules/home/home.js";
+import { settingsController } from "~/modules/settings/settings.js";
 
 import {
 	authenticateMiddleware,
@@ -11,7 +12,6 @@ import {
 	injectDataMiddleware,
 	validateMiddleware,
 } from "./middlewares/middlewares.js";
-import { settingsController } from "./modules/settings/settings.js";
 
 serverApplication.initMiddlewares([
 	injectDataMiddleware,

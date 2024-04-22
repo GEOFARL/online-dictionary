@@ -19,11 +19,12 @@
                         <div class="form-container">
                             <h2 class="form__heading">Профіль</h2>
                             <%- include("../components/separator.ejs") %>
-                            <form class="change-name-form">
+                            <form>
                                 <%- include('../components/input.ejs', {
                                     id: "change-name",
                                     label: "Повне ім'я",
                                     placeholder: `"Введіть сюди ваше ім'я"`,
+                                    value: username ? username : '',
                                     className: "change-name__input",
                                     labelClassName: "change-name__input-label",
                                 }); %>
@@ -38,7 +39,6 @@
                             <%- include("../components/separator.ejs") %>
                             <p class="delete-account__prompt">
                                 Як тільки Ви видалите свій акаунт, його більше не буде змоги відновити.
-                                </br>
                                 Впевніться у своїх діях
                             </p>
                             <%- include('../components/button.ejs', {
@@ -49,7 +49,7 @@
                     </div>
                     <div class="profile-image-container">
                         <div class="image-container">
-                            <img src="/assets/icons/user.svg" alt="user icon">
+                            <img src="/assets/icons/user.svg" alt="user icon" class="profile-image">
                         </div>
                     </div>
                 </div>

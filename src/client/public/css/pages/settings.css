@@ -41,9 +41,6 @@
 	margin-bottom: 28px;
 }
 
-.form-container {
-}
-
 .form__heading {
 	font-size: var(--font-size-800);
 	font-weight: 500;
@@ -90,10 +87,42 @@
 	color: var(--color-grey-800);
 	margin-top: 10px;
 	margin-bottom: 16px;
+	max-width: 525px;
 }
 
 .delete-account__btn {
 	width: 172px;
 	height: 38px;
 	font-size: var(--font-size-500);
+}
+
+@media (max-width: 768px) {
+	.heading {
+		font-size: var(--font-size-800);
+	}
+
+	.form__heading {
+		font-size: var(--font-size-750);
+	}
+
+	.delete-account__heading {
+		font-size: var(--font-size-750);
+	}
+
+	.profile-settings {
+		gap: 50px;
+		flex-direction: column-reverse;
+	}
+
+	.image-container {
+		width: 150px;
+		height: 150px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.profile-image {
+		width: 100px;
+		height: 100px;
+	}
 }

@@ -6,6 +6,7 @@
     id="<%= id %>"
     <%= locals.inputMode ? 'inputmode=' + inputMode : '' %>
     <%- locals.placeholder ? 'placeholder=' + placeholder  : '' %>
+    <%- locals.value ? 'value=' + locals.value  : value='' %>
     <% if (locals.dataAttributes) { %>
       <% for (const dataAttr in locals.dataAttributes) { %>
         <%= dataAttr %>="<%= dataAttributes[dataAttr] %>"
