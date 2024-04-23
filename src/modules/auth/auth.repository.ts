@@ -12,12 +12,38 @@ class AuthRepository {
 		this.db = db;
 	}
 
-	public create(user: UserAuthSignUpRequestDto): Promise<UserDto> {
-		return this.db.USER.insert(user);
+	public async create(user: UserAuthSignUpRequestDto): Promise<UserDto> {
+		const createdUser = await this.db.USER.insert({
+			email: user.email,
+			full_name: user.fullName,
+			password: user.password,
+		});
+
+		return {
+			createdAt: createdUser.created_at,
+			email: createdUser.email,
+			fullName: createdUser.full_name,
+			id: createdUser.id,
+			password: createdUser.password,
+			updatedAt: createdUser.updated_at,
+		};
 	}
 
-	public findAll(): Promise<UserDto[]> {
-		return this.db.USER.getAll<UserDto>();
+	public async findAll(): Promise<UserDto[]> {
+		const allUsers = await this.db.USER.getAll<{
+			email: string;
+			full_name: string;
+			password: string;
+		}>();
+
+		return allUsers.map((user) => ({
+			createdAt: user.created_at,
+			email: user.email,
+			fullName: user.full_name,
+			id: user.id,
+			password: user.password,
+			updatedAt: user.updated_at,
+		}));
 	}
 
 	public async findByEmail(email: string): Promise<UserDto | undefined> {
@@ -31,7 +57,7 @@ class AuthRepository {
 	public async findById(id: string): Promise<UserDto | undefined> {
 		const allUsers = await this.findAll();
 
-		const user = allUsers.find((userObject) => userObject.id === id);
+		const user = allUsers.find((userObject) => userObject.id === +id);
 
 		return user;
 	}

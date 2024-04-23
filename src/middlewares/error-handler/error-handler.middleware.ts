@@ -15,7 +15,8 @@ class ErrorHandlerMiddleware implements Middleware {
 	}
 
 	init(app: Application): void {
-		app.use((err, _, res, next) => {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		app.use((err, _, res, __) => {
 			if ("issues" in err) {
 				this.logger.error(`[Validation Error]: ${err.message}`);
 
@@ -33,7 +34,6 @@ class ErrorHandlerMiddleware implements Middleware {
 					status: HTTPCode.UNPROCESSED_ENTITY,
 				} as ErrorDto);
 
-				next();
 				return;
 			}
 
@@ -45,7 +45,6 @@ class ErrorHandlerMiddleware implements Middleware {
 					status: err.status,
 				} as ErrorDto);
 
-				next();
 				return;
 			}
 
