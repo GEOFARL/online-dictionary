@@ -3,5 +3,7 @@
 </div>
 
 <div class="user-menu-container hidden">
-    <%- include('../components/user-menu.ejs') %>
+    <%- include('../components/user-menu.ejs', {
+        user: user,
+    }) %>
 </div>

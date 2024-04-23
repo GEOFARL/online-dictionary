@@ -44,9 +44,7 @@
         <div class="controls">
             <% if (isAuthorized) { %>
                 <%- include('../components/avatar-button.ejs', {
-                    // href: logOutPath,
-                    // label: "Вийти",
-                    // className: "header__control-btn"
+                    user: user,
                   })
                 %>
               <% } else { %>

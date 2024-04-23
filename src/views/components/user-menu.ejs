@@ -4,8 +4,8 @@
             <img class="user-menu__header-avatar-image" src="<%= locals.image ? image : '/assets/images/default-avatar.png' %>" alt="">
         </div>
         <div class="user-menu__header-info">
-            <p class="user-menu__header-info-username">Максим Циганок</p>
-            <p class="user-menu__header-info-email">@maks2005</p>
+            <p class="user-menu__header-info-fullname"><%= user.fullName%></p>
+            <p class="user-menu__header-info-email"><%= locals.user? user.email : '' %></p>
         </div>
     </div>
 
