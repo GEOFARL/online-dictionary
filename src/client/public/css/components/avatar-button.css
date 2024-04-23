@@ -9,7 +9,12 @@
 }
 
 .avatar-button__image {
-	width: 24px;
-	height: 24px;
 	object-fit: cover;
+}
+
+.user-menu-container {
+	position: absolute;
+	top: 80%;
+	right: 24px;
+	z-index: 1;
 }

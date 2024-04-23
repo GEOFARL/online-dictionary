@@ -1,0 +1,28 @@
+<div class="user-menu">
+    <div class="user-menu__header">
+        <div class="user-menu__header-avatar">
+            <img class="user-menu__header-avatar-image" src="<%= locals.image ? image : '/assets/images/default-avatar.png' %>" alt="">
+        </div>
+        <div class="user-menu__header-info">
+            <p class="user-menu__header-info-username">Максим Циганок</p>
+            <p class="user-menu__header-info-email">@maks2005</p>
+        </div>
+    </div>
+
+    <%- include('../components/separator.ejs') %>
+
+    <div class="user-menu__settings">
+        <img class="user-menu__settings-icon" src="/assets/icons/settings.svg" alt="">
+        <span class="user-menu__settings-label">Налаштування</span>
+    </div>
+
+    <%- include('../components/separator.ejs') %>
+
+    <div class="user-menu__cta">
+        <%- include('../components/button.ejs', {
+            href: logOutPath,
+            label: "Вийти",
+            className: "user-menu__cta-button",
+        }) %>
+    </div>
+</div>
