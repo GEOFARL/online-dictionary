@@ -189,7 +189,7 @@
 
 .user-menu__settings:hover {
 	cursor: pointer;
-	background-color: var(--color-grey-800);
+	background-color: var(--color-grey-900);
 }
 
 .user-menu__settings-link,
