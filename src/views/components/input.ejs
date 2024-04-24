@@ -1,12 +1,12 @@
 <div class="form-control">
   <label class="<%= locals.labelClassName || '' %>" for="<%= id %>"><%= label %></label>
-  
+
   <input
     type="<%= locals.type ? type : 'text' %>"
     id="<%= id %>"
     <%= locals.inputMode ? 'inputmode=' + inputMode : '' %>
     <%- locals.placeholder ? 'placeholder=' + placeholder  : '' %>
-    <%- locals.value ? 'value=' + locals.value  : value='' %>
+    <%- locals.value ? `value="${value}"` : '' %>
     <% if (locals.dataAttributes) { %>
       <% for (const dataAttr in locals.dataAttributes) { %>
         <%= dataAttr %>="<%= dataAttributes[dataAttr] %>"

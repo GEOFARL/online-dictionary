@@ -7,7 +7,7 @@ class SettingsController implements Controller {
 	private initPages(app: Application) {
 		/**
 		 * @swagger
-		 * /:
+		 * /settings:
 		 *   get:
 		 *     tags:
 		 *       - Pages
