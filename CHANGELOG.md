@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.42.0](https://github.com/GEOFARL/online-dictionary/compare/v1.41.2...v1.42.0) (2024-04-24)
+
+
+### Features
+
+* settings page od-192 ([#201](https://github.com/GEOFARL/online-dictionary/issues/201)) ([6118fbe](https://github.com/GEOFARL/online-dictionary/commit/6118fbe5b91fdab5a57b736fac8412c26119e34a))
+
 ## [1.41.2](https://github.com/GEOFARL/online-dictionary/compare/v1.41.1...v1.41.2) (2024-04-20)
 
 
