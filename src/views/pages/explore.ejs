@@ -7,13 +7,11 @@
   <link rel="stylesheet" href="/css/components/navigation.css">
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
-  <link rel="stylesheet" href="/css/components/avatar-button.css">
-  <link rel="stylesheet" href="/css/components/user-menu.css">
   </head>
   <body>
     <%- include('../components/navigation.ejs', {
       routePath: explorePath,
-      user: user,
+      user,
     })%>
     <main class="main">
       <section class="word-of-the-day">

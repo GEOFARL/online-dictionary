@@ -8,14 +8,12 @@
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/components/review.css">
   <link rel="stylesheet" href="/css/components/separator.css">
-  <link rel="stylesheet" href="/css/components/avatar-button.css">
-  <link rel="stylesheet" href="/css/components/user-menu.css">
 
   </head>
 	<body>
     <%- include('../components/navigation.ejs', {
       routePath: homePath,
-      user: user,
+      user,
     })%>
     <main class="main">
       <section class="hero-container">

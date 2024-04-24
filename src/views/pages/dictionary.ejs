@@ -11,14 +11,12 @@
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/components/swiper.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
-  <link rel="stylesheet" href="/css/components/avatar-button.css">
-  <link rel="stylesheet" href="/css/components/user-menu.css">
   </head>
 
 	<body>
     <%- include('../components/navigation.ejs', {
       routePath: dictionaryPath,
-      user: user,
+      user,
     })%>
     <main class="main">
       <form class="search__form">
