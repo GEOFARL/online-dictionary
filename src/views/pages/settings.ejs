@@ -1,0 +1,65 @@
+<%- include("../includes/head") %>
+    <link rel="stylesheet" href="/css/includes/footer.css">
+    <link rel="stylesheet" href="/css/components/input.css">
+    <link rel="stylesheet" href="/css/components/button.css">
+    <link rel="stylesheet" href="/css/includes/overlay.css">
+    <link rel="stylesheet" href="/css/components/link.css">
+    <link rel="stylesheet" href="/css/pages/settings.css">
+    <link rel="stylesheet" href="/css/components/navigation.css">
+    <link rel="stylesheet" href="/css/components/sidebar.css">
+    <link rel="stylesheet" href="/css/components/separator.css">
+</head>
+	<body>
+        <%- include('../components/navigation.ejs', {routePath: settingsPath})%>
+        <main class="main">
+            <div class="container">
+                <h1 class="heading">Налаштування</h1>
+                <div class="profile-settings">
+                    <div class="profile-settings__content">
+                        <div class="form-container">
+                            <h2 class="form__heading">Профіль</h2>
+                            <%- include("../components/separator.ejs") %>
+                            <form>
+                                <%- include('../components/input.ejs', {
+                                    id: "change-name",
+                                    label: "Повне ім'я",
+                                    placeholder: `"Введіть сюди ваше ім'я"`,
+                                    value: username ? username : '',
+                                    className: "change-name__input",
+                                    labelClassName: "change-name__input-label",
+                                }); %>
+                                <%- include('../components/button.ejs', {
+                                    label: "Зберегти зміни",
+                                    className: "change-name__btn"
+                                }); %>
+                            </form>
+                        </div>
+                        <div class="delete-account">
+                            <h2 class="delete-account__heading">Видалення акаунту</h2>
+                            <%- include("../components/separator.ejs") %>
+                            <p class="delete-account__prompt">
+                                Як тільки Ви видалите свій акаунт, його більше не буде змоги відновити.
+                                Впевніться у своїх діях
+                            </p>
+                            <%- include('../components/button.ejs', {
+                                label: "Видалити акаунт",
+                                className: "delete-account__btn"
+                            }); %>
+                        </div>
+                    </div>
+                    <div class="profile-image-container">
+                        <div class="image-container">
+                            <img src="/assets/icons/user.svg" alt="user icon" class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <%- include('../includes/overlay.ejs')%>
+        <%- include('../includes/footer.ejs') %>
+    </body>
+    <script>
+        Library.configure();
+    </script>
+<%- include("../includes/end") %>
