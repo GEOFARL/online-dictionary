@@ -116,10 +116,16 @@
 	object-fit: cover;
 }
 
+.user-profile-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
 .user-menu-container {
 	position: absolute;
-	top: 80%;
-	right: 24px;
+	top: 120%;
+	right: 0;
 	z-index: 1;
 }
 
@@ -178,6 +184,12 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	transition: 0.2s all ease;
+}
+
+.user-menu__settings:hover {
+	cursor: pointer;
+	background-color: var(--color-grey-800);
 }
 
 .user-menu__settings-link,
@@ -190,10 +202,6 @@
 .user-menu__settings-link {
 	color: var(--color-black);
 	text-decoration: none;
-}
-
-.user-menu__settings-link:hover {
-	text-decoration: underline;
 }
 
 .user-menu__cta {

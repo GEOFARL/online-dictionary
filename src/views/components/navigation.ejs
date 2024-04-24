@@ -43,40 +43,42 @@
         </div>
         <div class="controls">
             <% if (isAuthorized) { %>
-                <div class="avatar-button">
-                    <img class="avatar-button__image" src=" <%= locals.image ? image : '/assets/icons/default-avatar.svg' %>" alt="">
-                </div>
-                
-                <div class="user-menu-container hidden">
-                    <div class="user-menu">
-                        <div class="user-menu__header">
-                            <div class="user-menu__header-avatar">
-                                <img class="user-menu__header-avatar-image" src="<%= locals.image ? image : '/assets/icons/default-avatar.svg' %>" alt="">
-                            </div>
-                            <div class="user-menu__header-info">
-                                <p class="user-menu__header-info-fullname"><%= user.fullName%></p>
-                                <p class="user-menu__header-info-email"><%= locals.user? user.email : '' %></p>
-                            </div>
-                        </div>
-                    
-                        <%- include('../components/separator.ejs') %>
-                    
-                        <div class="user-menu__settings">
-                            <img class="user-menu__settings-icon" src="/assets/icons/settings.svg" alt="">
-                            <a class="user-menu__settings-link" href="<%= settingsPath %>">Налаштування</a>
-                        </div>
-                    
-                        <%- include('../components/separator.ejs') %>
-                    
-                        <div class="user-menu__cta">
-                            <%- include('../components/button.ejs', {
-                                href: logOutPath,
-                                label: "Вийти",
-                                className: "user-menu__cta-button",
-                            }) %>
-                        </div>
+                <div class="user-profile-container">
+                    <div class="avatar-button">
+                        <img class="avatar-button__image" src=" <%= locals.image ? image : '/assets/icons/default-avatar.svg' %>" alt="">
                     </div>
-                </div>                
+                    
+                    <div class="user-menu-container hidden">
+                        <div class="user-menu">
+                            <div class="user-menu__header">
+                                <div class="user-menu__header-avatar">
+                                    <img class="user-menu__header-avatar-image" src="<%= locals.image ? image : '/assets/icons/default-avatar.svg' %>" alt="">
+                                </div>
+                                <div class="user-menu__header-info">
+                                    <p class="user-menu__header-info-fullname"><%= user.fullName%></p>
+                                    <p class="user-menu__header-info-email"><%= locals.user? user.email : '' %></p>
+                                </div>
+                            </div>
+                        
+                            <%- include('../components/separator.ejs') %>
+                        
+                            <div class="user-menu__settings">
+                                <img class="user-menu__settings-icon" src="/assets/icons/settings.svg" alt="">
+                                <a class="user-menu__settings-link" href="<%= settingsPath %>">Налаштування</a>
+                            </div>
+                        
+                            <%- include('../components/separator.ejs') %>
+                        
+                            <div class="user-menu__cta">
+                                <%- include('../components/button.ejs', {
+                                    href: logOutPath,
+                                    label: "Вийти",
+                                    className: "user-menu__cta-button",
+                                }) %>
+                            </div>
+                        </div>
+                    </div>  
+                </div>              
               <% } else { %>
                 <%- include('../components/button.ejs', {
                     href: signInPath,
