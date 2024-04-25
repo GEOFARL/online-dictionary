@@ -3,54 +3,45 @@ import { asyncHandler } from "~/libs/helpers/helpers.js";
 import { type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 
-import { type ExploreService } from "./explore.service.js";
-
-class ExploreController implements Controller {
-	private exploreService: ExploreService;
-
-	public constructor({ exploreService }: { exploreService: ExploreService }) {
-		this.exploreService = exploreService;
-	}
-
+class SettingsController implements Controller {
 	private initPages(app: Application) {
 		/**
 		 * @swagger
-		 * /explore:
+		 * /settings:
 		 *   get:
 		 *     tags:
 		 *       - Pages
-		 *     description: Renders the explore page showcasing a word of the day and other features
+		 *     description: Renders the settings page enabling to change name and delete account
 		 *     responses:
 		 *       200:
-		 *         description: HTML page for the explore section
+		 *         description: HTML page for the settings page
 		 *         content:
 		 *           text/html:
 		 *             schema:
 		 *               type: string
-		 *               description: HTML content of the explore page.
+		 *               description: HTML content of the settings page.
 		 *       500:
 		 *         $ref: '#/components/responses/InternalServerError'
 		 */
 		app.get(
-			PagesPath.EXPLORE,
-			asyncHandler(async (req, res) => {
-				res.render(`pages${PagesPath.EXPLORE}`, {
+			PagesPath.SETTINGS,
+			asyncHandler(async (req, res): Promise<void> => {
+				if (!req.user) {
+					return res.redirect(PagesPath.SIGN_IN); // Redirect to sign-in page if not logged in
+				}
+				res.render(`pages${PagesPath.SETTINGS}`, {
 					dictionaryPath: PagesPath.DICTIONARY,
 					explorePath: PagesPath.EXPLORE,
 					homePath: PagesPath.ROOT,
 					isAuthorized: Boolean(req.user),
 					logOutPath: ApiPath.AUTH_LOG_OUT,
-					recentlyViewedWords:
-						req.user?.id &&
-						(await this.exploreService.getRecentlyViewedWords({
-							userId: req.user?.id,
-						})),
 					settingsPath: PagesPath.SETTINGS,
 					signInPath: PagesPath.SIGN_IN,
 					signUpPath: PagesPath.SIGN_UP,
-					title: PageTitle.EXPLORE,
-					wordOfTheDay: await this.exploreService.getWordOfTheDay(),
+					title: PageTitle.SETTINGS,
+					username: req.user.fullName,
 				});
+				return await Promise.resolve();
 			}),
 		);
 	}
@@ -60,12 +51,12 @@ class ExploreController implements Controller {
 	}
 
 	get name() {
-		return "explore";
+		return "settings";
 	}
 
 	get routes(): { httpMethod: HTTPMethod; path: string }[] {
-		return [{ httpMethod: "GET", path: PagesPath.EXPLORE }];
+		return [{ httpMethod: "GET", path: PagesPath.SETTINGS }];
 	}
 }
 
-export { ExploreController };
+export { SettingsController };

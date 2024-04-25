@@ -5,6 +5,7 @@ const PageTitle = {
 	EXPLORE: `${APPLICATION_NAME} | Explore`,
 	HOME: `${APPLICATION_NAME}`,
 	NOT_FOUND: `${APPLICATION_NAME} | Not Found`,
+	SETTINGS: `${APPLICATION_NAME} | Settings`,
 	SIGN_IN: `${APPLICATION_NAME} | Sign In`,
 	SIGN_UP: `${APPLICATION_NAME} | Sign Up`,
 } as const;
