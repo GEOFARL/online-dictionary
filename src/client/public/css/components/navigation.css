@@ -7,7 +7,6 @@
 	position: fixed;
 	width: 100%;
 	background-color: var(--color-white);
-
 	z-index: 100;
 }
 
@@ -17,10 +16,11 @@
 	margin: 0 auto;
 	padding: 0 24px;
 	height: 90px;
-
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding-right: calc(20px - (100vw - 100%));
+	transition: padding-right 0.3s ease;
 }
 
 .header__content {

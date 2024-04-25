@@ -63,6 +63,11 @@ body {
 	color: var(--color-black);
 	background-color: var(--color-grey-600);
 	line-height: 1.5;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 20px;
 }
 
 .hidden {
