@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.43.0](https://github.com/GEOFARL/online-dictionary/compare/v1.42.0...v1.43.0) (2024-04-26)
+
+
+### Features
+
+* account menu od-191 ([#203](https://github.com/GEOFARL/online-dictionary/issues/203)) ([a6d1bf6](https://github.com/GEOFARL/online-dictionary/commit/a6d1bf66b5c6b54ffcaa62f123eccb8da7bea88c))
+
 ## [1.42.0](https://github.com/GEOFARL/online-dictionary/compare/v1.41.2...v1.42.0) (2024-04-24)
 
 
