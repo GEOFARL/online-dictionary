@@ -14,7 +14,10 @@
   </head>
 
 	<body>
-    <%- include('../components/navigation.ejs', {routePath: dictionaryPath})%>
+    <%- include('../components/navigation.ejs', {
+      routePath: dictionaryPath,
+      user,
+    })%>
     <main class="main">
       <form class="search__form">
         <%- include('../components/input.ejs', {

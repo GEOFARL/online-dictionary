@@ -96,6 +96,7 @@ class DictionaryController implements Controller {
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.DICTIONARY,
+				user: req.user,
 			});
 		});
 	}

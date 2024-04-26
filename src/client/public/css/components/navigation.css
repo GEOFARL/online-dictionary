@@ -101,6 +101,120 @@
 	gap: 22px;
 }
 
+.avatar-button {
+	width: 36px;
+	height: 36px;
+	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+	border-radius: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.avatar-button__image {
+	object-fit: cover;
+}
+
+.user-profile-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.user-menu-container {
+	position: absolute;
+	top: 120%;
+	right: 0;
+	z-index: 1;
+}
+
+.user-menu {
+	min-width: 240px;
+	border-radius: 15px;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+	background-color: var(--color-white);
+}
+
+.user-menu__header {
+	display: flex;
+	justify-content: left;
+	gap: 13px;
+	padding: 16px 16px 12px 12px;
+}
+
+.user-menu__header-avatar {
+	width: 46px;
+	height: 46px;
+	border-radius: 90px;
+	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.user-menu__header-avatar-image {
+	object-fit: cover;
+}
+
+.user-menu__header-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2px;
+}
+
+.user-menu__header-info-fullname {
+	font-size: var(--font-size-500);
+	font-weight: 500;
+	letter-spacing: -0.04em;
+	line-height: 17px;
+}
+
+.user-menu__header-info-email {
+	font-size: var(--font-size-100);
+	font-weight: 300;
+	letter-spacing: -0.04em;
+	line-height: 10px;
+	color: var(--color-grey-400);
+}
+
+.user-menu__settings {
+	padding: 10px 16px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition: 0.2s all ease;
+	text-decoration: none;
+}
+
+.user-menu__settings:hover {
+	cursor: pointer;
+	background-color: var(--color-grey-900);
+}
+
+.user-menu__settings-name,
+.user-menu__cta-button {
+	font-size: var(--font-size-200);
+	font-weight: 400;
+	line-height: 12px;
+}
+
+.user-menu__settings-name {
+	color: var(--color-black);
+}
+
+.user-menu__cta {
+	padding: 10px 18px;
+}
+
+.user-menu__cta-button {
+	padding: 3px 0;
+	text-decoration: none;
+}
+
 @media (max-width: 1024px) {
 	.header {
 		gap: 24px;

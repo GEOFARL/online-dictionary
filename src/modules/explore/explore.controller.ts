@@ -49,6 +49,7 @@ class ExploreController implements Controller {
 					signInPath: PagesPath.SIGN_IN,
 					signUpPath: PagesPath.SIGN_UP,
 					title: PageTitle.EXPLORE,
+					user: req.user,
 					wordOfTheDay: await this.exploreService.getWordOfTheDay(),
 				});
 			}),

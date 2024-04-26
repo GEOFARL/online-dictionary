@@ -7,6 +7,7 @@
 }
 
 :root {
+	--font-size-50: 8px;
 	--font-size-100: 11px;
 	--font-size-200: 12px;
 	--font-size-300: 13px;
@@ -39,6 +40,7 @@
 	--color-grey-600: #fbfbfb;
 	--color-grey-700: #5d5d5d;
 	--color-grey-800: #7c7c7c;
+	--color-grey-900: #f3f3f3;
 
 	--color-yellow-100: #f0e472;
 

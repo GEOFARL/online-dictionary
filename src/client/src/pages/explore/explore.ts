@@ -1,5 +1,6 @@
 import {
 	configureMobileSidebar,
+	configureUserMenu,
 	dom,
 	partOfSpeechToClassName,
 } from "~/shared/index.js";
@@ -10,6 +11,7 @@ const configure = ({ partOfTheSpeech }: { partOfTheSpeech: string }): void => {
 		selector: ".badge",
 	});
 	configureMobileSidebar();
+	configureUserMenu();
 };
 
 export { configure };

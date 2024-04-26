@@ -23,7 +23,7 @@
                         content: "Головна",
                         className: "sidebar__navigation-list-item-link",
                         src: "/assets/icons/home.svg",
-                        alt: "logo"
+                        alt: "home icon"
                     }); %>
                 </li>
                 <li class="sidebar__navigation-list-item">
@@ -32,7 +32,7 @@
                         content: "Словник",
                         className: "sidebar__navigation-list-item-link",
                         src: "/assets/icons/dictionary.svg",
-                        alt: "logo"
+                        alt: "dictionary icon"
                     }); %>
                 </li>
                 <li class="sidebar__navigation-list-item">
@@ -41,7 +41,16 @@
                         content: "Нове",
                         className: "sidebar__navigation-list-item-link",
                         src: "/assets/icons/world.svg",
-                        alt: "logo"
+                        alt: "world icon"
+                    }); %>
+                </li>
+                <li class="sidebar__navigation-list-item">
+                    <%- include('../components/link.ejs', {
+                        href: settingsPath,
+                        content: "Налаштування",
+                        className: "sidebar__navigation-list-item-link",
+                        src: "/assets/icons/settings.svg",
+                        alt: "settings icon"
                     }); %>
                 </li>
             </ul>

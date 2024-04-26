@@ -41,6 +41,7 @@ class HomeController implements Controller {
 				signInPath: PagesPath.SIGN_IN,
 				signUpPath: PagesPath.SIGN_UP,
 				title: PageTitle.HOME,
+				user: req.user,
 			});
 		});
 	}
