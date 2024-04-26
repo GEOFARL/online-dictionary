@@ -7,6 +7,18 @@ import { validate } from "~/middlewares/validate/validate.js";
 import { userProfileUpdate as userProfileUpdateValidationSchema } from "./libs/validation-schemas/user-profile-update.validation-schema";
 import { type UserService } from "./user.service.js";
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     UserProfileUpdateRequestDto:
+ *       type: object
+ *       properties:
+ *         fullName:
+ *           type: string
+ *           description: User full name
+ *       description: DTO for updating user profile information, excluding email and password fields.
+ */
 class UserController implements Controller {
 	private userService: UserService;
 
@@ -20,18 +32,18 @@ class UserController implements Controller {
 		 * /user:
 		 *   put:
 		 *     tags:
-		 *       - Authentication
-		 *     summary: User sign-up
-		 *     description: Registers a new user and returns user details upon successful registration.
+		 *       - User
+		 *     summary: User Profile Update
+		 *     description: Updates the user profile.
 		 *     requestBody:
 		 *       required: true
 		 *       content:
 		 *         application/json:
 		 *           schema:
-		 *             $ref: '#/components/schemas/UserAuthSignUpRequestDto'
+		 *             $ref: '#/components/schemas/UserProfileUpdateRequestDto'
 		 *     responses:
-		 *       201:
-		 *         description: User successfully registered
+		 *       200:
+		 *         description: User profile successfully updated
 		 *       500:
 		 *         $ref: '#/components/responses/InternalServerError'
 		 */
