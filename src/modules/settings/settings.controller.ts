@@ -39,6 +39,7 @@ class SettingsController implements Controller {
 					signInPath: PagesPath.SIGN_IN,
 					signUpPath: PagesPath.SIGN_UP,
 					title: PageTitle.SETTINGS,
+					user: req.user,
 					username: req.user.fullName,
 				});
 				return await Promise.resolve();
