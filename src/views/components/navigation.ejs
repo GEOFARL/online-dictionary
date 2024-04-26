@@ -47,7 +47,7 @@
                     <div class="avatar-button">
                         <img class="avatar-button__image" src=" <%= locals.image ? image : '/assets/icons/default-avatar.svg' %>" alt="">
                     </div>
-                    
+
                     <div class="user-menu-container hidden">
                         <div class="user-menu">
                             <div class="user-menu__header">
@@ -59,16 +59,16 @@
                                     <p class="user-menu__header-info-email"><%= locals.user? user.email : '' %></p>
                                 </div>
                             </div>
-                        
+
                             <%- include('../components/separator.ejs') %>
-                        
-                            <div class="user-menu__settings">
+
+                            <a class="user-menu__settings" href="<%= settingsPath %>">
                                 <img class="user-menu__settings-icon" src="/assets/icons/settings.svg" alt="">
-                                <a class="user-menu__settings-link" href="<%= settingsPath %>">Налаштування</a>
-                            </div>
-                        
+                                <p class="user-menu__settings-name">Налаштування</p>
+                            </a>
+
                             <%- include('../components/separator.ejs') %>
-                        
+
                             <div class="user-menu__cta">
                                 <%- include('../components/button.ejs', {
                                     href: logOutPath,
@@ -77,8 +77,8 @@
                                 }) %>
                             </div>
                         </div>
-                    </div>  
-                </div>              
+                    </div>
+                </div>
               <% } else { %>
                 <%- include('../components/button.ejs', {
                     href: signInPath,
@@ -92,7 +92,7 @@
                 }); %>
               <% } %>
         </div>
-         
+
     </div>
 </header>
 
