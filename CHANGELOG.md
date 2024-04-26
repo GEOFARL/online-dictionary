@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.44.0](https://github.com/GEOFARL/online-dictionary/compare/v1.43.0...v1.44.0) (2024-04-26)
+
+
+### Features
+
+* Implement profile update route and logic od-207 ([#209](https://github.com/GEOFARL/online-dictionary/issues/209)) ([c4042cd](https://github.com/GEOFARL/online-dictionary/commit/c4042cd795ac04f302597acb99ec4af4fae6c98a))
+
 ## [1.43.0](https://github.com/GEOFARL/online-dictionary/compare/v1.42.0...v1.43.0) (2024-04-26)
 
 
