@@ -3,9 +3,11 @@ import { type DB } from "~/libs/modules/db/db.js";
 import {
 	type UserAuthSignUpRequestDto,
 	type UserDto,
-} from "../user/libs/types/types.js";
+	type UserProfileUpdateRequestDto,
+	type UserProfileUpdateResponseDto,
+} from "./libs/types/types.js";
 
-class AuthRepository {
+class UserRepository {
 	private db: DB;
 
 	public constructor({ db }: { db: DB }) {
@@ -54,13 +56,29 @@ class AuthRepository {
 		return user;
 	}
 
-	public async findById(id: string): Promise<UserDto | undefined> {
+	public async findById(id: number): Promise<UserDto | undefined> {
 		const allUsers = await this.findAll();
 
-		const user = allUsers.find((userObject) => userObject.id === +id);
+		const user = allUsers.find((userObject) => userObject.id === id);
 
 		return user;
 	}
+
+	public async update(
+		userId: number,
+		user: UserProfileUpdateRequestDto,
+	): Promise<UserProfileUpdateResponseDto> {
+		const updatedUser = await this.db.USER.update(userId, {
+			full_name: user.fullName,
+		});
+
+		return {
+			createdAt: updatedUser.created_at,
+			fullName: updatedUser.full_name,
+			id: updatedUser.id,
+			updatedAt: updatedUser.updated_at,
+		};
+	}
 }
 
-export { AuthRepository };
+export { UserRepository };

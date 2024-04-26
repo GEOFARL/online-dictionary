@@ -4,6 +4,7 @@ import { dictionaryController } from "~/modules/dictionary/dictionary.js";
 import { exploreController } from "~/modules/explore/explore.js";
 import { homeController } from "~/modules/home/home.js";
 import { settingsController } from "~/modules/settings/settings.js";
+import { userController } from "~/modules/user/user.js";
 
 import {
 	authenticateMiddleware,
@@ -21,6 +22,7 @@ serverApplication.initMiddlewares([
 ]);
 serverApplication.initControllers([
 	authController,
+	userController,
 	homeController,
 	dictionaryController,
 	exploreController,

@@ -1,6 +1,6 @@
 const ExceptionMessage = {
-	INCORRECT_CREDENTIALS: "Incorrect credentials provided.",
-	USER_NOT_FOUND: "User not found.",
+	INCORRECT_CREDENTIALS: "Некоректно задані дані.",
+	USER_NOT_FOUND: "Користувача не знайдено.",
 } as const;
 
 export { ExceptionMessage };

@@ -22,18 +22,25 @@
                         <div class="form-container">
                             <h2 class="form__heading">Профіль</h2>
                             <%- include("../components/separator.ejs") %>
-                            <form>
-                                <%- include('../components/input.ejs', {
-                                    id: "change-name",
-                                    label: "Повне ім'я",
-                                    placeholder: `"Введіть сюди ваше ім'я"`,
-                                    value: username ? username : '',
-                                    className: "change-name__input",
-                                    labelClassName: "change-name__input-label",
-                                }); %>
+                            <form class="profile-update-form">
+                                <div class="change-name__input-container">
+                                  <%- include('../components/input.ejs', {
+                                      id: "change-name",
+                                      label: "Повне ім'я",
+                                      placeholder: `"Введіть сюди ваше ім'я"`,
+                                      value: username ? username : '',
+                                      className: "change-name__input",
+                                      labelClassName: "change-name__input-label",
+                                      dataAttributes: {
+                                        "data-input-fullName": ""
+                                      }
+                                  }); %>
+                                  <p class="error-message" data-error-fullName></p>
+                                </div>
                                 <%- include('../components/button.ejs', {
                                     label: "Зберегти зміни",
-                                    className: "change-name__btn"
+                                    className: "change-name__btn",
+                                    type: "submit"
                                 }); %>
                             </form>
                         </div>

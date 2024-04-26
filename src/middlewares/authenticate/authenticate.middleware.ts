@@ -3,11 +3,9 @@ import { Strategy as JwtStrategy } from "passport-jwt";
 
 import { type JsonWebToken } from "~/libs/modules/jsonwebtoken/jsonwebtoken.js";
 import { type Middleware } from "~/libs/types/types.js";
-import { type AuthService } from "~/modules/auth/auth.service.js";
+import { type UserService } from "~/modules/user/user.service.js";
 
 class AuthenticateMiddleware implements Middleware {
-	private authService: AuthService;
-
 	private cookieExtractor = (req) => {
 		let token = null;
 		if (req && req.cookies) {
@@ -18,15 +16,17 @@ class AuthenticateMiddleware implements Middleware {
 
 	private secret: string;
 
+	private userService: UserService;
+
 	public constructor({
-		authService,
 		secret,
+		userService,
 	}: {
-		authService: AuthService;
 		jsonWebToken: JsonWebToken;
 		secret: string;
+		userService: UserService;
 	}) {
-		this.authService = authService;
+		this.userService = userService;
 		this.secret = secret;
 	}
 
@@ -38,7 +38,7 @@ class AuthenticateMiddleware implements Middleware {
 			},
 			async (payload, done) => {
 				try {
-					const user = await this.authService.findUserById(payload);
+					const user = await this.userService.findById(payload);
 					done(null, { user });
 				} catch (error) {
 					done(error);

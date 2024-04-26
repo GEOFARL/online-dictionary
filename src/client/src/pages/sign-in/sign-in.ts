@@ -1,8 +1,8 @@
 import {
 	type UserAuthResponseDto,
 	type UserAuthSignInRequestDto,
-	userSignInValidationSchema,
-} from "@/modules/user/user.js";
+} from "@/modules/user/libs/types/types.js";
+import { userSignIn as userSignInValidationSchema } from "@/modules/user/libs/validation-schemas/validation-schemas.js";
 
 import {
 	AppRoute,

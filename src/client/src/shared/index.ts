@@ -1,5 +1,5 @@
 export { DIVISOR_FOR_PARITY } from "./libs/constants/constants.js";
-export { AppRoute, Cookie } from "./libs/enums/enums.js";
+export { AppRoute, Cookie, NotificationMessage } from "./libs/enums/enums.js";
 export {
 	configureMobileSidebar,
 	configureUserMenu,
