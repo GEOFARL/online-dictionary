@@ -196,7 +196,7 @@ class AuthController implements Controller {
 					return;
 				}
 
-				const response = await this.authService.logInUser(req.body);
+				const response = await this.authService.logIn(req.body);
 
 				res.status(HTTPCode.OK).json(response);
 			}),
@@ -234,7 +234,7 @@ class AuthController implements Controller {
 					return;
 				}
 
-				const response = await this.authService.createUser(req.body);
+				const response = await this.authService.signUp(req.body);
 
 				res.status(HTTPCode.CREATED).json(response);
 			}),

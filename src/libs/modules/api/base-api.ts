@@ -28,6 +28,26 @@ class BaseAPI implements API {
 
 		return payload;
 	}
+
+	async put<T>({
+		data,
+		path,
+	}: {
+		data: unknown;
+		path: string;
+	}): Promise<T | null> {
+		const response = await fetch(path, {
+			body: JSON.stringify(data),
+			headers: {
+				"Content-Type": "application/json",
+			},
+			method: "PUT",
+		});
+
+		const payload = await response.json();
+
+		return payload;
+	}
 }
 
 export { BaseAPI };

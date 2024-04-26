@@ -77,6 +77,25 @@ class BaseDB implements DB {
 		return createdObject;
 	}
 
+	public async update<T>(id: number, object: T): Promise<DBRecord<T> | null> {
+		const keys = Object.keys(object);
+		const values = Object.values(object);
+
+		const ONE_ELEMENT_OFFSET = 1;
+
+		const placeholders = values.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`);
+
+		const query = `UPDATE "${this.currentTable}" SET ${keys.map(
+			(key, index) => {
+				return `"${key}" = ${placeholders[index]}`;
+			},
+		)} WHERE "id" = $${placeholders.length + ONE_ELEMENT_OFFSET} RETURNING *`;
+
+		const result = await this.client.query(query, [...values, id]);
+		const [updatedObject] = result.rows;
+		return updatedObject;
+	}
+
 	get USER() {
 		return this.setTable(TableName.USER);
 	}

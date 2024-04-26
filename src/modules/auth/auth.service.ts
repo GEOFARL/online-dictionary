@@ -9,78 +9,34 @@ import {
 	type UserAuthSignUpRequestDto,
 	type UserDto,
 	ExceptionMessage as UserExceptionMessage,
+	type UserService,
 } from "../user/user.js";
-import { type AuthRepository } from "./auth.repository.js";
 
 class AuthService {
-	private authRepository: AuthRepository;
-
 	private jsonWebToken: JsonWebToken;
 
+	private userService: UserService;
+
 	public constructor({
-		authRepository,
 		jsonWebToken,
+		userService,
 	}: {
-		authRepository: AuthRepository;
 		jsonWebToken: JsonWebToken;
+		userService: UserService;
 	}) {
-		this.authRepository = authRepository;
+		this.userService = userService;
 		this.jsonWebToken = jsonWebToken;
-	}
-
-	public async createUser(
-		user: UserAuthSignUpRequestDto,
-	): Promise<UserAuthResponseDto> {
-		const existingUser = await this.authRepository.findByEmail(user.email);
-		if (existingUser) {
-			throw new HTTPError({
-				message: ExceptionMessage.EMAIL_IS_TAKEN,
-				status: HTTPCode.BAD_REQUEST,
-			});
-		}
-
-		const { hash } = await encrypt.encrypt(user.password);
-		const userWithHash: UserAuthSignUpRequestDto = { ...user, password: hash };
-
-		const createdUser = await this.authRepository.create(userWithHash);
-
-		if (!createdUser) {
-			throw new HTTPError({
-				message: ExceptionMessage.SOMETHING_WENT_WRONG,
-				status: HTTPCode.INTERNAL_SERVER_ERROR,
-			});
-		}
-
-		const token = this.jsonWebToken.sign(String(createdUser.id));
-
-		return {
-			token,
-			user: createdUser,
-		};
 	}
 
 	public findByToken(token: string): Promise<UserDto> {
 		const id = this.jsonWebToken.decode(token);
-		return this.findUserById(id);
+		return this.userService.findById(+id);
 	}
 
-	public async findUserById(id: string): Promise<UserDto> {
-		const user = await this.authRepository.findById(id);
-
-		if (!user) {
-			throw new HTTPError({
-				message: UserExceptionMessage.USER_NOT_FOUND,
-				status: HTTPCode.NOT_FOUND,
-			});
-		}
-
-		return user;
-	}
-
-	public async logInUser(
+	public async logIn(
 		user: UserAuthSignInRequestDto,
 	): Promise<UserAuthResponseDto> {
-		const loggedInUser = await this.authRepository.findByEmail(user.email);
+		const loggedInUser = await this.userService.findByEmail(user.email);
 
 		if (!loggedInUser) {
 			throw new HTTPError({
@@ -106,6 +62,37 @@ class AuthService {
 		return {
 			token,
 			user: loggedInUser,
+		};
+	}
+
+	public async signUp(
+		user: UserAuthSignUpRequestDto,
+	): Promise<UserAuthResponseDto> {
+		const existingUser = await this.userService.findByEmail(user.email);
+		if (existingUser) {
+			throw new HTTPError({
+				message: ExceptionMessage.EMAIL_IS_TAKEN,
+				status: HTTPCode.BAD_REQUEST,
+			});
+		}
+
+		const { hash } = await encrypt.encrypt(user.password);
+		const userWithHash: UserAuthSignUpRequestDto = { ...user, password: hash };
+
+		const createdUser = await this.userService.create(userWithHash);
+
+		if (!createdUser) {
+			throw new HTTPError({
+				message: ExceptionMessage.SOMETHING_WENT_WRONG,
+				status: HTTPCode.INTERNAL_SERVER_ERROR,
+			});
+		}
+
+		const token = this.jsonWebToken.sign(String(createdUser.id));
+
+		return {
+			token,
+			user: createdUser,
 		};
 	}
 }
