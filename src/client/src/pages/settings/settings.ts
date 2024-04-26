@@ -3,7 +3,7 @@ import {
 	type UserDto,
 	type UserProfileUpdateRequestDto,
 } from "@/modules/user/libs/types/types.js";
-import { userProfileUpdate as userProfileUpdateValidationSchema } from "@/modules/user/libs/validation-schemas/validation-schemas.js";
+import { userProfileUpdate as userProfileUpdateValidationSchema } from "@/modules/user/libs/validation-schemas/user-profile-update.validation-schema.js";
 
 import {
 	NotificationMessage,
