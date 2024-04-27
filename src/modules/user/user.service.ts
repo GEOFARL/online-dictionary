@@ -19,6 +19,10 @@ class UserService {
 		return await this.userRepository.create(user);
 	}
 
+	public delete(userId: number) {
+		return this.userRepository.delete(userId);
+	}
+
 	public async findByEmail(email: string): Promise<UserDto> {
 		return await this.userRepository.findByEmail(email);
 	}

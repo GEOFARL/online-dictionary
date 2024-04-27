@@ -68,6 +68,27 @@
         </main>
         <%- include('../includes/overlay.ejs')%>
         <%- include('../includes/footer.ejs') %>
+
+        <div class="modal-overlay hidden">
+          <div class="modal">
+            <div class="modal__messages">
+              <p class="modal__message">Впевнені, що хочете видалити акаунт?</p>
+              <p class="modal__message-warning">Цю дію неможливо скасувати</p>
+            </div>
+
+            <div class="modal__controls">
+              <%- include('../components/button.ejs', {
+                label: "Видалити акаунт",
+                className: "modal__btn modal__control-confirm"
+              }); %>
+
+              <%- include('../components/button.ejs', {
+                label: "Скасувати",
+                className: "modal__btn modal__control-cancel"
+              }); %>
+            </div>
+          </div>
+        </div>
     </body>
 
     <script src="/js/settings.js"></script>

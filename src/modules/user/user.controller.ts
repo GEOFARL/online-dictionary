@@ -60,6 +60,33 @@ class UserController implements Controller {
 				res.status(HTTPCode.OK).json(response);
 			}),
 		);
+
+		/**
+		 * @swagger
+		 * /user:
+		 *   delete:
+		 *     tags:
+		 *       - User
+		 *     summary: Delete user
+		 *     description: Deletes the account of the user
+		 *     responses:
+		 *       200:
+		 *         description: User profile successfully deleted
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
+		app.delete(
+			ApiPath.USER,
+			asyncHandler(async (req, res) => {
+				if (!req.user) {
+					return;
+				}
+
+				const response = await this.userService.delete(req.user.id);
+
+				res.status(HTTPCode.OK).json(response);
+			}),
+		);
 	}
 
 	public init(app: Application) {

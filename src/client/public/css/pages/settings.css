@@ -96,6 +96,77 @@
 	font-size: var(--font-size-500);
 }
 
+.modal-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, 50%);
+	backdrop-filter: blur(1px);
+	display: grid;
+	place-content: center;
+}
+
+.modal {
+	width: 550px;
+	padding: 30px 50px 20px 50px;
+	border-radius: 16px;
+	background-color: var(--color-grey-600);
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	transform: scale(0);
+	animation: 0.2s ease-out appear forwards;
+}
+
+@keyframes appear {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+.modal__controls {
+	display: flex;
+	gap: 16px;
+}
+
+.modal__btn {
+	font-size: var(--font-size-500);
+	padding: 5px 10px;
+}
+
+.modal__control-cancel {
+	background-color: var(--color-grey-600);
+	color: var(--color-red);
+	border-color: var(--color-red);
+}
+
+.modal__control-cancel:hover,
+.modal__control-cancel:active {
+	background-color: var(--color-red);
+	color: var(--color-grey-600);
+	border-color: transparent;
+}
+
+.modal__message {
+	text-align: center;
+	font-size: var(--font-size-700);
+}
+
+.modal__messages {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal__message-warning {
+	color: var(--color-grey-800);
+	line-height: 14px;
+}
+
 @media (max-width: 768px) {
 	.heading {
 		font-size: var(--font-size-800);

@@ -1,6 +1,16 @@
 import { type API } from "./libs/types/types.js";
 
 class BaseAPI implements API {
+	async delete<T>({ path }: { path: string }): Promise<T> {
+		const response = await fetch(path, {
+			method: "DELETE",
+		});
+
+		const payload = await response.json();
+
+		return payload;
+	}
+
 	async get<T>({ path }: { path: string }): Promise<T> {
 		const response = await fetch(path);
 

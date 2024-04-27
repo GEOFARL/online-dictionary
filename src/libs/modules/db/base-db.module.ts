@@ -51,6 +51,14 @@ class BaseDB implements DB {
 		return this;
 	}
 
+	public async delete(id: number): Promise<boolean> {
+		const query = `DELETE FROM "${this.currentTable}" WHERE "id" = $1`;
+
+		const result = await this.client.query(query, [id]);
+
+		return Boolean(result);
+	}
+
 	public async getAll<T>(): Promise<DBRecord<T>[] | null> {
 		const result = await this.client.query(
 			`SELECT * FROM "${this.currentTable}"`,
