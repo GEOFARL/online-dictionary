@@ -31,6 +31,10 @@ class UserRepository {
 		};
 	}
 
+	public delete(userId: number): Promise<boolean> {
+		return this.db.USER.delete(userId);
+	}
+
 	public async findAll(): Promise<UserDto[]> {
 		const allUsers = await this.db.USER.getAll<{
 			email: string;

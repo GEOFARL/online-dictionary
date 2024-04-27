@@ -1,4 +1,4 @@
-import { ApiPath } from "@/libs/enums/enums.js";
+import { ApiPath, Cookie } from "@/libs/enums/enums.js";
 import {
 	type UserDto,
 	type UserProfileUpdateRequestDto,
@@ -6,12 +6,17 @@ import {
 import { userProfileUpdate as userProfileUpdateValidationSchema } from "@/modules/user/libs/validation-schemas/user-profile-update.validation-schema.js";
 
 import {
+	AppRoute,
 	NotificationMessage,
 	api,
 	configureMobileSidebar,
 	configureUserMenu,
+	cookies,
 	dom,
+	hideElement,
+	navigation,
 	notification,
+	showElement,
 	validation,
 } from "~/shared/index.js";
 
@@ -55,6 +60,49 @@ const configure = (): void => {
 				notification.error(error.message);
 			}
 		}
+	});
+
+	dom.setListener({
+		eventType: "click",
+		listener: () => {
+			showElement(".modal-overlay");
+		},
+		selector: ".delete-account__btn",
+	});
+
+	dom.setListener({
+		eventType: "click",
+		listener: async () => {
+			hideElement(".modal-overlay");
+
+			try {
+				const isSuccess = await api.delete<boolean>({
+					path: ApiPath.USER,
+				});
+
+				if (isSuccess) {
+					cookies.set(Cookie.TOKEN, "");
+					navigation.navigate(AppRoute.ROOT);
+				} else {
+					notification.error(
+						"Сталася помилка під час видалення акаунту, спробуйте ще раз.",
+					);
+				}
+			} catch (error) {
+				notification.error(
+					"Сталася помилка під час видалення акаунту, спробуйте ще раз.",
+				);
+			}
+		},
+		selector: ".modal__control-confirm",
+	});
+
+	dom.setListener({
+		eventType: "click",
+		listener: () => {
+			hideElement(".modal-overlay");
+		},
+		selector: ".modal__control-cancel",
 	});
 };
 
