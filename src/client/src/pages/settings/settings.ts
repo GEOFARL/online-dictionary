@@ -84,14 +84,10 @@ const configure = (): void => {
 					cookies.set(Cookie.TOKEN, "");
 					navigation.navigate(AppRoute.ROOT);
 				} else {
-					notification.error(
-						"Сталася помилка під час видалення акаунту, спробуйте ще раз.",
-					);
+					notification.error(NotificationMessage.PROFILE_DELETION_ERROR);
 				}
 			} catch (error) {
-				notification.error(
-					"Сталася помилка під час видалення акаунту, спробуйте ще раз.",
-				);
+				notification.error(NotificationMessage.PROFILE_DELETION_ERROR);
 			}
 		},
 		selector: ".modal__control-confirm",
