@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.45.0](https://github.com/GEOFARL/online-dictionary/compare/v1.44.0...v1.45.0) (2024-04-27)
+
+
+### Features
+
+* Implement profile deletion functionality od-208 ([#211](https://github.com/GEOFARL/online-dictionary/issues/211)) ([725358b](https://github.com/GEOFARL/online-dictionary/commit/725358bb88eeba76c11e55537b7c4decd80cda70))
+
 ## [1.44.0](https://github.com/GEOFARL/online-dictionary/compare/v1.43.0...v1.44.0) (2024-04-26)
 
 
