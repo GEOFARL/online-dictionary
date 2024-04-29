@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.46.0](https://github.com/GEOFARL/online-dictionary/compare/v1.45.0...v1.46.0) (2024-04-29)
+
+
+### Features
+
+* add transactions od-213 ([#220](https://github.com/GEOFARL/online-dictionary/issues/220)) ([1fd2cfc](https://github.com/GEOFARL/online-dictionary/commit/1fd2cfcb3af24e0e9c4cf338f80f99851c03ae6d))
+
 ## [1.45.0](https://github.com/GEOFARL/online-dictionary/compare/v1.44.0...v1.45.0) (2024-04-27)
 
 
