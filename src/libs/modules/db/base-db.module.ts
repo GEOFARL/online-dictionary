@@ -52,11 +52,19 @@ class BaseDB implements DB {
 	}
 
 	public async delete(id: number): Promise<boolean> {
-		const query = `DELETE FROM "${this.currentTable}" WHERE "id" = $1`;
+		try {
+			await this.client.query("BEGIN");
+			const query = `DELETE FROM "${this.currentTable}" WHERE "id" = $1`;
+			const result = await this.client.query(query, [id]);
+			await this.client.query("COMMIT");
 
-		const result = await this.client.query(query, [id]);
+			return Boolean(result);
+		} catch (error) {
+			await this.client.query("ROLLBACK");
 
-		return Boolean(result);
+			this.logger.error("Transaction failed on delete", error);
+			return false;
+		}
 	}
 
 	public async getAll<T>(): Promise<DBRecord<T>[] | null> {
@@ -68,40 +76,58 @@ class BaseDB implements DB {
 	}
 
 	public async insert<T>(object: T): Promise<DBRecord<T> | null> {
-		const keys = Object.keys(object);
-		const values = Object.values(object);
+		try {
+			await this.client.query("BEGIN");
 
-		const ONE_ELEMENT_OFFSET = 1;
+			const keys = Object.keys(object);
+			const values = Object.values(object);
 
-		const placeholders = values
-			.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`)
-			.join(", ");
-		const columns = keys.join(", ");
+			const ONE_ELEMENT_OFFSET = 1;
+			const placeholders = values
+				.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`)
+				.join(", ");
+			const columns = keys.join(", ");
 
-		const query = `INSERT INTO "${this.currentTable}" (${columns}) VALUES (${placeholders}) RETURNING *`;
+			const query = `INSERT INTO "${this.currentTable}" (${columns}) VALUES (${placeholders}) RETURNING *`;
+			const result = await this.client.query(query, values);
+			const [createdObject] = result.rows;
 
-		const result = await this.client.query(query, values);
-		const [createdObject] = result.rows;
-		return createdObject;
+			await this.client.query("COMMIT");
+
+			return createdObject;
+		} catch (error) {
+			await this.client.query("ROLLBACK");
+
+			this.logger.error("Transaction failed on insert", error);
+			return null;
+		}
 	}
 
 	public async update<T>(id: number, object: T): Promise<DBRecord<T> | null> {
-		const keys = Object.keys(object);
-		const values = Object.values(object);
+		try {
+			await this.client.query("BEGIN");
 
-		const ONE_ELEMENT_OFFSET = 1;
+			const keys = Object.keys(object);
+			const values = Object.values(object);
 
-		const placeholders = values.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`);
+			const ONE_ELEMENT_OFFSET = 1;
+			const placeholders = values.map((_, i) => `$${i + ONE_ELEMENT_OFFSET}`);
 
-		const query = `UPDATE "${this.currentTable}" SET ${keys.map(
-			(key, index) => {
-				return `"${key}" = ${placeholders[index]}`;
-			},
-		)} WHERE "id" = $${placeholders.length + ONE_ELEMENT_OFFSET} RETURNING *`;
+			const query = `UPDATE "${this.currentTable}" SET ${keys.map(
+				(key, index) => `"${key}" = ${placeholders[index]}`,
+			)} WHERE "id" = $${placeholders.length + ONE_ELEMENT_OFFSET} RETURNING *`;
 
-		const result = await this.client.query(query, [...values, id]);
-		const [updatedObject] = result.rows;
-		return updatedObject;
+			const result = await this.client.query(query, [...values, id]);
+			const [updatedObject] = result.rows;
+
+			await this.client.query("COMMIT");
+			return updatedObject;
+		} catch (error) {
+			await this.client.query("ROLLBACK");
+
+			this.logger.error("Transaction failed on update", error);
+			return null;
+		}
 	}
 
 	get USER() {
