@@ -18,28 +18,28 @@
         <h2 class="word-of-the-day__heading">Слово дня</h2>
 
         <div class="word-of-the-day__content-container">
-          <a class="word-of-the__image-container" href="<%= dictionaryPath %>?word=<%= wordOfTheDay.word ?? "" %>">
-            <img src="<%= wordOfTheDay.image?.src ? wordOfTheDay.image.src : '/assets/images/placeholder-image.jpg' %>" alt="<%= wordOfTheDay.image?.src ? wordOfTheDay.image.alt : 'Placeholder image' %>" class="word-of-the__image">
+          <a class="word-of-the__image-container" href="<%= dictionaryPath %>?word=<%= wordOfTheDay?.word ?? "" %>">
+            <img src="<%= wordOfTheDay?.image?.src ? wordOfTheDay.image.src : '/assets/images/placeholder-image.jpg' %>" alt="<%= wordOfTheDay?.image?.src ? wordOfTheDay.image.alt : 'Placeholder image' %>" class="word-of-the__image">
           </a>
 
           <div class="word-of-the-day__content">
             <div class="word-definition">
               <div class="word-container">
-                <a class="word-link" href="<%= dictionaryPath %>?word=<%= wordOfTheDay.word ?? "" %>">
-                  <h3 class="word"><%= wordOfTheDay.word ?? "No word" %></h3>
+                <a class="word-link" href="<%= dictionaryPath %>?word=<%= wordOfTheDay?.word ?? "" %>">
+                  <h3 class="word"><%= wordOfTheDay?.word ?? "No word" %></h3>
                 </a>
                 <div class="badges">
                   <div class="badge">
-                    <%= wordOfTheDay.partOfTheSpeech ?? "" %>
+                    <%= wordOfTheDay?.partOfTheSpeech ?? "" %>
                   </div>
                 </div>
               </div>
               <p class="word-of-the-day__description">
-                <%= wordOfTheDay.meaning ?? "" %>
+                <%= wordOfTheDay?.meaning ?? "" %>
               </p>
             </div>
 
-            <% if (wordOfTheDay.word) { %>
+            <% if (wordOfTheDay?.word) { %>
               <%- include('../components/button.ejs', {
                 label: "Зберегти слово",
                 className: "word-of-the-day__button"
@@ -81,7 +81,7 @@
     <script src="/js/explore.js"></script>
     <script>
       Library.configure({
-        partOfTheSpeech: "<%= wordOfTheDay.partOfTheSpeech %>"
+        partOfTheSpeech: "<%= wordOfTheDay?.partOfTheSpeech %>"
       });
     </script>
   </body>

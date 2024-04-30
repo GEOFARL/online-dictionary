@@ -1,3 +1,0 @@
-const LAST_ARRAY_ELEMENT = -1;
-
-export { LAST_ARRAY_ELEMENT };

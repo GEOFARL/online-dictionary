@@ -4,7 +4,7 @@
 	"compilerOptions": {
 		"module": "ESNext",
 		"esModuleInterop": true,
-		"target": "es6",
+		"target": "es2017",
 		"moduleResolution": "node",
 		"sourceMap": true,
 		"outDir": "build",

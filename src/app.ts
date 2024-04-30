@@ -32,4 +32,5 @@ serverApplication.initErrorHandler(errorHandlerMiddleware);
 serverApplication.initSwaggerDocs();
 serverApplication.initCrons();
 serverApplication.initNotFoundHandler();
+await serverApplication.initDB();
 serverApplication.start();

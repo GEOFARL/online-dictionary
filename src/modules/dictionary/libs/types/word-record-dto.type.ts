@@ -1,5 +1,5 @@
 type WordRecordDto = {
-	userId: number;
+	partOfSpeech: string;
 	word: string;
 };
 

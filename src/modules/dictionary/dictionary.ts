@@ -1,14 +1,10 @@
 import { api } from "~/libs/modules/api/api.js";
-import { db } from "~/libs/modules/db/db.js";
 
-import { authService } from "../auth/auth.js";
 import { DictionaryController } from "./dictionary.controller.js";
 import { DictionaryRepository } from "./dictionary.repository.js";
 import { DictionaryService } from "./dictionary.service.js";
 
-const dictionaryRepository = new DictionaryRepository({
-	db,
-});
+const dictionaryRepository = new DictionaryRepository();
 
 const dictionaryService = new DictionaryService({
 	api,
@@ -16,10 +12,8 @@ const dictionaryService = new DictionaryService({
 });
 
 const dictionaryController = new DictionaryController({
-	authService,
 	dictionaryService,
 });
 
-export { dictionaryController, dictionaryService };
-export { type DictionaryService };
-export { type WordDto, type WordOfTheDayDto } from "./libs/types/types.js";
+export { type WordDto, type WordRecordDto } from "./libs/types/types.js";
+export { type DictionaryService, dictionaryController, dictionaryService };

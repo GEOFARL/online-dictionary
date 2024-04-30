@@ -9,14 +9,11 @@ import {
 import {
 	type DictionaryService,
 	type WordDto,
-	type WordOfTheDayDto,
+	type WordRecordDto,
 } from "../dictionary/dictionary.js";
-import { type ExploreRepository } from "./explore.repository.js";
 
 class ExploreService {
 	private dictionaryService: DictionaryService;
-
-	private exploreRepository: ExploreRepository;
 
 	private randomWords: RandomWords;
 
@@ -24,17 +21,14 @@ class ExploreService {
 
 	public constructor({
 		dictionaryService,
-		exploreRepository,
 		randomWords,
 		taskScheduler,
 	}: {
 		dictionaryService: DictionaryService;
-		exploreRepository: ExploreRepository;
 		randomWords: RandomWords;
 		taskScheduler: TaskScheduler;
 	}) {
 		this.dictionaryService = dictionaryService;
-		this.exploreRepository = exploreRepository;
 		this.taskScheduler = taskScheduler;
 		this.randomWords = randomWords;
 	}
@@ -53,7 +47,7 @@ class ExploreService {
 	public async getRecentlyViewedWords({
 		userId,
 	}: {
-		userId: string;
+		userId: number;
 	}): Promise<string[]> {
 		return (await this.dictionaryService.getLatestWords({ userId })).map(
 			(entry) => entry.word,
@@ -61,23 +55,19 @@ class ExploreService {
 	}
 
 	public getWordOfTheDay() {
-		return this.exploreRepository.getLastWordOfTheDay();
+		return this.dictionaryService.getWordOfTheDay();
 	}
 
 	public initCrone() {
 		this.taskScheduler.schedule(CronExpression.EVERY_MIDNIGHT, async () => {
 			const word = await this.getValidWord();
 
-			const wordOfTheDay: WordOfTheDayDto = {
-				image: word.images[FIRST_ARRAY_ELEMENT],
-				meaning:
-					word.meanings[FIRST_ARRAY_ELEMENT].definitions[FIRST_ARRAY_ELEMENT]
-						.definition,
-				partOfTheSpeech: word.meanings[FIRST_ARRAY_ELEMENT].partOfSpeech,
+			const wordOfTheDay: WordRecordDto = {
+				partOfSpeech: word.meanings[FIRST_ARRAY_ELEMENT].partOfSpeech,
 				word: capitalize(word.word),
 			};
 
-			await this.exploreRepository.saveWordOfTheDay(wordOfTheDay);
+			await this.dictionaryService.saveWordOfTheDay(wordOfTheDay);
 		});
 	}
 }
