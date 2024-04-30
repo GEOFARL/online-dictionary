@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.47.0](https://github.com/GEOFARL/online-dictionary/compare/v1.46.0...v1.47.0) (2024-04-30)
+
+
+### Features
+
+* Convert DB access from raw connector to Sequelize od-214 ([#222](https://github.com/GEOFARL/online-dictionary/issues/222)) ([0a06c0d](https://github.com/GEOFARL/online-dictionary/commit/0a06c0d08cbb20b9a621a8fde4cadc28179c1468))
+
 ## [1.46.0](https://github.com/GEOFARL/online-dictionary/compare/v1.45.0...v1.46.0) (2024-04-29)
 
 
