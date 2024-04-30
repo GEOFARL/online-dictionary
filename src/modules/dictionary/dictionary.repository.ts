@@ -1,20 +1,28 @@
 import { capitalize } from "~/libs/helpers/helpers.js";
+import { db } from "~/libs/modules/db/db.js";
 import { Word, WordView } from "~/libs/modules/db/models/models.js";
 
 import { type WordRecordDto } from "./libs/types/types.js";
 
 class DictionaryRepository {
 	public async addWord({ partOfSpeech, word }: WordRecordDto): Promise<number> {
-		const newWord = await Word.create({
-			partOfSpeech,
-			word: capitalize(word),
+		const result = await db.transaction(async (transaction) => {
+			const newWord = await Word.create(
+				{
+					partOfSpeech,
+					word: capitalize(word),
+				},
+				{ transaction },
+			);
+
+			return newWord.id;
 		});
 
-		return newWord.id;
+		return result;
 	}
 
 	public findWord(word: string): Promise<Word | null> {
-		return Word.findOne({ where: { word } });
+		return Word.findOne({ where: { word: capitalize(word) } });
 	}
 
 	public async getWordsViewedByUser(
@@ -32,37 +40,46 @@ class DictionaryRepository {
 
 		if (!wordIds.length) return [];
 
-		return await Word.findAll({
+		const words = await Word.findAll({
 			where: {
 				id: wordIds,
 			},
 		});
+
+		return wordIds
+			.map((id) => words.find((word) => word.id === id))
+			.filter((word) => word !== undefined);
 	}
 
-	public async incrementWordViewCount({
+	public incrementWordViewCount({
 		userId,
 		wordId,
 	}: {
 		userId: number;
 		wordId: number;
 	}): Promise<WordView> {
-		const existingWordView = await WordView.findOne({
-			where: {
-				userId,
-				wordId,
-			},
-		});
+		return db.transaction(async (transaction) => {
+			const existingWordView = await WordView.findOne({
+				transaction,
+				where: { userId, wordId },
+			});
 
-		if (existingWordView) {
-			existingWordView.count += 1;
-			await existingWordView.save();
-			return existingWordView;
-		}
-		const newWordView = await WordView.create({
-			userId,
-			wordId,
+			if (existingWordView) {
+				existingWordView.count += 1;
+				await existingWordView.save({ transaction });
+				return existingWordView;
+			}
+
+			const newWordView = await WordView.create(
+				{
+					userId,
+					wordId,
+				},
+				{ transaction },
+			);
+
+			return newWordView;
 		});
-		return newWordView;
 	}
 
 	public async saveWordOfTheDay({

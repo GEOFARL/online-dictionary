@@ -48,7 +48,7 @@ module.exports = {
 				type: Sequelize.STRING(100),
 			},
 			partOfSpeech: {
-				type: Sequelize.STRING(20),
+				type: Sequelize.STRING(50),
 			},
 			isWordOfTheDay: {
 				type: Sequelize.BOOLEAN,
@@ -76,6 +76,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 				references: { model: "users", key: "id" },
 				allowNull: false,
+				onDelete: "CASCADE",
 			},
 			wordId: {
 				type: Sequelize.INTEGER,

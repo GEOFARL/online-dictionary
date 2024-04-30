@@ -45,6 +45,10 @@ class DictionaryService {
 			where: { isWordOfTheDay: true },
 		});
 
+		if (!wordOfTheDay) {
+			return null;
+		}
+
 		const word = await this.searchWord({ word: wordOfTheDay.word });
 
 		return {

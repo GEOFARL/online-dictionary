@@ -1,3 +1,4 @@
+import { db } from "~/libs/modules/db/db.js";
 import { User } from "~/libs/modules/db/models/models.js";
 
 import {
@@ -9,28 +10,38 @@ import {
 
 class UserRepository {
 	public async create(user: UserAuthSignUpRequestDto): Promise<UserDto> {
-		const createdUser = await User.create({
-			email: user.email,
-			fullName: user.fullName,
-			password: user.password,
+		const result = await db.transaction(async (transaction) => {
+			const createdUser = await User.create(
+				{
+					email: user.email,
+					fullName: user.fullName,
+					password: user.password,
+				},
+				{ transaction },
+			);
+
+			return {
+				createdAt: createdUser.createdAt.toISOString(),
+				email: createdUser.email,
+				fullName: createdUser.fullName,
+				id: createdUser.id,
+				password: createdUser.password,
+				updatedAt: createdUser.updatedAt.toISOString(),
+			};
 		});
 
-		return {
-			createdAt: createdUser.createdAt.toISOString(),
-			email: createdUser.email,
-			fullName: createdUser.fullName,
-			id: createdUser.id,
-			password: createdUser.password,
-			updatedAt: createdUser.updatedAt.toISOString(),
-		};
+		return result;
 	}
 
-	public async delete(userId: number): Promise<boolean> {
-		const count = await User.destroy({
-			where: { id: userId },
-		});
+	public delete(userId: number): Promise<boolean> {
+		return db.transaction(async (transaction) => {
+			const count = await User.destroy({
+				transaction,
+				where: { id: userId },
+			});
 
-		return Boolean(count);
+			return Boolean(count);
+		});
 	}
 
 	public async findAll(): Promise<UserDto[]> {
@@ -84,17 +95,29 @@ class UserRepository {
 		userId: number,
 		user: UserProfileUpdateRequestDto,
 	): Promise<UserProfileUpdateResponseDto | null> {
-		const [rowsAffected] = await User.update(
-			{
-				fullName: user.fullName,
-			},
-			{
-				returning: true,
-				where: { id: userId },
-			},
-		);
+		const result = await db.transaction(async (transaction) => {
+			const [rowsAffected, [updatedUser]] = await User.update(
+				{ fullName: user.fullName },
+				{
+					returning: true,
+					transaction,
+					where: { id: userId },
+				},
+			);
 
-		return rowsAffected ? await this.findById(userId) : null;
+			return rowsAffected ? updatedUser : null;
+		});
+
+		if (result) {
+			return {
+				createdAt: result.createdAt.toISOString(),
+				fullName: result.fullName,
+				id: result.id,
+				updatedAt: result.updatedAt.toISOString(),
+			};
+		}
+
+		return null;
 	}
 }
 
