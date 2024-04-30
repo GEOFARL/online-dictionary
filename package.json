@@ -19,7 +19,8 @@
 		"build:client": "npx webpack build --config ./src/client/webpack.config.mjs",
 		"build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json && npm run build:client",
 		"format": "npx prettier . --write",
-		"create-db": "chmod +x ./scripts/init_db.sh && ./scripts/init_db.sh"
+		"migrate:up": "npx sequelize-cli db:migrate",
+		"migrate:undo": "npx sequelize-cli db:migrate:undo"
 	},
 	"author": "GEOFARL",
 	"devDependencies": {
@@ -50,6 +51,7 @@
 		"knip": "^5.0.3",
 		"lint-staged": "^15.2.2",
 		"prettier": "3.2.5",
+		"sequelize-cli": "^6.6.2",
 		"simple-git-hooks": "^2.10.0",
 		"style-loader": "^3.3.4",
 		"ts-loader": "^9.5.1",
@@ -73,9 +75,11 @@
 		"passport-jwt": "^4.0.1",
 		"pexels": "^1.4.0",
 		"pg": "^8.11.5",
+		"pg-hstore": "^2.3.4",
 		"pino": "^8.19.0",
 		"pino-pretty": "^10.3.1",
 		"random-words": "^2.0.1",
+		"sequelize": "^6.37.3",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.0",
 		"swiper": "^11.1.0",

@@ -9,7 +9,10 @@
 		"notyf",
 		"css-loader",
 		"style-loader",
-		"swiper"
+		"swiper",
+		"pg",
+		"pg-hstore",
+		"@types/pg"
 	],
-	"ignore": ["src/client/**/*.{js,ts}"]
+	"ignore": ["src/client/**/*.{js,ts}", "src/libs/modules/db/config.js"]
 }

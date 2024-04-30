@@ -1,5 +1,6 @@
+import { FIRST_ARRAY_ELEMENT } from "~/libs/constants/first-array-element.constant.js";
 import { type API } from "~/libs/modules/api/api.js";
-import { type DBRecord } from "~/libs/modules/db/db.js";
+import { Word } from "~/libs/modules/db/models/models.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { pexels } from "~/libs/modules/pexels/pexels.js";
 
@@ -32,22 +33,46 @@ class DictionaryService {
 		this.api = api;
 	}
 
-	public async getLatestWords({
-		userId,
-	}: {
-		userId: string;
-	}): Promise<DBRecord<WordRecordDto>[]> {
-		const allUserWords =
-			await this.dictionaryRepository.getAllWordsByUser(userId);
+	public async getLatestWords({ userId }: { userId: number }): Promise<Word[]> {
+		return await this.dictionaryRepository.getWordsViewedByUser(
+			userId,
+			MAXIMUM_NUMBER_OF_LATEST_WORDS,
+		);
+	}
 
-		return allUserWords.slice(-MAXIMUM_NUMBER_OF_LATEST_WORDS).reverse();
+	public async getWordOfTheDay() {
+		const wordOfTheDay = await Word.findOne({
+			where: { isWordOfTheDay: true },
+		});
+
+		if (!wordOfTheDay) {
+			return null;
+		}
+
+		const word = await this.searchWord({ word: wordOfTheDay.word });
+
+		return {
+			image: word.images[FIRST_ARRAY_ELEMENT],
+			meaning:
+				word.meanings[FIRST_ARRAY_ELEMENT].definitions[FIRST_ARRAY_ELEMENT]
+					.definition,
+			partOfSpeech: word.meanings[FIRST_ARRAY_ELEMENT].partOfSpeech,
+			word: wordOfTheDay.word,
+		};
+	}
+
+	public async saveWordOfTheDay({
+		partOfSpeech,
+		word,
+	}: WordRecordDto): Promise<void> {
+		this.dictionaryRepository.saveWordOfTheDay({ partOfSpeech, word });
 	}
 
 	public async searchWord({
 		userId,
 		word,
 	}: {
-		userId?: string;
+		userId?: number;
 		word: string;
 	}): Promise<WordDto> {
 		const data = await this.api.get<DictionaryResponseDto>({
@@ -78,17 +103,24 @@ class DictionaryService {
 			images,
 		};
 
+		const existentWord = await this.dictionaryRepository.findWord(word);
+		const isAlreadyExist = Boolean(existentWord);
+		let wordId: null | number = isAlreadyExist ? existentWord.id : null;
+
+		if (!isAlreadyExist) {
+			wordId = await this.dictionaryRepository.addWord({
+				partOfSpeech: wordDto.meanings
+					.map((meaning) => meaning.partOfSpeech)
+					.join(", "),
+				word,
+			});
+		}
+
 		if (userId) {
-			const allWords: DBRecord<WordRecordDto>[] =
-				await this.dictionaryRepository.getAllWordsByUser(userId);
-
-			const hasWordAlready = allWords.some(
-				(wordEntry) => wordEntry.word === word,
-			);
-
-			if (!hasWordAlready) {
-				await this.dictionaryRepository.addWord({ userId: +userId, word });
-			}
+			await this.dictionaryRepository.incrementWordViewCount({
+				userId,
+				wordId,
+			});
 		}
 
 		return wordDto;

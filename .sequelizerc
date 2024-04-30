@@ -1,0 +1,28 @@
+const path = require('path');
+
+module.exports = {
+	config: path.join(
+		path.resolve(),
+		"src",
+		"libs",
+		"modules",
+		"db",
+		"config.js",
+	),
+	"seeders-path": path.join(
+		path.resolve(),
+		"src",
+		"libs",
+		"modules",
+		"db",
+		"seeders",
+	),
+	"migrations-path": path.join(
+		path.resolve(),
+		"src",
+		"libs",
+		"modules",
+		"db",
+		"migrations",
+	),
+};

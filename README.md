@@ -10,33 +10,31 @@ The project aims to help you find unknown words, their definitions and pronuncia
 
 ```mermaid
 erDiagram
-    USER ||--o{ WORD : "has"
+    USER ||--o{ WORD-VIEW : views
+    WORD ||--o{ WORD-VIEW : viewed
     USER {
         int id PK "Primary Key"
-        varchar full_name "Not Null"
-        varchar email "Unique, Not Null"
-        varchar password "Not Null"
-        timestamp created_at "Default CURRENT_TIMESTAMP"
-        timestamp updated_at "Default CURRENT_TIMESTAMP"
+        string email "Unique, Not Null"
+        string fullName "Not Null"
+        string password "Not Null"
+        datetime createdAt "Default CURRENT_TIMESTAMP, Not Null"
+        datetime updatedAt "Default CURRENT_TIMESTAMP, Not Null"
     }
-
     WORD {
         int id PK "Primary Key"
-        int user_id FK "Foreign Key"
-        varchar word "Not Null"
-        timestamp created_at "Default CURRENT_TIMESTAMP"
-        timestamp updated_at "Default CURRENT_TIMESTAMP"
+        string word "Not Null"
+        string partOfSpeech
+        boolean isWordOfTheDay "Default FALSE"
+        datetime createdAt "Default CURRENT_TIMESTAMP, Not Null"
+        datetime updatedAt "Default CURRENT_TIMESTAMP, Not Null"
     }
-
-    WORD_OF_THE_DAY {
+    WORD-VIEW {
         int id PK "Primary Key"
-        varchar image_alt
-        varchar image_src
-        text meaning
-        varchar part_of_speech
-        varchar word "Not Null"
-        timestamp created_at "Default CURRENT_TIMESTAMP"
-        timestamp updated_at "Default CURRENT_TIMESTAMP"
+        int userId FK "Foreign Key, Not Null, References USER.id"
+        int wordId FK "Foreign Key, Not Null, References WORD.id"
+        int count "Default 1"
+        datetime createdAt "Default CURRENT_TIMESTAMP, Not Null"
+        datetime updatedAt "Default CURRENT_TIMESTAMP, Not Null"
     }
 
 ```
@@ -44,7 +42,7 @@ erDiagram
 ## Run locally
 
 1. Create and fill all `.env` files, use `.env.example` for reference.
-2. Initialize database by running `npm run create-db` on Linux based systems or by running a `./scripts/init_db.sh` script on the Windows machine.
+2. Create the database and run the migrations by `npm run migrate:up`
 3. Install dependencies: `npm install`
 4. Install pre-commit hooks: `npx simple-git-hooks`. This hook is used to verify code style on commit.
 5. Build an app: `npm run build`.

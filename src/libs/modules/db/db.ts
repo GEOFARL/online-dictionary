@@ -1,22 +1,31 @@
+import { Sequelize } from "sequelize";
+
 import { AppEnvironment } from "~/libs/enums/enums.js";
 
 import { config } from "../config/config.js";
 import { logger } from "../logger/logger.js";
-import { BaseDB } from "./base-db.module.js";
 
-const db = new BaseDB({
-	dbConnection: {
-		database: config.ENV.DB.NAME,
-		host: config.ENV.DB.HOST,
-		password: config.ENV.DB.PASSWORD,
-		port: config.ENV.DB.PORT,
-		ssl: config.ENV.APP.ENVIRONMENT === AppEnvironment.PRODUCTION && {
-			rejectUnauthorized: false,
-		},
-		user: config.ENV.DB.USER,
+const db = new Sequelize({
+	database: config.ENV.DB.NAME,
+	dialect: "postgres",
+	host: config.ENV.DB.HOST,
+	logging: (query) => {
+		if (config.ENV.APP.ENVIRONMENT !== AppEnvironment.PRODUCTION) {
+			logger.info(query);
+		}
 	},
-	logger,
+	password: config.ENV.DB.PASSWORD,
+	port: config.ENV.DB.PORT,
+	username: config.ENV.DB.USER,
 });
 
-export { db };
-export { type DB, type DBRecord } from "./libs/types/types.js";
+const connectDB = async () => {
+	try {
+		await db.authenticate();
+		logger.info("DB is connected.");
+	} catch (error) {
+		logger.info("Error during DB connection.");
+	}
+};
+
+export { connectDB, db };

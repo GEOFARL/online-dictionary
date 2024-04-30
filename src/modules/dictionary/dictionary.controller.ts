@@ -4,7 +4,6 @@ import { HTTPCode, type HTTPMethod } from "~/libs/modules/http/http.js";
 import { type Application, type Controller } from "~/libs/types/types.js";
 import { validate } from "~/middlewares/middlewares.js";
 
-import { type AuthService } from "../auth/auth.js";
 import { type DictionaryService } from "./dictionary.service.js";
 import { wordSearch as wordSearchValidationSchema } from "./libs/validation-schemas/validation-schemas.js";
 
@@ -51,18 +50,13 @@ import { wordSearch as wordSearchValidationSchema } from "./libs/validation-sche
  *           type: string
  */
 class DictionaryController implements Controller {
-	private authService: AuthService;
-
 	private dictionaryService: DictionaryService;
 
 	public constructor({
-		authService,
 		dictionaryService,
 	}: {
-		authService: AuthService;
 		dictionaryService: DictionaryService;
 	}) {
-		this.authService = authService;
 		this.dictionaryService = dictionaryService;
 	}
 

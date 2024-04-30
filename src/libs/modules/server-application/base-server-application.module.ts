@@ -10,6 +10,7 @@ import {
 	PageTitle,
 	PagesPath,
 } from "~/libs/enums/enums.js";
+import { setupAssociations } from "~/libs/modules/db/models/models.js";
 import {
 	type Application,
 	type Controller,
@@ -18,6 +19,7 @@ import {
 import { exploreService } from "~/modules/explore/explore.js";
 
 import { type Config } from "../config/libs/types/types.js";
+import { connectDB } from "../db/db.js";
 import { HTTPCode } from "../http/http.js";
 import { type Logger } from "../logger/logger.js";
 import { type Views } from "../views/views.js";
@@ -63,6 +65,12 @@ class BaseServerApplication {
 	public initCrons(): void {
 		exploreService.initCrone();
 		this.logger.info("Crons are initialized");
+	}
+
+	public async initDB() {
+		await connectDB();
+
+		setupAssociations();
 	}
 
 	public initErrorHandler(middleware: Middleware) {

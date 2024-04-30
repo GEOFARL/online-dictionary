@@ -86,6 +86,8 @@ module.exports = {
 		"dangerfile.ts",
 		"project.config.ts",
 		"*.ejs",
+		"**/db/migrations/*",
+		"**/db/config.js",
 	],
 	settings: {
 		"import/parsers": {

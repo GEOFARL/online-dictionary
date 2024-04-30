@@ -1,4 +1,5 @@
-import { type DB } from "~/libs/modules/db/db.js";
+import { db } from "~/libs/modules/db/db.js";
+import { User } from "~/libs/modules/db/models/models.js";
 
 import {
 	type UserAuthSignUpRequestDto,
@@ -8,80 +9,115 @@ import {
 } from "./libs/types/types.js";
 
 class UserRepository {
-	private db: DB;
-
-	public constructor({ db }: { db: DB }) {
-		this.db = db;
-	}
-
 	public async create(user: UserAuthSignUpRequestDto): Promise<UserDto> {
-		const createdUser = await this.db.USER.insert({
-			email: user.email,
-			full_name: user.fullName,
-			password: user.password,
+		const result = await db.transaction(async (transaction) => {
+			const createdUser = await User.create(
+				{
+					email: user.email,
+					fullName: user.fullName,
+					password: user.password,
+				},
+				{ transaction },
+			);
+
+			return {
+				createdAt: createdUser.createdAt.toISOString(),
+				email: createdUser.email,
+				fullName: createdUser.fullName,
+				id: createdUser.id,
+				password: createdUser.password,
+				updatedAt: createdUser.updatedAt.toISOString(),
+			};
 		});
 
-		return {
-			createdAt: createdUser.created_at,
-			email: createdUser.email,
-			fullName: createdUser.full_name,
-			id: createdUser.id,
-			password: createdUser.password,
-			updatedAt: createdUser.updated_at,
-		};
+		return result;
 	}
 
 	public delete(userId: number): Promise<boolean> {
-		return this.db.USER.delete(userId);
+		return db.transaction(async (transaction) => {
+			const count = await User.destroy({
+				transaction,
+				where: { id: userId },
+			});
+
+			return Boolean(count);
+		});
 	}
 
 	public async findAll(): Promise<UserDto[]> {
-		const allUsers = await this.db.USER.getAll<{
-			email: string;
-			full_name: string;
-			password: string;
-		}>();
+		const allUsers = await User.findAll();
 
 		return allUsers.map((user) => ({
-			createdAt: user.created_at,
+			createdAt: user.createdAt.toISOString(),
 			email: user.email,
-			fullName: user.full_name,
+			fullName: user.fullName,
 			id: user.id,
 			password: user.password,
-			updatedAt: user.updated_at,
+			updatedAt: user.updatedAt.toISOString(),
 		}));
 	}
 
-	public async findByEmail(email: string): Promise<UserDto | undefined> {
-		const allUsers = await this.findAll();
+	public async findByEmail(email: string): Promise<UserDto | null> {
+		const user = await User.findOne({ where: { email } });
 
-		const user = allUsers.find((userObject) => userObject.email === email);
+		if (user) {
+			return {
+				createdAt: user.createdAt.toISOString(),
+				email: user.email,
+				fullName: user.fullName,
+				id: user.id,
+				password: user.password,
+				updatedAt: user.updatedAt.toISOString(),
+			};
+		}
 
-		return user;
+		return null;
 	}
 
-	public async findById(id: number): Promise<UserDto | undefined> {
-		const allUsers = await this.findAll();
+	public async findById(id: number): Promise<UserDto | null> {
+		const user = await User.findByPk(id);
 
-		const user = allUsers.find((userObject) => userObject.id === id);
+		if (user) {
+			return {
+				createdAt: user.createdAt.toISOString(),
+				email: user.email,
+				fullName: user.fullName,
+				id: user.id,
+				password: user.password,
+				updatedAt: user.updatedAt.toISOString(),
+			};
+		}
 
-		return user;
+		return null;
 	}
 
 	public async update(
 		userId: number,
 		user: UserProfileUpdateRequestDto,
-	): Promise<UserProfileUpdateResponseDto> {
-		const updatedUser = await this.db.USER.update(userId, {
-			full_name: user.fullName,
+	): Promise<UserProfileUpdateResponseDto | null> {
+		const result = await db.transaction(async (transaction) => {
+			const [rowsAffected, [updatedUser]] = await User.update(
+				{ fullName: user.fullName },
+				{
+					returning: true,
+					transaction,
+					where: { id: userId },
+				},
+			);
+
+			return rowsAffected ? updatedUser : null;
 		});
 
-		return {
-			createdAt: updatedUser.created_at,
-			fullName: updatedUser.full_name,
-			id: updatedUser.id,
-			updatedAt: updatedUser.updated_at,
-		};
+		if (result) {
+			return {
+				createdAt: result.createdAt.toISOString(),
+				fullName: result.fullName,
+				id: result.id,
+				updatedAt: result.updatedAt.toISOString(),
+			};
+		}
+
+		return null;
 	}
 }
 

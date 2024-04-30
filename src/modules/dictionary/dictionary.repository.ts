@@ -1,38 +1,126 @@
-import { type DB, type DBRecord } from "~/libs/modules/db/db.js";
+import { capitalize } from "~/libs/helpers/helpers.js";
+import { db } from "~/libs/modules/db/db.js";
+import { Word, WordView } from "~/libs/modules/db/models/models.js";
 
 import { type WordRecordDto } from "./libs/types/types.js";
 
 class DictionaryRepository {
-	private db: DB;
+	public async addWord({ partOfSpeech, word }: WordRecordDto): Promise<number> {
+		const result = await db.transaction(async (transaction) => {
+			const newWord = await Word.create(
+				{
+					partOfSpeech,
+					word: capitalize(word),
+				},
+				{ transaction },
+			);
 
-	public constructor({ db }: { db: DB }) {
-		this.db = db;
+			return newWord.id;
+		});
+
+		return result;
 	}
 
-	public addWord({ userId, word }: WordRecordDto) {
-		return this.db.WORD.insert({
-			user_id: userId,
-			word,
+	public findWord(word: string): Promise<Word | null> {
+		return Word.findOne({ where: { word: capitalize(word) } });
+	}
+
+	public async getWordsViewedByUser(
+		userId: number,
+		numberOfWords: number,
+	): Promise<Word[]> {
+		const wordViews = await WordView.findAll({
+			attributes: ["wordId"],
+			limit: numberOfWords,
+			order: [["updatedAt", "DESC"]],
+			where: { userId },
+		});
+
+		const wordIds = wordViews.map((view) => view.wordId);
+
+		if (!wordIds.length) return [];
+
+		const words = await Word.findAll({
+			where: {
+				id: wordIds,
+			},
+		});
+
+		return wordIds
+			.map((id) => words.find((word) => word.id === id))
+			.filter((word) => word !== undefined);
+	}
+
+	public incrementWordViewCount({
+		userId,
+		wordId,
+	}: {
+		userId: number;
+		wordId: number;
+	}): Promise<WordView> {
+		return db.transaction(async (transaction) => {
+			const existingWordView = await WordView.findOne({
+				transaction,
+				where: { userId, wordId },
+			});
+
+			if (existingWordView) {
+				existingWordView.count += 1;
+				await existingWordView.save({ transaction });
+				return existingWordView;
+			}
+
+			const newWordView = await WordView.create(
+				{
+					userId,
+					wordId,
+				},
+				{ transaction },
+			);
+
+			return newWordView;
 		});
 	}
 
-	public async getAllWordsByUser(
-		userId: string,
-	): Promise<DBRecord<WordRecordDto>[]> {
-		const allWordRecords = await this.db.WORD.getAll<{
-			user_id: number;
-			word: string;
-		}>();
+	public async saveWordOfTheDay({
+		partOfSpeech,
+		word,
+	}: {
+		partOfSpeech: string;
+		word: string;
+	}) {
+		const transaction = await Word.sequelize.transaction();
 
-		const allWords = allWordRecords.map((wordRecord) => ({
-			created_at: wordRecord.created_at,
-			id: wordRecord.id,
-			updated_at: wordRecord.updated_at,
-			userId: wordRecord.user_id,
-			word: wordRecord.word,
-		}));
+		try {
+			await Word.update(
+				{ isWordOfTheDay: false },
+				{ transaction, where: { isWordOfTheDay: true } },
+			);
 
-		return allWords.filter(({ userId: id }) => id === +userId);
+			const existingWord = await Word.findOne({
+				transaction,
+				where: { word: capitalize(word) },
+			});
+
+			if (existingWord) {
+				existingWord.isWordOfTheDay = true;
+				await existingWord.save({ transaction });
+			} else {
+				await Word.create(
+					{
+						isWordOfTheDay: true,
+						partOfSpeech,
+						word: capitalize(word),
+					},
+					{ transaction },
+				);
+			}
+
+			await transaction.commit();
+		} catch (error) {
+			await transaction.rollback();
+			throw error;
+		}
 	}
 }
 
