@@ -197,6 +197,24 @@
 		width: 100px;
 		height: 100px;
 	}
+
+	.modal {
+		width: 450px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.modal__btn {
+		font-size: var(--font-size-400);
+	}
+
+	.modal__message {
+		font-size: var(--font-size-600);
+	}
+
+	.modal__messages {
+		gap: 2px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -231,5 +249,27 @@
 	.profile-image {
 		width: 75px;
 		height: 75px;
+	}
+
+	.modal {
+		width: 300px;
+	}
+
+	.modal__controls {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.modal__message {
+		font-size: var(--font-size-500);
+	}
+
+	.modal__message-warning {
+		font-size: var(--font-size-400);
+	}
+
+	.modal {
+		padding: 40px 20px 30px 20px;
 	}
 }
