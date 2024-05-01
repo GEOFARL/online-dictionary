@@ -151,10 +151,8 @@ const renderWordDefinition = (
 						attributes: {
 							"alt": "not found image",
 							"class": "no-found__icon",
-							"fill": "val(--color-grey-200)",
 							"height": "80px",
 							"src": "/assets/icons/image-not-found.svg",
-							"stroke": "val(--color-grey-200)",
 							"width": "80px",
 						},
 						tagName: "img",
@@ -173,7 +171,6 @@ const renderWordDefinition = (
 							"class": "no-found__icon",
 							"height": "40px",
 							"src": "/assets/icons/image-not-found.svg",
-							"stroke": "val(--color-grey-200)",
 							"width": "40px",
 						},
 						tagName: "img",

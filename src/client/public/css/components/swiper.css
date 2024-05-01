@@ -41,8 +41,6 @@
 }
 
 .no-found__icon {
-	stroke: val(--color-grey-200);
-	fill: val(--color-grey-200);
 	width: 80px;
 	height: 80px;
 }
