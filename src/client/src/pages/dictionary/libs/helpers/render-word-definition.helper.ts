@@ -180,8 +180,6 @@ const renderWordDefinition = (
 				parentElementSelector: ".images-slider-mobile .swiper-wrapper",
 				tagName: "div",
 			});
-			swiper.init();
-			swiperMobile.init();
 		}
 	}
 };
