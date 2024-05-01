@@ -12,6 +12,8 @@ The project aims to help you find unknown words, their definitions and pronuncia
 erDiagram
     USER ||--o{ WORD-VIEW : views
     WORD ||--o{ WORD-VIEW : viewed
+    USER ||--o{ FAVORITE-WORDS : "favorites"
+    WORD ||--o{ FAVORITE-WORDS : "favorited by"
     USER {
         int id PK "Primary Key"
         string email "Unique, Not Null"
@@ -33,6 +35,12 @@ erDiagram
         int userId FK "Foreign Key, Not Null, References USER.id"
         int wordId FK "Foreign Key, Not Null, References WORD.id"
         int count "Default 1"
+        datetime createdAt "Default CURRENT_TIMESTAMP, Not Null"
+        datetime updatedAt "Default CURRENT_TIMESTAMP, Not Null"
+    }
+    FAVORITE-WORDS {
+        int userId FK "Foreign Key, Not Null, References USER.id"
+        int wordId FK "Foreign Key, Not Null, References WORD.id"
         datetime createdAt "Default CURRENT_TIMESTAMP, Not Null"
         datetime updatedAt "Default CURRENT_TIMESTAMP, Not Null"
     }

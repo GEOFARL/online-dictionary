@@ -91,6 +91,16 @@ class UserRepository {
 		return null;
 	}
 
+	public async findByIdSequelizeObject(id: number): Promise<User | null> {
+		const user = await User.findByPk(id);
+
+		if (user) {
+			return user;
+		}
+
+		return null;
+	}
+
 	public async update(
 		userId: number,
 		user: UserProfileUpdateRequestDto,

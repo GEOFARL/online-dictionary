@@ -39,11 +39,20 @@
               </p>
             </div>
 
-            <% if (wordOfTheDay?.word) { %>
-              <%- include('../components/button.ejs', {
-                label: "Зберегти слово",
-                className: "word-of-the-day__button"
-              }); %>
+            <% if (user) { %>
+              <% if (wordOfTheDay?.word) { %>
+                <% if (!wordOfTheDay?.isLiked) { %>
+                  <%- include('../components/button.ejs', {
+                    label: "Зберегти слово",
+                    className: "word-of-the-day__button like-word"
+                  }); %>
+                <% } else { %>
+                  <%- include('../components/button.ejs', {
+                    label: "Видалити зі збережених",
+                    className: "word-of-the-day__button unlike-word"
+                  }); %>
+                <% } %>
+              <% } %>
             <% } %>
           </div>
         </div>
@@ -81,7 +90,8 @@
     <script src="/js/explore.js"></script>
     <script>
       Library.configure({
-        partOfTheSpeech: "<%= wordOfTheDay?.partOfTheSpeech %>"
+        partOfTheSpeech: "<%= wordOfTheDay?.partOfTheSpeech %>",
+        word: "<%= wordOfTheDay?.word %>"
       });
     </script>
   </body>

@@ -104,7 +104,8 @@ class BaseServerApplication {
 	}
 
 	public initSwaggerDocs() {
-		const isLocal = this.config.ENV.APP.ENVIRONMENT === AppEnvironment.LOCAL;
+		const isLocal =
+			this.config.ENV.APP.ENVIRONMENT === AppEnvironment.DEVELOPMENT;
 
 		const controllerExtension = isLocal ? "ts" : "js";
 

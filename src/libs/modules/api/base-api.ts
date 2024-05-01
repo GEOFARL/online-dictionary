@@ -23,7 +23,7 @@ class BaseAPI implements API {
 		data,
 		path,
 	}: {
-		data: unknown;
+		data?: unknown;
 		path: string;
 	}): Promise<T | null> {
 		const response = await fetch(path, {

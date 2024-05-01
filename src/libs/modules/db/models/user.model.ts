@@ -1,6 +1,7 @@
 import {
 	type CreationOptional,
 	DataTypes,
+	type HasManyAddAssociationMixin,
 	type InferAttributes,
 	type InferCreationAttributes,
 	Model,
@@ -9,9 +10,12 @@ import {
 import { DEFAULT_STRING_LENGTH } from "~/libs/constants/constants.js";
 
 import { db } from "../db.js";
+import { type Word } from "./word.model.js";
 
 /* eslint-disable-next-line no-use-before-define */
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
+	declare addFavorite: HasManyAddAssociationMixin<Word, number>;
+
 	declare createdAt: CreationOptional<Date>;
 
 	declare email: string;
@@ -21,6 +25,8 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
 	declare id: number;
 
 	declare password: string;
+
+	declare removeFavorite: HasManyAddAssociationMixin<Word, number>;
 
 	declare updatedAt: CreationOptional<Date>;
 }
