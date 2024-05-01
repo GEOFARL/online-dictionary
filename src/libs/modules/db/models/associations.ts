@@ -16,6 +16,20 @@ const setupAssociations = () => {
 		otherKey: "userId",
 		through: WordView,
 	});
+
+	User.belongsToMany(Word, {
+		as: "favorites",
+		foreignKey: "userId",
+		otherKey: "wordId",
+		through: "favorite_words",
+	});
+
+	Word.belongsToMany(User, {
+		as: "favoritedBy",
+		foreignKey: "wordId",
+		otherKey: "userId",
+		through: "favorite_words",
+	});
 };
 
 export { setupAssociations };

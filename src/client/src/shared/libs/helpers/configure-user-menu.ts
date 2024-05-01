@@ -5,6 +5,10 @@ const configureUserMenu = () => {
 	const avatarButton = dom.getElement(".avatar-button");
 	const userMenuContainer = dom.getElement(".user-menu-container");
 
+	if (!avatarButton || !userMenuContainer) {
+		return;
+	}
+
 	dom.setListener({
 		eventType: "click",
 		listener: () => {

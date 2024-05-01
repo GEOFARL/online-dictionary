@@ -54,8 +54,8 @@ class ExploreService {
 		);
 	}
 
-	public getWordOfTheDay() {
-		return this.dictionaryService.getWordOfTheDay();
+	public getWordOfTheDay({ userId }: { userId: number }) {
+		return this.dictionaryService.getWordOfTheDay({ userId });
 	}
 
 	public initCrone() {

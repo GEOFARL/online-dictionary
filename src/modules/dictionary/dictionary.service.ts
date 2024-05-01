@@ -4,6 +4,7 @@ import { Word } from "~/libs/modules/db/models/models.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { pexels } from "~/libs/modules/pexels/pexels.js";
 
+import { type UserService } from "../user/user.service.js";
 import { type DictionaryRepository } from "./dictionary.repository.js";
 import { MAXIMUM_NUMBER_OF_LATEST_WORDS } from "./libs/constants/constants.js";
 import {
@@ -22,15 +23,20 @@ class DictionaryService {
 
 	private dictionaryRepository: DictionaryRepository;
 
+	private userService: UserService;
+
 	public constructor({
 		api,
 		dictionaryRepository,
+		userService,
 	}: {
 		api: API;
 		dictionaryRepository: DictionaryRepository;
+		userService: UserService;
 	}) {
 		this.dictionaryRepository = dictionaryRepository;
 		this.api = api;
+		this.userService = userService;
 	}
 
 	public async getLatestWords({ userId }: { userId: number }): Promise<Word[]> {
@@ -40,7 +46,7 @@ class DictionaryService {
 		);
 	}
 
-	public async getWordOfTheDay() {
+	public async getWordOfTheDay({ userId }: { userId: number }) {
 		const wordOfTheDay = await Word.findOne({
 			where: { isWordOfTheDay: true },
 		});
@@ -53,12 +59,34 @@ class DictionaryService {
 
 		return {
 			image: word.images[FIRST_ARRAY_ELEMENT],
+			isLiked:
+				userId &&
+				(await this.dictionaryRepository.checkIsLiked({
+					userId,
+					word: word.word,
+				})),
 			meaning:
 				word.meanings[FIRST_ARRAY_ELEMENT].definitions[FIRST_ARRAY_ELEMENT]
 					.definition,
 			partOfSpeech: word.meanings[FIRST_ARRAY_ELEMENT].partOfSpeech,
 			word: wordOfTheDay.word,
 		};
+	}
+
+	public async likeWord({
+		userId,
+		word,
+	}: {
+		userId: number;
+		word: string;
+	}): Promise<boolean> {
+		const wordObject = await this.dictionaryRepository.findOrCreateWord(word);
+
+		const user = await this.userService.findByIdSequelizeObject(userId);
+
+		await user.addFavorite(wordObject);
+
+		return true;
 	}
 
 	public async saveWordOfTheDay({
@@ -124,6 +152,22 @@ class DictionaryService {
 		}
 
 		return wordDto;
+	}
+
+	public async unlikeWord({
+		userId,
+		word,
+	}: {
+		userId: number;
+		word: string;
+	}): Promise<boolean> {
+		const wordRecord = await this.dictionaryRepository.findWord(word);
+
+		const user = await this.userService.findByIdSequelizeObject(userId);
+
+		await user.removeFavorite(wordRecord);
+
+		return true;
 	}
 }
 

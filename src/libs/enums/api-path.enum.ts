@@ -4,6 +4,8 @@ const ApiPath = {
 	AUTH_SIGN_UP: "/auth/sign-up",
 	USER: "/user",
 	WORDS_$WORD: "/words/:word",
+	WORDS_$WORD_LIKE: "/words/:word/like",
+	WORDS_$WORD_UNLIKE: "/words/:word/unlike",
 } as const;
 
 export { ApiPath };

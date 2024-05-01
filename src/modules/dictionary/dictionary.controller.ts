@@ -133,6 +133,84 @@ class DictionaryController implements Controller {
 				res.status(HTTPCode.OK).json(response);
 			}),
 		);
+
+		/**
+		 * @swagger
+		 * /words/:word:/like:
+		 *   post:
+		 *     tags:
+		 *       - Words
+		 *     summary: Like a word
+		 *     description: Marks a word as a favorite for the authenticated user.
+		 *     parameters:
+		 *       - in: path
+		 *         name: word
+		 *         required: true
+		 *         schema:
+		 *           type: string
+		 *         description: The word to mark as favorite
+		 *     responses:
+		 *       200:
+		 *         description: Word successfully marked as favorite
+		 *         content:
+		 *           application/json:
+		 *             schema:
+		 *               type: boolean
+		 *       401:
+		 *         description: Unauthorized if user is not authenticated
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
+		app.post(
+			ApiPath.WORDS_$WORD_LIKE,
+			asyncHandler(async (req, res) => {
+				const response = await this.dictionaryService.likeWord({
+					userId: req.user?.id,
+					word: req.params.word,
+				});
+
+				res.status(HTTPCode.OK).json(response);
+			}),
+		);
+
+		/**
+		 * @swagger
+		 * /words/:word:/unlike:
+		 *   post:
+		 *     tags:
+		 *       - Words
+		 *     summary: Unlike a word
+		 *     description: Removes a word from the authenticated user's favorites.
+		 *     parameters:
+		 *       - in: path
+		 *         name: word
+		 *         required: true
+		 *         schema:
+		 *           type: string
+		 *         description: The word to remove from favorites
+		 *     responses:
+		 *       200:
+		 *         description: Word successfully removed from favorites
+		 *         content:
+		 *           application/json:
+		 *             schema:
+		 *               type: boolean
+		 *       401:
+		 *         description: Unauthorized if user is not authenticated
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
+		app.post(
+			ApiPath.WORDS_$WORD_UNLIKE,
+			asyncHandler(async (req, res) => {
+				const response = await this.dictionaryService.unlikeWord({
+					userId: req.user?.id,
+					word: req.params.word,
+				});
+
+				res.status(HTTPCode.OK).json(response);
+			}),
+		);
 	}
 
 	public init(app: Application): void {

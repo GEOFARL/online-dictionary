@@ -21,6 +21,40 @@ class DictionaryRepository {
 		return result;
 	}
 
+	public async checkIsLiked({
+		userId,
+		word,
+	}: {
+		userId: number;
+		word: string;
+	}): Promise<boolean> {
+		const wordRecord = await Word.findOne({
+			where: { word: capitalize(word) },
+		});
+
+		if (!wordRecord) {
+			return false;
+		}
+
+		const favorite = await db.models.favorite_words.findOne({
+			where: {
+				userId,
+				wordId: wordRecord.id,
+			},
+		});
+
+		return Boolean(favorite);
+	}
+
+	public async findOrCreateWord(word: string) {
+		const [wordObject] = await Word.findOrCreate({
+			defaults: { word },
+			where: { word },
+		});
+
+		return wordObject;
+	}
+
 	public findWord(word: string): Promise<Word | null> {
 		return Word.findOne({ where: { word: capitalize(word) } });
 	}

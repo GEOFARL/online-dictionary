@@ -1,3 +1,4 @@
+import { type User } from "~/libs/modules/db/models/user.model.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 
 import { ExceptionMessage as UserExceptionMessage } from "./libs/enums/exception-message.enum.js";
@@ -29,6 +30,19 @@ class UserService {
 
 	public async findById(id: number): Promise<UserDto> {
 		const user = await this.userRepository.findById(id);
+
+		if (!user) {
+			throw new HTTPError({
+				message: UserExceptionMessage.USER_NOT_FOUND,
+				status: HTTPCode.NOT_FOUND,
+			});
+		}
+
+		return user;
+	}
+
+	public async findByIdSequelizeObject(id: number): Promise<User> {
+		const user = await this.userRepository.findByIdSequelizeObject(id);
 
 		if (!user) {
 			throw new HTTPError({
