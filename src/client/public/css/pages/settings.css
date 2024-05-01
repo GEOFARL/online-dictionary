@@ -48,7 +48,7 @@
 }
 
 .change-name__input-label {
-	font-size: var(--font-size-500);
+	font-size: var(--font-size-600);
 	font-weight: 500;
 	margin-top: 18px;
 }
@@ -195,5 +195,40 @@
 	.profile-image {
 		width: 100px;
 		height: 100px;
+	}
+}
+
+@media (max-width: 480px) {
+	.heading {
+		font-size: var(--font-size-800);
+	}
+
+	.form__heading {
+		font-size: var(--font-size-725);
+	}
+
+	.delete-account__heading {
+		font-size: var(--font-size-725);
+	}
+
+	.delete-account__btn,
+	.change-name__btn {
+		width: 150px;
+		height: 30px;
+		font-size: var(--font-size-300);
+	}
+
+	.change-name__btn {
+		margin-bottom: 20px;
+	}
+
+	.image-container {
+		width: 125px;
+		height: 125px;
+	}
+
+	.profile-image {
+		width: 75px;
+		height: 75px;
 	}
 }
