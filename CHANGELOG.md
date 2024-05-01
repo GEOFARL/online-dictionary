@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.48.0](https://github.com/GEOFARL/online-dictionary/compare/v1.47.0...v1.48.0) (2024-05-01)
+
+
+### Features
+
+* Add the ability to save and delete words as your favourites od-216 ([#226](https://github.com/GEOFARL/online-dictionary/issues/226)) ([99b047a](https://github.com/GEOFARL/online-dictionary/commit/99b047a33dfb7a9c1f0fdc587751fbaa25d11a67))
+
 ## [1.47.0](https://github.com/GEOFARL/online-dictionary/compare/v1.46.0...v1.47.0) (2024-04-30)
 
 
