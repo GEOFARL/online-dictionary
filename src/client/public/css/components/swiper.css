@@ -32,3 +32,17 @@
 .swiper .swiper-button-prev::after {
 	font-size: calc((var(--swiper-navigation-size) / 2));
 }
+
+.no-found {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.no-found__icon {
+	stroke: val(--color-grey-200);
+	fill: val(--color-grey-200);
+	width: 80px;
+	height: 80px;
+}

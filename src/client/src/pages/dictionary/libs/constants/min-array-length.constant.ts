@@ -1,0 +1,2 @@
+const MIN_ARRAY_LENGTH = 1;
+export { MIN_ARRAY_LENGTH };

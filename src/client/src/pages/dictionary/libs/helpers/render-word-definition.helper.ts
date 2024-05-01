@@ -7,6 +7,7 @@ import {
 	showElement,
 } from "~/shared/index.js";
 
+import { MIN_ARRAY_LENGTH } from "../constants/constants.js";
 import { swiper } from "../modules/modules.js";
 import { swiperMobile } from "../modules/swiper/swiper.js";
 import { renderSynonyms } from "./render-synonyms.helper.js";
@@ -102,7 +103,7 @@ const renderWordDefinition = (
 			}
 		});
 
-		if (data.images) {
+		if (data.images && data.images.length >= MIN_ARRAY_LENGTH) {
 			dom.clearContent(".images-slider .swiper-wrapper");
 			dom.clearContent(".images-slider-mobile .swiper-wrapper");
 
@@ -138,6 +139,50 @@ const renderWordDefinition = (
 				});
 			});
 
+			swiper.init();
+			swiperMobile.init();
+		} else {
+			dom.clearContent(".images-slider .swiper-wrapper");
+			dom.clearContent(".images-slider-mobile .swiper-wrapper");
+
+			dom.createElement({
+				children: [
+					{
+						attributes: {
+							"alt": "not found image",
+							"class": "no-found__icon",
+							"fill": "val(--color-grey-200)",
+							"height": "80px",
+							"src": "/assets/icons/image-not-found.svg",
+							"stroke": "val(--color-grey-200)",
+							"width": "80px",
+						},
+						tagName: "img",
+					},
+				],
+				className: "no-found",
+				parentElementSelector: ".images-slider .swiper-wrapper",
+				tagName: "div",
+			});
+
+			dom.createElement({
+				children: [
+					{
+						attributes: {
+							"alt": "not found image",
+							"class": "no-found__icon",
+							"height": "40px",
+							"src": "/assets/icons/image-not-found.svg",
+							"stroke": "val(--color-grey-200)",
+							"width": "40px",
+						},
+						tagName: "img",
+					},
+				],
+				className: "no-found",
+				parentElementSelector: ".images-slider-mobile .swiper-wrapper",
+				tagName: "div",
+			});
 			swiper.init();
 			swiperMobile.init();
 		}
