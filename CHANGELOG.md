@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.51.0](https://github.com/GEOFARL/online-dictionary/compare/v1.50.0...v1.51.0) (2024-05-02)
+
+
+### Features
+
+* Create the page with mine words od-217 ([#232](https://github.com/GEOFARL/online-dictionary/issues/232)) ([d74ae8c](https://github.com/GEOFARL/online-dictionary/commit/d74ae8c67c8b64320569259f3455ddb62f2e5d8b))
+
 ## [1.50.0](https://github.com/GEOFARL/online-dictionary/compare/v1.49.0...v1.50.0) (2024-05-02)
 
 
