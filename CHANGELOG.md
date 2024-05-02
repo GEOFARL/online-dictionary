@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.50.0](https://github.com/GEOFARL/online-dictionary/compare/v1.49.0...v1.50.0) (2024-05-02)
+
+
+### Features
+
+* add default image placeholder od-224 ([#229](https://github.com/GEOFARL/online-dictionary/issues/229)) ([827f5b2](https://github.com/GEOFARL/online-dictionary/commit/827f5b22124fdb1bcf2ba42f870debb6937017ef))
+
 ## [1.49.0](https://github.com/GEOFARL/online-dictionary/compare/v1.48.0...v1.49.0) (2024-05-02)
 
 
