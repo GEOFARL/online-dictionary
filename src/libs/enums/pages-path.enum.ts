@@ -1,6 +1,7 @@
 const PagesPath = {
 	DICTIONARY: "/dictionary",
 	EXPLORE: "/explore",
+	FAVORITES: "/favorites",
 	NOT_FOUND: "/not-found",
 	ROOT: "/",
 	SETTINGS: "/settings",

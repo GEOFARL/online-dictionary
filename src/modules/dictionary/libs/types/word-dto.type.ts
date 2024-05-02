@@ -3,6 +3,7 @@ type WordDto = {
 		alt: string;
 		src: string;
 	}[];
+	isLiked?: boolean;
 	meanings: {
 		antonyms: string[];
 		definitions: {

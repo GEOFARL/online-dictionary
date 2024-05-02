@@ -4,12 +4,18 @@ import { type CreateElementOptions } from "./libs/types/types.js";
 class BaseDOM implements DOM {
 	addClassName({
 		className,
+		element,
 		selector,
 	}: {
 		className: string;
-		selector: string;
+		element?: HTMLElement;
+		selector?: string;
 	}): void {
-		this.getElement(selector)?.classList.add(className);
+		if (element) {
+			element.classList.add(className);
+		} else {
+			this.getElement(selector)?.classList.add(className);
+		}
 	}
 
 	changeAttribute({
@@ -75,16 +81,28 @@ class BaseDOM implements DOM {
 		return element;
 	}
 
+	getAllElements<T extends HTMLElement>(selector: string): T[] {
+		const elements = document.querySelectorAll<T>(selector);
+
+		return Array.from(elements);
+	}
+
 	getAttribute({
 		attribute,
+		element,
 		selector,
 	}: {
 		attribute: string;
-		selector: string;
+		element?: HTMLElement;
+		selector?: string;
 	}): null | string {
-		const element = this.getElement(selector);
 		if (element) {
 			return element.getAttribute(attribute);
+		}
+
+		const htmlElement = this.getElement(selector);
+		if (htmlElement) {
+			return htmlElement.getAttribute(attribute);
 		}
 		return null;
 	}
@@ -105,18 +123,46 @@ class BaseDOM implements DOM {
 		this.getElement(selector)?.classList.remove(className);
 	}
 
+	removeElement({
+		element,
+		selector,
+	}: {
+		element?: HTMLElement;
+		selector?: string;
+	}) {
+		if (selector) {
+			this.getElement(selector).remove();
+		} else {
+			element.remove();
+		}
+	}
+
 	setListener({
+		element,
 		eventType,
 		listener,
 		selector,
 	}: {
+		element?: HTMLElement;
 		eventType: string;
 		listener: (event: Event) => Promise<void> | void;
-		selector: string;
+		selector?: string | string[];
 	}) {
-		const element = this.getElement(selector);
+		if (selector) {
+			if (Array.isArray(selector)) {
+				selector.forEach((item) => {
+					const htmlElement = this.getElement(item);
 
-		element.addEventListener(eventType, listener);
+					htmlElement.addEventListener(eventType, listener);
+				});
+			} else {
+				const htmlElement = this.getElement(selector);
+
+				htmlElement.addEventListener(eventType, listener);
+			}
+		} else {
+			element.addEventListener(eventType, listener);
+		}
 	}
 
 	setText({ selector, text }: { selector: string; text: string }): void {

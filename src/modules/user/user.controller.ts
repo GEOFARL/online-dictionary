@@ -98,7 +98,10 @@ class UserController implements Controller {
 	}
 
 	public get routes(): { httpMethod: HTTPMethod; path: string }[] {
-		return [{ httpMethod: "PUT", path: ApiPath.USER }];
+		return [
+			{ httpMethod: "PUT", path: ApiPath.USER },
+			{ httpMethod: "DELETE", path: ApiPath.USER },
+		];
 	}
 }
 

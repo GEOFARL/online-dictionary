@@ -62,9 +62,14 @@
 
                             <%- include('../components/separator.ejs') %>
 
-                            <a class="user-menu__settings" href="<%= settingsPath %>">
-                                <img class="user-menu__settings-icon" src="/assets/icons/settings.svg" alt="">
-                                <p class="user-menu__settings-name">Налаштування</p>
+                            <a class="user-menu__item" href="<%= favoritesPath %>">
+                                <img class="user-menu__item-icon" src="/assets/icons/favorites.svg" alt="star icon">
+                                <p class="user-menu__item-name">Вподобання</p>
+                            </a>
+
+                            <a class="user-menu__item" href="<%= settingsPath %>">
+                                <img class="user-menu__item-icon" src="/assets/icons/settings.svg" alt="settings icon">
+                                <p class="user-menu__item-name">Налаштування</p>
                             </a>
 
                             <%- include('../components/separator.ejs') %>

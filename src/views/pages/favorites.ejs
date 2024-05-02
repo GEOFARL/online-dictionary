@@ -1,0 +1,75 @@
+<%- include("../includes/head") %>
+  <link rel="stylesheet" href="/css/pages/favorites.css">
+  <link rel="stylesheet" href="/css/includes/footer.css">
+  <link rel="stylesheet" href="/css/components/button.css">
+  <link rel="stylesheet" href="/css/includes/badges.css">
+  <link rel="stylesheet" href="/css/components/link.css">
+  <link rel="stylesheet" href="/css/components/navigation.css">
+  <link rel="stylesheet" href="/css/components/sidebar.css">
+  <link rel="stylesheet" href="/css/includes/overlay.css">
+  </head>
+  <body>
+    <%- include('../components/navigation.ejs', {
+      routePath: favoritesPath,
+      user,
+    })%>
+    <main class="main">
+      <section class="favorites">
+        <h2 class="favorites__heading">Перелік збережених слів</h2>
+
+        <% if (favoriteWords?.length > 0) { %>
+          <%- include('../components/button.ejs', {
+            label: "Відфільтрувати",
+            className: "favorites__button"
+          }) %>
+
+          <div class="words">
+            <% favoriteWords?.forEach((word) => { %>
+              <div class="word" data-word="<%= word?.word %>">
+                <a class="word__image-container" href="<%= dictionaryPath %>?word=<%= word?.word ?? "" %>">
+                  <img src="<%= word?.image?.src ? word.image.src : '/assets/images/placeholder-image.jpg' %>" alt="<%= word?.image?.src ? word.image.alt : 'Placeholder image' %>" class="word__image">
+                </a>
+
+                <div class="word__content">
+                  <div class="word-definition">
+                    <div class="word-container">
+                      <a class="word-link" href="<%= dictionaryPath %>?word=<%= word?.word ?? "" %>">
+                        <h3 class="word__word"><%= word?.word ?? "No word" %></h3>
+                      </a>
+                      <div class="badges">
+                        <% word?.partOfSpeech.forEach((part) => { %>
+                          <div class="badge">
+                            <%= part %>
+                          </div>
+                        <% }) %>
+                      </div>
+                    </div>
+                    <p class="word__description">
+                      <%= word?.meaning ?? "" %>
+                    </p>
+                  </div>
+                </div>
+
+                <button class="remove-word-btn" data-word="<%= word?.word %>">
+                  <img src="/assets/icons/bin.svg" alt="bin icon">
+                </button>
+              </div>
+            <% }) %>
+          </div>
+        <% } else { %>
+          <div class="default-content">
+            <p class="default-content__description">Твої збережені слова будуть відображені тут.</p>
+          </div>
+        <% } %>
+      </section>
+    </main>
+    <%- include('../includes/overlay.ejs')%>
+    <%- include('../includes/footer.ejs') %>
+
+    <script src="/js/favorites.js"></script>
+    <script>
+      Library.configure();
+    </script>
+  </body>
+
+<%- include("../includes/end") %>

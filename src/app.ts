@@ -2,6 +2,7 @@ import { serverApplication } from "~/libs/modules/server-application/server-appl
 import { authController } from "~/modules/auth/auth.js";
 import { dictionaryController } from "~/modules/dictionary/dictionary.js";
 import { exploreController } from "~/modules/explore/explore.js";
+import { favoritesController } from "~/modules/favorites/favorites.js";
 import { homeController } from "~/modules/home/home.js";
 import { settingsController } from "~/modules/settings/settings.js";
 import { userController } from "~/modules/user/user.js";
@@ -27,6 +28,7 @@ serverApplication.initControllers([
 	dictionaryController,
 	exploreController,
 	settingsController,
+	favoritesController,
 ]);
 serverApplication.initErrorHandler(errorHandlerMiddleware);
 serverApplication.initSwaggerDocs();

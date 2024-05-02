@@ -24,7 +24,7 @@ import {
 } from "./libs/helpers/helpers.js";
 import { audio } from "./libs/modules/modules.js";
 
-const configureSearchForm = (): void => {
+const configureSearchForm = ({ user }): void => {
 	const handleFormSubmit = async () => {
 		const inputValue = dom.getElement<HTMLInputElement>("#search").value;
 		showLoadingState();
@@ -48,9 +48,13 @@ const configureSearchForm = (): void => {
 
 			if (!("status" in data)) {
 				showSearchResults();
-				renderWordDefinition(data, (newValue: string) => {
-					audio.src = newValue;
-				});
+				renderWordDefinition(
+					data,
+					(newValue: string) => {
+						audio.src = newValue;
+					},
+					user,
+				);
 
 				resetSearchInput();
 			} else if ("message" in data) {
@@ -114,8 +118,8 @@ const configureTranscriptionPlayer = (): void => {
 	});
 };
 
-const configure = (): void => {
-	configureSearchForm();
+const configure = ({ user }): void => {
+	configureSearchForm({ user });
 	configureTranscriptionPlayer();
 	configureMobileSidebar();
 	configureUserMenu();
