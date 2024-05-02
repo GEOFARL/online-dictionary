@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.49.0](https://github.com/GEOFARL/online-dictionary/compare/v1.48.0...v1.49.0) (2024-05-02)
+
+
+### Features
+
+* make settings page responsive od-215 ([#228](https://github.com/GEOFARL/online-dictionary/issues/228)) ([44045e3](https://github.com/GEOFARL/online-dictionary/commit/44045e3cc861d292d6cf896833d79660f6c7f9dd))
+
 ## [1.48.0](https://github.com/GEOFARL/online-dictionary/compare/v1.47.0...v1.48.0) (2024-05-01)
 
 
