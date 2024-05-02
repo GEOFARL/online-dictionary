@@ -1,4 +1,4 @@
-import { ApiPath } from "@/libs/enums/api-path.enum.js";
+import { ApiPath } from "@/libs/enums/enums.js";
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
 
 import {
