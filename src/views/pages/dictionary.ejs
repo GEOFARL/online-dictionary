@@ -75,6 +75,8 @@
             <%- include('../components/swiper.ejs', {
               className: "images-slider-mobile"
             }) %>
+
+            <div class="button-container-mobile"></div>
           </div>
           <div class="definitions hidden">
             <h3 class="definitions__header">Визначення</h3>
@@ -84,6 +86,8 @@
           <%- include('../components/swiper.ejs', {
             className: "images-slider"
           }) %>
+
+          <div class="button-container"></div>
         </section>
       </div>
     </main>
@@ -92,7 +96,9 @@
 
     <script src="/js/dictionary.js"></script>
     <script>
-      Library.configure();
+      Library.configure({
+        user: Boolean("<%= user %>"),
+      });
     </script>
 	</body>
 <%- include("../includes/end") %>

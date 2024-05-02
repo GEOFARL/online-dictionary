@@ -1,4 +1,5 @@
 import {
+	type BelongsToManyGetAssociationsMixin,
 	type CreationOptional,
 	DataTypes,
 	type HasManyAddAssociationMixin,
@@ -21,6 +22,8 @@ class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
 	declare email: string;
 
 	declare fullName: string;
+
+	public getFavorites!: BelongsToManyGetAssociationsMixin<Word>;
 
 	declare id: number;
 

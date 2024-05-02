@@ -33,6 +33,7 @@ class HomeController implements Controller {
 			res.render(`pages${PagesPath.ROOT}index.ejs`, {
 				dictionaryPath: PagesPath.DICTIONARY,
 				explorePath: PagesPath.EXPLORE,
+				favoritesPath: PagesPath.FAVORITES,
 				homePath: PagesPath.ROOT,
 				isAuthorized: Boolean(req.user),
 				logOutPath: ApiPath.AUTH_LOG_OUT,

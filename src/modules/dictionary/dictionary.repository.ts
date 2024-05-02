@@ -48,8 +48,8 @@ class DictionaryRepository {
 
 	public async findOrCreateWord(word: string) {
 		const [wordObject] = await Word.findOrCreate({
-			defaults: { word },
-			where: { word },
+			defaults: { word: capitalize(word) },
+			where: { word: capitalize(word) },
 		});
 
 		return wordObject;

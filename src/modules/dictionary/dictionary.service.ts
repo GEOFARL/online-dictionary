@@ -1,4 +1,5 @@
-import { FIRST_ARRAY_ELEMENT } from "~/libs/constants/first-array-element.constant.js";
+import { FIRST_ARRAY_ELEMENT } from "~/libs/constants/constants.js";
+import { capitalize } from "~/libs/helpers/helpers";
 import { type API } from "~/libs/modules/api/api.js";
 import { Word } from "~/libs/modules/db/models/models.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
@@ -37,6 +38,29 @@ class DictionaryService {
 		this.dictionaryRepository = dictionaryRepository;
 		this.api = api;
 		this.userService = userService;
+	}
+
+	public async getFavoriteWords({ userId }: { userId: number }) {
+		const user = await this.userService.findByIdSequelizeObject(userId);
+
+		const wordRecords = await user.getFavorites();
+
+		const words = await Promise.all(
+			wordRecords.map((record) => this.searchWord({ word: record.word })),
+		);
+
+		const result = words.map((word) => ({
+			image: word.images[FIRST_ARRAY_ELEMENT],
+			meaning:
+				word.meanings[FIRST_ARRAY_ELEMENT].definitions[FIRST_ARRAY_ELEMENT]
+					.definition,
+			partOfSpeech: [
+				...new Set(word.meanings.map((meaning) => meaning.partOfSpeech)),
+			],
+			word: capitalize(word.word),
+		}));
+
+		return result;
 	}
 
 	public async getLatestWords({ userId }: { userId: number }): Promise<Word[]> {
@@ -151,7 +175,15 @@ class DictionaryService {
 			});
 		}
 
-		return wordDto;
+		return {
+			...wordDto,
+			isLiked:
+				userId &&
+				(await this.dictionaryRepository.checkIsLiked({
+					userId,
+					word: wordDtoWithoutImages.word,
+				})),
+		};
 	}
 
 	public async unlikeWord({

@@ -46,6 +46,15 @@
                 </li>
                 <li class="sidebar__navigation-list-item">
                     <%- include('../components/link.ejs', {
+                        href: favoritesPath,
+                        content: "Вподобання",
+                        className: "sidebar__navigation-list-item-link",
+                        src: "/assets/icons/favorites.svg",
+                        alt: "star icon"
+                    }); %>
+                </li>
+                <li class="sidebar__navigation-list-item">
+                    <%- include('../components/link.ejs', {
                         href: settingsPath,
                         content: "Налаштування",
                         className: "sidebar__navigation-list-item-link",

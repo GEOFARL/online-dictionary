@@ -1,8 +1,12 @@
+import { ApiPath } from "@/libs/enums/enums.js";
 import { type WordDto } from "@/modules/dictionary/libs/types/types.js";
 
 import {
+	NotificationMessage,
+	api,
 	dom,
 	hideElement,
+	notification,
 	partOfSpeechToClassName,
 	showElement,
 } from "~/shared/index.js";
@@ -15,6 +19,7 @@ import { renderSynonyms } from "./render-synonyms.helper.js";
 const renderWordDefinition = (
 	data: WordDto,
 	updateAudioSrcFn: (newValue: string) => void,
+	user,
 ) => {
 	const partsOfSpeech = new Set(
 		data.meanings.map((meaning) => meaning.partOfSpeech),
@@ -179,6 +184,163 @@ const renderWordDefinition = (
 				className: "no-found",
 				parentElementSelector: ".images-slider-mobile .swiper-wrapper",
 				tagName: "div",
+			});
+		}
+
+		if (user) {
+			dom.clearContent(".button-container");
+			dom.clearContent(".button-container-mobile");
+
+			dom.createElement({
+				className: [
+					"button",
+					"word__button",
+					data.isLiked ? "unlike-word" : "like-word",
+				],
+				content: data.isLiked ? "Видалити зі збережених" : "Зберегти слово",
+				parentElementSelector: ".button-container",
+				tagName: "button",
+			});
+
+			dom.createElement({
+				className: [
+					"button",
+					"word__button",
+					data.isLiked ? "unlike-word" : "like-word",
+				],
+				content: data.isLiked ? "Видалити зі збережених" : "Зберегти слово",
+				parentElementSelector: ".button-container-mobile",
+				tagName: "button",
+			});
+
+			dom.setListener({
+				eventType: "click",
+				listener: async () => {
+					try {
+						let data1;
+						if (dom.getElement(".word__button.like-word")) {
+							data1 = await api.post<{ data: string } | boolean>({
+								path: ApiPath.WORDS_$WORD_LIKE.replace(":word", data.word),
+							});
+						} else {
+							data1 = await api.post<{ data: string } | boolean>({
+								path: ApiPath.WORDS_$WORD_UNLIKE.replace(":word", data.word),
+							});
+						}
+
+						if (typeof data1 === "boolean" || !("status" in data1)) {
+							if (dom.getElement(".button-container .word__button.like-word")) {
+								notification.success(NotificationMessage.WORD_LIKE_SUCCESS);
+
+								dom.setText({
+									selector: ".button-container .word__button",
+									text: "Видалити зі збережених",
+								});
+
+								dom.removeClassName({
+									className: "like-word",
+									selector: ".button-container .word__button",
+								});
+
+								dom.addClassName({
+									className: "unlike-word",
+									selector: ".button-container .word__button",
+								});
+							} else {
+								notification.success(NotificationMessage.WORD_UNLIKE_SUCCESS);
+
+								dom.setText({
+									selector: ".button-container .word__button",
+									text: "Зберегти слово",
+								});
+
+								dom.removeClassName({
+									className: "unlike-word",
+									selector: ".button-container .word__button",
+								});
+
+								dom.addClassName({
+									className: "like-word",
+									selector: ".button-container .word__button",
+								});
+							}
+						} else if ("message" in data) {
+							notification.error(data.message as string);
+						}
+					} catch (error) {
+						if (error instanceof Error) {
+							notification.error(error.message);
+						}
+					}
+				},
+				selector: [".button-container .word__button"],
+			});
+
+			dom.setListener({
+				eventType: "click",
+				listener: async () => {
+					try {
+						let data1;
+						if (dom.getElement(".word__button.like-word")) {
+							data1 = await api.post<{ data: string } | boolean>({
+								path: ApiPath.WORDS_$WORD_LIKE.replace(":word", data.word),
+							});
+						} else {
+							data1 = await api.post<{ data: string } | boolean>({
+								path: ApiPath.WORDS_$WORD_UNLIKE.replace(":word", data.word),
+							});
+						}
+
+						if (typeof data1 === "boolean" || !("status" in data1)) {
+							if (
+								dom.getElement(
+									".button-container-mobile .word__button.like-word",
+								)
+							) {
+								notification.success(NotificationMessage.WORD_LIKE_SUCCESS);
+
+								dom.setText({
+									selector: ".button-container-mobile .word__button",
+									text: "Видалити зі збережених",
+								});
+
+								dom.removeClassName({
+									className: "like-word",
+									selector: ".button-container-mobile .word__button",
+								});
+
+								dom.addClassName({
+									className: "unlike-word",
+									selector: ".button-container-mobile .word__button",
+								});
+							} else {
+								notification.success(NotificationMessage.WORD_UNLIKE_SUCCESS);
+
+								dom.setText({
+									selector: ".button-container-mobile .word__button",
+									text: "Зберегти слово",
+								});
+
+								dom.removeClassName({
+									className: "unlike-word",
+									selector: ".button-container-mobile .word__button",
+								});
+
+								dom.addClassName({
+									className: "like-word",
+									selector: ".button-container-mobile .word__button",
+								});
+							}
+						} else if ("message" in data) {
+							notification.error(data.message as string);
+						}
+					} catch (error) {
+						if (error instanceof Error) {
+							notification.error(error.message);
+						}
+					}
+				},
+				selector: [".button-container-mobile .word__button"],
 			});
 		}
 	}

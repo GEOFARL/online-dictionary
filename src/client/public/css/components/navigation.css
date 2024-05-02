@@ -130,7 +130,7 @@
 }
 
 .user-menu {
-	min-width: 240px;
+	min-width: 260px;
 	border-radius: 15px;
 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25);
 	display: flex;
@@ -141,13 +141,13 @@
 .user-menu__header {
 	display: flex;
 	justify-content: left;
-	gap: 13px;
+	gap: 12px;
 	padding: 16px 16px 12px 12px;
 }
 
 .user-menu__header-avatar {
-	width: 46px;
-	height: 46px;
+	width: 50px;
+	height: 50px;
 	border-radius: 90px;
 	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
 	display: flex;
@@ -163,25 +163,25 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 2px;
+	gap: 6px;
 }
 
 .user-menu__header-info-fullname {
-	font-size: var(--font-size-500);
+	font-size: var(--font-size-600);
 	font-weight: 500;
 	letter-spacing: -0.04em;
 	line-height: 17px;
 }
 
 .user-menu__header-info-email {
-	font-size: var(--font-size-100);
+	font-size: var(--font-size-200);
 	font-weight: 300;
 	letter-spacing: -0.04em;
 	line-height: 10px;
 	color: var(--color-grey-400);
 }
 
-.user-menu__settings {
+.user-menu__item {
 	padding: 10px 16px;
 	display: flex;
 	align-items: center;
@@ -190,19 +190,24 @@
 	text-decoration: none;
 }
 
-.user-menu__settings:hover {
+.user-menu__item:hover {
 	cursor: pointer;
 	background-color: var(--color-grey-900);
 }
 
-.user-menu__settings-name,
-.user-menu__cta-button {
+.user-menu__item-name {
 	font-size: var(--font-size-200);
 	font-weight: 400;
 	line-height: 12px;
 }
 
-.user-menu__settings-name {
+.user-menu__cta-button {
+	font-size: var(--font-size-400);
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.user-menu__item-name {
 	color: var(--color-black);
 }
 
