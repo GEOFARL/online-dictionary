@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.53.0](https://github.com/GEOFARL/online-dictionary/compare/v1.52.0...v1.53.0) (2024-05-06)
+
+
+### Features
+
+* add infinite scroll pagination od-219 ([#236](https://github.com/GEOFARL/online-dictionary/issues/236)) ([f29dc85](https://github.com/GEOFARL/online-dictionary/commit/f29dc85d0a961c97bc9f7a88ffee326ff74685d8))
+
 ## [1.52.0](https://github.com/GEOFARL/online-dictionary/compare/v1.51.0...v1.52.0) (2024-05-06)
 
 
