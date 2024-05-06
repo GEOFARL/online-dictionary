@@ -40,10 +40,27 @@ class DictionaryService {
 		this.userService = userService;
 	}
 
-	public async getFavoriteWords({ userId }: { userId: number }) {
-		const user = await this.userService.findByIdSequelizeObject(userId);
+	public async getFavoriteWords({
+		partOfSpeech,
+		userId,
+	}: {
+		partOfSpeech?: string;
+		userId: number;
+	}) {
+		await this.userService.findByIdSequelizeObject(userId);
 
-		const wordRecords = await user.getFavorites();
+		const partsOfSpeechFilters =
+			partOfSpeech?.split(",").map((ps) => ps.trim().toLowerCase()) ?? [];
+
+		/* eslint-disable indent */
+		const wordRecords =
+			partOfSpeech === ""
+				? []
+				: await this.userService.findFavorites({
+						partsOfSpeechFilters: partOfSpeech ? partsOfSpeechFilters : [],
+						userId,
+					});
+		/* eslint-enable indent */
 
 		const words = await Promise.all(
 			wordRecords.map((record) => this.searchWord({ word: record.word })),
@@ -148,7 +165,13 @@ class DictionaryService {
 		const wordDtoWithoutImages: Omit<WordDto, "images"> =
 			mapDictionaryResponseToWord(data);
 
-		const images = await pexels.findImage(wordDtoWithoutImages.word);
+		let images = [];
+
+		try {
+			images = await pexels.findImage(wordDtoWithoutImages.word);
+		} catch (error) {
+			images = [];
+		}
 
 		const wordDto: WordDto = {
 			...wordDtoWithoutImages,

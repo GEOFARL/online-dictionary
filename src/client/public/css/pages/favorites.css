@@ -135,6 +135,125 @@
 	line-height: 24px;
 }
 
+.filters-container {
+	position: relative;
+}
+
+.filters {
+	position: absolute;
+	width: 400px;
+	top: 55px;
+	right: 34%;
+	background-color: var(--color-grey-600);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 40%);
+	border-radius: 15px;
+	padding: 28px 40px 28px 23px;
+	z-index: 98;
+
+	animation: show-up 0.2s ease-in-out forwards;
+	transform-origin: top center;
+}
+
+.filter__item {
+	display: flex;
+	justify-content: space-between;
+}
+
+.filter__item-filter {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.filter__item-name {
+	font-size: var(--font-size-450);
+}
+
+.filter__item-filter input {
+	width: 18px;
+	height: 18px;
+}
+
+.filter__item-filter label {
+	font-size: var(--font-size-450);
+}
+
+.filter__item-filters {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.filters__close-btn {
+	position: absolute;
+	background-color: transparent;
+	border: none;
+	top: 12px;
+	right: 12px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+
+	transition: all 0.3s ease-in-out;
+}
+
+.filters__close-btn:hover {
+	transform: scale(1.2);
+}
+
+.filters__close-btn img {
+	width: 100%;
+	height: 100%;
+}
+
+@keyframes show-up {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+.loader-container {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 60%);
+
+	display: grid;
+	place-content: center;
+
+	z-index: 101;
+
+	--sk-color: var(--color-red);
+}
+
+.filters__cta {
+	margin-top: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.filters__cta .button {
+	padding: 6px 10px;
+	font-size: var(--font-size-500);
+	line-height: 16px;
+}
+
+@media (max-width: 1200px) {
+	.filters {
+		right: 30%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.filters {
+		right: 24%;
+	}
+}
+
 @media (max-width: 768px) {
 	.favorites__heading {
 		font-size: var(--font-size-850);
@@ -171,6 +290,10 @@
 		font-size: var(--font-size-600);
 		max-width: 450px;
 	}
+
+	.filters {
+		right: 11%;
+	}
 }
 
 @media (max-width: 480px) {
@@ -193,5 +316,10 @@
 		font-size: var(--font-size-400);
 		max-width: 400px;
 		line-height: 18px;
+	}
+
+	.filters {
+		right: 0%;
+		width: 300px;
 	}
 }

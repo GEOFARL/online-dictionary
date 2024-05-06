@@ -1,4 +1,4 @@
-import { type User } from "~/libs/modules/db/models/models.js";
+import { type User, type Word } from "~/libs/modules/db/models/models.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 
 import { ExceptionMessage as UserExceptionMessage } from "./libs/enums/enums.js";
@@ -52,6 +52,19 @@ class UserService {
 		}
 
 		return user;
+	}
+
+	public findFavorites({
+		partsOfSpeechFilters,
+		userId,
+	}: {
+		partsOfSpeechFilters: string[];
+		userId: number;
+	}): Promise<Word[]> {
+		return this.userRepository.findFavorites({
+			partsOfSpeechFilters,
+			userId,
+		});
 	}
 
 	public async update(userId: number, newData: UserProfileUpdateRequestDto) {

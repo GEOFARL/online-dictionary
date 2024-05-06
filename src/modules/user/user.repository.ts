@@ -1,5 +1,7 @@
+import { Op } from "sequelize";
+
 import { db } from "~/libs/modules/db/db.js";
-import { User } from "~/libs/modules/db/models/models.js";
+import { User, Word } from "~/libs/modules/db/models/models.js";
 
 import {
 	type UserAuthSignUpRequestDto,
@@ -99,6 +101,40 @@ class UserRepository {
 		}
 
 		return null;
+	}
+
+	public async findFavorites({
+		partsOfSpeechFilters,
+		userId,
+	}: {
+		partsOfSpeechFilters: string[];
+		userId: number;
+	}): Promise<Word[]> {
+		const NO_CONDITIONS = 0;
+
+		const conditions = partsOfSpeechFilters.map((ps) => ({
+			partOfSpeech: {
+				[Op.like]: `%${ps}%`,
+			},
+		}));
+
+		return (
+			(
+				(await User.findByPk(userId, {
+					include: [
+						{
+							as: "favorites",
+							model: Word,
+							where:
+								conditions.length > NO_CONDITIONS
+									? { [Op.or]: conditions }
+									: {},
+						},
+					],
+					order: [[{ as: "favorites", model: Word }, "createdAt", "DESC"]],
+				})) as unknown as { favorites?: Word[] }
+			)?.favorites ?? []
+		);
 	}
 
 	public async update(
