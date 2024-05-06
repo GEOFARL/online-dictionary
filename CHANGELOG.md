@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.52.0](https://github.com/GEOFARL/online-dictionary/compare/v1.51.0...v1.52.0) (2024-05-06)
+
+
+### Features
+
+* Add the possibility to filter the words by their part of the language od-218 ([#234](https://github.com/GEOFARL/online-dictionary/issues/234)) ([21dcf9a](https://github.com/GEOFARL/online-dictionary/commit/21dcf9afa96d743cadfc09c01454919eef85b265))
+
 ## [1.51.0](https://github.com/GEOFARL/online-dictionary/compare/v1.50.0...v1.51.0) (2024-05-02)
 
 
