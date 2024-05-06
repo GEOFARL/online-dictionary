@@ -10,4 +10,18 @@ export default {
 		port: process.env.DB_PORT,
 		username: process.env.DB_USER,
 	},
+	production: {
+		database: process.env.DB_NAME,
+		dialect: "postgres",
+		host: process.env.DB_HOST,
+		password: process.env.DB_PASSWORD,
+		port: process.env.DB_PORT,
+		username: process.env.DB_USER,
+		dialectOptions: {
+			ssl: {
+				require: true,
+				rejectUnauthorized: false,
+			},
+		},
+	},
 };
