@@ -48,6 +48,29 @@ import { wordSearch as wordSearchValidationSchema } from "./libs/validation-sche
  *               type: string
  *         word:
  *           type: string
+ *     WordSummary:
+ *       type: object
+ *       properties:
+ *         image:
+ *           type: object
+ *           properties:
+ *             src:
+ *               type: string
+ *               description: The URL of the image.
+ *             alt:
+ *               type: string
+ *               description: The alt text of the image.
+ *         meaning:
+ *           type: string
+ *           description: The primary definition of the word.
+ *         partOfSpeech:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: The part(s) of speech the word belongs to.
+ *         word:
+ *           type: string
+ *           description: The word, capitalized.
  */
 class DictionaryController implements Controller {
 	private dictionaryService: DictionaryService;
@@ -97,6 +120,33 @@ class DictionaryController implements Controller {
 	}
 
 	private initRoutes(app: Application) {
+		/**
+		 * @swagger
+		 * /words/favorites:
+		 *   get:
+		 *     tags:
+		 *       - Words
+		 *     summary: Get user's favorite words
+		 *     description: Retrieves a list of favorite words for the authenticated user, optionally filtered by part of speech.
+		 *     parameters:
+		 *       - in: query
+		 *         name: partOfSpeech
+		 *         required: false
+		 *         schema:
+		 *           type: string
+		 *         description: A comma-separated list of parts of speech to filter the favorite words.
+		 *     responses:
+		 *       200:
+		 *         description: A list of favorite words
+		 *         content:
+		 *           application/json:
+		 *             schema:
+		 *               type: array
+		 *               items:
+		 *                 $ref: '#/components/schemas/WordSummary'
+		 *       500:
+		 *         $ref: '#/components/responses/InternalServerError'
+		 */
 		app.get(
 			ApiPath.WORDS_FAVORITES,
 			asyncHandler(async (req, res) => {
