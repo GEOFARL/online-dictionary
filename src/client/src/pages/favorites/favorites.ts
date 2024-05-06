@@ -1,4 +1,4 @@
-import { ApiPath, PagesPath } from "@/libs/enums/enums.js";
+import { ApiPath } from "@/libs/enums/enums.js";
 
 import {
 	HIDDEN_CLASS,
@@ -13,6 +13,8 @@ import {
 	showElement,
 } from "~/shared/index.js";
 
+import { renderWord } from "./libs/helpers/helpers.js";
+
 const configure = (): void => {
 	configureMobileSidebar();
 	configureUserMenu();
@@ -24,35 +26,61 @@ const configure = (): void => {
 		});
 	});
 
-	dom.getAllElements(".remove-word-btn").forEach((button) => {
-		const word = dom.getAttribute({
-			attribute: "data-word",
-			element: button,
+	const setupRemoveBtns = () => {
+		dom.getAllElements(".remove-word-btn").forEach((button) => {
+			const word = dom.getAttribute({
+				attribute: "data-word",
+				element: button,
+			});
+
+			dom.setListener({
+				element: button,
+				eventType: "click",
+				listener: async () => {
+					try {
+						const data = await api.post<{ data: string } | boolean>({
+							path: ApiPath.WORDS_$WORD_UNLIKE.replace(":word", word),
+						});
+
+						if (typeof data === "boolean" || !("status" in data)) {
+							notification.success(NotificationMessage.WORD_UNLIKE_SUCCESS);
+							dom.removeElement({ selector: `.word[data-word="${word}"]` });
+						} else if ("message" in data) {
+							notification.error(data.message as string);
+						}
+					} catch (error) {
+						if (error instanceof Error) {
+							notification.error(error.message);
+						}
+					}
+				},
+			});
 		});
+	};
 
-		dom.setListener({
-			element: button,
-			eventType: "click",
-			listener: async () => {
-				try {
-					const data = await api.post<{ data: string } | boolean>({
-						path: ApiPath.WORDS_$WORD_UNLIKE.replace(":word", word),
-					});
+	let page = 2;
 
-					if (typeof data === "boolean" || !("status" in data)) {
-						notification.success(NotificationMessage.WORD_UNLIKE_SUCCESS);
-						dom.removeElement({ selector: `.word[data-word="${word}"]` });
-					} else if ("message" in data) {
-						notification.error(data.message as string);
-					}
-				} catch (error) {
-					if (error instanceof Error) {
-						notification.error(error.message);
-					}
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					// eslint-disable-next-line no-use-before-define
+					loadFavorites();
 				}
-			},
-		});
-	});
+			});
+		},
+		{
+			root: null,
+			rootMargin: "0px",
+			threshold: 1.0,
+		},
+	);
+
+	const LAST_ELEMENT = -1;
+	const NEXT_PAGE = 1;
+	const FIRST_PAGE = 1;
+
+	observer.observe(dom.getAllElements(".word").at(LAST_ELEMENT));
 
 	const loadFavorites = async () => {
 		const checkedPartsOfSpeech = dom
@@ -72,94 +100,25 @@ const configure = (): void => {
 					word: string;
 				}[]
 			>({
-				path: `${ApiPath.WORDS_FAVORITES}?partOfSpeech=${checkedPartsOfSpeech.join(",")}`,
+				path: `${ApiPath.WORDS_FAVORITES}?partOfSpeech=${checkedPartsOfSpeech.join(",")}&page=${page}`,
 			});
+
+			page += NEXT_PAGE;
 			hideElement(".loader-container");
+			if (dom.getAllElements(".word").at(LAST_ELEMENT)) {
+				observer.unobserve(dom.getAllElements(".word").at(LAST_ELEMENT));
+			}
 
-			dom.clearContent(".words");
+			data?.forEach((word, index) => {
+				const wordEl = renderWord(word);
+				const ONE = 1;
 
-			data?.forEach((word) => {
-				dom.createElement({
-					attributes: {
-						"data-word": word.word,
-					},
-					children: [
-						{
-							attributes: {
-								href: `${PagesPath.DICTIONARY}?word=${word?.word ?? ""}`,
-							},
-							children: [
-								{
-									attributes: {
-										alt: word?.image?.src
-											? word.image.alt
-											: "Placeholder image",
-										src: word?.image?.src
-											? word.image.src
-											: "/assets/images/placeholder-image.jpg",
-									},
-									className: "word__image",
-									tagName: "img",
-								},
-							],
-							className: "word__image-container",
-							tagName: "a",
-						},
-						{
-							children: [
-								{
-									children: [
-										{
-											children: [
-												{
-													attributes: {
-														href: `${PagesPath.DICTIONARY}?word=${word?.word ?? ""}`,
-													},
-													children: [
-														{
-															className: "word__word",
-															content: word?.word ?? "No word",
-															tagName: "h3",
-														},
-													],
-													className: "word-link",
-													tagName: "a",
-												},
-												{
-													children: word?.partOfSpeech.map((partOfSpeech) => ({
-														className: [
-															"badge",
-															partOfSpeechToClassName[partOfSpeech],
-														],
-														content: partOfSpeech,
-														tagName: "div",
-													})),
-													className: "badges",
-													tagName: "div",
-												},
-											],
-											className: "word-container",
-											tagName: "div",
-										},
-										{
-											className: "word__description",
-											content: word?.meaning ?? "",
-											tagName: "p",
-										},
-									],
-									className: "word-definition",
-									tagName: "div",
-								},
-							],
-							className: "word__content",
-							tagName: "div",
-						},
-					],
-					className: "word",
-					parentElementSelector: ".words",
-					tagName: "div",
-				});
+				if (index === data.length - ONE) {
+					observer.observe(wordEl);
+				}
 			});
+
+			setupRemoveBtns();
 		} catch (error) {
 			if (error instanceof Error) {
 				notification.error(error.message);
@@ -221,6 +180,9 @@ const configure = (): void => {
 					// eslint-disable-next-line no-param-reassign
 					checkbox.checked = true;
 				});
+
+			dom.clearContent(".words");
+			page = FIRST_PAGE;
 			loadFavorites();
 		},
 		selector: ".filters__cta-reset",
@@ -235,6 +197,9 @@ const configure = (): void => {
 					// eslint-disable-next-line no-param-reassign
 					checkbox.checked = false;
 				});
+
+			dom.clearContent(".words");
+			page = FIRST_PAGE;
 			loadFavorites();
 		},
 		selector: ".filters__cta-clear-all",
@@ -244,7 +209,11 @@ const configure = (): void => {
 		dom.setListener({
 			element: checkbox,
 			eventType: "change",
-			listener: loadFavorites,
+			listener: () => {
+				dom.clearContent(".words");
+				page = FIRST_PAGE;
+				loadFavorites();
+			},
 		});
 	});
 };

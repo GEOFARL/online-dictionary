@@ -41,9 +41,11 @@ class DictionaryService {
 	}
 
 	public async getFavoriteWords({
+		page,
 		partOfSpeech,
 		userId,
 	}: {
+		page?: string;
 		partOfSpeech?: string;
 		userId: number;
 	}) {
@@ -52,11 +54,14 @@ class DictionaryService {
 		const partsOfSpeechFilters =
 			partOfSpeech?.split(",").map((ps) => ps.trim().toLowerCase()) ?? [];
 
+		const FIRST_PAGE = 1;
+
 		/* eslint-disable indent */
 		const wordRecords =
 			partOfSpeech === ""
 				? []
 				: await this.userService.findFavorites({
+						page: page ? +page : FIRST_PAGE,
 						partsOfSpeechFilters: partOfSpeech ? partsOfSpeechFilters : [],
 						userId,
 					});

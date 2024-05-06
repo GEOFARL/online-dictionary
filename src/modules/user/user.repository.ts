@@ -1,5 +1,6 @@
 import { Op } from "sequelize";
 
+import { DEFAULT_PAGE_SIZE } from "~/libs/constants/constants.js";
 import { db } from "~/libs/modules/db/db.js";
 import { User, Word } from "~/libs/modules/db/models/models.js";
 
@@ -104,9 +105,11 @@ class UserRepository {
 	}
 
 	public async findFavorites({
+		page,
 		partsOfSpeechFilters,
 		userId,
 	}: {
+		page: number;
 		partsOfSpeechFilters: string[];
 		userId: number;
 	}): Promise<Word[]> {
@@ -118,23 +121,23 @@ class UserRepository {
 			},
 		}));
 
-		return (
-			(
-				(await User.findByPk(userId, {
-					include: [
-						{
-							as: "favorites",
-							model: Word,
-							where:
-								conditions.length > NO_CONDITIONS
-									? { [Op.or]: conditions }
-									: {},
-						},
-					],
-					order: [[{ as: "favorites", model: Word }, "createdAt", "DESC"]],
-				})) as unknown as { favorites?: Word[] }
-			)?.favorites ?? []
-		);
+		const SINGLE_PAGE = 1;
+
+		const favorites = await Word.findAll({
+			include: [
+				{
+					as: "favoritedBy",
+					model: User,
+					where: { id: userId },
+				},
+			],
+			limit: DEFAULT_PAGE_SIZE,
+			offset: (page - SINGLE_PAGE) * DEFAULT_PAGE_SIZE,
+			order: [["createdAt", "DESC"]],
+			where: conditions.length > NO_CONDITIONS ? { [Op.or]: conditions } : {},
+		});
+
+		return favorites;
 	}
 
 	public async update(
