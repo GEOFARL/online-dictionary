@@ -97,6 +97,17 @@ class DictionaryController implements Controller {
 	}
 
 	private initRoutes(app: Application) {
+		app.get(
+			ApiPath.WORDS_FAVORITES,
+			asyncHandler(async (req, res) => {
+				const response = await this.dictionaryService.getFavoriteWords({
+					partOfSpeech: req.query?.partOfSpeech,
+					userId: req.user?.id,
+				});
+
+				res.status(HTTPCode.OK).json(response);
+			}),
+		);
 		/**
 		 * @swagger
 		 * /words/:word:

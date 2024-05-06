@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="/css/includes/badges.css">
   <link rel="stylesheet" href="/css/components/link.css">
   <link rel="stylesheet" href="/css/components/navigation.css">
+  <link rel="stylesheet" href="/css/components/loader.css">
   <link rel="stylesheet" href="/css/components/sidebar.css">
   <link rel="stylesheet" href="/css/includes/overlay.css">
   </head>
@@ -17,11 +18,81 @@
       <section class="favorites">
         <h2 class="favorites__heading">Перелік збережених слів</h2>
 
-        <% if (favoriteWords?.length > 0) { %>
-          <%- include('../components/button.ejs', {
-            label: "Відфільтрувати",
-            className: "favorites__button"
+        <div class="loader-container hidden">
+          <%- include("../components/loader.ejs", {
+            size: 'large'
           }) %>
+        </div>
+
+        <% if (favoriteWords?.length > 0) { %>
+          <div class="filters-container">
+            <%- include('../components/button.ejs', {
+              label: "Відфільтрувати",
+              className: "favorites__button"
+            }) %>
+
+            <div class="filters hidden">
+              <div class="filter__item">
+                <p class="filter__item-name">Частини мови:</p>
+                <div class="filter__item-filters">
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="adjective" id="adjective" checked>
+                    <label for="adjective">adjective</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="adverb" id="adverb" checked>
+                    <label for="adverb">adverb</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="conjunction" id="conjunction" checked>
+                    <label for="conjunction">conjunction</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="interjection" id="interjection" checked>
+                    <label for="interjection">interjection</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="noun" id="noun" checked>
+                    <label for="noun">noun</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="preposition" id="preposition" checked>
+                    <label for="preposition">preposition</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="pronoun" id="pronoun" checked>
+                    <label for="pronoun">pronoun</label>
+                  </div>
+
+                  <div class="filter__item-filter">
+                    <input type="checkbox" value="verb" id="verb" checked>
+                    <label for="verb">verb</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filters__cta">
+                <%- include('../components/button.ejs', {
+                  label: "Скинути фільтри",
+                  className: "filters__cta-reset"
+                }) %>
+                <%- include('../components/button.ejs', {
+                  label: "Очистити фільтри",
+                  className: "filters__cta-clear-all"
+                }) %>
+              </div>
+
+              <button class="filters__close-btn">
+                <img src="/assets/icons/close.svg" alt="close icon">
+              </button>
+            </div>
+          </div>
 
           <div class="words">
             <% favoriteWords?.forEach((word) => { %>

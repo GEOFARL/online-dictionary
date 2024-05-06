@@ -1,4 +1,7 @@
-export { DIVISOR_FOR_PARITY } from "./libs/constants/constants.js";
+export {
+	DIVISOR_FOR_PARITY,
+	HIDDEN_CLASS,
+} from "./libs/constants/constants.js";
 export { AppRoute, Cookie, NotificationMessage } from "./libs/enums/enums.js";
 export {
 	configureMobileSidebar,
