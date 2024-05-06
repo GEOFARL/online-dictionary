@@ -55,13 +55,16 @@ class UserService {
 	}
 
 	public findFavorites({
+		page,
 		partsOfSpeechFilters,
 		userId,
 	}: {
+		page: number;
 		partsOfSpeechFilters: string[];
 		userId: number;
 	}): Promise<Word[]> {
 		return this.userRepository.findFavorites({
+			page,
 			partsOfSpeechFilters,
 			userId,
 		});

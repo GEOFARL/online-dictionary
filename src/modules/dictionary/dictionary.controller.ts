@@ -135,6 +135,12 @@ class DictionaryController implements Controller {
 		 *         schema:
 		 *           type: string
 		 *         description: A comma-separated list of parts of speech to filter the favorite words.
+		 *       - in: query
+		 *         name: page
+		 *         required: false
+		 *         schema:
+		 *           type: number
+		 *         description: Current page
 		 *     responses:
 		 *       200:
 		 *         description: A list of favorite words
@@ -151,6 +157,7 @@ class DictionaryController implements Controller {
 			ApiPath.WORDS_FAVORITES,
 			asyncHandler(async (req, res) => {
 				const response = await this.dictionaryService.getFavoriteWords({
+					page: req.query?.page,
 					partOfSpeech: req.query?.partOfSpeech,
 					userId: req.user?.id,
 				});
